@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="684c135f-488a-405f-8e6e-ec22cc3b58b4" name="Default" comment="极元理财助手项目">
-      <change beforePath="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/regsister.html" beforeDir="false" afterPath="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/regsister.html" afterDir="false" />
+    <list default="true" id="684c135f-488a-405f-8e6e-ec22cc3b58b4" name="Default" comment="xiugai">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="abaf2318-7c00-4168-add1-4a74ecca3d9c" name="Failed commit: Default" comment="" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -183,6 +183,7 @@
           <entry key="html" value="18" />
           <entry key="java" value="9" />
           <entry key="js" value="2" />
+          <entry key="txt" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -190,6 +191,7 @@
           <entry key="HTML" value="18" />
           <entry key="JAVA" value="9" />
           <entry key="JavaScript" value="2" />
+          <entry key="PLAIN_TEXT" value="6" />
         </counts>
       </usages-collector>
     </session>
@@ -271,8 +273,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/regsister.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="79" column="46" lean-forward="true" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
+            <state relative-caret-position="143">
+              <caret line="72" column="52" selection-start-line="72" selection-start-column="52" selection-end-line="72" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -699,7 +701,7 @@
     <property name="SearchEverywhereHistoryKey" value="JasperReportsPdfViewHandler&#9;PSI&#9;JAVA://com.hanlin.fadp.webapp.view.JasperReportsPdfViewHandler&#10;ufkhg&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/demo/src/com/fadp/jiyuan/service/UfKhglService.java&#10;ajaxc&#9;PSI&#9;JAVA://com.hanlin.fadp.common.AjaxCURD&#10;datas&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/entityMgr/src/com/hanlin/fadp/petrescence/datasource/DataSourceWorker.java&#10;pack.groovy&#9;FILE&#9;file://C:/asun/java/asunerp/scripts/pack.groovy&#10;Other&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/demo/src/com/fadp/jiyuan/service/OtherService.java&#10;JSONOBJ&#9;PSI&#9;JAVA://net.sf.json.JSONObject&#10;ClassPathResource&#9;FILE&#9;jar://C:/asun/java/asunerp/framework/testtools/lib/org.springframework.core-3.1.0.M2.jar!/org/springframework/core/io/ClassPathResource.class&#10;sendm&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/demo/src/com/fadp/email/SendMail.java&#10;userev&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/demo/src/com/fadp/jiyuan/user/UserEvents.java&#10;useren&#9;PSI&#9;JAVA://org.apache.poi.hssf.record.UserSViewEnd&#10;send&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/demo/src/com/fadp/email/SendMail.java&#10;baseim&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/demo/src/com/demo/BaseIm.java&#10;userlogin&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/fadp/src/com/hanlin/fadp/user/UserLoginUtil.java&#10;remove&#9;FILE&#9;file:///d/svn/asunerp/scripts/removeTableData.groovy&#10;saveMaterialSnTicket&#9;null&#9;null&#10;sn&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/sn-entitymodel.xml&#10;snen&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/sn-entitymodel.xml&#10;ims&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/ims-entitymodel.xml&#10;sale&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/sale-entitymodel.xml&#10;seedd&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/data/SeedData.xml&#10;changeSnStatus&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/script/sn/changeSnStatus.groovy&#10;saleen&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/sale-entitymodel.xml&#10;pack.groo&#9;FILE&#9;file:///d/svn/asunerp/scripts/pack.groovy&#10;saveref&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/script/sale/refund/saveRefund.groovy&#10;data&#9;FILE&#9;file:///d/svn/asunerp/scripts/removeTableData.groovy&#10;checkTicketItemSn&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/script/sn/checkTicketItemSn.groovy&#10;save&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/script/sale/deliver/saveDeliver.groovy&#10;entityengine&#9;FILE&#9;file:///d/svn/asunerp/framework/entity/config/entityengine.xml&#10;system&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/entitydef/entitymodel-system.xml&#10;code&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/code-tool/exportCURDCode.groovy&#10;sal&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/sale-entitymodel.xml&#10;materi&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/material-entitymodel.xml&#10;entityengine.xml&#9;FILE&#9;file:///d/svn/asunerp/framework/entity/config/entityengine.xml&#10;fieldty&#9;FILE&#9;file:///d/svn/asunerp/framework/entity/fieldtype/fieldtypeh2.xml&#10;ajaxcur&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/src/com/hanlin/fadp/common/AjaxCURD.java&#10;getdept&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/dept/getDeptTreeData.groovy&#10;ajax&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/src/com/hanlin/fadp/common/AjaxCURD.java&#10;load&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/form/loadSelectDataList.groovy&#10;loadSelectDataList&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/form/loadSelectDataList.groovy&#10;material&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/material-entitymodel.xml&#10;sale-&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/sale-entitymodel.xml&#10;code-&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/code-tool&#10;ajaxcurd&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/src/com/hanlin/fadp/common/AjaxCURD.java&#10;codetool&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/code-tool&#10;edit-$template.module.ts.ftl&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/code-tool/list-$template/edit-$template/edit-$template.module.ts.ftl&#10;select&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/code-tool/list-$template/select-$template/select-$template.component.html.ftl&#10;fieldtype&#9;FILE&#9;file:///d/svn/asunerp/framework/entity/fieldtype/fieldtypeh2.xml&#10;start.java&#9;FILE&#9;file:///d/svn/asunerp/framework/start/src/com/hanlin/fadp/base/start/Start.java&#10;getCommonTypeTreeData&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/tree/getCommonTypeTreeData.groovy" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554876536277" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554877124740" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="H2&#10;Derby (Embedded)" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="database.data.extractors.current.id" value="SQL Inserts" />
@@ -1090,7 +1092,7 @@
       <workItem from="1554184296964" duration="1223000" />
       <workItem from="1554255031730" duration="589000" />
       <workItem from="1554860682076" duration="3465000" />
-      <workItem from="1554869986130" duration="5990000" />
+      <workItem from="1554869986130" duration="6588000" />
     </task>
     <task id="LOCAL-00001">
       <created>1484628630034</created>
@@ -1414,7 +1416,21 @@
       <option name="project" value="LOCAL" />
       <updated>1554875262649</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="xiugai">
+      <created>1554876534260</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1554876534260</updated>
+    </task>
+    <task id="LOCAL-00048" summary="xiugai">
+      <created>1554876753229</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1554876753229</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1423,7 +1439,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1299983000" />
+    <option name="totallyTimeSpent" value="1300581000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1437,7 +1453,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24798928" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24798928" />
       <window_info id="Nl-Palette" order="1" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -1448,7 +1464,7 @@
       <window_info anchor="bottom" id="TypeScript" order="1" weight="0.3287483" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" sideWeight="0.43537965" weight="0.4631728" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.8163539" visible="true" weight="0.083687946" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.8163539" weight="0.33333334" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.4852547" weight="0.37393767" />
@@ -1456,7 +1472,7 @@
       <window_info anchor="bottom" id="SVN Repositories" order="9" sideWeight="0.490625" visible="true" weight="0.33172303" />
       <window_info anchor="bottom" id="Application Servers" order="10" />
       <window_info anchor="bottom" id="Debug" order="11" sideWeight="0.8438338" weight="0.11473088" />
-      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.6769437" weight="0.28328612" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="12" sideWeight="0.6769437" visible="true" weight="0.2822695" />
       <window_info anchor="bottom" id="SVN Properties" order="13" weight="0.32739726" />
       <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.68230563" weight="0.5651558" />
       <window_info anchor="bottom" id="Terminal" order="15" sideWeight="0.5073727" weight="0.5467422" />
@@ -1492,7 +1508,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="新增加外部数据引接模块前" />
     <MESSAGE value="新增加外部数据引接,核心数据分级管理" />
     <MESSAGE value="放开数据抽取工具" />
     <MESSAGE value="添加导出demo数据功能" />
@@ -1517,7 +1532,8 @@
     <MESSAGE value="完成出库管理" />
     <MESSAGE value="添加库存盘点" />
     <MESSAGE value="极元理财助手项目" />
-    <option name="LAST_COMMIT_MESSAGE" value="极元理财助手项目" />
+    <MESSAGE value="xiugai" />
+    <option name="LAST_COMMIT_MESSAGE" value="xiugai" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -2031,8 +2047,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/regsister.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="79" column="46" lean-forward="true" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
+        <state relative-caret-position="143">
+          <caret line="72" column="52" selection-start-line="72" selection-start-column="52" selection-end-line="72" selection-end-column="52" />
         </state>
       </provider>
     </entry>
