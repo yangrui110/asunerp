@@ -24,7 +24,7 @@
       <property name="enable-cross-subdomain-sessions" value="false"/>
     </property>
     <property name="http-connector" value="connector">
-      <property name="port" value="80"/>
+      <property name="port" value="9901"/>
       <property name="protocol" value="HTTP/1.1"/>
       <property name="scheme" value="http"/>
       <property name="secure" value="false"/>
@@ -34,7 +34,7 @@
       <property name="compressableMimeType" value="text/html,text/xml,text/plain,text/javascript,text/css"/>
     </property>
     <property name="https-connector" value="connector">
-      <property name="port" value="443"/>
+      <property name="port" value="4432"/>
       <property name="protocol" value="HTTP/1.1"/>
       <property name="scheme" value="https"/>
       <property name="secure" value="true"/>

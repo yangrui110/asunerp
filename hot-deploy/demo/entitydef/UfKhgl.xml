@@ -70,16 +70,16 @@
     </view-entity>
 
     <entity entity-name="UfYqmgl" package-name="" table-name="uf_yqmgl">
-        <field name="ygid" type="other-long">
+        <field name="ygid" type="short-varchar">
             <description>员工id</description>
         </field>
-        <field name="ygname" type="other-long">
+        <field name="ygname" type="short-varchar">
             <description>员工姓名</description>
         </field>
-        <field name="ygsj" type="other-long">
+        <field name="ygsj" type="short-varchar">
             <description>员工手机号</description>
         </field>
-        <field name="yqm" type="other-long">
+        <field name="yqm" type="short-varchar">
             <description>员工邀请码</description>
         </field>
     </entity>
@@ -87,7 +87,7 @@
     <view-entity entity-name="UfYqmglView" package-name="">
         <description>查找员工表的视图</description>
         <member-entity entity-alias="Yq" entity-name="UfYqmgl"></member-entity>
-        <alias-all entity-alias="UfYqmgl"/>
+        <alias-all entity-alias="Yq"/>
     </view-entity>
     <entity entity-name="BaseUfKhgl" package-name="" table-name="uf_khgl">
         <description>用户信息</description>
