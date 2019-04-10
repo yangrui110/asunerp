@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="684c135f-488a-405f-8e6e-ec22cc3b58b4" name="Default" comment="极元理财助手项目" />
+    <list default="true" id="684c135f-488a-405f-8e6e-ec22cc3b58b4" name="Default" comment="极元理财助手项目">
+      <change beforePath="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/regsister.html" beforeDir="false" afterPath="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/regsister.html" afterDir="false" />
+    </list>
     <list id="abaf2318-7c00-4168-add1-4a74ecca3d9c" name="Failed commit: Default" comment="" />
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -178,12 +180,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="html" value="18" />
           <entry key="java" value="9" />
           <entry key="js" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="HTML" value="18" />
           <entry key="JAVA" value="9" />
           <entry key="JavaScript" value="2" />
         </counts>
@@ -195,7 +199,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hot-deploy/demo/src/com/fadp/jiyuan/service/UfKhglService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="318">
@@ -264,11 +268,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/regsister.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="64" column="25" lean-forward="true" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
+            <state relative-caret-position="318">
+              <caret line="79" column="46" lean-forward="true" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -387,6 +391,9 @@
       <dir>C:\asun\java\asunerp\hot-deploy\demo\src\localhost\services\DocService</dir>
     </dirStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -418,7 +425,6 @@
         <option value="$PROJECT_DIR$/hot-deploy/demo/src/com/fadp/jiyuan/service/ActiveService.java" />
         <option value="$PROJECT_DIR$/hot-deploy/demo/src/com/fadp/file/ImagePath.java" />
         <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/findPassword1.html" />
-        <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/regsister.html" />
         <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/js/utils.js" />
         <option value="$PROJECT_DIR$/hot-deploy/demo/fadp-component.xml" />
         <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/info.html" />
@@ -441,6 +447,7 @@
         <option value="$PROJECT_DIR$/hot-deploy/eiip/entitydef/sn-entitymodel.xml" />
         <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/js/client.js" />
         <option value="$PROJECT_DIR$/hot-deploy/demo/src/localhost/services/ModeDateService/ModeDateServiceLocator.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/regsister.html" />
       </list>
     </option>
   </component>
@@ -667,6 +674,15 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="asunerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asunerp" type="462c0819:PsiDirectoryNode" />
+              <item name="hot-deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="jiyuan" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -683,7 +699,7 @@
     <property name="SearchEverywhereHistoryKey" value="JasperReportsPdfViewHandler&#9;PSI&#9;JAVA://com.hanlin.fadp.webapp.view.JasperReportsPdfViewHandler&#10;ufkhg&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/demo/src/com/fadp/jiyuan/service/UfKhglService.java&#10;ajaxc&#9;PSI&#9;JAVA://com.hanlin.fadp.common.AjaxCURD&#10;datas&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/entityMgr/src/com/hanlin/fadp/petrescence/datasource/DataSourceWorker.java&#10;pack.groovy&#9;FILE&#9;file://C:/asun/java/asunerp/scripts/pack.groovy&#10;Other&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/demo/src/com/fadp/jiyuan/service/OtherService.java&#10;JSONOBJ&#9;PSI&#9;JAVA://net.sf.json.JSONObject&#10;ClassPathResource&#9;FILE&#9;jar://C:/asun/java/asunerp/framework/testtools/lib/org.springframework.core-3.1.0.M2.jar!/org/springframework/core/io/ClassPathResource.class&#10;sendm&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/demo/src/com/fadp/email/SendMail.java&#10;userev&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/demo/src/com/fadp/jiyuan/user/UserEvents.java&#10;useren&#9;PSI&#9;JAVA://org.apache.poi.hssf.record.UserSViewEnd&#10;send&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/demo/src/com/fadp/email/SendMail.java&#10;baseim&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/demo/src/com/demo/BaseIm.java&#10;userlogin&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/fadp/src/com/hanlin/fadp/user/UserLoginUtil.java&#10;remove&#9;FILE&#9;file:///d/svn/asunerp/scripts/removeTableData.groovy&#10;saveMaterialSnTicket&#9;null&#9;null&#10;sn&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/sn-entitymodel.xml&#10;snen&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/sn-entitymodel.xml&#10;ims&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/ims-entitymodel.xml&#10;sale&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/sale-entitymodel.xml&#10;seedd&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/data/SeedData.xml&#10;changeSnStatus&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/script/sn/changeSnStatus.groovy&#10;saleen&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/sale-entitymodel.xml&#10;pack.groo&#9;FILE&#9;file:///d/svn/asunerp/scripts/pack.groovy&#10;saveref&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/script/sale/refund/saveRefund.groovy&#10;data&#9;FILE&#9;file:///d/svn/asunerp/scripts/removeTableData.groovy&#10;checkTicketItemSn&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/script/sn/checkTicketItemSn.groovy&#10;save&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/script/sale/deliver/saveDeliver.groovy&#10;entityengine&#9;FILE&#9;file:///d/svn/asunerp/framework/entity/config/entityengine.xml&#10;system&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/entitydef/entitymodel-system.xml&#10;code&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/code-tool/exportCURDCode.groovy&#10;sal&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/sale-entitymodel.xml&#10;materi&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/material-entitymodel.xml&#10;entityengine.xml&#9;FILE&#9;file:///d/svn/asunerp/framework/entity/config/entityengine.xml&#10;fieldty&#9;FILE&#9;file:///d/svn/asunerp/framework/entity/fieldtype/fieldtypeh2.xml&#10;ajaxcur&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/src/com/hanlin/fadp/common/AjaxCURD.java&#10;getdept&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/dept/getDeptTreeData.groovy&#10;ajax&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/src/com/hanlin/fadp/common/AjaxCURD.java&#10;load&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/form/loadSelectDataList.groovy&#10;loadSelectDataList&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/form/loadSelectDataList.groovy&#10;material&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/material-entitymodel.xml&#10;sale-&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/sale-entitymodel.xml&#10;code-&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/code-tool&#10;ajaxcurd&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/src/com/hanlin/fadp/common/AjaxCURD.java&#10;codetool&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/code-tool&#10;edit-$template.module.ts.ftl&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/code-tool/list-$template/edit-$template/edit-$template.module.ts.ftl&#10;select&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/code-tool/list-$template/select-$template/select-$template.component.html.ftl&#10;fieldtype&#9;FILE&#9;file:///d/svn/asunerp/framework/entity/fieldtype/fieldtypeh2.xml&#10;start.java&#9;FILE&#9;file:///d/svn/asunerp/framework/start/src/com/hanlin/fadp/base/start/Start.java&#10;getCommonTypeTreeData&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/tree/getCommonTypeTreeData.groovy" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554874973469" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554876536277" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="H2&#10;Derby (Embedded)" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="database.data.extractors.current.id" value="SQL Inserts" />
@@ -1074,7 +1090,7 @@
       <workItem from="1554184296964" duration="1223000" />
       <workItem from="1554255031730" duration="589000" />
       <workItem from="1554860682076" duration="3465000" />
-      <workItem from="1554869986130" duration="4982000" />
+      <workItem from="1554869986130" duration="5990000" />
     </task>
     <task id="LOCAL-00001">
       <created>1484628630034</created>
@@ -1391,7 +1407,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544090146542</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="极元理财助手项目">
+      <created>1554875262649</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1554875262649</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1400,7 +1423,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1298975000" />
+    <option name="totallyTimeSpent" value="1299983000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1412,7 +1435,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24798928" />
       <window_info id="Nl-Palette" order="1" />
@@ -1425,7 +1448,7 @@
       <window_info anchor="bottom" id="TypeScript" order="1" weight="0.3287483" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" sideWeight="0.43537965" weight="0.4631728" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.8163539" visible="true" weight="0.12606232" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.8163539" visible="true" weight="0.083687946" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.4852547" weight="0.37393767" />
@@ -1937,13 +1960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/regsister.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="64" column="25" lean-forward="true" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/js/client.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
@@ -2010,6 +2026,13 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/regsister.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="79" column="46" lean-forward="true" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
         </state>
       </provider>
     </entry>
