@@ -41,7 +41,7 @@
 				</li>
 				<li>
 					<div class="pull-left">邀请码</div>
-					<div class="pull-right"><input class="w300" name="mobile" type="tel" placeholder="邀请人的手机号或邀请码" maxlength="11" ></div>
+					<div class="pull-right"><input class="w300" name="yqm" type="tel" placeholder="邀请人的手机号或邀请码" maxlength="11" ></div>
 				</li>
 			</ul>
 			<div class="clearfix tit">
@@ -71,6 +71,7 @@
 	    $("#register").click(function(){
             var phone=$("input[name='mobile']").val().replace(/\s+/g,"");
             var code=$("input[name='code']").val().replace(/\s+/g,"");
+            var yqm=$("input[name='yqm']").val().replace(/\s+/g,"");
             var phoneMessage=$("input[name='phoneMessage']").val().replace(/\s+/g,"");
             if(initBase.validateEmpty(code,"图形验证码不能为空"))
                 return ;
@@ -78,7 +79,7 @@
                 return ;
             if(!initBase.validatePhone(phone))
                 return ;
-            var data={phone:phone,code:code,phoneCode:phoneMessage};
+            var data={phone:phone,code:code,phoneCode:phoneMessage,yqm:yqm};
 	        apiClient.registerUser(JSON.stringify(data),function(data){
 	            if(!data.error) {
                     console.log("注册成功" + JSON.stringify(data))
