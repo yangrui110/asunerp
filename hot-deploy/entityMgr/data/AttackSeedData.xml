@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <DatabaseSeq dataSourceName="attack" fieldTypeName="derby" schemaName="fadp" databaseName="attack" ip="localhost" jdbcUsername="fade" description="&#20840;&#20891;&#25968;&#25454;&#24211;" show="Y" lastUpdatedStamp="2017-12-15 15:42:36.234" lastUpdatedTxStamp="2017-12-15 15:42:36.234" createdStamp="2017-12-15 15:42:36.234" createdTxStamp="2017-12-15 15:42:36.234"/>
+    <DatabaseSeq dataSourceName="attack_rb" fieldTypeName="derby" schemaName="fadp" databaseName="attack_rb" ip="localhost" jdbcUsername="fadp" description="&#23545;&#26085;&#20316;&#25112;&#25968;&#25454;&#24211;" show="Y" lastUpdatedStamp="2017-12-15 16:37:32.132" lastUpdatedTxStamp="2017-12-15 16:37:32.132" createdStamp="2017-12-15 16:37:32.132" createdTxStamp="2017-12-15 16:37:32.132"/>
+</entity-engine-xml>

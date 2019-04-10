@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../dtds/widget-screen.xsd">
+
+	<screen name="main-decorator">
+		<section>
+		<actions>
+            <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+		</actions>
+			<widgets>
+
+				<platform-specific>
+					<html>
+						<html-template location="component://fadp/webapp/fadp/includes/header.ftl" />
+					</html>
+				</platform-specific>
+
+				<decorator-section-include name="body" />
+				<platform-specific>
+					<html>
+						<html-template location="component://fadp/webapp/fadp/includes/footer.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="login">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://fadp/webapp/fadp/login.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="main">
+		<section>
+			<actions>
+				<script location="component://fadp/script/main.groovy"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator">
+					<decorator-section name="body">
+						<container style="welcome"><label>Welcome ！</label></container>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="userLoginList">
+		<section>
+			<widgets>
+				<decorator-screen name="main-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://fadp/webapp/fadp/userMgr/userLoginList.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="userLoginSecurityGroupList">
+		<section>
+
+			<actions>
+				<entity-and entity-name="SecurityGroup" list="groupList"></entity-and>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://fadp/webapp/fadp/userMgr/userLoginSecurityGroupList.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="visit">
+		<section>
+			<widgets>
+				<decorator-screen name="main-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://fadp/webapp/fadp/userMgr/visit.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+</screens>
+	
+	
+

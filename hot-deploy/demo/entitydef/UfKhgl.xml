@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="../../../dtds/entitymodel.xsd">
+    <description>演示模块</description>
+
+    <entity entity-name="UfKhgl" package-name="">
+        <description>用户信息</description>
+
+        <field name="xm" type="url">
+            <description>用户姓名</description>
+        </field>
+        <field name="ywmyhm" type="url">
+            <description>英文名/用户名</description>
+        </field>
+
+        <field name="sr" type="other-char">
+            <description>生日</description>
+        </field>
+
+        <field name="xb" type="numeric">
+            <description>性别</description>
+        </field>
+
+        <field name="cjrq" type="other-char">
+            <description>创建日期</description>
+        </field>
+        <field name="mm" type="other-long">
+            <description>密码</description>
+        </field>
+        <field name="sfzhm" type="other-long">
+            <description>身份证号码</description>
+        </field>
+        <field name="zhtlsj" type="other-char">
+            <description>最后登录时间</description>
+        </field>
+        <field name="bydh" type="other-long">
+            <description>备用电话</description>
+        </field>
+        <field name="bysj" type="other-long">
+            <description>备用手机</description>
+        </field>
+        <field name="qq" type="other-long">
+            <description>qq</description>
+        </field>
+        <field name="byemail" type="other-long">
+            <description>备用email</description>
+        </field>
+        <field name="tzjl" type="very-long">
+            <description>投资记录</description>
+        </field>
+
+        <field name="sj" type="url">
+            <description>手机</description>
+        </field>
+        <field name="openid" type="other-long">
+            <description>微信openid</description>
+        </field>
+        <field name="wxnc" type="other-long">
+            <description>微信昵称</description>
+        </field>
+        <prim-key field="sj" />
+    </entity>
+    <view-entity entity-name="UfKhglView" package-name="">
+        <member-entity entity-alias="SV" entity-name="UfKhgl"></member-entity>
+        <alias name="xm" field="xm" entity-alias="SV"/>
+        <alias name="sj" field="sj" entity-alias="SV"/>
+        <alias name="ywmyhm" field="ywmyhm" entity-alias="SV"/>
+        <alias name="mm" field="mm" entity-alias="SV"/>
+        <alias name="xb" field="xb" entity-alias="SV"/>
+    </view-entity>
+
+    <entity entity-name="UfYqmgl" package-name="" table-name="uf_yqmgl">
+        <field name="ygid" type="other-long">
+            <description>员工id</description>
+        </field>
+        <field name="ygname" type="other-long">
+            <description>员工姓名</description>
+        </field>
+        <field name="ygsj" type="other-long">
+            <description>员工手机号</description>
+        </field>
+        <field name="yqm" type="other-long">
+            <description>员工邀请码</description>
+        </field>
+    </entity>
+
+    <view-entity entity-name="UfYqmglView" package-name="">
+        <description>查找员工表的视图</description>
+        <member-entity entity-alias="Yq" entity-name="UfYqmgl"></member-entity>
+        <alias-all entity-alias="UfYqmgl"/>
+    </view-entity>
+    <entity entity-name="BaseUfKhgl" package-name="" table-name="uf_khgl">
+        <description>用户信息</description>
+        <field name="id" type="id">
+            <description>用户id</description>
+        </field>
+        <field name="xm" type="url">
+            <description>用户姓名</description>
+        </field>
+        <field name="ywmyhm" type="url">
+            <description>英文名/用户名</description>
+        </field>
+
+        <field name="sr" type="other-char">
+            <description>生日</description>
+        </field>
+        <field name="sfzhm" type="other-long">
+            <description>身份证号码</description>
+        </field>
+        <field name="xb" type="numeric">
+            <description>性别</description>
+        </field>
+
+        <field name="cjrq" type="other-char">
+            <description>创建日期</description>
+        </field>
+        <field name="mm" type="other-long">
+            <description>密码</description>
+        </field>
+        <field name="zhtlsj" type="other-char">
+            <description>最后登录时间</description>
+        </field>
+        <field name="bydh" type="other-long">
+            <description>备用电话</description>
+        </field>
+        <field name="bysj" type="other-long">
+            <description>备用手机</description>
+        </field>
+        <field name="qq" type="other-long">
+            <description>qq</description>
+        </field>
+        <field name="cyyj" type="other-long">
+            <description>常用邮箱</description>
+        </field>
+        <field name="byemail" type="other-long">
+            <description>备用email</description>
+        </field>
+        <field name="tzjl" type="very-long">
+            <description>投资记录</description>
+        </field>
+        <field name="openid" type="other-long">
+            <description>微信openid</description>
+        </field>
+        <field name="wxnc" type="other-long">
+            <description>微信昵称</description>
+        </field>
+        <field name="sj" type="url">
+            <description>手机</description>
+        </field>
+        <prim-key field="id" />
+    </entity>
+    <view-entity entity-name="BaseUfKhglView" package-name="">
+        <member-entity entity-alias="SK" entity-name="BaseUfKhgl"></member-entity>
+       <member-entity entity-alias="SV" entity-name="SelectItem"></member-entity>
+        <alias name="xingbie" field="xb" entity-alias="SK"/>
+        <alias-all entity-alias="SK"/>
+        <alias name="xb" field="selectname" entity-alias="SV"/>
+        <view-link entity-alias="SK" rel-entity-alias="SV" rel-optional="true">
+            <key-map field-name="xb" rel-field-name="selectvalue"/>
+            <entity-condition>
+                <condition-list>
+                    <condition-expr field-name="fieldid" entity-alias="SV" value="6335" operator="equals"></condition-expr>
+                </condition-list>
+            </entity-condition>
+        </view-link>
+
+    </view-entity>
+</entitymodel>

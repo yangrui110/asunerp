@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<service-eca xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://localhost:8888/dtds/service-eca.xsd">
+    <!-- NOTE: Uncomment these to use the CDyne services to fill in the county
+    <eca service="createPostalAddress" event="commit">
+        <action service="cdynePostalAddressFillInCounty" mode="sync"/>
+    </eca>
+    <eca service="updatePostalAddress" event="commit">
+        <action service="cdynePostalAddressFillInCounty" mode="sync"/>
+    </eca>
+    -->
+</service-eca>

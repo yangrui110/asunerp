@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<soapenv:Body>
+		<addDataSource xmlns="http://ofbiz.apache.org/service/">
+				<map-Entry>
+					<map-Key>
+						<std-String value="field-type-name"></std-String>
+					</map-Key>
+					<map-Value>
+						<std-String value="error"></std-String>
+					</map-Value>
+				</map-Entry>
+		</addDataSource>
+	</soapenv:Body>
+</soapenv:Envelope>

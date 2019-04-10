@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="ofbiz" uuid="b59ebe69-2550-44b1-a83e-f0a6975dce84">
+      <database-info product="Apache Derby" version="10.11.1.1 - (1616546)" jdbc-version="4.2" driver-name="Apache Derby Embedded JDBC Driver" driver-version="10.11.1.1 - (1616546)" family="DERBY" exact-version="10.11.1">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <introspection-schemas>*:APP,OFBIZ</introspection-schemas>
+      <resolve-scope>:,APP</resolve-scope>
+      <unqualified-resolve-schemas>:,APP</unqualified-resolve-schemas>
+    </data-source>
+    <data-source name="attack" uuid="aa77d4b5-2c79-43bc-a115-cd5bd374092e">
+      <database-info product="Apache Derby" version="10.13.1.1 - (1765088)" jdbc-version="4.2" driver-name="Apache Derby Embedded JDBC Driver" driver-version="10.13.1.1 - (1765088)" family="DERBY" exact-version="10.13.1">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <introspection-schemas>*:SYS</introspection-schemas>
+    </data-source>
+    <data-source name="entitymgr" uuid="48fe2752-4672-4f5f-9d68-40d54d0a5f99">
+      <database-info product="Apache Derby" version="10.13.1.1 - (1765088)" jdbc-version="4.2" driver-name="Apache Derby Embedded JDBC Driver" driver-version="10.13.1.1 - (1765088)" family="DERBY" exact-version="10.13.1">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <introspection-schemas>*:FADP</introspection-schemas>
+    </data-source>
+    <data-source name="fadp" uuid="5a205ddc-7ef3-4f12-a89b-31f5dc27476b">
+      <database-info product="H2" version="1.4.196 (2017-06-10)" jdbc-version="4.0" driver-name="H2 JDBC Driver" driver-version="1.4.196 (2017-06-10)" family="H2" exact-version="1.4.196">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>fadp</user-name>
+      <introspection-schemas>FADP:*|fadp:*</introspection-schemas>
+    </data-source>
+    <data-source name="test@192.168.0.10" uuid="14d6f899-86fb-4677-86a9-98185b253ad4">
+      <database-info product="Microsoft SQL Server" version="10.50.1600" jdbc-version="4.2" driver-name="Microsoft JDBC Driver 7.0 for SQL Server" driver-version="7.0.0.0" family="MSSQL" exact-version="10.50.160">
+        <extra-name-characters>$#@</extra-name-characters>
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>sa</user-name>
+      <introspection-schemas>basic:schema1</introspection-schemas>
+    </data-source>
+    <data-source name="jiyuan" uuid="ca198e2f-d82f-4fcb-b491-b3ecb3c96eaa">
+      <database-info product="Microsoft SQL Server" version="10.50.1600" jdbc-version="4.2" driver-name="Microsoft JDBC Driver 7.0 for SQL Server" driver-version="7.0.0.0" family="MSSQL" exact-version="10.50.160">
+        <extra-name-characters>$#@</extra-name-characters>
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>sa</user-name>
+      <introspection-schemas>ecology:@</introspection-schemas>
+    </data-source>
+    <data-source name="jiyuanBussines" uuid="28072482-9d66-48f0-b2d8-6dc99532b278">
+      <database-info product="Microsoft SQL Server" version="10.50.1600" jdbc-version="4.2" driver-name="Microsoft JDBC Driver 7.0 for SQL Server" driver-version="7.0.0.0" family="MSSQL" exact-version="10.50.160">
+        <extra-name-characters>$#@</extra-name-characters>
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>crmoa</user-name>
+      <introspection-schemas>ecology:@</introspection-schemas>
+    </data-source>
+    <data-source name="businnes1" uuid="c6e7dbda-7edc-407a-a588-eac7e1748b8d">
+      <database-info product="Microsoft SQL Server" version="10.50.1600" jdbc-version="4.2" driver-name="Microsoft JDBC Driver 7.0 for SQL Server" driver-version="7.0.0.0" family="MSSQL" exact-version="10.50.160">
+        <extra-name-characters>$#@</extra-name-characters>
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>crmoa</user-name>
+      <introspection-schemas>@:@</introspection-schemas>
+    </data-source>
+    <data-source name="buss2" uuid="fef7d975-1355-457b-b461-db224a47f43b">
+      <database-info product="Microsoft SQL Server" version="10.50.1600" jdbc-version="4.2" driver-name="Microsoft JDBC Driver 7.0 for SQL Server" driver-version="7.0.0.0" family="MSSQL" exact-version="10.50.160">
+        <extra-name-characters>$#@</extra-name-characters>
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>crmoa</user-name>
+      <introspection-schemas>ecology:@</introspection-schemas>
+    </data-source>
+  </component>
+</project>

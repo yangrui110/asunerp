@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<fadp-component name="fadp" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/dtds/fadp-component.xsd">
+	<resource-loader name="main" type="component" />
+	<classpath type="jar" location="lib/*" />
+	<classpath type="jar" location="build/lib/*" />
+	<classpath type="dir" location="config"/>
+
+	<entity-resource loader="main" location="entitydef/fadp-common-entitymodel.xml" reader-name="main" type="model" />
+	<entity-resource loader="main" location="entitydef/fadp-workflow-entitymodel.xml" reader-name="main" type="model" />
+	<entity-resource loader="main" location="entitydef/guide-entitymodel.xml" reader-name="main" type="model" />
+	<entity-resource loader="main" location="entitydef/entitymodel-system.xml" reader-name="main" type="model" />
+
+	<webapp app-bar-display="true" location="webapp/fadp" menu-name="secondary" mount-point="/fadp" name="fadp" privileged="false" server="default-server" title="fadp" />
+	<webapp app-bar-display="true" location="webapp/root" menu-name="secondary" mount-point="/" name="root" privileged="false" server="default-server" title="root" />
+
+	
+
+</fadp-component>

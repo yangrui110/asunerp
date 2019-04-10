@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<service-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="/dtds/service-config.xsd">
+
+    <service-engine name="default">
+        <!-- Name of the service to use for authorization -->
+        <authorization service-name="userLogin"/>
+
+        <!-- Job poller configuration. Many of these attributes are set to the job poller defaults, but they are included here for convenience. -->
+        <thread-pool send-to-pool="pool"
+                     purge-job-days="4"
+                     failed-retry-min="3"
+                     ttl="120000"
+                     jobs="100"
+                     min-threads="2"
+                     max-threads="5"
+                     poll-enabled="true"
+                     poll-db-millis="30000">
+            <run-from-pool name="pool"/>
+        </thread-pool>
+
+        <!-- Service Engine Configuration -->
+        <engine name="entity-auto" class="com.hanlin.fadp.service.engine.EntityAutoEngine"/>
+        <engine name="group" class="com.hanlin.fadp.service.group.ServiceGroupEngine"/>
+        <engine name="interface" class="com.hanlin.fadp.service.engine.InterfaceEngine"/>
+        <engine name="java" class="com.hanlin.fadp.service.engine.StandardJavaEngine"/>
+        <engine name="simple" class="com.hanlin.fadp.minilang.SimpleServiceEngine"/>
+        <engine name="script" class="com.hanlin.fadp.service.engine.ScriptEngine"/>
+        <!-- Engines that can be replaced by the generic script engine -->
+        <engine name="bsh" class="com.hanlin.fadp.service.engine.BeanShellEngine"/>
+        <engine name="groovy" class="com.hanlin.fadp.service.engine.GroovyEngine"/>
+        <engine name="jacl" class="com.hanlin.fadp.service.engine.BSFEngine"/>
+        <engine name="javascript" class="com.hanlin.fadp.service.engine.ScriptEngine"/>
+        <engine name="jpython" class="com.hanlin.fadp.service.engine.BSFEngine"/>
+        <!--  -->
+        <engine name="route" class="com.hanlin.fadp.service.engine.RouteEngine"/>
+        <engine name="http" class="com.hanlin.fadp.service.engine.HttpEngine"/>
+        <engine name="jms" class="com.hanlin.fadp.service.jms.JmsServiceEngine"/>
+        <engine name="rmi" class="com.hanlin.fadp.service.rmi.RmiServiceEngine"/>
+        <engine name="soap" class="com.hanlin.fadp.service.engine.SOAPClientEngine"/>
+        <!-- The engine xml-rpc-local is only used by a test service and for this reason it is configured to run on port 8080.
+             In order to use this in OFBiz change the port accordingly (for demo the default value is 8080)
+        -->
+        <engine name="xml-rpc-local" class="com.hanlin.fadp.service.engine.XMLRPCClientEngine">
+            <parameter name="url" value="http://localhost:8080/webtools/control/xmlrpc"/>
+            <parameter name="login" value="admin"/>
+            <parameter name="password" value="ofbiz"/>
+        </engine>
+
+        <service-location name="main-rmi" location="rmi://localhost:1100/RMIDispatcher"/>
+        <service-location name="main-http" location="http://localhost:8080/webtools/control/httpService"/>
+        <service-location name="main-soap" location="http://localhost:8080/webtools/control/SOAPService"/>
+        
+        <service-location name="entity-sync-rmi" location="rmi://localhost:1100/RMIDispatcher"/>
+        <service-location name="entity-sync-http" location="http://localhost:8080/webtools/control/httpService"/>
+
+        <service-location name="rita-rmi" location="rmi://localhost:1100/RMIDispatcher"/>
+        <service-location name="eedcc-test" location="http://localhost:8080/webtools/control/httpService"/>
+
+
+<!--         <startup-service name="initRuleDatabase"   runtime-data-id="1000" runtime-delay="0" run-in-pool="pool"/>
+       <startup-service name="license"   runtime-data-id="1000" runtime-delay="0" run-in-pool="pool"/>
+
+ --> 
+        <!-- default notification group for all services loaded with 'main' loader
+             - uncomment this to enable error notification for all services
+             - (default.fail.main, default.success.main can also be defined
+
+        <notification-group name="default.error.main">
+            <notification subject="Service Error ${model.serviceName}"
+                          screen="component://content/widget/EmailScreens.xml#ServiceNotification"/>
+            <notify type="from">ofbiz@test.com</notify>
+            <notify type="to">error@test.com</notify>
+        </notification-group>
+        -->
+
+        <!-- Start-Up Services -->
+        <!--
+           - runtime-data-id refers to the RuntimeData entity for in-parameters
+           - runtime-delay is the milliseconds after startup this service should run
+           - run-in-pool is the name of the pool to run the job in; defaults to the send-to-poll (above)
+
+        <startup-service name="testScv" runtime-data-id="9900" runtime-delay="0" run-in-pool="pool"/>
+        -->
+
+        <!-- JMS Service Queue/Topic Configuration -->
+        
+<!--          <jms-service name="serviceMessenger" send-mode="all"> -->
+<!--             <server jndi-server-name="default" -->
+<!--                     jndi-name="jms/TopicConnectionFactory" -->
+<!--                     topic-queue="jms/OFBTopic" -->
+<!--                     type="topic" -->
+<!--                     username="admin" -->
+<!--                     password="admin" -->
+<!--                     listen="true"/> -->
+<!--         </jms-service> -->
+
+		
+<!-- 		<jms-service name="serviceMessenger" send-mode="all">   -->
+<!--             <server jndi-server-name="default"   -->
+<!--                     jndi-name="ConnectionFactory"   -->
+<!--                     topic-queue="OFBTopic"   -->
+<!--                     type="topic"   -->
+<!--                     listen="true"/>   -->
+<!--         </jms-service> -->
+        
+    </service-engine>
+</service-config>

@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?><entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../dtds/entitymodel.xsd">
+    <entity entity-name="DataCustomer" package-name="">
+        <description>CRM客户</description>
+        <field name="customerAddr" type="very-long">
+            <description>营业地址</description>
+        </field>
+        <field name="facebook" type="short-varchar">
+            <description>FACEBOOK</description>
+        </field>
+        <field name="instagram" type="short-varchar">
+            <description>INSTAGRAM</description>
+        </field>
+        <field name="customerType" type="id">
+            <description>客户类型</description>
+        </field>
+        <field name="descCnt" type="very-long">
+            <description>备注</description>
+        </field>
+        <field name="customerLevel" type="id">
+            <description>客户等级</description>
+        </field>
+        <field name="domainId" type="id">
+            <description>所属单位</description>
+        </field>
+        <field name="invoiceAddr" type="very-long">
+            <description>发票地址</description>
+        </field>
+        <field name="email" type="short-varchar">
+            <description>Email</description>
+        </field>
+        <field name="customerStatus" type="id">
+            <description>客户状态</description>
+        </field>
+        <field name="linkMan" type="short-varchar">
+            <description>联系人</description>
+        </field>
+        <field name="country" type="short-varchar">
+            <description>所属国别</description>
+        </field>
+        <field name="marketingStaff" type="id">
+            <description>市场人员</description>
+        </field>
+        <field name="customerCode" type="short-varchar">
+            <description>客户编码</description>
+        </field>
+        <field name="crmCustomerId" type="id">
+            <description> CRM客户ID</description>
+        </field>
+        <field name="county" type="very-short">
+            <description>所属县区</description>
+        </field>
+        <field name="payBank" type="short-varchar">
+            <description>付款银行</description>
+        </field>
+        <field name="qq" type="short-varchar">
+            <description>QQ</description>
+        </field>
+        <field name="departmentId" type="id">
+            <description>所属部门</description>
+        </field>
+        <field name="customerId" not-null="true" type="id">
+            <description>客户ID</description>
+        </field>
+        <field name="backupTel" type="short-varchar">
+            <description>备用号码</description>
+        </field>
+        <field name="wechatNick" type="short-varchar">
+            <description>微信昵称</description>
+        </field>
+        <field name="bankAccount" type="short-varchar">
+            <description>银行帐号</description>
+        </field>
+        <field name="customerName" type="short-varchar">
+            <description>客户名称</description>
+        </field>
+        <field name="city" type="very-short">
+            <description>所属城市</description>
+        </field>
+        <field name="operator" type="id">
+            <description>录入人</description>
+        </field>
+        <field name="customerTaxCode" type="short-varchar">
+            <description>税号</description>
+        </field>
+        <field name="customerShortName" type="short-varchar">
+            <description>客户简称</description>
+        </field>
+        <field name="receiveAddr" type="very-long">
+            <description>收货地址</description>
+        </field>
+        <field name="operateDate" type="short-varchar">
+            <description>录入日期</description>
+        </field>
+        <field name="province" type="very-short">
+            <description>所属省份</description>
+        </field>
+        <field name="tel" type="short-varchar">
+            <description>联系电话</description>
+        </field>
+        <field name="settleAccountMethod" type="id">
+            <description>结算方式</description>
+        </field>
+        <field name="fax" type="short-varchar">
+            <description>传真</description>
+        </field>
+        <field name="website" type="long-varchar">
+            <description>网址</description>
+        </field>
+        <field name="mobile" type="short-varchar">
+            <description>手机号码</description>
+        </field>
+        <prim-key field="customerId"/>
+    </entity>
+    <view-entity entity-name="DataCustomerView" package-name="">
+        <member-entity entity-alias="DC" entity-name="DataCustomer"></member-entity>
+        <member-entity entity-alias="DIC1" entity-name="FadpDic"></member-entity>
+        <member-entity entity-alias="DIC2" entity-name="FadpDic"></member-entity>
+        <member-entity entity-alias="DIC3" entity-name="FadpDic"></member-entity>
+        <member-entity entity-alias="RG1" entity-name="Region"></member-entity>
+        <member-entity entity-alias="RG2" entity-name="Region"></member-entity>
+        <member-entity entity-alias="RG3" entity-name="Region"></member-entity>
+        <member-entity entity-alias="RG4" entity-name="Region"></member-entity>
+        <member-entity entity-alias="UL" entity-name="UserLogin"></member-entity>
+        <alias-all entity-alias="DC"></alias-all>
+        <alias name="customerTypeValue" field="dicValue" entity-alias="DIC1"/>
+        <alias name="customerLevelValue" field="dicValue" entity-alias="DIC2"/>
+        <alias name="settleAccountMethodValue" field="dicValue" entity-alias="DIC3"/>
+
+        <alias name="countryValue" field="regionName" entity-alias="RG1"/>
+        <alias name="provinceValue" field="regionName" entity-alias="RG2"/>
+        <alias name="cityValue" field="regionName" entity-alias="RG3"/>
+        <alias name="countyValue" field="regionName" entity-alias="RG4"/>
+        <alias name="marketingStaffValue" field="userName" entity-alias="UL"/>
+
+        <view-link entity-alias="DC" rel-entity-alias="DIC1" rel-optional="true">
+            <key-map field-name="customerType" rel-field-name="dicId"/>
+        </view-link>
+        <view-link entity-alias="DC" rel-entity-alias="DIC2" rel-optional="true">
+            <key-map field-name="customerLevel" rel-field-name="dicId"/>
+        </view-link>
+        <view-link entity-alias="DC" rel-entity-alias="DIC3" rel-optional="true">
+            <key-map field-name="settleAccountMethod" rel-field-name="dicId"/>
+        </view-link>
+
+        <view-link entity-alias="DC" rel-entity-alias="RG1" rel-optional="true">
+            <key-map field-name="country" rel-field-name="regionId"/>
+        </view-link>
+        <view-link entity-alias="DC" rel-entity-alias="RG2" rel-optional="true">
+            <key-map field-name="province" rel-field-name="regionId"/>
+        </view-link>
+        <view-link entity-alias="DC" rel-entity-alias="RG3" rel-optional="true">
+            <key-map field-name="city" rel-field-name="regionId"/>
+        </view-link>
+        <view-link entity-alias="DC" rel-entity-alias="RG4" rel-optional="true">
+            <key-map field-name="county" rel-field-name="regionId"/>
+        </view-link>
+        <view-link entity-alias="DC" rel-entity-alias="UL" rel-optional="true">
+            <key-map field-name="marketingStaff" rel-field-name="userLoginId"/>
+        </view-link>
+
+    </view-entity>
+    <entity entity-name="CustomerInfo" package-name="">
+        <description>客户</description>
+        <field name="customerId" not-null="true" type="id">
+            <description>客户ID</description>
+        </field>
+        <field name="erpCustomerId" type="id">
+            <description> erp客户ID</description>
+        </field>
+        <field name="latestAssignTime" type="short-varchar">
+            <description>最新分配时间</description>
+        </field>
+        <field name="domainId" type="id">
+            <description>所属单位</description>
+        </field>
+        <field name="email" type="short-varchar">
+            <description>Email</description>
+        </field>
+        <field name="bDimensionScore" type="id">
+            <description>B维度评分</description>
+        </field>
+        <field name="interest" type="very-long">
+            <description>兴趣产品</description>
+        </field>
+        <field name="customerStatus" type="id">
+            <description>客户状态</description>
+        </field>
+        <field name="linkMan3Contact" type="short-varchar">
+            <description>联系人3方式</description>
+        </field>
+        <field name="industryPosition" type="very-long">
+            <description>行业地位</description>
+        </field>
+        <field name="position" type="short-varchar">
+            <description>职务</description>
+        </field>
+        <field name="linkMan" type="short-varchar">
+            <description>联系人</description>
+        </field>
+        <field name="country" type="short-varchar">
+            <description>所属国别</description>
+        </field>
+        <field name="marketingStaff" type="id">
+            <description>市场人员</description>
+        </field>
+        <field name="customerSrcExt" type="short-varchar">
+            <description>补充来源</description>
+        </field>
+        <field name="customerCode" type="short-varchar">
+            <description>客户编码</description>
+        </field>
+        <field name="linkMan1Contact" type="short-varchar">
+            <description>联系人1方式</description>
+        </field>
+        <field name="payMethod" type="id">
+            <description>付款方式</description>
+        </field>
+        <field name="county" type="very-short">
+            <description>所属县区</description>
+        </field>
+        <field name="qq" type="short-varchar">
+            <description>QQ</description>
+        </field>
+        <field name="departmentId" type="id">
+            <description>所属部门</description>
+        </field>
+        <field name="callInTime" type="short-varchar">
+            <description>客户呼入时间</description>
+        </field>
+        <field name="budget" type="id">
+            <description>投入预算</description>
+        </field>
+        <field name="backupTel" type="short-varchar">
+            <description>备用号码</description>
+        </field>
+        <field name="wechatNick" type="short-varchar">
+            <description>微信昵称</description>
+        </field>
+        <field name="latestContractId" type="id">
+            <description>最新合同</description>
+        </field>
+        <field name="linkMan5Contact" type="short-varchar">
+            <description>联系人5方式</description>
+        </field>
+        <field name="intentDegree" type="id">
+            <description>意向</description>
+        </field>
+        <field name="fixTel" type="short-varchar">
+            <description>固定电话</description>
+        </field>
+        <field name="closeReason" type="very-long">
+            <description>关单原因</description>
+        </field>
+        <field name="aDimensionScore" type="id">
+            <description>A维度评分</description>
+        </field>
+        <field name="customerSrc" type="id">
+            <description>客户来源</description>
+        </field>
+        <field name="isSignContract" type="id">
+            <description>是否签订合同</description>
+        </field>
+        <field name="callInTel" type="short-varchar">
+            <description>客户呼入号码</description>
+        </field>
+        <field name="followTimes" type="id">
+            <description>跟进次数</description>
+        </field>
+        <field name="customerType" type="id">
+            <description>客户类型</description>
+        </field>
+        <field name="sex" type="id">
+            <description>客户性别</description>
+        </field>
+        <field name="descCnt" type="very-long">
+            <description>备注</description>
+        </field>
+        <field name="recordDate" type="short-varchar">
+            <description>录入日期</description>
+        </field>
+        <field name="customerOriginalCode" type="short-varchar">
+            <description>原始资料编码</description>
+        </field>
+        <field name="latestReserveTime" type="short-varchar">
+            <description>最近跟进预约时间</description>
+        </field>
+        <field name="linkMan2Contact" type="short-varchar">
+            <description>联系人2方式</description>
+        </field>
+        <field name="creditGrade" type="id">
+            <description>信用评级</description>
+        </field>
+        <field name="isValid" type="id">
+            <description>是否有效</description>
+        </field>
+        <field name="linkMan3" type="short-varchar">
+            <description>联系人3</description>
+        </field>
+        <field name="linkMan4" type="short-varchar">
+            <description>联系人4</description>
+        </field>
+        <field name="linkMan1" type="short-varchar">
+            <description>联系人1</description>
+        </field>
+        <field name="assignTimes" type="id">
+            <description>分配次数</description>
+        </field>
+        <field name="linkMan2" type="short-varchar">
+            <description>联系人2</description>
+        </field>
+        <field name="customerCategory" type="id">
+            <description>客户类别</description>
+        </field>
+        <field name="innerGrade" type="id">
+            <description>内部评级</description>
+        </field>
+        <field name="linkMan5" type="short-varchar">
+            <description>联系人5</description>
+        </field>
+        <field name="latestFollowTime" type="short-varchar">
+            <description>最新跟进时间</description>
+        </field>
+        <field name="addr" type="short-varchar">
+            <description>地址</description>
+        </field>
+        <field name="linkMan4Contact" type="short-varchar">
+            <description>联系人4方式</description>
+        </field>
+        <field name="customerName" type="short-varchar">
+            <description>客户名称</description>
+        </field>
+        <field name="city" type="very-short">
+            <description>所属城市</description>
+        </field>
+        <field name="recordOperator" type="id">
+            <description>录入人</description>
+        </field>
+        <field name="province" type="very-short">
+            <description>所属省份</description>
+        </field>
+        <field name="mobile" type="short-varchar">
+            <description>手机号码</description>
+        </field>
+        <prim-key field="customerId"/>
+    </entity>
+</entitymodel>

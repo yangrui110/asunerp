@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    version="5.0" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude"
+    xsi:schemaLocation="http://docbook.org/ns/docbook ../../../content/dtd/docbook.xsd"
+    xmlns="http://docbook.org/ns/docbook">
+    <title>Framework Base components</title>
+    <para>
+        This part of the framework contain the basic components like the several different connectors, catalina(tomcat)
+        which are the base of the other framework.
+    </para>
+    
+    <xi:include href="ReceivingEmail.xml" />
+</chapter>
+

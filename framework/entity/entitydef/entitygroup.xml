@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<entitygroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://localhost:8888/dtds/entitygroup.xsd">
+
+    <!-- ========================================================= -->
+    <!-- com.hanlin.fadp.entity.tenant -->
+    <!-- ========================================================= -->
+    <entity-group group="com.hanlin.fadp.tenant" entity="Tenant"/>
+    <entity-group group="com.hanlin.fadp.tenant" entity="TenantDataSource"/>
+<!--     <entity-group group="com.hanlin.fadp.tenant" entity="TenantUserLogin"/> -->
+    <entity-group group="com.hanlin.fadp.tenant" entity="Component"/>
+    <entity-group group="com.hanlin.fadp.tenant" entity="TenantComponent"/>
+    <entity-group group="com.hanlin.fadp.tenant" entity="TenantDomainName"/>
+</entitygroup>

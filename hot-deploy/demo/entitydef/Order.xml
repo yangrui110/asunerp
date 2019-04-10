@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="../../../dtds/entitymodel.xsd">
+    <description>极元模块</description>
+    <entity entity-name="MySecure" package-name="" table-name="uf_ddgl">
+        <field name="id" type="numeric">
+            <description>id值，主键</description>
+        </field>
+        <field name="cpm" type="other-name">
+            <description>产品名称</description>
+        </field>
+        <field name="dkje" type="fixed-point">
+            <description>打款金额</description>
+        </field>
+        <field name="dkrq" type="other-char">
+            <description>打款日期</description>
+        </field>
+        <field name="bxjfnx" type="numeric">
+            <description>缴费年限</description>
+        </field>
+        <field name="sxrq" type="other-char">
+            <description>生效日期</description>
+        </field>
+        <field name="cplx" type="id">
+            <description>产品类型</description>
+        </field>
+        <field name="khm" type="id">
+            <description>客户id</description>
+        </field>
+        <prim-key field="id"/>
+    </entity>
+
+    <entity entity-name="MyInvest" package-name="" table-name="uf_ddgl">
+        <field name="id" type="id">
+            <description>id值，主键</description>
+        </field>
+        <field name="cpm" type="other-name">
+            <description>产品id</description>
+        </field>
+        <field name="dkrq" type="other-char">
+            <description>打款日期</description>
+        </field>
+        <field name="cplx" type="id">
+            <description>产品类型</description>
+        </field>
+        <field name="dkje" type="fixed-point">
+            <description>打款金额</description>
+        </field>
+        <field name="dkjedw" type="id-ne">
+            <description>打款金额单位</description>
+        </field>
+        <field name="crmcpid" type="id">
+            <description>产品id</description>
+        </field>
+        <field name="khm" type="id">
+            <description>客户id</description>
+        </field>
+        <!--分界面，保险参数-->
+        <field name="bxjfnx" type="numeric">
+            <description>缴费年限</description>
+        </field>
+        <field name="sxrq" type="other-char">
+            <description>生效日期</description>
+        </field>
+        <prim-key field="id"/>
+    </entity>
+
+    <entity entity-name="OrderDetail" table-name="uf_ddgl_dt1" package-name="">
+        <field name="id" type="id">
+            <description>id主键值</description>
+        </field>
+        <field name="mainid" type="id">
+            <description>订单主表id</description>
+        </field>
+        <field name="jxrq" type="other-char">
+            <description>计息日期</description>
+        </field>
+        <field name="jsrq" type="other-char">
+            <description>结束日期</description>
+        </field>
+        <field name="tzts" type="numeric">
+            <description>投资天数</description>
+        </field>
+        <field name="cxje" type="currency-amount">
+            <description>存续金额</description>
+        </field>
+        <prim-key field="id"/>
+    </entity>
+    <view-entity entity-name="OrderDetailCountView" package-name="">
+        <description>按照订单分组统计数量</description>
+        <member-entity entity-alias="OD1" entity-name="OrderDetail"></member-entity>
+        <alias name="mainid" field="mainid" entity-alias="OD1" group-by="true"/>
+        <alias name="nums" field="id" entity-alias="OD1" function="count"/>
+    </view-entity>
+    <view-entity entity-name="MySecureView" package-name="">
+        <member-entity entity-alias="MS" entity-name="MySecure"></member-entity>
+        <member-entity entity-alias="UC" entity-name="UfCpxx"/>
+        <member-entity entity-alias="BM" entity-name="SelectItem"/>
+        <alias-all entity-alias="MS"/>
+        <alias name="cplxValue" field="selectname" entity-alias="BM"/>
+        <alias name="cpmValue" field="cpmc" entity-alias="UC"/>
+        <view-link entity-alias="MS" rel-entity-alias="BM" rel-optional="true">
+            <key-map field-name="cplx" rel-field-name="selectvalue"/>
+            <entity-condition>
+                <condition-list>
+                    <condition-expr field-name="fieldid" entity-alias="BM" value="6381"/>
+                </condition-list>
+            </entity-condition>
+        </view-link>
+        <view-link entity-alias="MS" rel-entity-alias="UC">
+            <key-map field-name="cpm" rel-field-name="id"/>
+        </view-link>
+    </view-entity>
+
+    <view-entity entity-name="MyInvestView" package-name="">
+        <description>我的投资视图</description>
+        <member-entity entity-alias="MI" entity-name="MyInvest"></member-entity>
+        <member-entity entity-alias="UC" entity-name="UfCpxx"/>
+        <member-entity entity-alias="BM" entity-name="SelectItem"/>
+        <member-entity entity-alias="ODCV" entity-name="OrderDetailCountView"/>
+        <alias-all entity-alias="MI"/>
+        <alias name="cplxValue" field="selectname" entity-alias="BM"/>
+        <alias name="arriveTimeValue" field="tzdqr" entity-alias="UC"/>
+        <alias name="maxRateValue" field="zgnhsy" entity-alias="UC"/>
+        <alias name="cpmValue" field="cpmc" entity-alias="UC"/>
+        <alias name="orderDetailNum" field="nums" entity-alias="ODCV"/>
+
+        <view-link entity-alias="MI" rel-entity-alias="BM" rel-optional="true">
+            <key-map field-name="cplx" rel-field-name="selectvalue"/>
+            <entity-condition>
+                <condition-list>
+                    <condition-expr field-name="fieldid" entity-alias="BM" value="6381" />
+                </condition-list>
+            </entity-condition>
+        </view-link>
+        <view-link entity-alias="MI" rel-entity-alias="UC">
+            <key-map field-name="cpm" rel-field-name="id"/>
+        </view-link>
+        <view-link entity-alias="MI" rel-entity-alias="ODCV" rel-optional="true">
+            <key-map field-name="id" rel-field-name="mainid"/>
+        </view-link>
+    </view-entity>
+</entitymodel>

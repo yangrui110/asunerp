@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../dtds/site-conf.xsd">
+	<include location="component://common/webcommon/WEB-INF/common-controller.xml" />
+	<include location="component://fadp/controller/fadp-controller.xml" />
+	<include location="component://fadp/controller/fadp-system-controller.xml" />
+
+	<request-map uri="saveOrder">
+		<description>创建订单</description>
+		<security auth="true"/>
+		<event type="java" path="com.demo.DemoEvent" invoke="saveOrder"/>
+		<response name="success" type="none"></response>
+	</request-map>
+
+	<request-map uri="getChildren">
+		<description>查询学生</description>
+		<security auth="false"/>
+		<event type="java" path="com.fadp.jiyuan.service.UfCptxxx" invoke="getChildren"/>
+		<response name="success" type="none"></response>
+	</request-map>
+	<!--Actives的控制器-->
+	<request-map uri="getActivesPageData">
+		<description>分页查询活动信息</description>
+		<security auth="false"/>
+		<event type="java" path="com.fadp.jiyuan.service.ActiveService" invoke="getActivesPageData"/>
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="getActiveOne">
+		<description>查询单个活动信息</description>
+		<security auth="false"/>
+		<event type="java" path="com.fadp.jiyuan.service.ActiveService" invoke="getActiveOne"/>
+		<response name="success" type="none"></response>
+	</request-map>
+	<!--用户相关开始-->
+	<request-map uri="getKhglPageData">
+		<description>查询单个活动信息</description>
+		<security auth="false"/>
+		<event type="java" path="com.fadp.jiyuan.service.UfKhglService" invoke="getKhglPageData"/>
+		<response name="success" type="none"></response>
+	</request-map>
+
+	<request-map uri="getUserOne">
+		<description>查询单个用户信息</description>
+		<security auth="false"/>
+		<event type="java" path="com.fadp.jiyuan.service.UfKhglService" invoke="getUserOne"/>
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="loginUser">
+		<description>用户登录</description>
+		<security auth="false"/>
+		<event type="java" path="com.fadp.jiyuan.service.UfKhglService" invoke="loginUser"/>
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="bindEmail">
+		<description>绑定用户邮箱</description>
+		<security auth="false"/>
+		<event type="java" path="com.fadp.jiyuan.service.UfKhglService" invoke="bindEmail"/>
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="findPassword">
+		<description>通过手机号查找密码</description>
+		<security auth="false"/>
+		<event type="java" path="com.fadp.jiyuan.service.UfKhglService" invoke="findPassword"/>
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="updatePassword">
+		<description>用户更新密码</description>
+		<security auth="false"/>
+		<event type="java" path="com.fadp.jiyuan.service.UfKhglService" invoke="updatePassword"/>
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="upPs">
+		<description>找回密码时用户更新密码</description>
+		<security auth="false"/>
+		<event type="java" path="com.fadp.jiyuan.service.UfKhglService" invoke="upPs"/>
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="registerUser">
+		<description>注册新用户</description>
+		<security auth="false"/>
+		<event type="java" path="com.fadp.jiyuan.service.UfKhglService" invoke="registerUser"/>
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="updateUser">
+		<description>更新用户资料</description>
+		<security auth="false"/>
+		<event type="java" path="com.fadp.jiyuan.service.UfKhglService" invoke="updateUser"/>
+		<response name="success" type="none"></response>
+	</request-map>
+	<!--用户相关结束-->
+    <!--一些其他的控制器-->
+    <request-map uri="getRandCode">
+        <description>获取随机的邮箱验证码</description>
+        <security auth="false"/>
+        <event type="java" path="com.fadp.jiyuan.service.OtherService" invoke="getRandCode"/>
+        <response name="success" type="none"></response>
+    </request-map>
+    <request-map uri="getCode">
+        <description>获取用户登录验证码</description>
+        <security auth="false"/>
+        <event type="java" path="com.fadp.jiyuan.service.OtherService" invoke="getCode"/>
+        <response name="success" type="none"></response>
+    </request-map>
+	<request-map uri="getPhoneCode">
+		<description>获取手机短信验证码</description>
+		<security auth="false"/>
+		<event type="java" path="com.fadp.jiyuan.service.OtherService" invoke="getPhoneRandm"/>
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="getPass">
+		<description>注册时获取手机短信验证码</description>
+		<security auth="false"/>
+		<event type="java" path="com.fadp.jiyuan.service.OtherService" invoke="getPass"/>
+		<response name="success" type="none"></response>
+	</request-map>
+	<!--产品或者说是保险的控制器-->
+	<request-map uri="getProducts">
+		<description>获取分页的产品数据</description>
+		<security auth="false"/>
+		<event type="java" path="com.fadp.jiyuan.service.ProductService" invoke="getPageProducts"/>
+		<response name="success" type="none"></response>
+	</request-map>
+	<!--消息控制器-->
+	<request-map uri="getMessages">
+		<description>获取站内消息</description>
+		<security auth="false"/>
+		<event type="java" path="com.fadp.jiyuan.service.MessageService" invoke="getPageMessage"/>
+		<response name="success" type="none"></response>
+	</request-map>
+	<!--订单管理控制器-->
+	<request-map uri="getOrderPageData">
+		<description>分页获取订单数据</description>
+		<security auth="false"/>
+		<event type="java" path="com.fadp.jiyuan.service.OrderService" invoke="getOrderPageData"/>
+		<response name="success" type="none"></response>
+	</request-map>
+</site-conf>

@@ -1,0 +1,66 @@
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../dtds/entitymodel.xsd">
+
+<!-- 	<entity entity-name="FadpDic" package-name=""> -->
+<!-- 		<description>通用字典表</description> -->
+<!-- 		<field name="module" type="id"></field> -->
+<!-- 		<field name="itemId" type="id"></field> -->
+<!-- 		<field name="itemData" type="id"></field> -->
+<!-- 		<field name="description" type="description"></field> -->
+<!-- 		<prim-key field="module"/> -->
+<!-- 		<prim-key field="itemId"/> -->
+<!-- 	</entity> -->
+
+	<entity entity-name="FadpAttachment" package-name="">
+		<description>通用附件表</description>
+		<field name="module" type="id">
+			<description>模块</description>
+		</field>
+		<field name="modulePk" type="id"></field>
+		<field name="fileId" type="id"></field>
+		<field name="fileName" type="name"></field>
+		<field name="fileType" type="id"></field>
+
+		<prim-key field="module" />
+		<prim-key field="modulePk" />
+	</entity>
+	<extend-entity entity-name="UserLogin">
+		<field name="userName" type="name">
+			<description>中文名称</description>
+		</field>
+	</extend-entity>
+
+	<entity entity-name="FadpDepartment" package-name="">
+		<description>部门表</description>
+		<field name="deptId" type="id"></field>
+		<field name="deptName" type="name"></field>
+		<prim-key field="deptId"/>
+	</entity>
+
+	<view-entity entity-name="FadpUser" package-name="">
+		<description>用户</description>
+		<member-entity entity-alias="UserLogin" entity-name="UserLogin"></member-entity>
+		<member-entity entity-alias="Dept" entity-name="FadpDepartment"></member-entity>
+		<alias-all entity-alias="UserLogin"><exclude field="userLoginid"/></alias-all>
+		<alias-all entity-alias="Dept"></alias-all>
+		
+
+	</view-entity>
+	
+	<entity entity-name="FadpTest" package-name="">
+		<description>测试表</description>
+		<field name="someId" type="id"></field>
+		<field name="someName" type="name"></field>
+		<field name="weight" type="numeric"></field>
+		<prim-key field="someId"/>
+	</entity>
+	<view-entity entity-name="FadpTestView" package-name="">
+		<member-entity entity-alias="test" entity-name="FadpTest"></member-entity>
+		<alias-all entity-alias="test"></alias-all>
+		<entity-condition>
+			<order-by field-name="weight" />
+		</entity-condition>
+	</view-entity>
+
+
+
+</entitymodel>

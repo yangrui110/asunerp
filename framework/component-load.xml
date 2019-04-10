@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+-->
+
+<component-loader xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://127.0.0.1:8888/dtds/component-loader.xsd">
+    <load-component component-location="base"/>
+    <load-component component-location="geronimo"/>
+    <load-component component-location="entity"/>
+    <load-component component-location="security"/>
+    <load-component component-location="datafile"/>
+    <load-component component-location="minilang"/>
+    <load-component component-location="common"/>
+    <load-component component-location="service"/>
+    <load-component component-location="catalina"/>
+    <load-component component-location="entityext"/>
+    <load-component component-location="webapp"/>
+    <load-component component-location="widget"/>
+    <load-component component-location="testtools"/>
+    <load-component component-location="webtools"/>
+    <load-component component-location="images"/>
+</component-loader>

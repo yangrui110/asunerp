@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="../../../dtds/entitymodel.xsd">
+
+
+    <entity entity-name="FadpDic" package-name="com.hanlin.fadp.spmbase">
+        <description>字典表</description>
+        <field name="parentId" type="id">
+            <description>父字典</description>
+        </field>
+        <field name="dicId" type="id">
+            <description>字典id</description>
+        </field>
+        <field name="dicValue" type="value">
+            <description>字典值</description>
+        </field>
+        <field name="description" type="comment">
+            <description>字典描述</description>
+        </field>
+        <field name="isLeaf" type="indicator">
+            <description>是否叶子节点</description>
+        </field>
+        <field name="enabled" type="indicator">
+            <description>是否有效</description>
+        </field>
+        <field name="orderNum" type="id">
+            <description>排序</description>
+        </field>
+
+        <prim-key field="dicId"/>
+        <relation type="one" rel-entity-name="FadpDic">
+            <key-map field-name="parentId" rel-field-name="dicId"/>
+        </relation>
+    </entity>
+    <entity entity-name="Department" package-name="com.hanlin.fadp.spmbase">
+        <description>部门表</description>
+        <field name="deptId" type="id">
+            <description>部门id</description>
+        </field>
+        <field name="parentId" type="id">
+            <description>父部门</description>
+        </field>
+        <field name="deptName" type="name">
+            <description>部门名称</description>
+        </field>
+        <field name="description" type="comment">
+            <description>部门描述</description>
+        </field>
+        <field name="enabled" type="indicator">
+            <description>是否有效</description>
+        </field>
+        <field name="orderNum" type="id">
+            <description>排序</description>
+        </field>
+
+        <prim-key field="deptId"/>
+        <relation type="one" rel-entity-name="Department">
+            <key-map field-name="parentId" rel-field-name="deptId"/>
+        </relation>
+
+    </entity>
+    <entity entity-name="DepartmentUserLogin" package-name="com.hanlin.fadp.spmbase">
+        <description>部门用户表</description>
+        <field name="deptId" type="id">
+            <description>部门id</description>
+        </field>
+        <field name="userLoginId" type="id">
+            <description>用户id</description>
+        </field>
+        <prim-key field="deptId"/>
+        <prim-key field="userLoginId"/>
+        <relation type="one" rel-entity-name="Department">
+            <key-map field-name="deptId"/>
+        </relation>
+        <relation type="one" rel-entity-name="UserLogin">
+            <key-map field-name="userLoginId"/>
+        </relation>
+
+    </entity>
+    <extend-entity entity-name="UserLogin">
+        <field name="userId" type="name" not-null="true">
+            <description>用户姓名</description>
+        </field>
+        <field name="userName" type="name">
+            <description>用户姓名</description>
+        </field>
+        <field name="phoneNumber" type="id">
+            <description>移动电话</description>
+        </field>
+        <field name="userSex" type="indicator">
+            <description>性别</description>
+        </field>
+        <field name="workNumber" type="value">
+            <description>工号</description>
+        </field>
+        <field name="secretLevel" type="name">
+            <description>密级</description>
+        </field>
+        <field name="telephone" type="name">
+            <description>固定电话</description>
+        </field>
+        <field name="email" type="name">
+            <description>邮箱</description>
+        </field>
+    </extend-entity>
+    <view-entity entity-name="UserDeptsView" package-name="">
+        <description>用户的部门逗号分割连接</description>
+        <member-entity entity-name="Department" entity-alias="DEPT"></member-entity>
+        <member-entity entity-name="DepartmentUserLogin" entity-alias="DU"></member-entity>
+        <alias name="userLoginId" entity-alias="DU" group-by="true"></alias>
+        <alias name="deptNames">
+            <complex-alias operator="">
+                <complex-alias-field value="group_concat("/>
+                <complex-alias-field entity-alias="DEPT" field="deptName"/>
+                <complex-alias-field value=")"/>
+            </complex-alias>
+        </alias>
+        <view-link entity-alias="DU" rel-entity-alias="DEPT">
+            <key-map field-name="deptId"/>
+        </view-link>
+    </view-entity>
+    <view-entity entity-name="UserGroupsView" package-name="">
+        <description>用户的角色逗号分割连接</description>
+        <member-entity entity-name="SecurityGroup" entity-alias="SG"></member-entity>
+        <member-entity entity-name="UserLoginSecurityGroup" entity-alias="ULSG"></member-entity>
+        <alias name="userLoginId" entity-alias="ULSG" group-by="true"></alias>
+        <alias name="groupNames">
+            <complex-alias operator="">
+                <complex-alias-field value="group_concat( distinct "/>
+                <complex-alias-field entity-alias="SG" field="groupName"/>
+                <complex-alias-field value=")"/>
+            </complex-alias>
+        </alias>
+        <view-link entity-alias="ULSG" rel-entity-alias="SG">
+            <key-map field-name="groupId"/>
+        </view-link>
+        <entity-condition>
+            <condition-list>
+                <condition-expr entity-alias="SG" field-name="groupType" operator="not-equals" value="svn"/>
+                <condition-expr entity-alias="SG" field-name="groupType" operator="not-equals" value="system"/>
+            </condition-list>
+
+        </entity-condition>
+    </view-entity>
+    <view-entity entity-name="UserView" package-name="com.hanlin.fadp.spmbase">
+        <description>用户视图,带部门，角色</description>
+        <member-entity entity-name="UserLogin" entity-alias="UL"></member-entity>
+        <member-entity entity-name="FadpDic" entity-alias="DS"></member-entity>
+        <member-entity entity-name="UserDeptsView" entity-alias="UDS"></member-entity>
+        <member-entity entity-name="UserGroupsView" entity-alias="UGV"></member-entity>
+        <alias name="secretLevelValue" field="dicValue" entity-alias="DS"/>
+        <alias-all entity-alias="UL"/>
+        <alias name="deptNames" entity-alias="UDS"/>
+        <alias name="groupNames" entity-alias="UGV"/>
+
+        <view-link entity-alias="UL" rel-entity-alias="DS" rel-optional="true">
+            <key-map field-name="secretLevel" rel-field-name="dicId"/>
+        </view-link>
+        <view-link entity-alias="UL" rel-entity-alias="UDS" rel-optional="true">
+            <key-map field-name="userLoginId"/>
+        </view-link>
+        <view-link entity-alias="UL" rel-entity-alias="UGV" rel-optional="true">
+            <key-map field-name="userLoginId"/>
+        </view-link>
+    </view-entity>
+    <view-entity entity-name="DeptUserView" package-name="com.hanlin.fadp.spmbase">
+        <description>部门用户视图</description>
+        <member-entity entity-name="Department" entity-alias="DEPT"></member-entity>
+        <member-entity entity-name="DepartmentUserLogin" entity-alias="DU"></member-entity>
+        <member-entity entity-name="UserLogin" entity-alias="UL"></member-entity>
+        <member-entity entity-name="FadpDic" entity-alias="DS"></member-entity>
+        <member-entity entity-name="UserDeptsView" entity-alias="UDS"></member-entity>
+        <member-entity entity-name="UserGroupsView" entity-alias="UGV"></member-entity>
+        <alias name="deptId" entity-alias="DEPT"/>
+        <alias name="deptName" entity-alias="DEPT"/>
+        <alias name="secretLevelValue" field="dicValue" entity-alias="DS"/>
+        <alias name="userLoginId" entity-alias="UL"/>
+        <alias name="userId" entity-alias="UL"/>
+        <alias name="userName" entity-alias="UL"/>
+        <alias name="phoneNumber" entity-alias="UL"/>
+        <alias name="userSex" entity-alias="UL"/>
+        <alias name="workNumber" entity-alias="UL"/>
+        <alias name="secretLevel" entity-alias="UL"/>
+        <alias name="enabled" entity-alias="UL"/>
+        <alias name="deptNames" entity-alias="UDS"/>
+        <alias name="groupNames" entity-alias="UGV"/>
+        <view-link entity-alias="UL" rel-entity-alias="DU" rel-optional="true">
+            <key-map field-name="userLoginId"/>
+        </view-link>
+        <view-link entity-alias="DU" rel-entity-alias="DEPT" rel-optional="true">
+            <key-map field-name="deptId"/>
+        </view-link>
+        <view-link entity-alias="UL" rel-entity-alias="DS" rel-optional="true">
+            <key-map field-name="secretLevel" rel-field-name="dicId"/>
+        </view-link>
+        <view-link entity-alias="UL" rel-entity-alias="UDS" rel-optional="true">
+            <key-map field-name="userLoginId"/>
+        </view-link>
+        <view-link entity-alias="UL" rel-entity-alias="UGV" rel-optional="true">
+            <key-map field-name="userLoginId"/>
+        </view-link>
+    </view-entity>
+    <extend-entity entity-name="SecurityGroup">
+        <field name="groupType" type="value">
+            <description>角色类型</description>
+        </field>
+        <field name="groupName" type="name">
+            <description>角色名称</description>
+        </field>
+    </extend-entity>
+    <view-entity entity-name="SecurityDicView" package-name="com.hanlin.fadp.spmbase">
+        <description>权限连接字典视图</description>
+        <member-entity entity-name="SecurityGroup" entity-alias="SG"></member-entity>
+        <member-entity entity-name="FadpDic" entity-alias="DS"></member-entity>
+        <alias name="groupTypeValue" field="dicValue" entity-alias="DS"/>
+        <alias-all entity-alias="SG"></alias-all>
+        <view-link entity-alias="SG" rel-entity-alias="DS" rel-optional="true">
+            <key-map field-name="groupType" rel-field-name="dicId"/>
+        </view-link>
+    </view-entity>
+    <view-entity entity-name="SecurityUserLoginView" package-name="com.hanlin.fadp.spmbase">
+        <description>权限连接字典视图</description>
+        <member-entity entity-name="UserLogin" entity-alias="UL"></member-entity>
+        <member-entity entity-name="SecurityGroup" entity-alias="SG"></member-entity>
+        <member-entity entity-name="UserLoginSecurityGroup" entity-alias="ULSG"></member-entity>
+        <alias-all entity-alias="SG"></alias-all>
+        <alias-all entity-alias="ULSG">
+            <exclude field="userLoginId"/>
+            <exclude field="groupId"/>
+        </alias-all>
+        <alias-all entity-alias="UL"></alias-all>
+        <view-link entity-alias="UL" rel-entity-alias="ULSG">
+            <key-map field-name="userLoginId"/>
+        </view-link>
+        <view-link entity-alias="ULSG" rel-entity-alias="SG">
+            <key-map field-name="groupId"/>
+        </view-link>
+    </view-entity>
+    <entity entity-name="FadpLog" package-name="com.hanlin.fadp.spmbase">
+        <field name="userLoginId" type="id">
+            <description>用户id</description>
+        </field>
+        <field name="userName" type="name">
+            <description>用户名</description>
+        </field>
+        <field name="clientIp" type="name">
+            <description>ip</description>
+        </field>
+        <field name="visitDateTime" type="date-time">
+            <description>访问时间</description>
+        </field>
+        <field name="moduleName" type="value">
+            <description>模块名</description>
+        </field>
+        <field name="operateType" type="name">
+            <description>操作类型</description>
+        </field>
+        <field name="operateContent" type="value">
+            <description>操作内容</description>
+        </field>
+        <prim-key field="clientIp"/>
+        <prim-key field="visitDateTime"/>
+    </entity>
+
+    <entity entity-name="SysAttachments" package-name="">
+        <description>附件</description>
+        <field name="attachId" not-null="true" type="numeric"/>
+        <field name="fileOriginalName" type="long-varchar">
+            <description>原始文件名</description>
+        </field>
+        <field name="fileSize" type="numeric">
+            <description>文件大小</description>
+        </field>
+        <field name="departmentId" type="numeric">
+            <description></description>
+        </field>
+        <field name="domainId" not-null="true" type="numeric"/>
+        <field name="staffId" type="numeric">
+            <description>上传人id</description>
+        </field>
+        <field name="uploader" type="long-varchar">
+            <description>上传人姓名</description>
+        </field>
+        <field name="fileDispName" type="long-varchar"/>
+        <field name="editSts" type="numeric">
+            <description>当前附件的编辑状态</description>
+        </field>
+        <field name="filePath" type="long-varchar"/>
+        <field name="attachType" type="very-long">
+            <description>表明附件所属的类别，用于标识该附件属于哪个模块所用</description>
+        </field>
+        <field name="storeType" type="numeric">
+            <description>1,普通文件,2.二进制</description>
+        </field>
+        <field name="uploadTime" type="long-varchar"/>
+        <field name="fileType" type="long-varchar"/>
+        <field name="moduleId" type="value">
+            <description>引用的外部模块ID,</description>
+        </field>
+        <field name="content" type="blob"/>
+        <field name="attachCategory" type="long-varchar">
+            <description>表明当前附件的所属分类</description>
+        </field>
+        <prim-key field="attachId"/>
+    </entity>
+
+    <entity entity-name="EntityFieldInfo" package-name="">
+        <description>实体字段数据</description>
+        <field name="entityName" type="name">
+            <description>实体名</description>
+        </field>
+        <field name="orderNum" type="name">
+            <description>排序</description>
+        </field>
+        <field name="fieldName" type="name">
+            <description>字段名</description>
+        </field>
+        <field name="fieldLabel" type="name">
+            <description>字段显示值</description>
+        </field>
+        <field name="fieldType" type="name">
+            <description>字段类型</description>
+        </field>
+        <field name="showInQuery" type="indicator">
+            <description>参与查询</description>
+        </field>
+        <field name="showInTable" type="indicator">
+            <description>参与列表显示</description>
+        </field>
+        <field name="showInView" type="indicator">
+            <description>参与查看界面显示</description>
+        </field>
+        <field name="showInEdit" type="indicator">
+            <description>参与编辑界面显示</description>
+        </field>
+        <field name="required" type="indicator">
+            <description>必填</description>
+        </field>
+        <field name="isValueField" type="indicator">
+            <description>是否被引用字段</description>
+        </field>
+        <field name="isShowField" type="indicator">
+            <description>是否被引用字段的显示值</description>
+        </field>
+        <field name="isApproveStateField" type="indicator">
+            <description>是否是审批状态</description>
+        </field>
+
+        <field name="dicId" type="name">
+            <description>字典id</description>
+        </field>
+        <field name="component" type="name">
+            <description>组件</description>
+        </field>
+        <field name="relEntityName" type="name">
+            <description>引用实体</description>
+        </field>
+        <field name="isViewValue" type="name">
+            <description>转义字段</description>
+        </field>
+        <field name="defaultValue" type="name">
+            <description>默认值</description>
+        </field>
+        <field name="orderBy" type="name">
+            <description>排序</description>
+        </field>
+<!--
+        <field name="relFieldName" type="name">
+            <description>引用字段</description>
+        </field>
+        <field name="relFieldValue" type="name">
+            <description>引用字段显示值</description>
+        </field>
+-->
+
+
+        <prim-key field="entityName"/>
+        <prim-key field="fieldName"/>
+    </entity>
+
+    <extend-entity entity-name="SecurityPermission">
+        <field name="category" type="id"><description>种类</description></field>
+    </extend-entity>
+
+
+
+    <entity entity-name="PermissionCategory" package-name="">
+        <description>权限分类</description>
+        <field name="typeId" type="id"><description>分类id</description></field>
+        <field name="typeName" type="name"><description>分类名称</description></field>
+        <field name="parentId" type="id"><description>父分类</description></field>
+        <prim-key field="typeId"/>
+    </entity>
+    <view-entity entity-name="SecurityPermissionSystemView" package-name="">
+        <member-entity entity-alias="S" entity-name="SecurityPermission"></member-entity>
+        <member-entity entity-alias="C" entity-name="PermissionCategory"></member-entity>
+        <alias-all entity-alias="S"/>
+        <view-link entity-alias="S" rel-entity-alias="C">
+            <key-map field-name="category" rel-field-name="typeId"/>
+        </view-link>
+    </view-entity>
+    <view-entity entity-name="DeptUserNum" package-name="">
+        <description>部门人数统计</description>
+        <member-entity entity-alias="DU" entity-name="DepartmentUserLogin"></member-entity>
+        <member-entity entity-alias="UL" entity-name="UserLogin"></member-entity>
+        <alias name="deptId" group-by="true" entity-alias="DU"/>
+        <alias name="userNum" field="userLoginId" function="count" entity-alias="DU">
+            <description>人数</description>
+        </alias>
+        <view-link entity-alias="UL" rel-entity-alias="DU">
+            <key-map field-name="userLoginId"/>
+        </view-link>
+    </view-entity>
+    <view-entity entity-name="DeptUserNumView" package-name="">
+        <description>部门视图带人数</description>
+        <member-entity entity-alias="DEPT" entity-name="Department"></member-entity>
+        <member-entity entity-alias="DU" entity-name="DeptUserNum"></member-entity>
+        <alias-all entity-alias="DEPT"/>
+        <alias name="userNum" entity-alias="DU">
+            <description>人数</description>
+        </alias>
+        <view-link entity-alias="DEPT" rel-entity-alias="DU" rel-optional="true">
+            <key-map field-name="deptId"/>
+        </view-link>
+    </view-entity>
+    <view-entity entity-name="UserDeptRoleView" package-name="">
+        <description>人员部门角色视图</description>
+        <member-entity entity-alias="DU" entity-name="DeptUserView"></member-entity>
+        <member-entity entity-alias="USG" entity-name="UserLoginSecurityGroup"></member-entity>
+        <alias-all entity-alias="DU"/>
+        <alias name="groupId" entity-alias="USG"></alias>
+        <view-link entity-alias="DU" rel-entity-alias="USG" rel-optional="true">
+            <key-map field-name="userLoginId"/>
+        </view-link>
+    </view-entity>
+
+    <view-entity entity-name="UserPermissionView" package-name="">
+        <description>用户权限视图</description>
+        <member-entity entity-alias="UL" entity-name="UserLogin"></member-entity>
+        <member-entity entity-alias="SG" entity-name="UserLoginSecurityGroup"></member-entity>
+        <member-entity entity-alias="GP" entity-name="SecurityGroupPermission"></member-entity>
+        <alias-all entity-alias="UL"/>
+        <alias name="groupId" entity-alias="SG"/>
+        <alias name="permissionId" entity-alias="GP"/>
+        <view-link entity-alias="UL" rel-entity-alias="SG">
+            <key-map field-name="userLoginId"/>
+        </view-link>
+        <view-link entity-alias="SG" rel-entity-alias="GP">
+            <key-map field-name="groupId"/>
+        </view-link>
+    </view-entity>
+
+
+    <entity entity-name="Region" package-name="">
+        <field name="regionId" type="id"><description>地区id</description></field>
+        <field name="regionCode" type="id"><description>地区编码</description></field>
+        <field name="regionName" type="name"><description>地区名称</description></field>
+        <field name="parentId" type="id"><description>上级地区</description></field>
+        <field name="regionLevel" type="id"><description>地区层级</description></field>
+        <field name="regionOrder" type="id"><description>地区排序</description></field>
+        <field name="regionNameEn" type="value"><description>英文名</description></field>
+        <field name="regionShortNameEn" type="name"><description>英文缩写</description></field>
+        <prim-key field="regionId"/>
+    </entity>
+</entitymodel>

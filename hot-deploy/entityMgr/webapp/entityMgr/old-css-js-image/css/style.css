@@ -1,0 +1,282 @@
+body{
+    /*min-width: 1050px;*/
+}
+body,input, textarea, keygen, select, button {
+    font-family: 'Hiragino Sans GB', Tahoma, 'microsoft yahei', simsun;
+}
+.my-required {
+    color: #ff0000;
+}
+
+
+.my-button {
+    /*display: block;*/
+    width: auto;
+    height: 25px;
+    background-color: rgb(192, 110, 48);
+    padding: 2px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 25px;
+    margin: 5px;
+
+}
+
+.my-submit {
+    /*display: block;*/
+    width: auto;
+    height: 25px;
+    background-color: #4397d5;
+    padding: 2px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 25px;
+    margin: 5px;
+
+}
+
+.my-button:hover, .my-submit:hover {
+    background-color: #36312a;
+}
+
+.my-full-item {
+    width: 100%;
+    margin: 5px;
+}
+
+.my-tr-active {
+    background-color: #bad5c1;
+}
+.data-container{
+    /*width:100%;*/
+    overflow: auto;
+    padding:0 10px 10px 0;
+}
+.data-table {
+    width: 100%;
+    overflow: auto;
+}
+.data-table table{
+    width: 100%;
+}
+.data-table .alternate-row{
+    background-color:#f6f6f6 ;
+}
+.data-table th {
+    height: 30px;
+    background-color: #c1c1c1;
+}
+
+.data-table tr {
+    text-align: center;
+    background-color: #fcfcfc;
+}
+.data-table tr:hover {
+    background-color: #ddeeff;
+}
+.data-table .checked{
+    background-color: #bbddff;
+}
+.pager{
+    height: 30px;
+    background-color: #f6f6f6;
+}
+.query-table{
+    width: 100%;
+    border: #000000;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+.query-table td{
+    padding-left: 10px;
+}
+.query-table-label
+{
+    text-align: right;
+}
+.query-table span{
+
+    display: inline-block;
+    padding: 3px;
+}
+.data-form{
+    width: 100%;
+}
+.data-form span{
+    padding: 3px;
+    display: inline-block;
+}
+.edit-table{
+
+    width: 100%;
+    margin: 10px;
+}
+.main-title{
+    line-height: 40px;
+    height: 40px;
+    width: 100%;
+    clear: both;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+.gap{
+    height: 1px;
+    width: 100%;
+    clear: both;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.main-title a{
+    text-decoration: none;
+    padding-right: 5px;
+    margin-right: 5px;
+    border-right: 1px solid #ccc;
+}
+.button{
+    align-items: flex-start;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(252, 252, 252);
+    background-image: none;
+    background-origin: padding-box;
+    background-size: auto;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-image-outset: 0px;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    box-sizing: content-box;
+    cursor: pointer;
+    display: inline-block;
+    /*float: left;*/
+    font-size: 12px;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    height: 25px;
+    letter-spacing: normal;
+    line-height: 24px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 5px;
+    margin-top: 0px;
+    /*min-width: 21px;*/
+    outline-style: none;
+    outline-width: 0px;
+    padding-bottom: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 0px;
+    text-align: center;
+    text-indent: 0px;
+    text-rendering: auto;
+    text-shadow: none;
+    text-transform: none;
+    text-decoration: none;
+    /*width: 24px;*/
+    word-spacing: 0px;
+    writing-mode: horizontal-tb;
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+}
+.button-blue {
+    background-color: rgb(0, 113, 206);
+    border-color:rgb(0, 100, 182) ;
+    /*border-bottom-color: rgb(0, 100, 182);*/
+    /*border-left-color: rgb(0, 100, 182);*/
+    /*border-right-color: rgb(0, 100, 182);*/
+    /*border-top-color: rgb(0, 100, 182);*/
+    color: rgb(255, 255, 255);
+    outline-color: rgb(255, 255, 255);
+}
+.button-orange {
+    color: #fff;
+    background-color: rgb(227, 109, 31);
+    border-color:rgb(227, 109, 31);
+    color: rgb(255, 255, 255);
+    outline-color: rgb(255, 255, 255);
+}
+.button-icon{
+    padding-left: 20px;
+    /*width:100%;*/
+    /*width: 14px;*/
+    /*height: 14px;*/
+    /*margin-right: 10px;*/
+    display: inline-block;
+    word-break: keep-all;
+    /*float: left;*/
+}
+
+
+.button-weak {
+    border-color: rgb(209, 210, 211) ;
+    /*border-bottom-color: rgb(209, 210, 211);*/
+    /*border-left-color: rgb(209, 210, 211);*/
+    /*border-right-color: rgb(209, 210, 211);*/
+    /*border-top-color: rgb(209, 210, 211);*/
+    color: rgb(0, 113, 206);
+    outline-color: rgb(0, 113, 206);
+}
+.error{
+    padding: 10px 0 10px 0;
+    background-color: #00C1B3;
+    color: #ff0000;
+    width: 100%;
+}
+
+
+/*==================编辑表单样式开始==================*/
+.edit-form ul{
+    padding: 18px 0px 18px 0px;
+    list-style: none;
+}
+.edit-form li{
+    padding: 12px 0 12px 0;
+}
+.edit-form li >.item-label{
+    position: absolute;
+
+    width: 120px;
+    text-align: right;
+}
+.edit-form li >.item-con{
+    position: relative;
+    padding-left: 125px;
+}
+.submit-box{
+    padding:10px 10px 10px 150px ;
+}
+/*==================编辑表单样式结束==================*/
+/*sql元数据*/
+.dbms-table-item{
+    width: 200px;
+    word-break: keep-all;
+    display: inline-block;
+    background: url(../../entityMgr/images/dataTable.bmp) no-repeat left center;
+    padding:0 0 0 20px;
+    cursor: pointer;
+}
+.dbms-table-item:hover{
+    background-color: #ddeeff;
+}

@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<!-- head -->
+<head>
+<title>极元理财助手—个人中心</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=640, target-densitydpi=device-dpi, user-scalable=no" />
+<meta name="description" content="" />
+<meta name="keywords" content="">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/loading.css" rel="stylesheet">
+<!-- Stucture CSS -->
+<link href="css/stucture.css" rel="stylesheet">
+<link href="css/datetimepicker.css" rel="stylesheet">
+	<link href="css/jquery.datetimepicker.css" rel="stylesheet">
+<link href="css/wap.css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.datetimepicker.js"></script>
+</head>
+<!-- /end head -->
+
+<body>
+
+
+	<div class="viewport viewport_b0 bg">
+		<div id="error">错误信息</div>
+		<form action="#" method="post">
+			<ul class="rowlist">
+				<li>
+					<div class="pull-left">姓名</div>
+					<div class="pull-right"><input name='xm' class="text" type="text" placeholder="请输入真实姓名"></div>
+				</li>
+				<li>
+					<a href="javascript:void(0)" id="sex" class="clearfix">
+						<span class="pull-left">性别</span>
+						<span class="pull-right">男</span>
+					</a>
+				</li>
+				<li>
+					<div class="pull-left">生日</div>
+					<div class="pull-right">
+						<input name='sr' class="text" id='sr' type="text" readonly placeholder="请选择日期">
+					</div>
+				</li>
+			</ul>
+			<div class="aWrap">
+				<input id="login" value="提交" class="btn btn-blue" type="button">
+			</div>
+	    </form>
+		<div id="loading" class="loading" style="display: none"><img src="images/wap/loading.gif" width="80"/><br />数据加载中</div>
+	</div>
+	
+	<!--弹出框-->
+	<div class="dialog_blank"></div>
+	<div class="dialog dialog_sex">
+		<ul>
+			<li><a>男</a><li>
+			<li><a>女</a><li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="js/utils.js"></script>
+	<script type="text/javascript" src="js/client.js"></script>
+	<script>
+		$(function(){
+			$("#sex").click(function(){
+				$(".dialog_blank").show();
+				$(".dialog_sex").show();
+			})
+			$(".dialog_sex li").click(function(){
+			    $("#sex .pull-right").text($(this).text());
+                $(".dialog_blank").hide();
+                $(".dialog_sex").hide();
+			})
+
+			$("#login").click(function(){
+			   var name= $("input[name='xm']").val();
+			   var sr=$("input[name='sr']").val();
+			   var xb= $("#sex .pull-right").text();
+			   if(initBase.validateEmpty(name,"姓名不能为空"))
+			       return ;
+				var user=cookie.getCookie("user");
+				if(user)
+				    user=JSON.parse(user);
+				var data={entityName:'BaseUfKhgl',fieldMap:{xm:name,sr:sr,xb:getSex(xb),id:user.id}};
+				console.log(JSON.stringify(data))
+                apiClient.updateUser(JSON.stringify(data), function (data) {
+                    console.log("data=" + JSON.stringify(data));
+                    //跳转到设置界面
+                    //cookie.setCookie('user',data);
+                    window.location.href = "set.html";
+                });
+
+			});
+			$('#sr').datetimepicker({
+				value:'2018-1-1',
+				format:'Y-m-d',
+				maxDate:""+new Date(),
+				lang:'ch',
+                timepicker:false
+			});
+            initInfo();
+		})
+
+		function initInfo(){
+           initBase.initUserInfo(function(data){
+               if(!data.xb)
+                   data.xb='未定义'
+               $("input[name='xm']").val(data.xm);
+               $("input[name='sr']").val(data.sr);
+               $("#sex .pull-right").text(data.xb);
+               var sj=localStorage.getItem(data.sj);
+               console.log(JSON.stringify(data));
+               /*if(sj!=undefined)
+                   window.location.href="set.html"
+			   else localStorage.setItem(data.sj,0);*/
+		   })
+
+		}
+		//1.代表男，2代表女
+		function getSex(sx){
+		    if(sx=='男')
+		        return 1;
+		    else if(sx=='女')
+		        return 2;
+			else return 0;
+		}
+	</script>
+    
+
+　　
+</body>
+</html>

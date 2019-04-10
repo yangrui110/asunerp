@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="../../../dtds/widget-screen.xsd">
+
+    <screen name="main-decorator">
+        <section>
+            <widgets>
+
+                <platform-specific>
+                    <html>
+                        <html-template location="component://entityMgr/webapp/entityMgr/includes/css-js.ftl"/>
+                        <html-template location="component://entityMgr/webapp/entityMgr/includes/header.ftl"/>
+                    </html>
+                </platform-specific>
+
+                <decorator-section-include name="left"/>
+                <container style="pane ui-layout-center">
+                    <decorator-section-include name="body"/>
+                </container>
+                <platform-specific>
+                    <html>
+                        <html-template location="component://entityMgr/webapp/entityMgr/includes/footer.ftl"/>
+                    </html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="simple-decorator">
+        <section>
+            <widgets>
+
+                <platform-specific>
+                    <html>
+                        <html-template location="component://entityMgr/webapp/entityMgr/includes/css-js.ftl"/>
+                    </html>
+                </platform-specific>
+                <container style="pane ui-layout-center">
+                    <decorator-section-include name="body"/>
+                </container>
+                <platform-specific>
+                    <html>
+                        <html-template location="component://entityMgr/webapp/entityMgr/includes/footer.ftl"/>
+                    </html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="test">
+        <section>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://entityMgr/webapp/entityMgr/includes/main.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+
+    <screen name="header-footer">
+        <section>
+            <widgets>
+
+                <platform-specific>
+                    <html>
+                        <html-template location="component://entityMgr/webapp/entityMgr/includes/css-js.ftl"/>
+                        <html-template location="component://entityMgr/webapp/entityMgr/includes/header.ftl"/>
+                    </html>
+                </platform-specific>
+                <decorator-section-include name="body"/>
+
+
+                <platform-specific>
+                    <html>
+                        <html-template location="component://entityMgr/webapp/entityMgr/includes/footer.ftl"/>
+                    </html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="extract">
+        <section>
+            <actions>
+                <entity-condition list="datasourceList" entity-name="DatabaseSeq">
+                    <condition-list>
+                        <condition-expr field-name="dataSourceName" operator="not-equals" value="default"/>
+                    </condition-list>
+                </entity-condition>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://entityMgr/webapp/entityMgr/extract/main.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <!--导出演示数据-->
+    <screen name="exportDemoDataPage">
+        <section>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://entityMgr/webapp/entityMgr/demoData/exportDemoDataPage.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="login">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html>
+                        <html-template location="component://entityMgr/webapp/login.ftl"/>
+                    </html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+</screens>
+	
+	
+

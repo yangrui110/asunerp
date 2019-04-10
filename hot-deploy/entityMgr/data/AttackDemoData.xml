@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <ArmyOrg armyName="第一军" armyId="101"/>
+    <ArmyOrg armyName="第二军" armyId="102"/>
+    <ArmyOrg armyName="第三军" armyId="103"/>
+    <ArmyOrg armyName="第四军" armyId="104"/>
+    <ArmyOrg armyName="第一军001旅" armyId="10101" parentArmyId="101"/>
+    <ArmyOrg armyName="第一军002旅" armyId="10102" parentArmyId="101"/>
+    <ArmyOrg armyName="第一军003旅" armyId="10103" parentArmyId="101"/>
+    <ArmyOrg armyName="第一军004旅" armyId="10104" parentArmyId="101"/>
+    <ArmyOrg armyName="第一军005旅" armyId="10105" parentArmyId="101"/>
+    <ArmyOrg armyName="第一军006旅" armyId="10106" parentArmyId="101"/>
+    <ArmyOrg armyName="第一军007旅" armyId="10107" parentArmyId="101"/>
+    <ArmyOrg armyName="第一军008旅" armyId="10108" parentArmyId="101"/>
+    <ArmyOrg armyName="第一军009旅" armyId="10109" parentArmyId="101"/>
+    <ArmyOrg armyName="第一军0010旅" armyId="101010" parentArmyId="101"/>
+    <ArmyOrg armyName="第一军0011旅" armyId="101011" parentArmyId="101"/>
+    <ArmyOrg armyName="第一军0012旅" armyId="101012" parentArmyId="101"/>
+    <ArmyOrg armyName="第一军0013旅" armyId="101013" parentArmyId="101"/>
+    <ArmyOrg armyName="第一军0014旅" armyId="101014" parentArmyId="101"/>
+    <ArmyOrg armyName="第1军1旅1营" armyId="1010101" parentArmyId="10101"/>
+    <ArmyOrg armyName="第1军1旅2营" armyId="1010102" parentArmyId="10101"/>
+    <ArmyOrg armyName="第1军1旅3营" armyId="1010103" parentArmyId="10101"/>
+    <ArmyOrg armyName="第1军1旅4营" armyId="1010104" parentArmyId="10101"/>
+    <ArmyOrg armyName="第1军1旅5营" armyId="1010105" parentArmyId="10101"/>
+    <ArmyOrg armyName="第1军1旅1营1架" armyId="101010101" parentArmyId="1010101"/>
+    <ArmyOrg armyName="第1军1旅1营2架" armyId="101010102" parentArmyId="1010101"/>
+    <ArmyOrg armyName="第1军1旅1营3架" armyId="101010103" parentArmyId="1010101"/>
+    <ArmyOrg armyName="第1军1旅1营4架" armyId="101010104" parentArmyId="1010101"/>
+    <ArmySoldier armyId="101010101" soldierId="001" soldierName="战士001"/>
+    <ArmySoldier armyId="101010101" soldierId="002" soldierName="战士002"/>
+    <ArmySoldier armyId="101010101" soldierId="003" soldierName="战士003"/>
+    <ArmySoldier armyId="101010101" soldierId="004" soldierName="战士004"/>
+    <ArmyWeapon armyId="101010101" weaponId="001" weaponName="狙击步枪;JJBQ-001"/>
+    <ArmyWeapon armyId="101010101" weaponId="002" weaponName="狙击步枪;JJBQ-002"/>
+    <ArmyWeapon armyId="101010101" weaponId="003" weaponName="狙击步枪;JJBQ-003"/>
+    <ArmyWeapon armyId="101010101" weaponId="004" weaponName="狙击步枪;JJBQ-004"/>
+    <ArmyWeapon armyId="101010101" weaponId="005" weaponName="狙击步枪;JJBQ-005"/>
+</entity-engine-xml>

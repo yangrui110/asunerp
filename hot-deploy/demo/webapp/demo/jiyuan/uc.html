@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<!-- head -->
+<head>
+    <title>极元理财助手—个人中心</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=640, target-densitydpi=device-dpi, user-scalable=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content="">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/loading.css" rel="stylesheet">
+    <!-- Stucture CSS -->
+    <link href="css/stucture.css" rel="stylesheet">
+    <link href="css/datetimepicker.css" rel="stylesheet">
+    <link href="css/wap.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <style type="text/css">
+        .marCenter{
+            top: 0;
+            bottom: 100px;
+            left: 0;
+            right: 0;
+            position: absolute;
+            width: 640px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<!-- /end head -->
+
+<body>
+
+<div class="viewport" ng-controller="baseController">
+
+    <div class="search clearfix">
+        <a class="pull-left c8" href="search.html">
+            <i class="fa fa-bars"></i> 筛选
+        </a>
+        <a class="pull-right text-right c8 ft22" href="uc.html">查看全部</a>
+    </div>
+
+    <!--暂无数据-->
+    <div class="text-center mt100 c8 line40" id="noElse" style="display: none"><i class="icon-all icon-nodata"></i><br />暂无数据</div>
+
+    <!--我的订单-->
+    <div class="prolist" ng-repeat="order in orders">
+        <div ng-if="order.cplx !=0 && order.cplx !=19">
+            <h1><span>{{order.cplxValue}}</span> {{order.cpmValue}}</h1>
+            <ul class="clearfix">
+                <li><font>投资金额：</font><span class="cyellow">{{order.dkje}}</span><span ng-if="order.dkjedw==0">万</span><span>元</span></li>
+                <li><font>历史年化：</font><span>{{order.maxRateValue}}%</span></li>
+                <li><font>到期时间：</font><span>{{order.arriveTimeValue}}</span></li>
+            </ul>
+            <a ng-if="order.orderDetailNum !=null&&order.orderDetailNum>1" href="detail.html?id={{order.id}}&title={{order.cpmValue}}" target="_blank">查看更多</a>
+        </div>
+        <div ng-if="order.cplx ==0 || order.cplx ==19">
+            <h1><span>{{order.cplxValue}}</span> {{order.cpmValue}}</h1>
+            <ul class="clearfix">
+                <li><font>打款金额：</font><span class="cyellow">{{order.dkje}}元</span><span ng-if="order.dkjedw==0">万</span><span>元</span></li>
+                <li><font>缴费年限：</font><span>{{order.bxjfnx}}年</span></li>
+                <li><font>打款时间：</font><span>{{order.dkrq}}</span></li>
+                <li><font>生效日期：</font><span>{{order.sxrq}}</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <a class="block text-center c7 mt30 ft20" id="more" style="display: none">加载更多</a>
+    <br/><br/>
+
+</div>
+<div class="marCenter" id="loading" style="display: none">
+    <div  class="loading" ><img src="images/wap/loading.gif" width="80"/><br />数据加载中</div>
+</div>
+<footer>
+    <div class="footer">
+        <ul>
+            <li class="on"><a href="uc.html"><i class="fa fa-area-chart"></i><span>订单</span></a></li>
+            <li><a href="message.html"><i class="fa fa-envelope"></i><span>消息</span></a></li>
+            <li><a href="set.html"><i class="fa fa-cog"></i><span>设置</span></a></li>
+        </ul>
+    </div>
+</footer>
+<script type="text/javascript" src="js/1.6.10angular.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/client.js"></script>
+<script type="text/javascript" src="js/entityUtil.js"></script>
+<script>
+    var app = angular.module('MyApp', []);
+    /**路径携带的基本参数*/
+    var productName=initBase.getQueryString("name");
+    var startTime=initBase.getQueryString("startTime");
+    var endTime=initBase.getQueryString("endTime");
+
+    app.controller('baseController', function ($scope) {
+        $scope.orders = [];
+        /**基础参数*/
+        var page = 0;
+        var size = 10;
+        getMyIvert(page, size, function (data) {
+            console.log(JSON.stringify(data));
+            $scope.$apply($scope.orders = $scope.orders.concat(data.list));
+            passMore(page,size,data.listSize);
+        })
+
+        /**响应点击事件*/
+        $("#more").click(function () {
+            page = page + 1;
+            getMyIvert(page, size, function (data) {
+                console.log(JSON.stringify(data));
+                $scope.$apply($scope.orders = $scope.orders.concat(data.list));
+                passMore(page,size,data.listSize);
+            });
+        })
+    })
+
+    function passMore(page,size,allsize){
+        if(allsize==0){
+            $("#noElse").css("display","block")
+        } else if(((page+1)*size)>=allsize)
+            $("#more").css("display","none")
+        else $("#more").css("display","block")
+    }
+
+    function getMyIvert(page,size,callback) {
+        var user = cookie.getCookie("user");
+        if (user) {
+            user = JSON.parse(user);
+            if (user.id) {
+                var condition = {
+                    conditionList: [
+                        {lhs: 'khm', operator: Operator.EQUALS, rhs: ''+user.id}
+                    ], operator: Operator.AND
+                };
+                if(productName!=undefined)
+                    condition.conditionList.push({lhs: 'cpmValue', operator: Operator.LIKE, rhs: '%'+productName+'%'})
+                if(startTime!=undefined)
+                    condition.conditionList.push({lhs: 'dkrq', operator: Operator.GREATER_THAN_EQUAL_TO, rhs: startTime})
+                if(endTime!=undefined)
+                    condition.conditionList.push({lhs: 'dkrq', operator: Operator.LESS_THAN_EQUAL_TO, rhs: endTime})
+                apiClient.findPageOrder(JSON.stringify(EntityUtil.createEntityWithConditionOrderBy("MyInvestView", condition, ['-dkrq'], page, size)), callback)
+            }
+        }
+    }
+
+</script>
+　　
+</body>
+</html>

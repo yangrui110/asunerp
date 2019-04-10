@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/dtds/site-conf.xsd">
+	<include location="component://common/webcommon/WEB-INF/common-controller.xml" />
+	<include location="component://fadp/controller/fadp-controller.xml" />
+	<include location="component://fadp/controller/fadp-system-controller.xml" />
+	<request-map uri="login" >
+        <security https="false" auth="false"/>
+        <event type="java" path="com.hanlin.fadp.webapp.control.LoginWorker" invoke="login"/>
+        <response name="success" type="view" value="main"/>
+        <response name="requirePasswordChange" type="view" value="requirePasswordChange"/>
+        <response name="error" type="view" value="login"/>
+    </request-map>
+    <request-map uri="logout">
+        <security https="false" auth="true"/>
+        <event type="java" path="com.hanlin.fadp.webapp.control.LoginWorker" invoke="logout"/>
+        <response name="success" type="request-redirect" value="main"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+
+    <request-map uri="testUpload">
+        <event type="java" path="com.hanlin.fadp.utils.UtilHttpFile" invoke="testUpload"/>
+        <response name="success" type="none"/>
+    </request-map>
+    <request-map uri="testDownload">
+        <event type="java" path="com.hanlin.fadp.utils.UtilHttpFile" invoke="testDownload"/>
+        <response name="success" type="none"/>
+    </request-map>
+
+
+
+	<request-map uri="main">	
+		<security auth="true" />
+		<response name="success" type="view" value="main"></response>
+	</request-map>
+    <view-map name="login" type="screen" page="component://fadp/widget/CommonScreens.xml#login" />
+
+    <view-map name="main" type="screen"  page="component://fadp/widget/CommonScreens.xml#main"></view-map>
+
+</site-conf>

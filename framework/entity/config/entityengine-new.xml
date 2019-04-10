@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+
+--><!--
+ - This file configures the Entity Engine JDBC (or other DataSource) and JTA
+access. For a detailed description see the core/docs/entityconfig.html file.
+--><entity-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://127.0.0.1:8888/dtds/entity-config.xsd">
+    <resource-loader class="com.hanlin.fadp.base.config.FileLoader" name="fieldfile" prefix="/framework/entity/fieldtype/" prepend-env="fadp.home"/>
+    <!-- the transaction factory class to use, one is needed for each way of getting JTA interfaces -->
+    <!-- Use this one for Geronimo -->
+    <transaction-factory class="com.hanlin.fadp.geronimo.GeronimoTransactionFactory"/>
+    <!-- Use this one for getting the JTA objects from JNDI -->
+    <!-- NOTE: to use the JndiFactory you must specify the necessary JNDI properties
+    <transaction-factory class="com.hanlin.fadp.entity.transaction.JNDITransactionFactory">
+        <user-transaction-jndi jndi-server-name="default" jndi-name="java:comp/UserTransaction"/>
+        <transaction-manager-jndi jndi-server-name="default" jndi-name="java:comp/UserTransaction"/>
+    </transaction-factory>
+    -->
+    <!--
+        It is common to use UserTransaction for the TransactionManager, but if that doesn't work, try this: <transaction-manager-jndi jndi-server-name="default" jndi-name="java:comp/TransactionManager"/>
+        Common UserTransaction locations:
+            java:comp/UserTransaction (most servers: Resin, Orion, OC4J, etc)
+            UserTransaction (RexIP)
+        JBoss uses two different objects for the UserTransaction and TransactionManager interfaces;
+        they are located in JNDI at: "java:comp/UserTransaction" and "java:/TransactionManager" respectively
+    -->
+    <!-- the connection factory class to use, one is needed for obtaining connections/pools for defined resources -->
+    <connection-factory class="com.hanlin.fadp.entity.connection.DBCPConnectionFactory"/>
+    <debug-xa-resources value="false"/>
+    <!-- see https://issues.apache.org/jira/browse/OFBIZ-4282 for more -->
+    <delegator name="default" entity-model-reader="main" entity-group-reader="main" entity-eca-reader="main" distributed-cache-clear-enabled="false">
+        <group-map group-name="com.hanlin.fadp" datasource-name="localmysql"/>
+        <group-map group-name="com.hanlin.fadp.olap" datasource-name="localderbyolap"/>
+        <group-map group-name="com.hanlin.fadp.tenant" datasource-name="localderbytenant"/>
+    </delegator>
+    <entity-model-reader name="main"/>
+    <!-- need to at least define a name for each component to use -->
+    <entity-model-reader name="db10310"/>
+    <entity-model-reader name="localdb10310"/>
+    <entity-model-reader name="db10320"/>
+    <entity-model-reader name="localdb10320"/>
+    <entity-model-reader name="whpu"/>
+    <entity-model-reader name="localwhpu"/>
+    <entity-group-reader name="main"/>
+    <!-- need to at least define a name for each component to use -->
+    <entity-group-reader name="db10310">
+    </entity-group-reader>
+    <entity-group-reader name="localdb10310"/>
+    <entity-group-reader name="db10320"/>
+    <entity-group-reader name="localdb10320"/>
+    <entity-group-reader name="whpu"/>
+    <entity-group-reader name="localwhpu"/>
+    <entity-eca-reader name="main"/>
+    <!-- need to at least define a name for each component to use -->
+    <!-- defining:
+        tenant       = OFBiz and External Tenant Data
+        seed         = OFBiz and External Seed Data - to be maintained along with source and updated whenever a system deployment is updated
+        seed-initial = OFBiz and External Seed Data - to be maintained along with source like other seed data, but only loaded initially and not updated when a system is updated except manually reviewing each line
+        demo         = OFBiz Only Demo Data
+        ext          = External General Data (custom)
+        ext-test     = External Test Data (custom)
+        ext-demo     = External Demo Data (custom)
+    -->
+    <entity-eca-reader name="db10310"/>
+    <entity-eca-reader name="localdb10310"/>
+    <entity-eca-reader name="db10320"/>
+    <entity-eca-reader name="localdb10320"/>
+    <entity-eca-reader name="whpu"/>
+    <entity-eca-reader name="localwhpu"/>
+    <entity-data-reader name="tenant"/>
+    <entity-data-reader name="seed"/>
+    <entity-data-reader name="seed-initial"/>
+    <entity-data-reader name="demo"/>
+    <entity-data-reader name="ext"/>
+    <entity-data-reader name="ext-test"/>
+    <entity-data-reader name="ext-demo"/>
+    <field-type loader="fieldfile" location="fieldtypehsql.xml" name="hsql"/>
+    <field-type loader="fieldfile" location="fieldtypederby.xml" name="derby"/>
+    <field-type loader="fieldfile" location="fieldtypedaffodil.xml" name="daffodil"/>
+    <field-type loader="fieldfile" location="fieldtypeaxion.xml" name="axion"/>
+    <field-type loader="fieldfile" location="fieldtypemysql.xml" name="mysql"/>
+    <field-type loader="fieldfile" location="fieldtypepostgres.xml" name="postgres"/>
+    <field-type loader="fieldfile" location="fieldtypeoracle.xml" name="oracle"/>
+    <field-type loader="fieldfile" location="fieldtypesapdb.xml" name="sapdb"/>
+    <field-type loader="fieldfile" location="fieldtypesybase.xml" name="sybase"/>
+    <field-type loader="fieldfile" location="fieldtypefirebird.xml" name="firebird"/>
+    <field-type loader="fieldfile" location="fieldtypemssql.xml" name="mssql"/>
+    <field-type loader="fieldfile" location="fieldtypeadvantage.xml" name="advantage"/>
+    
+    
+    
+    
+    <datasource name="localmysql"
+            helper-class="com.hanlin.fadp.entity.datasource.GenericHelperDAO"
+            field-type-name="mysql"
+            check-on-start="true"
+            add-missing-on-start="true"
+            check-pks-on-start="false"
+            use-foreign-keys="true"
+            join-style="ansi-no-parenthesis"
+            alias-view-columns="false"
+            drop-fk-use-foreign-key-keyword="true"
+            table-type="InnoDB"
+            character-set="utf8"
+            collate="utf8_general_ci">
+        <read-data reader-name="tenant"/>
+        <read-data reader-name="seed"/>
+        <read-data reader-name="seed-initial"/>
+        <read-data reader-name="demo"/>
+        <read-data reader-name="ext"/>
+        <read-data reader-name="ext-test"/>
+        <read-data reader-name="ext-demo"/>
+        <inline-jdbc
+                jdbc-driver="com.mysql.jdbc.Driver"
+                jdbc-uri="jdbc:mysql://127.0.0.1/websdt?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8"
+                jdbc-username="root"
+                jdbc-password="123456"
+                isolation-level="ReadCommitted"
+                pool-minsize="2"
+                pool-maxsize="250"
+                time-between-eviction-runs-millis="600000"/><!-- Please note that at least one person has experienced a problem with this value with MySQL
+                and had to set it to -1 in order to avoid this issue.
+                For more look at http://markmail.org/thread/5sivpykv7xkl66px and http://commons.apache.org/dbcp/configuration.html-->
+        <!-- <jndi-jdbc jndi-server-name="localjndi" jndi-name="java:/MySqlDataSource" isolation-level="Serializable"/> -->
+    </datasource>
+    
+    
+    
+    
+    <!--
+    For DAO/JDBC Helper: Tries:
+      1. JNDI Datasource IF jdbc.jndi.name, context.provider, etc are specified
+      2. Embedded (JOTM) if available (uses jdbc.driver, jdbc.uri, jdbc.username, jdbc.password, isolation.level)
+      3. Direct to manually laoded JDBC driver (uses jdbc.driver, jdbc.uri, jdbc.username, jdbc.password)
+
+    Transaction Isolation Levels - (<helperName>.isolation.level) can be as follows:
+     * None
+     * ReadCommitted (Recommended)
+     * ReadUncommitted
+     * RepeatableRead
+     * Serializable (NOT Recommended)
+     * Not set uses database default
+    -->
+    <datasource name="localderby"
+            helper-class="com.hanlin.fadp.entity.datasource.GenericHelperDAO"
+            schema-name="OFBIZ"
+            field-type-name="derby"
+            check-on-start="true"
+            add-missing-on-start="true"
+            use-pk-constraint-names="false"
+            use-indices-unique="false"
+            alias-view-columns="false"
+            use-order-by-nulls="true"
+            offset-style="fetch">
+        <read-data reader-name="tenant"/>
+        <read-data reader-name="seed"/>
+        <read-data reader-name="seed-initial"/>
+        <read-data reader-name="demo"/>
+        <read-data reader-name="ext"/>
+        <read-data reader-name="ext-test"/>
+        <read-data reader-name="ext-demo"/>
+        <!-- beware use-indices-unique="false" is needed because of Derby bug with null values in a unique index -->
+        <inline-jdbc
+                jdbc-driver="org.apache.derby.jdbc.EmbeddedDriver"
+                jdbc-uri="jdbc:derby:ofbiz;create=true"
+                jdbc-username="ofbiz"
+                jdbc-password-lookup="derby-ofbiz"
+                isolation-level="ReadCommitted"
+                pool-minsize="2"
+                pool-maxsize="250"
+                test-on-borrow="true"
+                pool-jdbc-test-stmt="values 1"
+                soft-min-evictable-idle-time-millis="600000"
+                time-between-eviction-runs-millis="600000"/>
+        <!-- <jndi-jdbc jndi-server-name="localjndi" jndi-name="java:/DerbyDataSource" isolation-level="ReadCommitted"/> -->
+    </datasource>
+    <datasource name="localderbyodbc"
+        helper-class="com.hanlin.fadp.entity.datasource.GenericHelperDAO"
+        schema-name="OFBIZ"
+        field-type-name="derby"
+        check-on-start="true"
+        add-missing-on-start="true"
+        use-pk-constraint-names="false"
+        use-indices-unique="false"
+        alias-view-columns="false"
+        use-order-by-nulls="true"
+        offset-style="fetch">
+        <!-- beware use-indices-unique="false" is needed because of Derby bug with null values in a unique index -->
+        <inline-jdbc
+            jdbc-driver="org.apache.derby.jdbc.EmbeddedDriver"
+            jdbc-uri="jdbc:derby:ofbizodbc;create=true"
+            jdbc-username="ofbiz"
+            jdbc-password-lookup="derby-ofbizodbc"
+            isolation-level="ReadCommitted"
+            pool-minsize="2"
+            pool-maxsize="250"
+                time-between-eviction-runs-millis="600000"/>
+        <!-- <jndi-jdbc jndi-server-name="localjndi" jndi-name="java:/DerbyDataSource" isolation-level="ReadCommitted"/> -->
+    </datasource>
+    <datasource name="localderbyolap"
+            helper-class="com.hanlin.fadp.entity.datasource.GenericHelperDAO"
+            schema-name="OFBIZ"
+            field-type-name="derby"
+            check-on-start="true"
+            add-missing-on-start="true"
+            use-pk-constraint-names="false"
+            use-indices-unique="false"
+            alias-view-columns="false"
+            use-order-by-nulls="true">
+        <!-- beware use-indices-unique="false" is needed because of Derby bug with null values in a unique index -->
+        <read-data reader-name="tenant"/>
+        <read-data reader-name="seed"/>
+        <read-data reader-name="seed-initial"/>
+        <read-data reader-name="demo"/>
+        <read-data reader-name="ext"/>
+        <read-data reader-name="ext-test"/>
+        <read-data reader-name="ext-demo"/>
+        <inline-jdbc
+                jdbc-driver="org.apache.derby.jdbc.EmbeddedDriver"
+                jdbc-uri="jdbc:derby:ofbizolap;create=true"
+                jdbc-username="ofbiz"
+                jdbc-password-lookup="derby-ofbizolap"
+                isolation-level="ReadCommitted"
+                pool-minsize="2"
+                pool-maxsize="250"
+                time-between-eviction-runs-millis="600000"/>
+        <!-- <jndi-jdbc jndi-server-name="localjndi" jndi-name="java:/DerbyDataSource" isolation-level="ReadCommitted"/> -->
+    </datasource>
+    <datasource name="localderbytenant"
+        helper-class="com.hanlin.fadp.entity.datasource.GenericHelperDAO"
+        schema-name="OFBIZ"
+        field-type-name="derby"
+        check-on-start="true"
+        add-missing-on-start="true"
+        use-pk-constraint-names="false"
+        use-indices-unique="false"
+        alias-view-columns="false"
+        use-order-by-nulls="true">
+        <read-data reader-name="tenant"/>
+        <read-data reader-name="seed"/>
+        <read-data reader-name="seed-initial"/>
+        <read-data reader-name="demo"/>
+        <read-data reader-name="ext"/>
+        <read-data reader-name="ext-test"/>
+        <read-data reader-name="ext-demo"/>
+        <!-- beware use-indices-unique="false" is needed because of Derby bug with null values in a unique index -->
+        <inline-jdbc
+            jdbc-driver="org.apache.derby.jdbc.EmbeddedDriver"
+            jdbc-uri="jdbc:derby:ofbiztenant;create=true"
+            jdbc-username="ofbiz"
+            jdbc-password-lookup="derby-ofbiztenant"
+            isolation-level="ReadCommitted"
+            pool-minsize="2"
+            pool-maxsize="250"
+            time-between-eviction-runs-millis="600000"/>
+        <!-- <jndi-jdbc jndi-server-name="localjndi" jndi-name="java:/DerbyDataSource" isolation-level="ReadCommitted"/> -->
+    </datasource>
+</entity-config>

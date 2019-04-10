@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<!-- head -->
+<head>
+<title>极元理财助手—个人中心</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=640, target-densitydpi=device-dpi, user-scalable=no" />
+<meta name="description" content="" />
+<meta name="keywords" content="">
+    <link href="css/loading.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<!-- Stucture CSS -->
+<link href="css/stucture.css" rel="stylesheet">
+<link href="css/wap.css" rel="stylesheet">
+
+</head>
+<!-- /end head -->
+
+<body>
+
+<div class="viewport viewport_b0 bg">
+    <div class="text-center mt100 pb60"><img src="images/logo1.png" width="280"></div>
+    <div id="error">错误信息</div>
+        <ul class="rowlist">
+            <li>
+                <div class="pull-left">手机号</div>
+                <div class="pull-right"><input class="w300" name="mobile" type="tel" placeholder="手机号" maxlength="11" ></div>
+            </li>
+            <li>
+                <div class="pull-left">密码</div>
+                <div class="pull-right"><input  name="password" type="password" placeholder="登录密码" maxlength="20" ></div>
+            </li>
+        </ul>
+        <div class="clearfix tit ft24">
+            <div class="pull-left"><a href="regsister.html" class="cblue">我要注册</a></div>
+            <div class="pull-right"><a href="findPassword1.html" class="c7">忘记密码</a></div>
+        </div>
+        <div class="aWrap">
+            <input id="login" value="登录" type="button" class="btn btn-blue">
+        </div>
+    <div id="loading" class="loading" style="display: none"><img src="images/wap/loading.gif" width="80"/><br />数据加载中</div>
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/client.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#login").click(function(){
+            //1.获取数据
+            //2.进行登录操作
+            var phone=$("input[name='mobile']").val();
+            var password=$("input[name='password']").val();
+            if(!initBase.validatePhone(phone))
+                return ;
+            if(initBase.validateEmpty(password,"密码不能为空"))
+                return ;
+            var data={userName:phone,passWord:password};
+            apiClient.loginUser(JSON.stringify(data),function(data){
+                if(!data.error) {
+
+                    //获取我们需要的user数据
+                    var sm={entityName:'BaseUfKhglView',PK:{id:data.userLoginId}};
+                    apiClient.getUserOne(JSON.stringify(sm),function(data){
+                        if(!data.error) {
+                            console.log(JSON.stringify(data));
+                            cookie.setCookieNoTime("user", JSON.stringify(data));
+                            //登录成功后根据用户名是否为空决定跳转的地址
+                            if(data.xm==undefined||data.xm=="")
+                                window.location.href = 'info.html';
+                            else window.location.href = 'uc.html';
+                        }else alert(data.error);
+                    });
+
+                }else {
+                    initBase.setError(data.error);
+                }
+            })
+        });
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <excludeFromCompile>
+      <file url="file://$PROJECT_DIR$/framework/base/src/com/hanlin/fadp/base/config/CoberturaInstrumenter.java" />
+      <file url="file://$PROJECT_DIR$/framework/webapp/src/com/hanlin/fadp/webapp/view/JasperReportsPdfViewHandler.java" />
+      <file url="file://$PROJECT_DIR$/framework/webapp/src/com/hanlin/fadp/webapp/view/JasperReportsXmlViewHandler.java" />
+      <file url="file://$PROJECT_DIR$/framework/webapp/src/com/hanlin/fadp/webapp/view/JasperReportsJXlsViewHandler.java" />
+      <file url="file://$PROJECT_DIR$/framework/webapp/src/com/hanlin/fadp/webapp/view/JasperReportsPoiXlsViewHandler.java" />
+      <directory url="file://$PROJECT_DIR$/hot-deploy/websdt/src/com/hanlin/fadp/websdt/rule/code/cjcc" includeSubdirectories="false" />
+      <file url="file://$PROJECT_DIR$/hot-deploy/websdt/src/com/hanlin/fadp/websdt/rule/office/word/WordXParserBackup.java" />
+      <file url="file://$PROJECT_DIR$/hot-deploy/entityMgr/src/com/hanlin/fadp/petrescence/datasource/MongoService.java" />
+      <file url="file://$PROJECT_DIR$/hot-deploy/entityMgr/src/com/hanlin/fadp/petrescence/datasource/MongoServiceTestCase.java" />
+    </excludeFromCompile>
+    <bytecodeTargetLevel target="1.8" />
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="-Xplugin:Manifold" />
+  </component>
+</project>

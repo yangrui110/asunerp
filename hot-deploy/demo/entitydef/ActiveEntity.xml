@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="../../../dtds/entitymodel.xsd">
+    <description>极元模块</description>
+    <entity entity-name="UfKhhd" package-name="">
+        <field name="id" type="numeric">
+            <description>id值，主键</description>
+        </field>
+        <field name="hdbt" type="credit-card-number">
+            <description>活动标题</description>
+        </field>
+        <field name="hdsj" type="very-short">
+            <description>活动时间</description>
+        </field>
+        <field name="hdzy" type="credit-card-number">
+            <description>活动摘要</description>
+        </field>
+        <field name="hddz" type="credit-card-number">
+            <description>活动地址</description>
+        </field>
+        <field name="hdlx" type="credit-card-number">
+            <description>活动类型</description>
+        </field>
+        <field name="hdzw" type="very-long">
+            <description>活动正文</description>
+        </field>
+        <field name="hdzt" type="credit-card-number">
+            <description>活动状态</description>
+        </field>
+        <field name="hdtp" type="other-long">
+            <description>活动图片</description>
+        </field>
+<!--        <field name="icon" type="url">
+            <description>头像地址</description>
+        </field>-->
+        <prim-key field="id"/>
+    </entity>
+    <view-entity entity-name="UfKhhdView" package-name="">
+        <member-entity entity-alias="AV" entity-name="UfKhhd"></member-entity>
+        <alias-all entity-alias="AV"/>
+    </view-entity>
+
+</entitymodel>

@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<!-- head -->
+<head>
+<title></title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=640, target-densitydpi=device-dpi, user-scalable=no" />
+<meta name="description" content="" />
+<meta name="keywords" content="">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/loading.css" rel="stylesheet">
+<!-- Stucture CSS -->
+<link href="css/stucture.css" rel="stylesheet">
+<link href="css/datetimepicker.css" rel="stylesheet">
+<link href="css/wap.css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<!-- /end head -->
+
+<body>
+
+	<div class="viewport viewport_b0 detail" ng-controller="baseController">
+		
+		<h1><div id="title"></div></h1>
+		<!--分期订单-->
+		<div class="prolist" ng-repeat="detail in details">
+			<ul class="clearfix">
+				<li><font>存续金额：</font><span class="cyellow">{{detail.cxje}}元</span></li>
+				<li><font>投资天数：</font><span>{{detail.tzts}}天</span></li>
+				<li><font>计息日期：</font><span>{{detail.jxrq}}</span></li>
+				<li><font>结束日期：</font><span>{{detail.jsrq}}</span></li>
+			</ul>
+		</div>
+
+		<a class="block text-center c7 mt30 ft20" id="more">加载更多</a>
+		<br /><br />
+		<div id="loading" class="loading" style="display: none"><img src="images/wap/loading.gif" width="80"/><br />数据加载中</div>
+	</div>
+
+	<script type="text/javascript" src="js/1.6.10angular.js"></script>
+	<script type="text/javascript" src="js/utils.js"></script>
+	<script type="text/javascript" src="js/client.js"></script>
+	<script type="text/javascript" src="js/entityUtil.js"></script>
+<script>
+    var app = angular.module('MyApp', []);
+    var id=initBase.getQueryString("id");
+    var title=initBase.getQueryString("title");
+
+    $(document).ready(function(){
+        $("#title").text(title);
+        document.title=title;
+	})
+    app.controller('baseController', function ($scope) {
+        $scope.details=[];
+        var page=0;
+        var size=10;
+        var alldata=0;
+        var condition = {
+            conditionList: [{lhs: 'mainid', operator: Operator.EQUALS, rhs: id}], operator: Operator.AND
+        };
+		apiClient.findPageOrder(JSON.stringify(EntityUtil.createEntityWithCondition("OrderDetail",condition,page,size)),function (data) {
+			$scope.$apply(function(){
+                $scope.details=data.list;
+                alldata=data.listSize;
+			})
+        });
+		$("#more").click(function(){
+		    page=page+1;
+		    if((page*size)<alldata)
+                apiClient.findPageOrder(JSON.stringify(EntityUtil.createEntityWithCondition("OrderDetail",condition,page,size)),function (data) {
+                    $scope.$apply(function(){
+                        $scope.details=$scope.details.concat(data.list);
+                    })
+                });
+		    else $("#more").css("display","none");
+		});
+	})
+</script>
+</body>
+</html>

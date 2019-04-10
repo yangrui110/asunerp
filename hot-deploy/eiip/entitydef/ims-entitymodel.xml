@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="UTF-8"?><entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../dtds/entitymodel.xsd">
+   <description>库存管理inventory management system</description>
+   <entity entity-name="BatchMaterialBatch" package-name="">
+      <description>批次管理</description>
+      <field name="batchId" not-null="true" type="id">
+         <description>批次ID</description>
+      </field>
+      <field name="materialId" type="id">
+         <description>物料ID</description>
+      </field>
+      <field name="batchCode" type="short-varchar">
+         <description>批号</description>
+      </field>
+      <field name="validDate" type="short-varchar">
+         <description>有效日期</description>
+      </field>
+      <field name="manufactureDate" type="short-varchar">
+         <description>生产日期</description>
+      </field>
+      <field name="earliestInputDate" type="short-varchar">
+         <description>最早入库日</description>
+      </field>
+      <field name="batchDesc" type="long-varchar">
+         <description>批号说明</description>
+      </field>
+      <field name="descCnt" type="very-long">
+         <description>备注</description>
+      </field>
+      <field name="isDel" type="numeric">
+         <description>删除标记</description>
+      </field>
+      <field name="delOperator" type="id">
+         <description>删除人</description>
+      </field>
+      <field name="delTime" type="short-varchar">
+         <description>删除时间</description>
+      </field>
+      <field name="operateTime" type="short-varchar">
+         <description>操作时间</description>
+      </field>
+      <field name="operator" type="id">
+         <description>操作人</description>
+      </field>
+      <prim-key field="batchId"/>
+   </entity>
+   <view-entity entity-name="BatchMaterialBatchView" package-name="">
+      <member-entity entity-alias="MB" entity-name="BatchMaterialBatch"></member-entity>
+      <member-entity entity-alias="DM" entity-name="DataMaterial"></member-entity>
+      <member-entity entity-alias="UL" entity-name="UserLogin"></member-entity>
+      <alias-all entity-alias="MB"></alias-all>
+      <alias name="materialIdValue" field="materialName" entity-alias="DM"/>
+      <alias name="materialCode" entity-alias="DM"/>
+      <alias name="operatorValue" field="userName" entity-alias="UL"/>
+
+      <view-link entity-alias="MB" rel-entity-alias="DM">
+         <key-map field-name="materialId"/>
+      </view-link>
+      <view-link entity-alias="MB" rel-entity-alias="UL">
+         <key-map field-name="operator" rel-field-name="userLoginId"/>
+      </view-link>
+   </view-entity>
+   <entity entity-name="DataStorehouse" package-name="">
+      <description>仓库</description>
+      <field name="storehouseFax" type="short-varchar">
+         <description>传真</description>
+      </field>
+      <field name="storehouseId" not-null="true" type="id">
+         <description>仓库ID</description>
+      </field>
+      <field name="storehouseTel" type="short-varchar">
+         <description>电话</description>
+      </field>
+      <field name="storehouseCode" type="long-varchar">
+         <description>仓库编号</description>
+      </field>
+      <field name="descCnt" type="very-long">
+         <description>备注</description>
+      </field>
+      <field name="domainId" type="id">
+         <description>所属单位</description>
+      </field>
+      <field name="storehouseType" type="id">
+         <description>仓库类型</description>
+      </field>
+      <field name="storehouseName" type="long-varchar">
+         <description>仓库名称</description>
+      </field>
+      <field name="storehouseAddr" type="very-long">
+         <description>仓库地址</description>
+      </field>
+      <field name="storehouseStatus" type="id">
+         <description>仓库状态</description>
+      </field>
+      <field name="storehouseDutyer" type="short-varchar">
+         <description>仓库负责人</description>
+      </field>
+      <prim-key field="storehouseId"/>
+   </entity>
+   <view-entity entity-name="DataStorehouseView" package-name="">
+      <member-entity entity-alias="DS" entity-name="DataStorehouse"/>
+      <member-entity entity-alias="DIC" entity-name="FadpDic"></member-entity>
+      <alias-all entity-alias="DS"></alias-all>
+      <alias name="storehouseTypeValue" field="dicValue" entity-alias="DIC"/>
+      <view-link entity-alias="DS" rel-entity-alias="DIC" rel-optional="true">
+         <key-map field-name="storehouseType" rel-field-name="dicId"/>
+      </view-link>
+   </view-entity>
+   <entity entity-name="DataMaterialStore" package-name="">
+      <description>库存明细</description>
+      <field name="storeId" not-null="true" type="id">
+         <description>库存ID</description>
+      </field>
+      <field name="storehouseId" type="id">
+         <description>仓库ID</description>
+      </field>
+      <field name="materialId" type="id">
+         <description>原料ID</description>
+      </field>
+      <field name="storeNum" type="numeric">
+         <description>数量</description>
+      </field>
+      <field name="descCnt" type="very-long">
+         <description>备注</description>
+      </field>
+      <field name="domainId" type="id">
+         <description>所属单位</description>
+      </field>
+      <field name="batchId" type="id">
+         <description>批号ID</description>
+      </field>
+      <field name="stockMaterialUnit" type="id">
+         <description>库存单位</description>
+      </field>
+      <prim-key field="storeId"/>
+   </entity>
+   <view-entity entity-name="MaterialFroStoreQuery" package-name="">
+      <member-entity entity-alias="MTT" entity-name="DataMaterialType"></member-entity>
+      <member-entity entity-alias="DM" entity-name="DataMaterial"></member-entity>
+      <alias name="materialTypeName" entity-alias="MTT"><description>物料类型</description></alias>
+
+      <alias name="materialTypeId" entity-alias="DM"><description>物料类型</description></alias>
+      <alias name="materialId" entity-alias="DM"><description>物料名称</description></alias>
+      <alias name="materialName" entity-alias="DM"><description>物料名称</description></alias>
+      <alias name="materialCode" entity-alias="DM"><description>编码</description></alias>
+      <alias name="materialSpec" entity-alias="DM"><description>规格</description></alias>
+      <alias name="materialModel" entity-alias="DM"><description>型号</description></alias>
+      <alias name="materialUnitName" entity-alias="DM"><description>单位</description></alias>
+      <alias name="isSnSupport" entity-alias="DM"><description>支持sn</description></alias>
+      <view-link entity-alias="DM" rel-entity-alias="MTT">
+         <key-map field-name="materialTypeId"/>
+      </view-link>
+   </view-entity>
+   <view-entity entity-name="DataMaterialStoreView" package-name="">
+      <description>库存视图</description>
+      <member-entity entity-alias="MS" entity-name="DataMaterialStore"></member-entity>
+      <member-entity entity-alias="SH" entity-name="DataStorehouse"></member-entity>
+      <member-entity entity-alias="MTE" entity-name="MaterialFroStoreQuery"></member-entity>
+      <member-entity entity-alias="MB" entity-name="BatchMaterialBatch"></member-entity>
+      <alias-all entity-alias="MTE"/>
+
+      <alias name="storeNum" entity-alias="MS"/>
+      <alias name="descCnt" entity-alias="MS"/>
+      <alias name="storehouseId" entity-alias="MS"/>
+      <alias name="storehouseName" entity-alias="SH"/>
+      <alias name="batchId" entity-alias="MS"/>
+      <alias name="batchCode" entity-alias="MB"/>
+      <view-link entity-alias="MS" rel-entity-alias="SH">
+         <key-map field-name="storehouseId"/>
+      </view-link>
+      <view-link entity-alias="MS" rel-entity-alias="MTE">
+         <key-map field-name="materialId"/>
+      </view-link>
+      <view-link entity-alias="MS" rel-entity-alias="MB" rel-optional="true">
+         <key-map field-name="batchId"/>
+      </view-link>
+   </view-entity>
+   <view-entity entity-name="StoreTotal" package-name="">
+      <member-entity entity-alias="MS" entity-name="DataMaterialStore"></member-entity>
+      <alias name="storeNum" entity-alias="MS" function="sum"/>
+      <alias name="materialId" entity-alias="MS" group-by="true"/>
+   </view-entity>
+   <view-entity entity-name="DataMaterialStoreTotal" package-name="">
+      <description>库存汇总视图</description>
+      <member-entity entity-alias="MTE" entity-name="MaterialFroStoreQuery"></member-entity>
+      <member-entity entity-alias="ST" entity-name="StoreTotal"></member-entity>
+
+      <alias-all entity-alias="MTE"></alias-all>
+
+      <alias name="storeNum" entity-alias="ST"><description>数量</description></alias>
+
+      <view-link entity-alias="MTE" rel-entity-alias="ST">
+         <key-map field-name="materialId"/>
+      </view-link>
+   </view-entity>
+
+   <view-entity entity-name="StoreBatch" package-name="">
+      <member-entity entity-alias="MS" entity-name="DataMaterialStore"></member-entity>
+      <member-entity entity-alias="MB" entity-name="BatchMaterialBatch"></member-entity>
+
+      <alias name="storeNum" entity-alias="MS" function="sum"/>
+      <alias name="materialId" entity-alias="MS" group-by="true"/>
+      <alias name="batchId" entity-alias="MS" group-by="true"/>
+
+
+      <alias name="batchCode" entity-alias="MB"/>
+      <alias name="validDate" entity-alias="MB"/>
+      <alias name="manufactureDate" entity-alias="MB"/>
+      <alias name="earliestInputDate" entity-alias="MB"/>
+
+
+      <view-link entity-alias="MS" rel-entity-alias="MB">
+         <key-map field-name="batchId"/>
+      </view-link>
+
+   </view-entity>
+   <view-entity entity-name="DataMaterialStoreBatchTotal" package-name="">
+      <description>库存分批视图</description>
+      <member-entity entity-alias="MTE" entity-name="MaterialFroStoreQuery"></member-entity>
+      <member-entity entity-alias="SB" entity-name="StoreBatch"></member-entity>
+
+
+      <alias-all entity-alias="MTE"></alias-all>
+      <alias-all entity-alias="SB"></alias-all>
+
+
+
+      <view-link entity-alias="MTE" rel-entity-alias="SB">
+         <key-map field-name="materialId"/>
+      </view-link>
+
+   </view-entity>
+
+   <entity entity-name="StockDetect" package-name="">
+      <description>库存检测</description>
+      <field name="dataStartDate" type="short-varchar">
+         <description>数据起始日期</description>
+      </field>
+      <field name="operateTime" type="short-varchar">
+         <description>操作日期</description>
+      </field>
+      <field name="operator" type="id">
+         <description>操作员</description>
+      </field>
+      <field name="detectId" not-null="true" type="id">
+         <description>检测单ID</description>
+      </field>
+      <field name="descCnt" type="very-long">
+         <description>备注</description>
+      </field>
+      <field name="domainId" type="id">
+         <description>所属单位</description>
+      </field>
+      <field name="detectCode" type="short-varchar">
+         <description>检测单编号</description>
+      </field>
+      <field name="detectStartDate" type="short-varchar">
+         <description>检测开始时间</description>
+      </field>
+      <field name="detectEndDate" type="short-varchar">
+         <description>检测结束时间</description>
+      </field>
+      <field name="dataEndDate" type="short-varchar">
+         <description>数据结束日期</description>
+      </field>
+      <field name="correctNum" type="id">
+         <description>正常记录数</description>
+      </field>
+      <field name="errorNum" type="id">
+         <description>异常记录数</description>
+      </field>
+      <prim-key field="detectId"/>
+   </entity>
+   <entity entity-name="StockDetectHistory" package-name="">
+      <description>库存检测历史</description>
+      <field name="historyOperator" type="id">
+         <description>生成历史操作人</description>
+      </field>
+      <field name="descCnt" type="very-long">
+         <description>备注</description>
+      </field>
+      <field name="domainId" type="id">
+         <description>所属单位</description>
+      </field>
+      <field name="detectCode" type="short-varchar">
+         <description>检测单编号</description>
+      </field>
+      <field name="detectStartDate" type="short-varchar">
+         <description>检测开始时间</description>
+      </field>
+      <field name="detectEndDate" type="short-varchar">
+         <description>检测结束时间</description>
+      </field>
+      <field name="correctNum" type="id">
+         <description>正常记录数</description>
+      </field>
+      <field name="dataStartDate" type="short-varchar">
+         <description>数据起始日期</description>
+      </field>
+      <field name="operateTime" type="short-varchar">
+         <description>操作日期</description>
+      </field>
+      <field name="operator" type="id">
+         <description>操作员</description>
+      </field>
+      <field name="historyTime" type="short-varchar">
+         <description>生成历史时间</description>
+      </field>
+      <field name="detectId" not-null="true" type="id">
+         <description>检测单ID</description>
+      </field>
+      <field name="dataEndDate" type="short-varchar">
+         <description>数据结束日期</description>
+      </field>
+      <field name="detectHistoryId" not-null="true" type="id">
+         <description>检测单历史ID</description>
+      </field>
+      <field name="errorNum" type="id">
+         <description>异常记录数</description>
+      </field>
+      <prim-key field="detectHistoryId"/>
+   </entity>
+   <entity entity-name="StockDetectStore" package-name="">
+      <description>None</description>
+      <field name="detectedStoreNum" type="numeric">
+         <description>检测库存数量</description>
+      </field>
+      <field name="storehouseId" type="id">
+         <description>仓库ID</description>
+      </field>
+      <field name="detectId" type="id">
+         <description>库存检测单ID</description>
+      </field>
+      <field name="descCnt" type="very-long">
+         <description>备注</description>
+      </field>
+      <field name="domainId" type="id">
+         <description>所属单位</description>
+      </field>
+      <field name="storeId" not-null="true" type="id">
+         <description>库存ID</description>
+      </field>
+      <field name="detectedStockMaterialUnit" type="id">
+         <description>检测库存单位</description>
+      </field>
+      <field name="storeNum" type="numeric">
+         <description>库存数量</description>
+      </field>
+      <field name="materialId" type="id">
+         <description>原料ID</description>
+      </field>
+      <field name="stockMaterialUnit" type="id">
+         <description>库存单位</description>
+      </field>
+      <prim-key field="storeId"/>
+   </entity>
+   <entity entity-name="StockDetectStoreHistory" package-name="">
+      <description>None</description>
+      <field name="detectedStoreNum" type="numeric">
+         <description>检测库存数量</description>
+      </field>
+      <field name="storeHistoryId" not-null="true" type="id">
+         <description>库存历史ID</description>
+      </field>
+      <field name="storehouseId" type="id">
+         <description>仓库ID</description>
+      </field>
+      <field name="descCnt" type="very-long">
+         <description>备注</description>
+      </field>
+      <field name="detectId" type="id">
+         <description>库存检测单ID</description>
+      </field>
+      <field name="domainId" type="id">
+         <description>所属单位</description>
+      </field>
+      <field name="storeId" not-null="true" type="id">
+         <description>库存ID</description>
+      </field>
+      <field name="detectedStockMaterialUnit" type="id">
+         <description>检测库存单位</description>
+      </field>
+      <field name="storeNum" type="numeric">
+         <description>库存数量</description>
+      </field>
+      <field name="materialId" type="id">
+         <description>原料ID</description>
+      </field>
+      <field name="stockMaterialUnit" type="id">
+         <description>库存单位</description>
+      </field>
+      <field name="detectHistoryId" type="id">
+         <description>库存检测单历史ID</description>
+      </field>
+      <prim-key field="storeHistoryId"/>
+   </entity>
+   <entity entity-name="StockInput" package-name="">
+      <description>入库</description>
+      <field name="inputId" not-null="true" type="id">
+         <description>入库单ID</description>
+      </field>
+      <field name="descCnt" type="very-long">
+         <description>备注</description>
+      </field>
+      <field name="domainId" type="id">
+         <description>所属单位</description>
+      </field>
+      <field name="inputCode" type="short-varchar">
+         <description>入库单号</description>
+      </field>
+      <field name="delOperator" type="id">
+         <description>删除人</description>
+      </field>
+      <field name="inputDate" type="short-varchar">
+         <description>入库日期</description>
+      </field>
+      <field name="inputStatus" type="id">
+         <description>入库单状态</description>
+      </field>
+      <field name="delTime" type="short-varchar">
+         <description>删除时间</description>
+      </field>
+      <field name="operateTime" type="short-varchar">
+         <description>操作日期</description>
+      </field>
+      <field name="inputOperator" type="id">
+         <description>入库人</description>
+      </field>
+      <field name="auditDesc" type="very-long">
+         <description>审核信息</description>
+      </field>
+      <field name="operator" type="id">
+         <description>操作员</description>
+      </field>
+      <field name="isDel" type="id">
+         <description>删除标记</description>
+      </field>
+      <field name="auditor" type="id">
+         <description>审核人</description>
+      </field>
+      <field name="auditTime" type="short-varchar">
+         <description>审核时间</description>
+      </field>
+      <prim-key field="inputId"/>
+   </entity>
+   <view-entity entity-name="StockInputView" package-name="">
+      <member-entity entity-alias="SI" entity-name="StockInput"></member-entity>
+      <member-entity entity-alias="UL1" entity-name="UserLogin"></member-entity>
+      <member-entity entity-alias="UL2" entity-name="UserLogin"></member-entity>
+      <member-entity entity-alias="UL3" entity-name="UserLogin"></member-entity>
+      <member-entity entity-alias="DIC" entity-name="FadpDic"></member-entity>
+      <alias-all entity-alias="SI"/>
+      <alias name="inputOperatorValue" field="userName" entity-alias="UL1"/>
+      <alias name="operatorValue" field="userName" entity-alias="UL2"/>
+      <alias name="auditorValue" field="userName" entity-alias="UL3"/>
+      <alias name="inputStatusValue" field="dicValue" entity-alias="DIC"/>
+      <view-link entity-alias="SI" rel-entity-alias="UL1" rel-optional="true">
+         <key-map field-name="inputOperator" rel-field-name="userLoginId"/>
+      </view-link>
+      <view-link entity-alias="SI" rel-entity-alias="UL2" rel-optional="true">
+         <key-map field-name="operator" rel-field-name="userLoginId"/>
+      </view-link>
+      <view-link entity-alias="SI" rel-entity-alias="UL3" rel-optional="true">
+         <key-map field-name="auditor" rel-field-name="userLoginId"/>
+      </view-link>
+      <view-link entity-alias="SI" rel-entity-alias="DIC" rel-optional="true">
+         <key-map field-name="inputStatus" rel-field-name="dicId"/>
+      </view-link>
+   </view-entity>
+   <entity entity-name="StockInputItem" package-name="">
+      <description>入库条目</description>
+      <field name="inputId" type="id">
+         <description>入库单ID</description>
+      </field>
+      <field name="descCnt" type="very-long">
+         <description>备注</description>
+      </field>
+      <field name="batchId" type="id">
+         <description>批号ID</description>
+      </field>
+      <field name="materialId" type="id">
+         <description>物料</description>
+      </field>
+      <field name="submitInputNum" type="numeric">
+         <description>送检入库数</description>
+      </field>
+      <field name="storehouseId" type="id">
+         <description>仓库</description>
+      </field>
+      <field name="qualifiedNum" type="numeric">
+         <description>检验合格数</description>
+      </field>
+      <field name="inputItemId" not-null="true" type="id">
+         <description>入库条目ID</description>
+      </field>
+      <field name="inputNum" type="numeric">
+         <description>入库数量</description>
+      </field>
+      <field name="inputedSnNum" type="id">
+         <description>已入SN数</description>
+      </field>
+      <field name="inputMaterialUnit" type="id">
+         <description>入库单位</description>
+      </field>
+      <field name="defaultMaterialUnit" type="id">
+         <description>默认单位</description>
+      </field>
+      <field name="inputNumWithDefault" type="numeric">
+         <description>默认单位计入库数量</description>
+      </field>
+      <prim-key field="inputItemId"/>
+   </entity>
+   <view-entity entity-name="StockInputItemView" package-name="">
+      <description>销售订单物料明细</description>
+      <member-entity entity-alias="SII" entity-name="StockInputItem"></member-entity>
+      <member-entity entity-alias="DM" entity-name="MaterialForItemView"></member-entity>
+      <member-entity entity-alias="SH" entity-name="DataStorehouse"></member-entity>
+      <member-entity entity-alias="SNT" entity-name="SnTicketMaterialSn"></member-entity>
+      <member-entity entity-alias="MB" entity-name="BatchMaterialBatch"></member-entity>
+      <alias name="inputItemId" entity-alias="SII"/>
+      <alias name="materialId" entity-alias="SII"/>
+      <alias name="inputId" entity-alias="SII"/>
+      <alias name="inputNum" entity-alias="SII"/>
+      <alias name="storehouseId" entity-alias="SII"/>
+      <alias name="descCnt" entity-alias="SII"/>
+      <alias name="batchId" entity-alias="SII"/>
+      <alias name="storehouseIdValue" field="storehouseName" entity-alias="SH"/>
+      <alias name="ticketMaterialSnId" entity-alias="SNT"/>
+      <alias name="batchIdValue" field="batchCode" entity-alias="MB"/>
+      <alias-all entity-alias="DM"><exclude field="materialId"/></alias-all>
+      <view-link entity-alias="SII" rel-entity-alias="DM">
+         <key-map field-name="materialId"/>
+      </view-link>
+      <view-link entity-alias="SII" rel-entity-alias="SH" rel-optional="true">
+         <key-map field-name="storehouseId"/>
+      </view-link>
+      <view-link entity-alias="SII" rel-entity-alias="SNT" rel-optional="true">
+         <key-map field-name="inputId" rel-field-name="ticketId"/>
+         <key-map field-name="inputItemId" rel-field-name="ticketItemId"/>
+      </view-link>
+      <view-link entity-alias="SII" rel-entity-alias="MB" rel-optional="true">
+         <key-map field-name="batchId"/>
+      </view-link>
+   </view-entity>
+
+   <entity entity-name="StockOutput" package-name="">
+      <description>出库</description>
+      <field name="outputCode" type="short-varchar">
+         <description>出库单号</description>
+      </field>
+      <field name="outputStatus" type="id">
+         <description>出库单状态</description>
+      </field>
+      <field name="outputDate" type="short-varchar">
+         <description>出库日期</description>
+      </field>
+      <field name="descCnt" type="very-long">
+         <description>备注</description>
+      </field>
+      <field name="domainId" type="id">
+         <description>所属单位</description>
+      </field>
+      <field name="delOperator" type="id">
+         <description>删除人</description>
+      </field>
+      <field name="delTime" type="short-varchar">
+         <description>删除时间</description>
+      </field>
+      <field name="operateTime" type="short-varchar">
+         <description>操作日期</description>
+      </field>
+      <field name="auditDesc" type="very-long">
+         <description>审核信息</description>
+      </field>
+      <field name="operator" type="id">
+         <description>操作员</description>
+      </field>
+      <field name="isDel" type="id">
+         <description>删除标记</description>
+      </field>
+      <field name="outputOperator" type="id">
+         <description>出库人</description>
+      </field>
+      <field name="outputId" not-null="true" type="id">
+         <description>出库单ID</description>
+      </field>
+      <field name="auditor" type="id">
+         <description>审核人</description>
+      </field>
+      <field name="auditTime" type="short-varchar">
+         <description>审核时间</description>
+      </field>
+      <prim-key field="outputId"/>
+   </entity>
+   <view-entity entity-name="StockOutputView" package-name="">
+      <member-entity entity-alias="ME" entity-name="StockOutput"></member-entity>
+      <member-entity entity-alias="UL1" entity-name="UserLogin"></member-entity>
+      <member-entity entity-alias="UL2" entity-name="UserLogin"></member-entity>
+      <member-entity entity-alias="UL3" entity-name="UserLogin"></member-entity>
+      <member-entity entity-alias="DIC" entity-name="FadpDic"></member-entity>
+      <alias-all entity-alias="ME"/>
+      <alias name="outputOperatorValue" field="userName" entity-alias="UL1"/>
+      <alias name="operatorValue" field="userName" entity-alias="UL2"/>
+      <alias name="auditorValue" field="userName" entity-alias="UL3"/>
+      <alias name="outputStatusValue" field="dicValue" entity-alias="DIC"/>
+      <view-link entity-alias="ME" rel-entity-alias="UL1" rel-optional="true">
+         <key-map field-name="outputOperator" rel-field-name="userLoginId"/>
+      </view-link>
+      <view-link entity-alias="ME" rel-entity-alias="UL2" rel-optional="true">
+         <key-map field-name="operator" rel-field-name="userLoginId"/>
+      </view-link>
+      <view-link entity-alias="ME" rel-entity-alias="UL3" rel-optional="true">
+         <key-map field-name="auditor" rel-field-name="userLoginId"/>
+      </view-link>
+      <view-link entity-alias="ME" rel-entity-alias="DIC" rel-optional="true">
+         <key-map field-name="outputStatus" rel-field-name="dicId"/>
+      </view-link>
+   </view-entity>
+   <entity entity-name="StockOutputItem" package-name="">
+      <description>出库条目</description>
+      <field name="outputItemId" not-null="true" type="id">
+         <description>出库条目ID</description>
+      </field>
+      <field name="storehouseId" type="id">
+         <description>仓库</description>
+      </field>
+      <field name="descCnt" type="very-long">
+         <description>备注</description>
+      </field>
+      <field name="outputNum" type="numeric">
+         <description>出库数量</description>
+      </field>
+      <field name="outputMaterialUnit" type="id">
+         <description>出库单位</description>
+      </field>
+      <field name="defaultMaterialUnit" type="id">
+         <description>默认单位</description>
+      </field>
+      <field name="batchId" type="id">
+         <description>批号ID</description>
+      </field>
+      <field name="materialId" type="id">
+         <description>物料</description>
+      </field>
+      <field name="outputedSnNum" type="id">
+         <description>已出SN数</description>
+      </field>
+      <field name="outputNumWithDefault" type="numeric">
+         <description>默认单位计出库数量</description>
+      </field>
+      <field name="outputId" type="id">
+         <description>出库单ID</description>
+      </field>
+      <prim-key field="outputItemId"/>
+   </entity>
+   <view-entity entity-name="StockOutputItemView" package-name="">
+      <description>出库单物料明细</description>
+      <member-entity entity-alias="SOI" entity-name="StockOutputItem"></member-entity>
+      <member-entity entity-alias="DM" entity-name="MaterialForItemView"></member-entity>
+      <member-entity entity-alias="SH" entity-name="DataStorehouse"></member-entity>
+      <member-entity entity-alias="SNT" entity-name="SnTicketMaterialSn"></member-entity>
+      <member-entity entity-alias="MB" entity-name="BatchMaterialBatch"></member-entity>
+      <member-entity entity-alias="MS" entity-name="DataMaterialStore"></member-entity>
+
+      <alias name="outputId" entity-alias="SOI"/>
+      <alias name="outputItemId" entity-alias="SOI"/>
+      <alias name="materialId" entity-alias="SOI"/>
+      <alias name="outputNum" entity-alias="SOI"/>
+      <alias name="storehouseId" entity-alias="SOI"/>
+      <alias name="descCnt" entity-alias="SOI"/>
+      <alias name="batchId" entity-alias="SOI"/>
+      <alias name="storehouseIdValue" field="storehouseName" entity-alias="SH"/>
+      <alias name="ticketMaterialSnId" entity-alias="SNT"/>
+      <alias name="batchIdValue" field="batchCode" entity-alias="MB"/>
+      <alias name="storeNum" entity-alias="MS"/>
+
+      <alias-all entity-alias="DM"><exclude field="materialId"/></alias-all>
+      <view-link entity-alias="SOI" rel-entity-alias="DM">
+         <key-map field-name="materialId"/>
+      </view-link>
+      <view-link entity-alias="SOI" rel-entity-alias="SH" rel-optional="true">
+         <key-map field-name="storehouseId"/>
+      </view-link>
+      <view-link entity-alias="SOI" rel-entity-alias="SNT" rel-optional="true">
+         <key-map field-name="outputId" rel-field-name="ticketId"/>
+         <key-map field-name="outputItemId" rel-field-name="ticketItemId"/>
+      </view-link>
+      <view-link entity-alias="SOI" rel-entity-alias="MB" rel-optional="true">
+         <key-map field-name="batchId"/>
+      </view-link>
+      <view-link entity-alias="SOI" rel-entity-alias="MS" rel-optional="true">
+         <key-map field-name="storehouseId"/>
+         <key-map field-name="materialId"/>
+         <entity-condition>
+            <having-condition-list combine="or">
+               <condition-expr field-name="batchId" entity-alias="SOI" value=""/>
+               <condition-expr field-name="batchId" entity-alias="SOI" rel-entity-alias="MB"/>
+            </having-condition-list>
+         </entity-condition>
+      </view-link>
+
+   </view-entity>
+   <entity entity-name="StockCheck" package-name="">
+      <description>库存盘点</description>
+      <field name="checkOperator" type="id">
+         <description>盘点人</description>
+      </field>
+      <field name="checkCode" type="short-varchar">
+         <description>盘点单号</description>
+      </field>
+      <field name="checkStatus" type="id">
+         <description>盘点单状态</description>
+      </field>
+      <field name="checkDate" type="short-varchar">
+         <description>盘点日期</description>
+      </field>
+      <field name="descCnt" type="very-long">
+         <description>备注</description>
+      </field>
+      <field name="domainId" type="id">
+         <description>所属单位</description>
+      </field>
+      <field name="delOperator" type="id">
+         <description>删除人</description>
+      </field>
+      <field name="delTime" type="short-varchar">
+         <description>删除时间</description>
+      </field>
+      <field name="operateTime" type="short-varchar">
+         <description>操作日期</description>
+      </field>
+      <field name="auditDesc" type="very-long">
+         <description>审核信息</description>
+      </field>
+      <field name="checkId" not-null="true" type="id">
+         <description>盘点单ID</description>
+      </field>
+      <field name="operator" type="id">
+         <description>操作员</description>
+      </field>
+      <field name="checkType" type="id">
+         <description>盘点类型</description>
+      </field>
+      <field name="isDel" type="id">
+         <description>删除标记</description>
+      </field>
+      <field name="auditor" type="id">
+         <description>审核人</description>
+      </field>
+      <field name="auditTime" type="short-varchar">
+         <description>审核时间</description>
+      </field>
+      <prim-key field="checkId"/>
+   </entity>
+   <view-entity entity-name="StockCheckView" package-name="">
+      <member-entity entity-alias="ME" entity-name="StockCheck"></member-entity>
+      <member-entity entity-alias="UL1" entity-name="UserLogin"></member-entity>
+      <member-entity entity-alias="UL2" entity-name="UserLogin"></member-entity>
+      <member-entity entity-alias="UL3" entity-name="UserLogin"></member-entity>
+      <member-entity entity-alias="DIC" entity-name="FadpDic"></member-entity>
+      <alias-all entity-alias="ME"/>
+      <alias name="checkOperatorValue" field="userName" entity-alias="UL1"/>
+      <alias name="operatorValue" field="userName" entity-alias="UL2"/>
+      <alias name="auditorValue" field="userName" entity-alias="UL3"/>
+      <alias name="checkStatusValue" field="dicValue" entity-alias="DIC"/>
+      <view-link entity-alias="ME" rel-entity-alias="UL1" rel-optional="true">
+         <key-map field-name="checkOperator" rel-field-name="userLoginId"/>
+      </view-link>
+      <view-link entity-alias="ME" rel-entity-alias="UL2" rel-optional="true">
+         <key-map field-name="operator" rel-field-name="userLoginId"/>
+      </view-link>
+      <view-link entity-alias="ME" rel-entity-alias="UL3" rel-optional="true">
+         <key-map field-name="auditor" rel-field-name="userLoginId"/>
+      </view-link>
+      <view-link entity-alias="ME" rel-entity-alias="DIC" rel-optional="true">
+         <key-map field-name="checkStatus" rel-field-name="dicId"/>
+      </view-link>
+   </view-entity>
+   <entity entity-name="StockCheckItem" package-name="">
+      <description>库存盘点条目</description>
+      <field name="shouldStockNum" type="numeric">
+         <description>账面数量</description>
+      </field>
+      <field name="realStockNum" type="numeric">
+         <description>实际数量</description>
+      </field>
+      <field name="diffStockNumWithDefault" type="numeric">
+         <description>默认单位计差异数量</description>
+      </field>
+      <field name="realStockCheckedSnNum" type="id">
+         <description>实际SN数</description>
+      </field>
+      <field name="diffStockNum" type="numeric">
+         <description>差异数量</description>
+      </field>
+      <field name="descCnt" type="very-long">
+         <description>备注</description>
+      </field>
+      <field name="checkMaterialUnit" type="id">
+         <description>盘点单位</description>
+      </field>
+      <field name="batchId" type="id">
+         <description>批号ID</description>
+      </field>
+      <field name="realStockNumWithDefault" type="numeric">
+         <description>默认单位计实际数量</description>
+      </field>
+      <field name="materialId" type="id">
+         <description>物料</description>
+      </field>
+      <field name="checkId" type="id">
+         <description>盘点单ID</description>
+      </field>
+      <field name="storehouseId" type="id">
+         <description>仓库</description>
+      </field>
+      <field name="shouldStockNumWithDefault" type="numeric">
+         <description>默认单位计账面数量</description>
+      </field>
+      <field name="checkItemId" not-null="true" type="id">
+         <description>盘点条目ID</description>
+      </field>
+      <field name="defaultMaterialUnit" type="id">
+         <description>默认单位</description>
+      </field>
+      <prim-key field="checkItemId"/>
+   </entity>
+   <view-entity entity-name="StockCheckItemView" package-name="">
+      <description>出库单物料明细</description>
+      <member-entity entity-alias="SCI" entity-name="StockCheckItem"></member-entity>
+      <member-entity entity-alias="DM" entity-name="MaterialForItemView"></member-entity>
+      <member-entity entity-alias="SH" entity-name="DataStorehouse"></member-entity>
+      <member-entity entity-alias="SNT" entity-name="SnTicketMaterialSn"></member-entity>
+      <member-entity entity-alias="MB" entity-name="BatchMaterialBatch"></member-entity>
+      <member-entity entity-alias="MS" entity-name="DataMaterialStore"></member-entity>
+
+      <alias name="checkId" entity-alias="SCI"/>
+      <alias name="checkItemId" entity-alias="SCI"/>
+      <alias name="materialId" entity-alias="SCI"/>
+      <alias name="shouldStockNum" entity-alias="SCI"/>
+      <alias name="realStockNum" entity-alias="SCI"/>
+      <alias name="diffStockNum" entity-alias="SCI"/>
+      <alias name="storehouseId" entity-alias="SCI"/>
+      <alias name="descCnt" entity-alias="SCI"/>
+      <alias name="batchId" entity-alias="SCI"/>
+      <alias name="storehouseIdValue" field="storehouseName" entity-alias="SH"/>
+      <alias name="ticketMaterialSnId" entity-alias="SNT"/>
+      <alias name="batchIdValue" field="batchCode" entity-alias="MB"/>
+      <alias name="batchCode" entity-alias="MB"/>
+      <alias name="storeNum" entity-alias="MS"/>
+
+      <alias-all entity-alias="DM"><exclude field="materialId"/></alias-all>
+      <view-link entity-alias="SCI" rel-entity-alias="DM">
+         <key-map field-name="materialId"/>
+      </view-link>
+      <view-link entity-alias="SCI" rel-entity-alias="SH" rel-optional="true">
+         <key-map field-name="storehouseId"/>
+      </view-link>
+      <view-link entity-alias="SCI" rel-entity-alias="SNT" rel-optional="true">
+         <key-map field-name="checkId" rel-field-name="ticketId"/>
+         <key-map field-name="checkItemId" rel-field-name="ticketItemId"/>
+         <entity-condition >
+            <condition-expr field-name="ticketType" value="tt_check" entity-alias="SNT"/>
+         </entity-condition>
+      </view-link>
+      <view-link entity-alias="SCI" rel-entity-alias="MB" rel-optional="true">
+         <key-map field-name="batchId"/>
+      </view-link>
+      <view-link entity-alias="SCI" rel-entity-alias="MS" rel-optional="true">
+         <key-map field-name="storehouseId"/>
+         <key-map field-name="materialId"/>
+         <entity-condition>
+            <having-condition-list combine="or">
+               <condition-expr field-name="batchId" entity-alias="SCI" value=""/>
+               <condition-expr field-name="batchId" entity-alias="SCI" rel-entity-alias="MB"/>
+            </having-condition-list>
+         </entity-condition>
+      </view-link>
+
+   </view-entity>
+
+   <entity entity-name="StockTransfer" package-name="">
+      <description>库存调拨</description>
+      <field name="descCnt" type="very-long">
+         <description>备注</description>
+      </field>
+      <field name="domainId" type="id">
+         <description>所属单位</description>
+      </field>
+      <field name="transferStatus" type="id">
+         <description>调拨单状态</description>
+      </field>
+      <field name="transferDate" type="short-varchar">
+         <description>调拨日期</description>
+      </field>
+      <field name="delOperator" type="id">
+         <description>删除人</description>
+      </field>
+      <field name="transferCode" type="short-varchar">
+         <description>调拨单号</description>
+      </field>
+      <field name="delTime" type="short-varchar">
+         <description>删除时间</description>
+      </field>
+      <field name="operateTime" type="short-varchar">
+         <description>操作日期</description>
+      </field>
+      <field name="auditDesc" type="very-long">
+         <description>审核信息</description>
+      </field>
+      <field name="operator" type="id">
+         <description>操作员</description>
+      </field>
+      <field name="transferOperator" type="id">
+         <description>调拨人</description>
+      </field>
+      <field name="transferId" not-null="true" type="id">
+         <description>调拨单ID</description>
+      </field>
+      <field name="transferType" type="id">
+         <description>调拨类型</description>
+      </field>
+      <field name="isDel" type="id">
+         <description>删除标记</description>
+      </field>
+      <field name="auditor" type="id">
+         <description>审核人</description>
+      </field>
+      <field name="auditTime" type="short-varchar">
+         <description>审核时间</description>
+      </field>
+      <prim-key field="transferId"/>
+   </entity>
+   <view-entity entity-name="StockTransferView" package-name="">
+      <member-entity entity-alias="ME" entity-name="StockTransfer"></member-entity>
+      <member-entity entity-alias="UL1" entity-name="UserLogin"></member-entity>
+      <member-entity entity-alias="UL2" entity-name="UserLogin"></member-entity>
+      <member-entity entity-alias="UL3" entity-name="UserLogin"></member-entity>
+      <member-entity entity-alias="DIC" entity-name="FadpDic"></member-entity>
+      <alias-all entity-alias="ME"/>
+      <alias name="transferOperatorValue" field="userName" entity-alias="UL1"/>
+      <alias name="operatorValue" field="userName" entity-alias="UL2"/>
+      <alias name="auditorValue" field="userName" entity-alias="UL3"/>
+      <alias name="transferStatusValue" field="dicValue" entity-alias="DIC"/>
+      <view-link entity-alias="ME" rel-entity-alias="UL1" rel-optional="true">
+         <key-map field-name="transferOperator" rel-field-name="userLoginId"/>
+      </view-link>
+      <view-link entity-alias="ME" rel-entity-alias="UL2" rel-optional="true">
+         <key-map field-name="operator" rel-field-name="userLoginId"/>
+      </view-link>
+      <view-link entity-alias="ME" rel-entity-alias="UL3" rel-optional="true">
+         <key-map field-name="auditor" rel-field-name="userLoginId"/>
+      </view-link>
+      <view-link entity-alias="ME" rel-entity-alias="DIC" rel-optional="true">
+         <key-map field-name="transferStatus" rel-field-name="dicId"/>
+      </view-link>
+   </view-entity>
+
+   <entity entity-name="StockTransferItem" package-name="">
+      <description>库存调拨条目</description>
+      <field name="toBatchId" type="id">
+         <description>批号ID</description>
+      </field>
+      <field name="transferMaterialUnit" type="id">
+         <description>调拨单位</description>
+      </field>
+      <field name="fromBatchId" type="id">
+         <description>批号ID</description>
+      </field>
+      <field name="transferNumWithDefault" type="numeric">
+         <description>默认单位计调拨数</description>
+      </field>
+      <field name="transferItemId" not-null="true" type="id">
+         <description>调拨条目ID</description>
+      </field>
+      <field name="toStorehouseId" type="id">
+         <description>目的仓库</description>
+      </field>
+      <field name="descCnt" type="very-long">
+         <description>备注</description>
+      </field>
+      <field name="fromStorehouseId" type="id">
+         <description>来源仓库</description>
+      </field>
+      <field name="materialId" type="id">
+         <description>物料</description>
+      </field>
+      <field name="transferedSnNum" type="id">
+         <description>已调SN数</description>
+      </field>
+      <field name="transferId" type="id">
+         <description>调拨单ID</description>
+      </field>
+      <field name="defaultMaterialUnit" type="id">
+         <description>默认单位</description>
+      </field>
+      <field name="transferNum" type="numeric">
+         <description>调拨数量</description>
+      </field>
+      <prim-key field="transferItemId"/>
+   </entity>
+   <view-entity entity-name="StockTransferItemView" package-name="">
+      <description>出库单物料明细</description>
+      <member-entity entity-alias="SCI" entity-name="StockTransferItem"></member-entity>
+      <member-entity entity-alias="ST" entity-name="StockTransfer"></member-entity>
+      <member-entity entity-alias="DM" entity-name="MaterialForItemView"></member-entity>
+      <member-entity entity-alias="FSH" entity-name="DataStorehouse"></member-entity>
+      <member-entity entity-alias="TSH" entity-name="DataStorehouse"></member-entity>
+      <member-entity entity-alias="SNT" entity-name="SnTicketMaterialSn"></member-entity>
+      <member-entity entity-alias="FMB" entity-name="BatchMaterialBatch"></member-entity>
+      <member-entity entity-alias="TMB" entity-name="BatchMaterialBatch"></member-entity>
+      <member-entity entity-alias="MS" entity-name="DataMaterialStore"></member-entity>
+
+      <alias-all entity-alias="SCI"></alias-all>
+      <alias name="transferCode" entity-alias="ST"/>
+      <alias name="fromStorehouseIdValue" field="storehouseName" entity-alias="FSH"/>
+      <alias name="toStorehouseIdValue" field="storehouseName" entity-alias="TSH"/>
+      <alias name="ticketMaterialSnId" entity-alias="SNT"/>
+      <alias name="fromBatchIdValue" field="batchCode" entity-alias="FMB"/>
+      <alias name="toBatchIdValue" field="batchCode" entity-alias="TMB"/>
+      <alias name="storeNum" entity-alias="MS"/>
+
+      <alias-all entity-alias="DM"><exclude field="materialId"/></alias-all>
+      <view-link entity-alias="SCI" rel-entity-alias="ST">
+         <key-map field-name="transferId"/>
+      </view-link>
+      <view-link entity-alias="SCI" rel-entity-alias="DM">
+         <key-map field-name="materialId"/>
+      </view-link>
+      <view-link entity-alias="SCI" rel-entity-alias="FSH" rel-optional="true">
+         <key-map field-name="fromStorehouseId" rel-field-name="storehouseId"/>
+      </view-link>
+      <view-link entity-alias="SCI" rel-entity-alias="TSH" rel-optional="true">
+         <key-map field-name="toStorehouseId" rel-field-name="storehouseId"/>
+      </view-link>
+      <view-link entity-alias="SCI" rel-entity-alias="SNT" rel-optional="true">
+         <key-map field-name="transferId" rel-field-name="ticketId"/>
+         <key-map field-name="transferItemId" rel-field-name="ticketItemId"/>
+         <entity-condition >
+            <condition-expr field-name="ticketType" value="tt_transfer" entity-alias="SNT"/>
+         </entity-condition>
+      </view-link>
+      <view-link entity-alias="SCI" rel-entity-alias="FMB" rel-optional="true">
+         <key-map field-name="fromBatchId" rel-field-name="batchId"/>
+      </view-link>
+      <view-link entity-alias="SCI" rel-entity-alias="TMB" rel-optional="true">
+         <key-map field-name="toBatchId" rel-field-name="batchId"/>
+      </view-link>
+      <view-link entity-alias="SCI" rel-entity-alias="MS" rel-optional="true">
+         <key-map field-name="fromStorehouseId" rel-field-name="storehouseId"/>
+         <key-map field-name="materialId"/>
+         <entity-condition>
+            <having-condition-list combine="or">
+               <!--<condition-expr field-name="fromBatchId" entity-alias="SCI" value=""/>-->
+               <condition-expr field-name="fromBatchId" rel-field-name="batchId" entity-alias="SCI" rel-entity-alias="MB"/>
+            </having-condition-list>
+         </entity-condition>
+      </view-link>
+
+   </view-entity>
+
+</entitymodel>

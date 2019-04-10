@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <PermissionCategory typeId="inventory" typeName="库存管理"/>
+    <PermissionCategory typeId="inventoryOperate" parentId="inventory" typeName="库存操作"/>
+    <SecurityPermission permissionId="INVENTORY_INPUT_MANAGE" description="入库管理" category="inventoryOperate"/>
+    <SecurityPermission permissionId="INVENTORY_INPUT_APPROVE" description="入库审批" category="inventoryOperate"/>
+    <SecurityPermission permissionId="INVENTORY_INPUT_ADJUST" description="入库单修正" category="inventoryOperate"/>
+
+    <PermissionCategory typeId="sale" typeName="销售管理"/>
+    <PermissionCategory typeId="saleOrder" parentId="sale" typeName="销售订单"/>
+    <SecurityPermission permissionId="SALE_ORDER_MANAGE" description="销售管理" category="saleOrder"/>
+    <SecurityPermission permissionId="SALE_ORDER_APPROVE" description="销售审批" category="saleOrder"/>
+    <SecurityPermission permissionId="SALE_ORDER_QUERY" description="销售单查询" category="saleOrder"/>
+    <SecurityPermission permissionId="SALE_ORDER_MONITOR" description="销售监控" category="saleOrder"/>
+    <SecurityPermission permissionId="SALE_ORDER_ADJUST" description="销售修正" category="saleOrder"/>
+    <PermissionCategory typeId="sealDeliver" parentId="sale" typeName="销货管理"/>
+    <SecurityPermission permissionId="SALE_DELIVER_CREATE" description="销售开单" category="sealDeliver"/>
+    <SecurityPermission permissionId="SALE_DELIVER_MANAGE" description="销货管理" category="sealDeliver"/>
+
+    <FadpDic dicId="material" dicValue="物料管理" description="物料管理" isLeaf="N" enabled="Y"/>
+
+    <FadpDic parentId="material" dicId="materialSrc" dicValue="物料来源" description="物料来源" isLeaf="N" enabled="Y"/>
+    <FadpDic parentId="materialSrc" dicId="mt1" dicValue="采购件" description="采购件" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="materialSrc" dicId="mt2" dicValue="生产件" description="生产件" isLeaf="Y" enabled="Y"/>
+
+    <FadpDic parentId="material" dicId="storehouseType" dicValue="仓库类型" isLeaf="N" enabled="Y"/>
+    <FadpDic parentId="storehouseType" dicId="sht1" dicValue="所有" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="storehouseType" dicId="sht2" dicValue="原料" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="storehouseType" dicId="sht3" dicValue="产品" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="storehouseType" dicId="sht4" dicValue="半成品" isLeaf="Y" enabled="Y"/>
+
+    <FadpDic parentId="material" dicId="snStatus" dicValue="条码状态" isLeaf="N" enabled="Y"/>
+    <FadpDic parentId="snStatus" dicId="sns1" dicValue="待启用" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="snStatus" dicId="sns2" dicValue="已入库" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="snStatus" dicId="sns3" dicValue="已出库" isLeaf="Y" enabled="Y"/>
+
+    <FadpDic dicId="financial" dicValue="财务管理" isLeaf="N" enabled="Y"/>
+
+    <FadpDic parentId="financial" dicId="currencyType" dicValue="币种" isLeaf="N" enabled="Y"/>
+    <FadpDic parentId="currencyType" dicId="RMB" dicValue="RMB" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="currencyType" dicId="USD" dicValue="USD" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="currencyType" dicId="JPY" dicValue="JPY" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="currencyType" dicId="EUR" dicValue="EUR" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="currencyType" dicId="GBP" dicValue="GBP" isLeaf="Y" enabled="Y"/>
+
+    <FadpDic parentId="financial" dicId="accountMethod" dicValue="结算方式" isLeaf="N" enabled="Y"/>
+    <FadpDic parentId="accountMethod" dicId="am1" dicValue="现金" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="accountMethod" dicId="am2" dicValue="电汇" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="accountMethod" dicId="am3" dicValue="支票" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="accountMethod" dicId="am4" dicValue="银行汇票" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="accountMethod" dicId="am5" dicValue="商业承兑汇票" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="accountMethod" dicId="am6" dicValue="银行承兑汇票" isLeaf="Y" enabled="Y"/>
+
+
+
+    <FadpDic dicId="customer" dicValue="客户管理" isLeaf="N" enabled="Y"/>
+
+    <FadpDic parentId="customer" dicId="customerType" dicValue="客户类型" isLeaf="N" enabled="Y"/>
+    <FadpDic parentId="customerType" dicId="ct1" dicValue="意向客户" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="customerType" dicId="ct2" dicValue="成交客户" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="customerType" dicId="ct3" dicValue="渠道客户" isLeaf="Y" enabled="Y"/>
+
+    <FadpDic parentId="customer" dicId="customerLevel" dicValue="客户等级" isLeaf="N" enabled="Y"/>
+    <FadpDic parentId="customerLevel" dicId="cl1" dicValue="A级" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="customerLevel" dicId="cl2" dicValue="B级" isLeaf="Y" enabled="Y"/>
+
+    <FadpDic dicId="system" dicValue="系统字典" description="系统字典" isLeaf="N" enabled="Y"/>
+
+    <FadpDic parentId="system" dicId="approveState" dicValue="审批状态" isLeaf="N" enabled="Y"/>
+    <FadpDic parentId="approveState" dicId="as1" dicValue="编辑中" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="approveState" dicId="as2" dicValue="待审核" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="approveState" dicId="as3" dicValue="已审核" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="approveState" dicId="as4" dicValue="未通过" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="approveState" dicId="as5" dicValue="已结束" isLeaf="Y" enabled="Y"/>
+
+    <FadpDic dicId="purchase" dicValue="采购管理" isLeaf="N" enabled="Y"/>
+
+    <FadpDic parentId="purchase" dicId="providerType" dicValue="供应商类型" isLeaf="N" enabled="Y"/>
+    <FadpDic parentId="providerType" dicId="pt1" dicValue="主要" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="providerType" dicId="pt2" dicValue="次要" isLeaf="Y" enabled="Y"/>
+
+    <FadpDic parentId="purchase" dicId="providerLevel" dicValue="供应商等级" isLeaf="N" enabled="Y"/>
+    <FadpDic parentId="providerLevel" dicId="pl1" dicValue="A级" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="providerLevel" dicId="pl2" dicValue="B级" isLeaf="Y" enabled="Y"/>
+
+    <FadpDic dicId="sale" dicValue="销售管理" isLeaf="N" enabled="Y"/>
+
+    <FadpDic parentId="sale" dicId="deliverStatus" dicValue="销货单状态" isLeaf="N" enabled="Y"/>
+    <FadpDic parentId="deliverStatus" dicId="sls4" dicValue="收款完成" isLeaf="Y" enabled="Y"/>
+
+    <FadpDic parentId="sale" dicId="rejectStatus" dicValue="销退单状态" isLeaf="N" enabled="Y"/>
+    <FadpDic parentId="rejectStatus" dicId="rjs4" dicValue="退款完成" isLeaf="Y" enabled="Y"/>
+
+    <FadpDic dicId="purchase" dicValue="采购管理" isLeaf="N" enabled="Y"/>
+
+    <FadpDic parentId="purchase" dicId="purchasePlanSrc" dicValue="采购计划来源" isLeaf="N" enabled="Y"/>
+    <FadpDic parentId="purchasePlanSrc" dicId="pps_new" dicValue="依照请购需求" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="purchasePlanSrc" dicId="pps_sale" dicValue="依照销售订单" isLeaf="Y" enabled="Y"/>
+
+    <FadpDic parentId="purchase" dicId="purchaseOrderSrc" dicValue="采购订单来源" isLeaf="N" enabled="Y"/>
+    <FadpDic parentId="purchaseOrderSrc" dicId="pos_plan" dicValue="采购计划" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="purchaseOrderSrc" dicId="pps_manual" dicValue="手动" isLeaf="Y" enabled="Y"/>
+
+
+
+</entity-engine-xml>

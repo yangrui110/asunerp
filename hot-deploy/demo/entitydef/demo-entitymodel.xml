@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="../../../dtds/entitymodel.xsd">
+    <description>演示模块</description>
+
+    <entity entity-name="Student" package-name="com.demo">
+        <description>学生信息</description>
+        <field name="stuId" type="id">
+            <description>学生id</description>
+        </field>
+        <field name="stuName" type="name">
+            <description>学生姓名</description>
+        </field>
+        <field name="comment" type="very-long">
+            <description>学生评论</description>
+        </field>
+        <relation type="one" rel-entity-name="Comment">
+            <key-map field-name="comment"/>
+        </relation>
+        <prim-key field="stuId"/>
+    </entity>
+
+    <entity entity-name="Comment" package-name="com.demo">
+        <description>评论信息</description>
+        <field name="commentId" type="id">
+            <description>评论id</description>
+        </field>
+        <field name="content" type="very-long">
+            <description>学生评论</description>
+        </field>
+        <prim-key field="commentId"/>
+    </entity>
+    <view-entity entity-name="StudentView" package-name="com.demo">
+        <member-entity entity-alias="S1" entity-name="Student"></member-entity>
+        <member-entity entity-alias="C1" entity-name="Comment"></member-entity>
+        <alias-all entity-alias="S1"/>
+        <alias name="comment" field="content" entity-alias="C1"></alias>
+        <view-link entity-alias="S1" rel-entity-alias="C1" rel-optional="true">
+            <key-map field-name="comment" rel-field-name="commentId"/>
+        </view-link>
+    </view-entity>
+</entitymodel>

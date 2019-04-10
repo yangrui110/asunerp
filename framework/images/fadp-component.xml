@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+-->
+
+<fadp-component name="images"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://127.0.0.1:8888/dtds/fadp-component.xsd">
+    <resource-loader name="main" type="component"/>
+    <webapp name="images"
+        title="Images"
+        server="default-server"
+        location="webapp/images"
+        mount-point="/images"
+        app-bar-display="false"/>
+</fadp-component>
+

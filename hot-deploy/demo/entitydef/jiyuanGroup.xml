@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<entitygroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="http://localhost:8888/dtds/entitygroup.xsd">
+
+    <!-- ========================================================= -->
+    <!-- com.hanlin.fadp.entity.tenant -->
+    <!-- ========================================================= -->
+    <entity-group group="com.hanlin.fadp.jiyuan" entity="UfKhhd"/>
+    <entity-group group="com.hanlin.fadp.jiyuan" entity="UfKhhdView"/>
+    <entity-group group="com.hanlin.fadp.jiyuan" entity="UfKhgl"/>
+    <entity-group group="com.hanlin.fadp.jiyuan" entity="BaseUfKhgl"/>
+    <entity-group group="com.hanlin.fadp.jiyuan" entity="BaseUfKhglView"/>
+    <entity-group group="com.hanlin.fadp.jiyuan" entity="UfKhglView"/>
+    <entity-group group="com.hanlin.fadp.jiyuan" entity="UfCpxxView"/>
+    <entity-group group="com.hanlin.fadp.jiyuan" entity="UfCpxx"/>
+    <entity-group group="com.hanlin.fadp.jiyuan" entity="SelectItem"/>
+    <entity-group group="com.hanlin.fadp.jiyuan" entity="MySecure"/>
+    <entity-group group="com.hanlin.fadp.jiyuan" entity="MySecureView"/>
+    <entity-group group="com.hanlin.fadp.jiyuan" entity="MyInvest"/>
+    <entity-group group="com.hanlin.fadp.jiyuan" entity="MyInvestView"/>
+    <entity-group group="com.hanlin.fadp.jiyuan" entity="OrderDetail"/>
+    <entity-group group="com.hanlin.fadp.jiyuan" entity="OrderDetailCountView"/>
+</entitygroup>

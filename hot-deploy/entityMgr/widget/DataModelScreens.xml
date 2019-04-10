@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/dtds/widget-screen.xsd">
+	<screen name="SimpleDataModel">
+		<section>
+			<actions>
+				<!-- <script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/model/addOrUpdateDataModel.groovy" /> -->
+				<set field="myDelegator" from-field="parameters.default" />
+				<set field="entityName" value="DatabaseModel" />
+				<set field="pkFieldName" value="dataModelId" />
+				<set field="pkFieldValue" from-field="parameters.dataModelId" />
+				<!-- <script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/common/genericEdit.groovy" /> -->
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/model/editModel.groovy" />
+				<entity-condition list="dataSourceList" entity-name="DatabaseSeq">
+				</entity-condition>
+				<!-- <service service-name="addOrUpdateDataModel" result-map="resultMap"></service> -->
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/model/editModel.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="extractModelList">
+		<section>
+			<actions>
+				<set field="entityName" value="DatabaseModel" />
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/common/pager.groovy" />
+				<!-- <script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/model/syncDataByModel.groovy" /> -->
+				<entity-condition list="fieldTypeList" entity-name="Dictionary">
+					<condition-expr field-name="module" operator="equals" value="databaseType" />
+				</entity-condition>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<!-- <label text="${context}"></label> -->
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/model/dataModelList.ftl" />
+								<html-template location="component://entityMgr/webapp/entityMgr/includes/pager.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="DataSourceList">
+		<section>
+			<actions>
+				<set field="entityName" value="DatabaseSeq" />
+				<set field="parameters.show" value="Y" />
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/common/pager.groovy" />
+				<entity-condition list="fieldTypeList" entity-name="Dictionary">
+					<condition-expr field-name="module" operator="equals" value="databaseType" />
+				</entity-condition>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<!-- <label text="${context}"></label> -->
+
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/dataSource/dataSourceList.ftl" />
+								<html-template location="component://entityMgr/webapp/entityMgr/includes/pager.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="DataSource">
+		<section>
+			<actions>
+				<entity-condition list="fieldTypeList" entity-name="Dictionary">
+					<condition-expr field-name="module" operator="equals" value="databaseType" />
+				</entity-condition>
+				<set field="myDelegator" value="default" />
+				<set field="entityName" value="DatabaseSeq" />
+				<set field="pkFieldName" value="dataSourceName" />
+				<set field="pkFieldValue" from-field="parameters.dataSourceName" />
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/common/genericEdit.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/dataSource/editDataSource.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+
+	<screen name="DataSourceListForQuery">
+		<section>
+			<actions>
+				<set field="entityName" value="DatabaseSeq" />
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/common/pager.groovy" />
+				<entity-condition list="fieldTypeList" entity-name="Dictionary">
+					<condition-expr field-name="module" operator="equals" value="databaseType" />
+				</entity-condition>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<!-- <label text="${context}"></label> -->
+
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/dataSource/dataSourceListForQuery.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="ViewTableList">
+		<section>
+			<actions>
+				<set field="list" value="${groovy: com.hanlin.fadp.petrescence.datasource.EntityModelWorker.readEntityModelListFromXML(parameters)}" />
+				<!-- <script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/data/viewTableList.groovy" /> -->
+			</actions>
+			<widgets>
+				<decorator-screen name="entity-decorator" location="component://entityMgr/widget/DataModelScreens.xml">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/data/viewTableList.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+
+	<screen name="ViewTableData">
+		<section>
+			<actions>
+				<set field="entityName" from-field="parameters.entityName" />
+				<set field="myDelegator" from-field="parameters.dataSourceName" />
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/common/pager.groovy" />
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/data/viewTableData.groovy" />
+
+			</actions>
+			<widgets>
+				<decorator-screen name="simple-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/data/dataList.ftl" />
+								<html-template location="component://entityMgr/webapp/entityMgr/includes/pager.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditTableData">
+		<section>
+			<actions>
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/data/editTableData.groovy" />
+
+			</actions>
+			<widgets>
+				<decorator-screen name="simple-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/data/editTableData.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+
+			</widgets>
+		</section>
+	</screen>
+
+
+
+
+	<screen name="DictionaryList">
+		<section>
+			<actions>
+				<set field="entityName" value="Dictionary" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<!-- <label text="${context}"></label> -->
+
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/dic/dictionaryList.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="entity-decorator">
+		<section>
+			<actions>
+				<!-- <set field="list" value="${groovy: com.hanlin.fadp.petrescence.datasource.EntityModelWorker.readEntityModelListFromXML()}" /> -->
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/entitymodel/EntityModelList.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="left">
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/entitymodel/EntityModelList.ftl" />
+							</html>
+
+						</platform-specific>
+
+					</decorator-section>
+					<decorator-section name="body">
+						<decorator-section-include name="body" />
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EntityModelList">
+		<section>
+			<widgets>
+				<decorator-screen name="entity-decorator" location="component://entityMgr/widget/DataModelScreens.xml">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/entitymodel/tableListHeader.ftl" />
+							</html>
+
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="EntityModel">
+		<section>
+			<actions>
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/entitymodel/editEntityModel.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="simple-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/entitymodel/entityModel.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="saveModelList">
+		<section>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<!-- <label text="${context}"></label> -->
+
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/saveModelList.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+</screens>

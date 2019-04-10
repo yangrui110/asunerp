@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../dtds/entitymodel.xsd">
+
+	<entity entity-name="DatabaseSeq" package-name="com.hanlin.fadp.petrescence.datasource">
+		<description>数据源</description>
+		<field name="dataSourceName" type="name"></field>
+		<field name="fieldTypeName" type="id"></field>
+		<field name="schemaName" type="name"></field>
+		<field name="databaseName" type="name"></field>
+		<field name="ip" type="id"></field>
+		<field name="port" type="id"></field>
+		<field name="jdbcUsername" type="name"></field>
+		<field name="jdbcPassword" type="name"></field>
+		<field name="description" type="description"></field>
+		<field name="isShow" type="indicator"></field>
+	
+		<prim-key field="dataSourceName" />
+	</entity>
+	<entity entity-name="DatabaseModel" package-name="com.hanlin.fadp.petrescence.datasource">
+		<description>数据模型</description>
+		<field name="dataModelId" type="id"></field>
+		<field name="description" type="description"></field>
+		<field name="dataSourceName" type="name"></field>
+		<field name="myEntityName" type="name"></field>
+		<field name="needSave" type="indicator"></field>
+		<field name="modelCondition" type="object"></field>
+		<field name="modelSql" type="very-long"></field>
+		<field name="modelResult" type="object"></field>
+		<field name="saveModelId" type="id"></field>
+		<field name="fieldMapping" type="object"></field>
+		<field name="syncTime" type="date-time"></field>
+		<prim-key field="dataModelId" />
+	</entity>
+	
+	<entity entity-name="ExtractModel" package-name="com.hanlin.fadp.petrescence.datasource">
+		<description>数据抽取模型</description>
+		<field name="extractModelId" type="id"><description>抽取模型id</description></field>
+		<field name="dataSourceName" type="name"><description>抽取模型名称</description></field>
+		<field name="description" type="description"><description>描述</description></field>
+		<field name="modelSql" type="very-long"><description>模型sql</description></field>
+		<field name="modelParaList" type="object"></field>
+		<prim-key field="extractModelId" />
+	</entity>
+	<entity entity-name="ExtractData" package-name="com.hanlin.fadp.petrescence.datasource">
+		<description>数据抽取</description>
+		<field name="extractModelId" type="id"><description>抽取模型id</description></field>
+		<field name="saveDatasource" type="id"><description>存储数据库id</description></field>
+		<field name="saveModelId" type="id"><description>存储模型id</description></field>
+		<field name="description" type="description"><description>描述</description></field>
+		<field name="fieldMapping" type="object"><description>字段对应</description></field>
+		<field name="syncType" type="id"><description>数据同步方式</description></field>
+		<field name="lastSyncTime" type="date-time"><description>最后同步时间</description></field>
+		<prim-key field="extractModelId" />
+		<prim-key field="saveDatasource" />
+		<prim-key field="saveModelId" />
+	</entity>
+	
+	<entity entity-name="Dictionary" package-name="com.hanlin.fadp.petrescence.datasource">
+		<description>数据字典</description>
+		<field name="module" type="id"></field>
+		<field name="label" type="name"></field>
+		<field name="value" type="name"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="module" />
+		<prim-key field="value" />
+	</entity>
+</entitymodel>

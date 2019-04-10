@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../dtds/site-conf.xsd">
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml" />
+    <include location="component://fadp/controller/fadp-controller.xml" />
+    <postprocessor>
+        <event type="groovy" path="component://fadp/script/visit/spmBaseLogVisit.groovy"/>
+    </postprocessor>
+    <request-map uri="getExternalLoginKey">
+        <description>angular首页面</description>
+        <security auth="true"/>
+        <event type="java" path="com.hanlin.fadp.user.UserLoginUtil" invoke="getExternalLoginKey"/>
+        <response name="success" type="none"/>
+    </request-map>
+    <request-map uri="www">
+        <description>angular首页面</description>
+        <event type="java" path="com.hanlin.fadp.user.UserLoginUtil" invoke="www"/>
+        <response name="success" type="none"/>
+    </request-map>
+    <request-map uri="getDicTreeData">
+        <description>获取字典树</description>
+        <security auth="true"/>
+        <event type="groovy" path="component://fadp/script/dic/getDicTreeData.groovy"/>
+        <response name="success" type="none"/>
+    </request-map>
+    <request-map uri="getDicDataListByParentId">
+        <description>获取字典数据</description>
+        <security auth="true"/>
+        <event type="groovy" path="component://fadp/script/dic/getDicDataListByParentId.groovy"/>
+        <response name="success" type="none"/>
+    </request-map>
+
+
+
+
+
+    <request-map uri="getDeptTreeData">
+        <description>获取部门树</description>
+        <security auth="true"/>
+        <event type="groovy" path="component://fadp/script/dept/getDeptTreeData.groovy"/>
+        <response name="success" type="none"/>
+    </request-map>
+    <request-map uri="saveDeptSort">
+        <description>保存部门排序</description>
+        <security auth="true"/>
+        <event type="groovy" path="component://fadp/script/dept/saveDeptSort.groovy"/>
+        <response name="success" type="none"/>
+    </request-map>
+
+    <request-map uri="getUserListByDeptId">
+        <description>获取部门下的用户</description>
+        <security auth="true"/>
+        <event type="groovy" path="component://fadp/script/dept-user/getUserListByDeptId.groovy"/>
+        <response name="success" type="none"/>
+    </request-map>
+
+    <request-map uri="updateRolePermission">
+        <description>更新角色数据</description>
+        <security auth="true"/>
+        <event type="groovy" path="component://fadp/script/permission/updateRolePermission.groovy"/>
+        <response name="success" type="none"/>
+    </request-map>
+
+    <request-map uri="getChartData">
+        <description>获取统计图数据</description>
+        <security auth="true"/>
+        <event type="groovy" path="component://fadp/script/getChartData.groovy"/>
+        <response name="success" type="none"/>
+    </request-map>
+    <request-map uri="getProjectList">
+        <description>获取项目数据</description>
+        <security auth="true"/>
+        <event type="groovy" path="component://fadp/script/project/getProjectList.groovy"/>
+        <response name="success" type="none"/>
+    </request-map>
+    <request-map uri="getUserByUserLoginId">
+        <description>根据id获取用户数据</description>
+        <security auth="true"/>
+        <event type="groovy" path="component://fadp/script/user/getUserByUserLoginId.groovy"/>
+        <response name="success" type="none"/>
+    </request-map>
+    <request-map uri="getUserListWithOutRole">
+        <description>获取不具有指定角色的指定部门下的用户</description>
+        <security auth="true"/>
+        <event type="groovy" path="component://fadp/script/dept-user/getUserListWithOutRole.groovy"/>
+        <response name="success" type="none"/>
+    </request-map>
+
+
+    <!--团队管理==begin-->
+    <request-map uri="getPmTeam" edit="false">
+        <description>获取团队管理</description>
+        <security auth="true"/>
+        <event type="java" path="com.hanlin.fadp.teamManage.TeamManage" invoke="getPmTeam"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getPmUserByDept" edit="false">
+        <description>通过部门选择人员</description>
+        <security auth="true"/>
+        <event type="java" path="com.hanlin.fadp.teamManage.TeamManage" invoke="getData"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getUserByRole" edit="false">
+        <description>通过角色选择人员</description>
+        <security auth="true"/>
+        <event type="java" path="com.hanlin.fadp.teamManage.TeamManage" invoke="getUserByRole"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="createTeamPerson" edit="false">
+        <description>增加人员</description>
+        <security auth="true"/>
+        <event type="java" path="com.hanlin.fadp.teamManage.TeamManage" invoke="createTeamPerson"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="updateUser" edit="false">
+        <description>编辑人员</description>
+        <security auth="true"/>
+        <event type="java" path="com.hanlin.fadp.teamManage.TeamManage" invoke="updateUser"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="removeUser" edit="false">
+        <description>删除人员</description>
+        <security auth="true"/>
+        <event type="java" path="com.hanlin.fadp.teamManage.TeamManage" invoke="removeUser"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <!--团队管理==end-->
+</site-conf>

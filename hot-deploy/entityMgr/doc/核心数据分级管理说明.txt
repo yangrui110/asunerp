@@ -1,0 +1,120 @@
+1.添加全军数据库（其中实体定义需要手动粘贴到对应entity定义文件）
+2.添加对日攻击数据库（其中实体定义需要手动粘贴到对应entity定义文件）
+3.将演示数据导入到全军数据库
+4.演示从全军数据库导出部分数据
+5.演示将导出的数据导入到对日攻击数据库
+
+
+操作：
+1. 添加数据库方法如下：
+在entityengine.xml文件后追加如下配置内容（注意所加内容在根标签内）
+
+
+
+
+      <datasource add-missing-on-start="true" alias-view-columns="false" check-on-start="true" field-type-name="derby"
+                  helper-class="com.hanlin.fadp.entity.datasource.GenericHelperDAO" name="localderby" offset-style="fetch"
+                  schema-name="OFBIZ" use-indices-unique="false" use-order-by-nulls="true"
+                  use-pk-constraint-names="false">
+          <read-data reader-name="tenant"/>
+          <read-data reader-name="seed"/>
+          <read-data reader-name="seed-initial"/>
+          <read-data reader-name="demo"/>
+          <read-data reader-name="ext"/>
+          <read-data reader-name="ext-test"/>
+          <read-data reader-name="ext-demo"/>
+          <!-- beware use-indices-unique="false" is needed because of Derby bug with null values in a unique index -->
+          <inline-jdbc isolation-level="ReadCommitted" jdbc-driver="org.apache.derby.jdbc.EmbeddedDriver"
+                       jdbc-password-lookup="derby-ofbiz" jdbc-uri="jdbc:derby:ofbiz;create=true" jdbc-username="ofbiz"
+                       pool-jdbc-test-stmt="values 1" pool-maxsize="250" pool-minsize="2"
+                       soft-min-evictable-idle-time-millis="600000" test-on-borrow="true"
+                       time-between-eviction-runs-millis="600000"/>
+          <!-- <jndi-jdbc jndi-server-name="localjndi" jndi-name="java:/DerbyDataSource" isolation-level="ReadCommitted"/> -->
+      </datasource>
+
+
+      <!--entitymgr 模块开始-->
+
+
+
+      <resource-loader class="com.hanlin.fadp.base.config.FileLoader" name="main" prefix="/hot-deploy/entityMgr/entitydef/" prepend-env="fadp.home"/>
+
+      <!--*************这是一个新的数据源*全军数据源****************************-->
+      <delegator default-group-name="com.hanlin.fadp"
+                 distributed-cache-clear-class-name="com.hanlin.fadp.entityext.cache.EntityCacheServices"
+                 entity-eca-handler-class-name="com.hanlin.fadp.entityext.eca.DelegatorEcaHandler"
+                 entity-eca-reader="attack" entity-group-reader="attack" entity-model-reader="attack" name="attack">
+          <group-map datasource-name="localderby" group-name="com.hanlin.fadp"/>
+          <group-map datasource-name="attack" group-name="attack"/>
+      </delegator>
+      <entity-model-reader name="attack">
+          <resource loader="main" location="attack.xml"/>
+          <resource loader="main" location="entitymodel_localsys.xml"/>
+      </entity-model-reader>
+      <entity-group-reader name="attack">
+          <resource loader="main" location="attack-group.xml"/>
+      </entity-group-reader>
+      <entity-eca-reader name="attack"/>
+      <datasource add-missing-on-start="true" alias-view-columns="false" check-on-start="true" field-type-name="derby"
+                  helper-class="com.hanlin.fadp.entity.datasource.GenericHelperDAO" name="attack" offset-style="fetch"
+                  schema-name="FADP" use-indices-unique="false" use-order-by-nulls="true"
+                  use-pk-constraint-names="false">
+          <read-data reader-name="tenant"/>
+          <read-data reader-name="seed"/>
+          <read-data reader-name="seed-initial"/>
+          <read-data reader-name="demo"/>
+          <read-data reader-name="ext"/>
+          <read-data reader-name="ext-test"/>
+          <read-data reader-name="ext-demo"/>
+          <!-- beware use-indices-unique="false" is needed because of Derby bug with null values in a unique index -->
+          <inline-jdbc isolation-level="ReadCommitted" jdbc-driver="org.apache.derby.jdbc.EmbeddedDriver"
+                       jdbc-password-lookup="derby-fadp" jdbc-uri="jdbc:derby:attack;create=true" jdbc-username="fadp"
+                       pool-jdbc-test-stmt="values 1" pool-maxsize="250" pool-minsize="2"
+                       soft-min-evictable-idle-time-millis="600000" test-on-borrow="true"
+                       time-between-eviction-runs-millis="600000"/>
+          <!-- <jndi-jdbc jndi-server-name="localjndi" jndi-name="java:/DerbyDataSource" isolation-level="ReadCommitted"/> -->
+      </datasource>
+      <!--*************数据源*全军数据源*配置结束***************************-->
+
+      <!--*************这是一个新的数据源*对日作战数据源****************************-->
+      <delegator default-group-name="com.hanlin.fadp"
+                 distributed-cache-clear-class-name="com.hanlin.fadp.entityext.cache.EntityCacheServices"
+                 entity-eca-handler-class-name="com.hanlin.fadp.entityext.eca.DelegatorEcaHandler"
+                 entity-eca-reader="attack_rb" entity-group-reader="attack_rb" entity-model-reader="attack_rb" name="attack_rb">
+          <group-map datasource-name="localderby" group-name="com.hanlin.fadp"/>
+          <group-map datasource-name="attack_rb" group-name="attack_rb"/>
+      </delegator>
+      <entity-model-reader name="attack_rb">
+          <resource loader="main" location="attack_rb.xml"/>
+          <resource loader="main" location="entitymodel_localsys.xml"/>
+      </entity-model-reader>
+      <entity-group-reader name="attack_rb">
+          <resource loader="main" location="attack_rb-group.xml"/>
+      </entity-group-reader>
+      <entity-eca-reader name="attack_rb"/>
+      <datasource add-missing-on-start="true" alias-view-columns="false" check-on-start="true" field-type-name="derby"
+                  helper-class="com.hanlin.fadp.entity.datasource.GenericHelperDAO" name="attack_rb" offset-style="fetch"
+                  schema-name="FADP" use-indices-unique="false" use-order-by-nulls="true"
+                  use-pk-constraint-names="false">
+          <read-data reader-name="tenant"/>
+          <read-data reader-name="seed"/>
+          <read-data reader-name="seed-initial"/>
+          <read-data reader-name="demo"/>
+          <read-data reader-name="ext"/>
+          <read-data reader-name="ext-test"/>
+          <read-data reader-name="ext-demo"/>
+          <inline-jdbc isolation-level="ReadCommitted" jdbc-driver="org.apache.derby.jdbc.EmbeddedDriver"
+                       jdbc-password-lookup="derby-fadp" jdbc-uri="jdbc:derby:attack_rb;create=true" jdbc-username="fadp"
+                       pool-jdbc-test-stmt="values 1" pool-maxsize="250" pool-minsize="2"
+                       soft-min-evictable-idle-time-millis="600000" test-on-borrow="true"
+                       time-between-eviction-runs-millis="600000"/>
+      </datasource>
+      <!--*************数据源*对日作战数据源*配置结束***************************-->
+
+
+
+
+
+
+2. 加载演示数据
+java -jar fadp.jar load-data -file=/tmp/dataload.xml

@@ -1,0 +1,106 @@
+.dht2 {
+    border-bottom: 1px solid #D1D1D1;
+    height: 33px;
+    padding-top: 20px;
+    padding-left: 20px;
+    width: auto;
+}
+
+.funs {
+    float: right;
+    height: 33px;
+    margin-right: 20px;
+}
+
+.table-style {
+    border: none;
+    font-size: 12px;
+    text-align: center;
+    overflow: scroll;
+}
+
+.table-style tr td {
+    padding-left: 10px;
+    width: 80px;
+    height: 30px;
+}
+
+.table-style thead {
+    height: 30px;
+    white-space: pre;
+}
+
+.table-style thead tr td {
+    border-bottom: 1px solid #D1D1D1;
+    background: url("/images/fadptemplate/images/main_15.gif");
+}
+
+.table-style tbody tr td {
+    height: 20px;
+    border-bottom: 1px dashed #D1D1D1;
+}
+
+.table-style a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.table-style img {
+    display: inline;
+    vertical-align: -4px;
+    margin-right: 2px;
+}
+
+#tab tbody tr td:hover {
+    background-color: #E2EFF8;
+    cursor: default;
+}
+
+#top_left {
+    float: left;
+    text-align: center;
+}
+
+#top_right {
+    float: right;
+    text-align: center;
+}
+
+#top1_left {
+    float: left;
+    margin-left: 60px;
+    text-align: center;
+}
+
+#top1_right {
+    float: right;
+    text-align: center;
+}
+
+#bot_left {
+    margin-left: 80px;
+}
+
+#bot_right {
+    margin-right: 200px;
+}
+
+#client_div {
+    width: 960px;
+    margin-left: 110px;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+.button {
+    width: auto;
+    height: 25px;
+    padding: 2px;
+    text-align: center;
+}
+
+.table {
+    margin-top: 5px;
+}

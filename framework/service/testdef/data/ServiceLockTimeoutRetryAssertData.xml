@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-engine-xml>
+    <!-- assert data for service lock wait timeout recovery test -->
+    <TestingType testingTypeId="SVCLWTRT" description="New description for SVCLWTRT from Waiter service, this is the value that should be there."/>
+</entity-engine-xml>

@@ -1,0 +1,64 @@
+
+.my-required {
+    float: right;
+    margin: 3px;
+    width: 16px;
+    height: 16px;
+    background-image: url("img/my-required.png");
+}
+
+.form-item-value {
+
+}
+
+.form-item-value > input, select, label {
+    float: left;
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+.my-button {
+    /*display: block;*/
+    width: auto;
+    height: 25px;
+    background-color: rgb(192, 110, 48);
+    padding: 2px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 25px;
+    margin: 5px;
+
+}
+.my-submit{
+    /*display: block;*/
+    width: auto;
+    height: 25px;
+    background-color:#4397d5;
+    padding: 2px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 25px;
+    margin: 5px;
+
+}
+.my-button:hover ,.my-submit:hover {
+    background-color: #36312a;
+}
+
+.active {
+    background-color: #36312a;
+}
+
+.my-full-item {
+    width:100% ;
+    margin: 5px;
+}
+.my-tr-active{
+    background-color: #bad5c1;
+}

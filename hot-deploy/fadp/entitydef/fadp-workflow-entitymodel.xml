@@ -1,0 +1,177 @@
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/dtds/entitymodel.xsd">
+	<entity entity-name="FadpFlow" package-name="">
+		<description>流程定义主表</description>
+		<field name="flowId" type="id">
+			<description>流程编号</description>
+		</field>
+		<field name="flowName" type="name"></field>
+		<field name="userId" type="id">
+			<description>流程创建人id</description>
+		</field>
+		<field name="userName" type="name">
+			<description>流程创建人名称</description>
+		</field>
+		<field name="createTime" type="date-time"></field>
+		<field name="hasAttachment" type="indicator">
+			<description>是否有附件</description>
+		</field>
+		<field name="hasComment" type="indicator">
+			<description>时候有会签意见</description>
+		</field>
+		<prim-key field="flowId" />
+	</entity>
+	<entity entity-name="FadpFlowPrcs" package-name="">
+		<description>流程步骤定义</description>
+		<field name="flowId" type="id"></field>
+		<field name="prcsId" type="id"></field>
+
+		<field name="createTime" type="date-time"></field>
+		<field name="parentPrcsId" type="id">
+			<description>上一步骤</description>
+		</field>
+		<field name="prcsName" type="name">
+			<description>步骤名称</description>
+		</field>
+		<field name="fcfs" type="indicator">
+			<description>是否抢办</description>
+		</field>
+		<field name="canRecover" type="indicator">
+			<description>是否可回收，默认可以</description>
+		</field>
+		<field name="timeout" type="numeric">
+			<description>超时时长,以毫秒计</description>
+		</field>
+		<field name="enterCondition" type="very-long">
+			<description>进入条件</description>
+		</field>
+		<prim-key field="flowId" />
+		<prim-key field="prcsId" />
+	</entity>
+	<entity entity-name="FadpFlowPrcsUser" package-name="">
+		<description>流程步骤办理人员</description>
+		<field name="flowId" type="id"></field>
+		<field name="prcsId" type="id"></field>
+		<field name="userId" type="id"></field>
+		<field name="isSponsor" type="indicator">
+			<description>是否主办人(Y是,N不是)</description>
+		</field>
+		<prim-key field="flowId" />
+		<prim-key field="prcsId" />
+		<prim-key field="userId" />
+	</entity>
+	<view-entity entity-name="FadpFlowPrcsUserToFadpUser" package-name="">
+		<member-entity entity-alias="prcs" entity-name="FadpFlowPrcsUser"></member-entity>
+		<member-entity entity-alias="FadpUser" entity-name="FadpUser"></member-entity>
+		<alias-all entity-alias="prcs"></alias-all>
+		<alias-all entity-alias="FadpUser"></alias-all>
+		<view-link rel-entity-alias="FadpUser" entity-alias="prcs">
+			<key-map field-name="userId" rel-field-name="userLoginId" />
+		</view-link>
+	</view-entity>
+
+	<entity entity-name="FadpFlowRun" package-name="">
+		<description>流程运行实例</description>
+		<field name="runId" type="id"></field>
+		<field name="runName" type="long-varchar"></field>
+		<field name="flowId" type="id"></field>
+		<field name="parentRun" type="id"></field>
+		<field name="userId" type="id"></field>
+		<field name="userName" type="name"></field>
+		<field name="beginTime" type="date-time"></field>
+		<field name="delFlag" type="indicator"></field>
+		<field name="endTime" type="date-time"></field>
+		<prim-key field="runId" />
+	</entity>
+
+	<entity entity-name="FadpFlowRunData" package-name="">
+		<description>流程实例的表单数据</description>
+		<field name="runId" type="id"></field>
+		<field name="itemId" type="id"></field>
+		<field name="itemData" type="very-long"></field>
+		<prim-key field="runId" />
+		<prim-key field="itemId" />
+	</entity>
+	<entity entity-name="FadpFlowRunPrcs" package-name="">
+		<description>流程实例步骤（这里的人员，部门都忠实记录当时的实际情况，不用外键关联）</description>
+		<field name="runId" type="id"></field>
+		<field name="runPrcsId" type="id">
+			<description>流程实际步骤 （流程内累加计数器）</description>
+		</field>
+
+		<field name="prcsId" type="id">
+			<description>流程定义步骤</description>
+		</field>
+		<field name="parent" type="id">
+			<description>引用runPrcsId字段</description>
+		</field>
+		<field name="createTime" type="date-time">
+			<description>产生时间</description>
+		</field>
+
+		<field name="userId" type="id"></field>
+		<field name="userName" type="name"></field>
+		<field name="deptId" type="id"></field>
+		<field name="deptName" type="name"></field>
+
+		<field name="prcsTime" type="date-time">
+			<description>办理时间</description>
+		</field>
+		<field name="deliverTime" type="date-time">
+			<description>提交下一步时间,这个时间必须与下一步的createTime完全相同</description>
+		</field>
+		<field name="editTime" type="date-time">
+			<description>修改时间</description>
+		</field>
+
+
+
+		<field name="prcsFlag" type="indicator">
+			<description>处理标记（O(original)未接收；D(doing)办理中；R(recover)已转交但可回收；F(final)已转交且不可回收）</description>
+		</field>
+		<field name="delFlag" type="indicator">
+			<description>有效性(Y有效，N无效)</description>
+		</field>
+		<field name="isSponsor" type="indicator">
+			<description>是否主办人(Y是,N不是，主办人只有一个)</description>
+		</field>
+
+		<field name="feedbackContent" type="very-long"></field>
+
+		<field name="timeOutTime" type="date-time"></field>
+		<field name="timeOutFlag" type="indicator"></field>
+		<field name="childRun" type="id"></field>
+
+		<prim-key field="runId" />
+		<prim-key field="runPrcsId" />
+
+	</entity>
+	<view-entity entity-name="FadpFlowRunPrcsView" package-name="">
+		<description>有效实例活动</description>
+		<member-entity entity-alias="runPrcs" entity-name="FadpFlowRunPrcs"></member-entity>
+		<alias-all entity-alias="runPrcs"></alias-all>
+		<entity-condition>
+			<condition-expr entity-alias="runPrcs" field-name="delFlag" operator="equals" value="N" />
+		</entity-condition>
+	</view-entity>
+
+	<entity entity-name="FadpFlowRunLog" package-name="">
+		<description>流程日志</description>
+		<field name="logId" type="id"></field>
+
+		<field name="runId" type="id"></field>
+		<field name="prcsId" type="id"></field>
+		<field name="userId" type="short-varchar"></field>
+		<field name="logTime" type="date-time"></field>
+		<field name="runPrcsId" type="id"></field>
+		<field name="userName" type="name"></field>
+		<field name="runName" type="long-varchar"></field>
+		<field name="content" type="very-long"></field>
+		<field name="ip" type="short-varchar"></field>
+		<field name="type" type="very-short"></field>
+		<prim-key field="logId" />
+	</entity>
+
+
+
+
+</entitymodel>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://localhost:8888/dtds/entitymodel.xsd">
+    <entity author="None" auto-clear-cache="true" copyright="Copyright 2001-2017 The Apache Software Foundation" enable-lock="false" entity-name="ArmySoldier" never-cache="false" never-check="false" no-auto-stamp="true" package-name="" title="None" version="1.0">
+        <description>None</description>
+        <field enable-audit-log="false" encrypt="false" field-set="" name="armyId" not-null="false" type="short-varchar"/>
+        <field enable-audit-log="false" encrypt="false" field-set="" name="soldierId" not-null="true" type="short-varchar"/>
+        <field enable-audit-log="false" encrypt="false" field-set="" name="soldierName" not-null="false" type="long-varchar"/>
+        <prim-key field="soldierId"/>
+    </entity>
+    <entity author="None" auto-clear-cache="true" copyright="Copyright 2001-2017 The Apache Software Foundation" enable-lock="false" entity-name="ArmyWeapon" never-cache="false" never-check="false" no-auto-stamp="true" package-name="" title="None" version="1.0">
+        <description>None</description>
+        <field enable-audit-log="false" encrypt="false" field-set="" name="armyId" not-null="false" type="short-varchar"/>
+        <field enable-audit-log="false" encrypt="false" field-set="" name="weaponId" not-null="true" type="short-varchar"/>
+        <field enable-audit-log="false" encrypt="false" field-set="" name="weaponName" not-null="false" type="long-varchar"/>
+        <prim-key field="weaponId"/>
+    </entity>
+    <entity author="None" auto-clear-cache="true" copyright="Copyright 2001-2017 The Apache Software Foundation" enable-lock="false" entity-name="Test" never-cache="false" never-check="false" no-auto-stamp="true" package-name="" title="None" version="1.0">
+        <description>None</description>
+        <field enable-audit-log="false" encrypt="false" field-set="" name="lastUpdatedTxStamp" not-null="false" type="date-time"/>
+        <field enable-audit-log="false" encrypt="false" field-set="" name="lastUpdatedStamp" not-null="false" type="date-time"/>
+        <field enable-audit-log="false" encrypt="false" field-set="" name="createdStamp" not-null="false" type="date-time"/>
+        <field enable-audit-log="false" encrypt="false" field-set="" name="testAdd2" not-null="false" type="short-varchar"/>
+        <field enable-audit-log="false" encrypt="false" field-set="" name="testContent" not-null="false" type="long-varchar"/>
+        <field enable-audit-log="false" encrypt="false" field-set="" name="testAdd" not-null="false" type="long-varchar"/>
+        <field enable-audit-log="false" encrypt="false" field-set="" name="testId" not-null="true" type="short-varchar"/>
+        <field enable-audit-log="false" encrypt="false" field-set="" name="createdTxStamp" not-null="false" type="date-time"/>
+        <prim-key field="testId"/>
+    </entity>
+    <entity author="None" auto-clear-cache="true" copyright="Copyright 2001-2017 The Apache Software Foundation" enable-lock="false" entity-name="Test2" never-cache="false" never-check="false" no-auto-stamp="true" package-name="" title="None" version="1.0">
+        <description>None</description>
+        <field enable-audit-log="false" encrypt="false" field-set="" name="testId" not-null="true" type="short-varchar"/>
+        <prim-key field="testId"/>
+    </entity>
+    <entity entity-name="ArmyOrg" no-auto-stamp="true" package-name="" title="None">
+        <description>None</description>
+        <field name="armyName" type="long-varchar"/>
+        <field name="armyId" type="short-varchar"/>
+        <field name="parentArmyId" type="short-varchar"/>
+        <prim-key field="armyId"/>
+        <relation fk-name="fk-0" rel-entity-name="ArmySoldier" type="many">
+            <key-map field-name="armyId" rel-field-name="armyId"/>
+        </relation>
+        <relation fk-name="fk-1" rel-entity-name="ArmyWeapon" type="many">
+            <key-map field-name="armyId" rel-field-name="armyId"/>
+        </relation>
+    </entity>
+</entitymodel>

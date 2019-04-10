@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<!-- head -->
+<head>
+<title>极元理财助手—个人中心</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=640, target-densitydpi=device-dpi, user-scalable=no" />
+<meta name="description" content="" />
+<meta name="keywords" content="">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/loading.css" rel="stylesheet">
+<!-- Stucture CSS -->
+<link href="css/stucture.css" rel="stylesheet">
+<link href="css/datetimepicker.css" rel="stylesheet">
+<link href="css/wap.css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<!-- /end head -->
+
+<body>
+
+	<div class="viewport mySet">
+
+			<ul class="blocklist clearfix">
+				<li>
+					<span class="pull-left">手机号码</span>
+					<span class="pull-right" id="phone">--</span>
+					
+					<!--去绑定手机-->
+					<!--a href="bindPhone.html">
+						<span class="pull-left">手机号码</span>
+						<span class="pull-right">去绑定</span>
+					</a-->
+				</li>
+				<li>
+					<a>
+						<span class="pull-left">登录密码</span>
+						<span class="pull-right" id="changePass">更改</span>
+					</a>
+				</li>
+				<li>
+					<a>
+						<span class="pull-left">电子邮箱</span>
+						<span class="pull-right" id="noBind" style="display: block">去绑定</span>
+					</a>
+				</li>
+				<li>
+					<a >
+						<span class="pull-left">个人信息</span>
+						<span class="pull-right" id="haveValue" style="display: block">去完善</span>
+						<span class="pull-right" id="changeInfo" style="display: none">修改</span>
+					</a>
+				</li>
+			</ul>
+
+			<ul class="blocklist">
+				<li>
+					<a class="exit" id="logout">退出</a>
+				</li>
+			</ul>
+			<br /><br />
+		<div id="loading" class="loading" style="display: none"><img src="images/wap/loading.gif" width="80"/><br />数据加载中</div>
+	</div>
+    
+	<footer>
+		<div class="footer">
+			<ul>
+				<li><a href="uc.html"><i class="fa fa-area-chart"></i><span>订单</span></a></li>
+				<li ><a href="message.html"><i class="fa fa-envelope"></i><span>消息</span></a></li>
+				<li class="on" ><a href="set.html"><i class="fa fa-cog"></i><span>设置</span></a></li>
+			</ul>
+		</div>
+	</footer>
+　　<script type="text/javascript" src="js/utils.js"></script>
+	<script type="text/javascript" src="js/client.js"></script>
+<script>
+	$(document).ready(function(){
+
+	    $("#changePass").click(function () {
+			window.location.href="editPassword.html"
+        })
+
+        $("#noBind").click(function () {
+            window.location.href="email.html"
+        })
+        $("#haveValue").click(function () {
+            window.location.href="info.html"
+        })
+        $("#changeInfo").click(function () {
+            window.location.href="info.html"
+        })
+		initBase.initUserInfo(function(data){
+			var reg = /^(\d{3})\d{4}(\d{4})$/;
+            var s=data.sj.replace(reg, "$1****$2");
+            $("#phone").text(s);
+            console.log(JSON.stringify(data))
+            if(data.cyyj==''||data.cyyj==undefined) {
+                $("#noBind").text("去绑定")
+            }else {
+				$("#noBind").text(data.cyyj);
+			}
+            if(data.xm==''||data.xm==undefined) {
+                $("#haveValue").css("display", "block");
+                $("#changeInfo").css("display", "none");
+            }else {
+                $("#haveValue").css("display", "none");
+                $("#changeInfo").css("display", "block");
+            }
+		})
+
+		$("#logout").click(function(){
+		    initBase.logout();
+		});
+	})
+</script>
+</body>
+</html>

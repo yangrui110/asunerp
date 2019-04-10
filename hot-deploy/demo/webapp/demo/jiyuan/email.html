@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<!-- head -->
+<head>
+<title>极元理财助手—个人中心</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=640, target-densitydpi=device-dpi, user-scalable=no" />
+<meta name="description" content="" />
+<meta name="keywords" content="">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<!-- Stucture CSS -->
+<link href="css/stucture.css" rel="stylesheet">
+<link href="css/datetimepicker.css" rel="stylesheet">
+<link href="css/wap.css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<!-- /end head -->
+
+<body>
+
+	<div class="viewport viewport_b0 bg">
+		<div id="error">错误信息</div>
+		<div class="mt30 c8 ft24 ml25">为了保证您的安全，请登录您的邮箱(绑定/修改)获取验证码！</div>
+		<form action="#" method="post">
+			<ul class="rowlist">
+				<li>
+					<div class="pull-left">电子邮箱</div>
+					<div class="pull-right" style="width: 75%;"><input type="text" name="email" placeholder="请输入电子邮箱" style="width: 100%"></div>
+				</li>
+				<li class="relative">
+					<div class="pull-left">验证码</div>
+					<div class="pull-right"><input  type="text" name="code" placeholder="请输入验证码"></div>
+					<div class="yzm" id="getRandCode">获取验证码</div>
+					<div class="yzm" style="display:none" id="repeat" disabled>120s后重发</div>
+				</li>
+			</ul>
+			
+			<div class="aWrap">
+				<input  value="提交" class="btn btn-blue" type="button" id="submit">
+			</div>
+		
+			<br /><br /><br />
+			
+	    </form>
+	</div>
+
+	<script type="text/javascript" src="js/utils.js"></script>
+	<script type="text/javascript" src="js/client.js"></script>
+	<script type="text/javascript" src="js/init.js"></script>
+　　<script>
+
+		$(document).ready(function(){
+		    $("#submit").click(function(){
+		        var email=$("input[name='email']").val();
+		        var code=$("input[name='code']").val();
+		        if(initBase.validateEmpty(email))
+		            return ;
+
+                var user=cookie.getCookie("user");
+				if(user)
+					user=JSON.parse(user);
+				var data={entityName:'BaseUfKhgl',PK:{id:user.id},email:email,code:code};
+				console.log(JSON.stringify(data))
+				apiClient.bindEmail(JSON.stringify(data),function(data){
+				    if(data.error) {
+
+                    }else {
+                        console.log("data=" + JSON.stringify(data));
+                        //跳转到设置界面
+                        //cookie.setCookie('user',data);
+                        window.location.href = "set.html";
+                    }
+				})
+
+			});
+            var count=120;
+            var timer=0;
+            var re = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+            $("input[name='email']").bind('input propertychange', function(){
+
+                if (!re.test($("input[name='email']").val())) {
+                    initBase.setError("邮箱格式不正确");
+                }else initBase.hideError()
+			});
+		    $("#getRandCode").click(function(){
+                var user=cookie.getCookie("user");
+                if(user)
+                    user=JSON.parse(user);
+		        var email=$("input[name='email']").val();
+		        var postData={"email":email,"xm":user.xm};
+		        if(initBase.validateEmpty(email,"邮箱不能为空"))
+		            return ;
+				if(!re.test(email))
+				    return;
+		        apiClient.getRandCode(JSON.stringify(postData),function(data){
+					if(data.result){
+						//    间隔1s打印一次cunt，当count为5时结束定时器，所以打印结果为 0， 1， 2， 3， 4
+                        timer = setInterval(function () {
+                            console.log(count);
+                            count--;
+                            if(count<0) {
+                                count=120;
+                                $("#repeat").text("发送验证码");
+                                $("#repeat").css("display","none");
+                                $("#getRandCode").css("display","block");
+                                clearInterval(timer);
+                            }else {
+                                $("#repeat").text(count+"秒后重发");
+                                $("#repeat").css("display","block");
+                                $("#getRandCode").css("display","none");
+                            }
+                        }, 1000);
+					}
+
+				});
+
+			});
+		});
+
+	</script>
+</body>
+</html>

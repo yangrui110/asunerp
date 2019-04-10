@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<entitygroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://localhost:8888/dtds/entitygroup.xsd">
+
+    <entity-group group="com.hanlin.fadp.stats" entity="BrowserType"/>
+    <entity-group group="com.hanlin.fadp.stats" entity="PlatformType"/>
+    <entity-group group="com.hanlin.fadp.stats" entity="ProtocolType"/>
+    <entity-group group="com.hanlin.fadp.stats" entity="ServerHit"/>
+    <entity-group group="com.hanlin.fadp.stats" entity="ServerHitBin"/>
+    <entity-group group="com.hanlin.fadp.stats" entity="ServerHitType"/>
+    <entity-group group="com.hanlin.fadp.stats" entity="UserAgent"/>
+    <entity-group group="com.hanlin.fadp.stats" entity="UserAgentMethodType"/>
+    <entity-group group="com.hanlin.fadp.stats" entity="UserAgentType"/>
+    <entity-group group="com.hanlin.fadp.stats" entity="Visit"/>
+    <entity-group group="com.hanlin.fadp.stats" entity="Visitor"/>
+
+</entitygroup>
+

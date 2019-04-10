@@ -1,0 +1,56 @@
+<fadp-component name="catalina" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://127.0.0.1:8888/dtds/fadp-component.xsd">
+  <resource-loader name="main" type="component"/>
+  <classpath type="jar" location="lib/*"/>
+  <classpath type="jar" location="build/lib/*"/>
+  <entity-resource type="model" reader-name="main" loader="main" location="entitydef/entitymodel.xml"/>
+  <container name="catalina-container" loaders="main" class="com.hanlin.fadp.catalina.container.CatalinaContainer">
+    <property name="use-naming" value="false"/>
+    <property name="debug" value="0"/>
+    <property name="catalina-runtime-home" value="runtime/catalina"/>
+    <property name="apps-context-reloadable" value="false"/>
+    <property name="apps-cross-context" value="false"/>
+    <property name="apps-distributable" value="false"/>
+    <property name="default-server" value="engine">
+      <property name="default-host" value="0.0.0.0"/>
+      <property name="jvm-route" value="jvm1"/>
+      <property name="access-log-pattern">
+        <property-value>
+          %h %l %u %t "%r" %s %b "%{Referer}i" "%{User-Agent}i"
+        </property-value>
+      </property>
+      <property name="access-log-rotate" value="true"/>
+      <property name="access-log-prefix" value="access_log."/>
+      <property name="access-log-dir" value="runtime/logs"/>
+      <property name="enable-cross-subdomain-sessions" value="false"/>
+    </property>
+    <property name="http-connector" value="connector">
+      <property name="port" value="80"/>
+      <property name="protocol" value="HTTP/1.1"/>
+      <property name="scheme" value="http"/>
+      <property name="secure" value="false"/>
+      <property name="URIEncoding" value="UTF-8"/>
+      <property name="xpoweredBy" value="true"/>
+      <property name="compression" value="off"/>
+      <property name="compressableMimeType" value="text/html,text/xml,text/plain,text/javascript,text/css"/>
+    </property>
+    <property name="https-connector" value="connector">
+      <property name="port" value="443"/>
+      <property name="protocol" value="HTTP/1.1"/>
+      <property name="scheme" value="https"/>
+      <property name="secure" value="true"/>
+      <property name="SSLEnabled" value="true"/>
+      <property name="URIEncoding" value="UTF-8"/>
+      <property name="xpoweredBy" value="true"/>
+      <property name="compression" value="off"/>
+      <property name="compressableMimeType" value="text/html,text/xml,text/plain,text/javascript,text/css"/>
+      <property name="sslImplementationName" value="com.hanlin.fadp.catalina.container.SSLImpl"/>
+      <property name="algorithm" value="SunX509"/>
+      <property name="keystoreFile" value="framework/base/config/fadpssl.jks"/>
+      <property name="keystoreType" value="JKS"/>
+      <property name="keyAlias" value="ofbiz"/>
+      <property name="keyPass" value="changeit"/>
+      <property name="sslProtocol" value="TLS"/>
+      <property name="ciphers" value=""/>
+    </property>
+  </container>
+</fadp-component>

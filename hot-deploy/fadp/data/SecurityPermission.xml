@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission permissionId="COMMON_ADMIN" description="Admin operations in the Common Component." category="system"/>
+    <SecurityPermission permissionId="COMMON_CREATE" description="Create operations in the Common Component." category="system"/>
+    <SecurityPermission permissionId="COMMON_DELETE" description="Delete operations in the Common Component." category="system"/>
+    <SecurityPermission permissionId="COMMON_UPDATE" description="Update operations in the Common Component." category="system"/>
+    <SecurityPermission permissionId="COMMON_VIEW" description="View operations in the Common Component." category="system"/>
+    <SecurityPermission permissionId="DATAFILE_MAINT" description="Use the Data File Maintenance pages." category="system"/>
+    <SecurityPermission permissionId="ENTITY_DATA_ADMIN" description="ALL with the Entity Data Maintenance pages." category="system"/>
+    <SecurityPermission permissionId="ENTITY_DATA_CREATE" description="Create with the Entity Data Maintenance pages." category="system"/>
+    <SecurityPermission permissionId="ENTITY_DATA_DELETE" description="Delete with the Entity Data Maintenance pages." category="system"/>
+    <SecurityPermission permissionId="ENTITY_DATA_UPDATE" description="Update with the Entity Data Maintenance pages." category="system"/>
+    <SecurityPermission permissionId="ENTITY_DATA_VIEW" description="View with the Entity Data Maintenance pages." category="system"/>
+    <SecurityPermission permissionId="ENTITY_MAINT" description="Use the Entity Maintenance pages." category="system"/>
+    <SecurityPermission permissionId="ENTITY_SYNC_ADMIN" description="Use the Entity Sync Admin pages." category="system"/>
+    <SecurityPermission permissionId="ENUM_STATUS_MAINT" description="Use the Enum and Status Maintenance pages." category="system"/>
+    <SecurityPermission permissionId="LABEL_MANAGER_VIEW" description="View the Labels Info pages." category="system"/>
+    <SecurityPermission permissionId="OFBTOOLS_VIEW" description="Permission to access the Stock OFBiz Manager Applications." category="system"/>
+    <SecurityPermission permissionId="PERIOD_MAINT" description="Use the Period Maintenance pages." category="system"/>
+    <SecurityPermission permissionId="PORTALPAGE_ADMIN" description="Admin operations on Portal Pages." category="system"/>
+    <SecurityPermission permissionId="SERVER_STATS_VIEW" description="View the Server Statistics pages." category="system"/>
+    <SecurityPermission permissionId="SERVICE_INVOKE_ANY" description="Permission to invoke any service remotely." category="system"/>
+    <SecurityPermission permissionId="SERVICE_MAINT" description="Use the Service Maintenance pages." category="system"/>
+    <SecurityPermission permissionId="TEMPEXPR_ADMIN" description="Temporal expression admin" category="system"/>
+    <SecurityPermission permissionId="USERPREF_ADMIN" description="User preferences admin" category="system"/>
+    <SecurityPermission permissionId="UTIL_CACHE_EDIT" description="Edit a UtilCache instance." category="system"/>
+    <SecurityPermission permissionId="UTIL_CACHE_VIEW" description="View a UtilCache instance." category="system"/>
+    <SecurityPermission permissionId="UTIL_DEBUG_EDIT" description="Edit a UtilDebug instance." category="system"/>
+    <SecurityPermission permissionId="UTIL_DEBUG_VIEW" description="View a UtilDebug instance." category="system"/>
+    <SecurityPermission permissionId="VISUALTHEME_ADMIN" description="ALL operations on Visual Themes and Visual Theme Resources." category="system"/>
+    <SecurityPermission permissionId="VISUALTHEME_CREATE" description="Create Visual Themes and Visual Theme Resources." category="system"/>
+    <SecurityPermission permissionId="VISUALTHEME_DELETE" description="Delete Visual Themes and Visual Theme Resources." category="system"/>
+    <SecurityPermission permissionId="VISUALTHEME_UPDATE" description="Update Visual Themes and Visual Theme Resources." category="system"/>
+    <SecurityPermission permissionId="ARTIFACT_INFO_VIEW" description="View the Artifact Info pages." category="system"/>
+    <SecurityPermission permissionId="access" description="Base ACCESS permission" category="system"/>
+    <SecurityPermission permissionId="create" description="Base CREATE permission" category="system"/>
+    <SecurityPermission permissionId="delete" description="Base DELETE permission" category="system"/>
+    <SecurityPermission permissionId="read" description="Base READ permission" category="system"/>
+    <SecurityPermission permissionId="update" description="Base UPDATE permission" category="system"/>
+
+
+    <PermissionCategory typeId="securityBase" typeName="基础模块"/>
+    <SecurityPermission permissionId="FULL_ADMIN" description="超级权限" category="securityBase"/>
+    <SecurityPermission permissionId="WEBTOOLS_VIEW" description="webtools查看" category="securityBase"/>
+    <SecurityPermission permissionId="CODEC_PERMISSION" description="代码生成权限" category="securityBase"/>
+    <SecurityPermission permissionId="PM_ADMIN" description="项目管理权限" category="securityBase"/>
+    <SecurityPermission permissionId="BASE_ADMIN" description="基础管理权限" category="securityBase"/>
+    <SecurityPermission permissionId="BASE_DIC_ADMIN" description="字典管理所有权限" category="securityBase"/>
+    <SecurityPermission permissionId="BASE_DIC_VIEW" description="字典管理查看权限" category="securityBase"/>
+    <SecurityPermission permissionId="BASE_CONTACT_ADMIN" description="通讯录管理所有权限" category="securityBase"/>
+    <SecurityPermission permissionId="BASE_CONTACT_VIEW" description="通讯录管理查看权限" category="securityBase"/>
+    <SecurityPermission permissionId="BASE_LOG_ADMIN" description="日志管理所有权限" category="securityBase"/>
+    <SecurityPermission permissionId="BASE_LOG_VIEW" description="日志管理查看权限" category="securityBase"/>
+    <SecurityPermission permissionId="BASE_PROJECT_ADMIN" description="项目管理所有权限" category="securityBase"/>
+    <SecurityPermission permissionId="BASE_PROJECT_VIEW" description="项目管理查看权限" category="securityBase"/>
+
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="BASE_DIC_ADMIN"/>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="BASE_CONTACT_ADMIN"/>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="BASE_LOG_ADMIN"/>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="BASE_PROJECT_ADMIN"/>
+
+
+    <SecurityGroup groupId="PROJECT_ADMIN" description="项目管理员" groupType="noneProject" groupName="项目管理员"/>
+    <FadpDic dicId="system" dicValue="系统字典" description="系统字典" isLeaf="N" enabled="Y"/>
+    <FadpDic parentId="system" dicId="securityType" dicValue="权限类型" description="权限类型" isLeaf="N" enabled="Y"/>
+    <FadpDic parentId="securityType" dicId="securityBase" dicValue="基础模块" description="基础模块" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="securityType" dicId="security_cm" dicValue="配置管理" description="配置管理" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="securityType" dicId="security_am" dicValue="资产管理" description="资产管理" isLeaf="Y" enabled="Y"/>
+
+    <FadpDic parentId="system" dicId="roleType" dicValue="角色类型" description="角色类型" isLeaf="N" enabled="Y"/>
+    <FadpDic parentId="roleType" dicId="all" dicValue="通用角色" description="通用角色" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="roleType" dicId="noneProject" dicValue="系统角色" description="系统角色" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="roleType" dicId="project" dicValue="项目角色" description="项目角色" isLeaf="Y" enabled="Y"/>
+
+    <FadpDic parentId="system" dicId="userSecret" dicValue="用户密级" isLeaf="N" enabled="Y"/>
+    <FadpDic parentId="userSecret" dicId="ust001" dicValue="普通" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="userSecret" dicId="noneProject" dicValue="秘密" isLeaf="Y" enabled="Y"/>
+    <FadpDic parentId="userSecret" dicId="project" dicValue="绝密" isLeaf="Y" enabled="Y"/>
+
+    <SecurityGroupPermission groupId="PROJECT_ADMIN" permissionId="PM_ADMIN"/>
+
+</entity-engine-xml>

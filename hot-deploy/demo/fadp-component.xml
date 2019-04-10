@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<fadp-component name="demo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/dtds/fadp-component.xsd">
+    <resource-loader name="main" type="component"/>
+    <classpath type="jar" location="lib/*"/>
+    <classpath type="jar" location="build/lib/*"/>
+    <classpath type="dir" location="config"/>
+
+    <entity-resource loader="main" location="entitydef/ActiveEntity.xml" reader-name="main" type="model"/>
+    <entity-resource loader="main" location="entitydef/H2Message.xml" reader-name="main" type="model"/>
+    <entity-resource loader="main" location="entitydef/Order.xml" reader-name="main" type="model"/>
+
+    <entity-resource loader="main" location="entitydef/SelectItem.xml" reader-name="main" type="model"/>
+    <entity-resource loader="main" location="entitydef/demo-entitymodel.xml" reader-name="main" type="model"/>
+    <entity-resource loader="main" location="entitydef/UfKhgl.xml" reader-name="main" type="model"/>
+    <entity-resource loader="main" location="entitydef/ProductEntity.xml" reader-name="main" type="model"/>
+    <entity-resource type="group" reader-name="main" loader="main" location="entitydef/jiyuanGroup.xml"/>
+
+    <webapp app-bar-display="true" location="webapp/demo" menu-name="secondary" mount-point="/jiyuan" name="jiyuan" privileged="false" server="default-server" title="jiyuan"/>
+</fadp-component>

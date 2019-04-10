@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/dtds/widget-screen.xsd">
+<screen name="query">
+		<section>
+			<widgets>
+				<decorator-screen name="general-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="center">
+							<container id="cen">
+								<platform-specific>
+									<html>
+										<html-template location="component://entityMgr/webapp/entityMgr/query/labelPage.ftl" />
+									</html>
+								</platform-specific>
+							</container>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="table_data">
+		<section>
+			<actions>
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/query/table_data.groovy"/>
+			</actions>
+			
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://entityMgr/webapp/entityMgr/query/table_data.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="tree">
+		<section>
+			<actions>
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/query/CreateTableTree.groovy" />
+			</actions>
+			
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://entityMgr/webapp/entityMgr/query/tableTree.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+</screens>

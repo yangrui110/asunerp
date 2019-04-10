@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-engine-xml>
+	<!-- 流程状态 -->
+	<FadpDic module="prcsFlag" itemId="O" itemData="未接收" />
+	<FadpDic module="prcsFlag" itemId="D" itemData="办理中" />
+	<FadpDic module="prcsFlag" itemId="R" itemData="已转交但可回收" />
+	<FadpDic module="prcsFlag" itemId="F" itemData="已转交且不可回收" />
+
+
+	<SecurityGroup description="自由联系单" groupId="FREE_CONTACT"/>
+    <SecurityPermission description="自由联系单创建权限" permissionId="FLOW_CREATE"/>
+    <SecurityGroupPermission groupId="FREE_CONTACT" permissionId="FLOW_CREATE"/>
+    <UserLoginSecurityGroup groupId="FREE_CONTACT" userLoginId="admin" fromDate="2016-01-01 12:00:00.0"/>
+
+</entity-engine-xml>

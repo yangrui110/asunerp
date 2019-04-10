@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../dtds/site-conf.xsd">
+	<request-map uri="makeMaterialSn" >
+		<description>产生Sn码</description>
+		<security auth="true"/>
+		<event type="groovy" path="component://eiip/script/sn/makeMaterialSn.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="saveMaterialSnTicket" >
+		<description>保存sn码</description>
+		<security auth="true"/>
+		<event type="java" path="com.eiip.sn.SnEvent" invoke="saveMaterialSnTicket"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="changeSnStatus" >
+		<description>改变sn码状态</description>
+		<security auth="true"/>
+		<event type="groovy" path="component://eiip/script/sn/changeSnStatus.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="checkTicketItemSn" >
+		<description>检查启用SN控制的单据条目是否都已具有SN码</description>
+		<security auth="true"/>
+		<event type="groovy" path="component://eiip/script/sn/checkTicketItemSn.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="exportSn" >
+		<description>导出SN码</description>
+		<security auth="false"/>
+		<event type="groovy" path="component://eiip/script/sn/exportSn.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+</site-conf>

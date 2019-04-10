@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="fadp - Start" default="jar" basedir=".">
+    <import file="../../common.xml"/>
+
+    <!-- ================================================================== -->
+    <!-- Initialization of all property settings                            -->
+    <!-- ================================================================== -->
+
+    <property name="desc" value="Start API"/>
+    <property name="name" value="fadp"/>
+
+    <!-- ================================================================== -->
+    <!-- Compilation of the source files                                    -->
+    <!-- ================================================================== -->
+
+    <target name="classes" depends="prepare">
+        <!-- compile start -->
+        <javac17 destdir="${build.dir}/classes" srcdir="${src.dir}"/>
+    </target>
+
+    <target name="jar" depends="classes">
+        <main-jar>
+            <main-elements>
+                <manifest>
+                    <attribute name="Manifest-Version" value="1.0"/>
+                    <attribute name="Main-Class" value="com.hanlin.fadp.base.start.Start"/>
+                </manifest>
+            </main-elements>
+        </main-jar>
+        <!-- copy the fadp.jar file -->
+        <copy todir="${basedir}/../..">
+            <fileset dir="${build.dir}/lib" includes="fadp.jar"/>
+        </copy>
+    </target>
+</project>

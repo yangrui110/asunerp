@@ -1,0 +1,103 @@
+package com.hanlin.fadp.websdt.event;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Stack;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.xml.parsers.ParserConfigurationException;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.xml.sax.SAXException;
+
+import com.hanlin.fadp.base.location.ComponentLocationResolver;
+import com.hanlin.fadp.base.start.Start;
+import com.hanlin.fadp.base.start.StartupException;
+import com.hanlin.fadp.base.util.UtilXml;
+
+public class TreeEvents {
+public static String treeJson(HttpServletRequest req, HttpServletResponse resp) throws SAXException, ParserConfigurationException, IOException {
+File xmlFile = new File(ComponentLocationResolver.getBaseLocation("component://websdt/workspace/a5/treeNodes.xml").toString());
+resp.setContentType("application/json");
+JSONObject json = new TreeWorker(xmlFile).getJson();
+resp.getWriter().print(json.toString());
+return "success";
+}
+public static void main(String[] args) throws SAXException, ParserConfigurationException, IOException, StartupException {
+Start.main(args);
+File xmlFile = new File(ComponentLocationResolver.getBaseLocation("component://websdt/workspace/a5/treeNodes.xml").toString());
+JSONObject json = new TreeWorker(xmlFile).getJson();
+System.out.println(json);
+}
+static class TreeWorker{
+private Map<String,JSONObject> pidMap;
+private JSONObject returnData;
+private JSONArray lines=new JSONArray();
+private Map<String,String> idNameMap=new HashMap<>();
+
+TreeWorker(File xmlFile) throws MalformedURLException, SAXException, ParserConfigurationException, IOException{
+Document document = UtilXml.readXmlDocument(xmlFile.toURI().toURL());
+List<? extends Element> nodeElementList = UtilXml.childElementList(document.getDocumentElement(), "treeNode");
+returnData = new JSONObject();
+pidMap=new HashMap<>();
+pidMap.put("-1", returnData);
+Iterator<? extends Element> iterator=nodeElementList.iterator();
+while(iterator.hasNext()){
+Element element=iterator.next();
+String pNodeId = UtilXml.firstChildElement(element, "pNodeId").getTextContent();
+JSONObject pNode = pidMap.get(pNodeId);
+System.out.println(pNode==returnData);
+if(pNode==null){
+System.out.println(pNodeId);
+}
+JSONArray children =(JSONArray) pNode.get("children");
+JSONObject node = getJSONObject(element);
+pidMap.put(node.get("realId").toString(), node);
+if(children==null){
+children= new JSONArray();
+pNode.put("children", children);
+}
+children.add(node);
+}
+}
+
+private JSONObject getJSONObject(Element ele){
+String name=UtilXml.firstChildElement(ele, "name").getTextContent();
+String fileID=UtilXml.firstChildElement(ele, "fileID").getTextContent();
+String id = ele.getAttribute("id");
+idNameMap.put(name, fileID+id);
+List<? extends Element> coverList = UtilXml.childElementList(UtilXml.firstChildElement(ele, "Covers"),"Cover");
+if(coverList!=null){
+for (Element cover : coverList) {
+if(!"".equals(cover.getTextContent())){
+JSONArray line= new JSONArray();
+line.add(fileID+id);
+line.add(idNameMap.get(cover.getTextContent()));
+lines.add(line);
+}
+}
+}
+JSONObject newItem = new JSONObject();
+newItem.put("text", name);
+newItem.put("id", fileID+id);
+newItem.put("realId",id);
+return newItem;
+}
+public JSONObject getJson(){
+if(!returnData.containsKey("lines")){
+returnData.put("lines", lines);
+}
+return returnData;
+}
+}
+}

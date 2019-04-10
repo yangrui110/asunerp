@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/dtds/site-conf.xsd">
+	<include location="component://common/webcommon/WEB-INF/common-controller.xml" />
+	<include location="component://fadp/controller/fadp-controller.xml" />
+	<include location="component://fadp/controller/fadp-system-controller.xml" />
+	<include location="component://demo/webapp/demo/WEB-INF/controller.xml" />
+
+	<include location="component://eiip/webapp/eiip/WEB-INF/material-controller.xml" />
+	<include location="component://eiip/webapp/eiip/WEB-INF/sn-controller.xml" />
+	<include location="component://eiip/webapp/eiip/WEB-INF/sale-controller.xml" />
+	<include location="component://eiip/webapp/eiip/WEB-INF/stock-controller.xml" />
+	<include location="component://eiip/webapp/eiip/WEB-INF/purchase-controller.xml" />
+
+</site-conf>

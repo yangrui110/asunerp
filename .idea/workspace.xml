@@ -1,0 +1,2106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="684c135f-488a-405f-8e6e-ec22cc3b58b4" name="Default" comment="极元理财助手项目" />
+    <list id="abaf2318-7c00-4168-add1-4a74ecca3d9c" name="Failed commit: Default" comment="" />
+    <ignored path="$PROJECT_DIR$/bin/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="jiyuan" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test@192.168.0.10" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideWarnings" value="true" />
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
+    <option name="HIDE_WARNINGS" value="true" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-318862596">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="57" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="5" />
+          <entry key="project.open.time.10" value="7" />
+          <entry key="project.open.time.11" value="7" />
+          <entry key="project.open.time.12" value="4" />
+          <entry key="project.open.time.13" value="7" />
+          <entry key="project.open.time.14" value="3" />
+          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.2" value="4" />
+          <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.25" value="1" />
+          <entry key="project.open.time.3" value="3" />
+          <entry key="project.open.time.4" value="5" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="58" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="FADP_LOG" value="1" />
+          <entry key="MESSAGE" value="6" />
+          <entry key="STUDENT" value="1" />
+          <entry key="USER_LOGIN" value="2" />
+          <entry key="USER_LOGIN_HISTORY" value="1" />
+          <entry key="actives" value="7" />
+          <entry key="bat" value="3" />
+          <entry key="class" value="16" />
+          <entry key="classpath" value="1" />
+          <entry key="css" value="1" />
+          <entry key="groovy" value="22" />
+          <entry key="html" value="20" />
+          <entry key="iml" value="4" />
+          <entry key="java" value="309" />
+          <entry key="js" value="10" />
+          <entry key="log" value="1" />
+          <entry key="project" value="2" />
+          <entry key="properties" value="2" />
+          <entry key="sh" value="1" />
+          <entry key="sql" value="58" />
+          <entry key="txt" value="6" />
+          <entry key="uf_cptxxx" value="3" />
+          <entry key="uf_cpxx" value="13" />
+          <entry key="uf_ddgl" value="9" />
+          <entry key="uf_ddgl_dt1" value="5" />
+          <entry key="uf_khgl" value="27" />
+          <entry key="uf_khhd" value="3" />
+          <entry key="uf_khly" value="1" />
+          <entry key="white" value="1" />
+          <entry key="workflow_selectitem" value="6" />
+          <entry key="wsdl" value="8" />
+          <entry key="xml" value="249" />
+          <entry key="xsd" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="16" />
+          <entry key="CSS" value="1" />
+          <entry key="Database Element" value="85" />
+          <entry key="Eclipse" value="3" />
+          <entry key="Groovy" value="22" />
+          <entry key="HTML" value="20" />
+          <entry key="IDEA_MODULE" value="4" />
+          <entry key="JAVA" value="309" />
+          <entry key="JavaScript" value="10" />
+          <entry key="PLAIN_TEXT" value="12" />
+          <entry key="Properties" value="2" />
+          <entry key="SQL" value="4" />
+          <entry key="Scratch" value="54" />
+          <entry key="XML" value="262" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="bat" value="6" />
+          <entry key="cell" value="420" />
+          <entry key="ft" value="60" />
+          <entry key="groovy" value="98" />
+          <entry key="html" value="591" />
+          <entry key="java" value="18197" />
+          <entry key="js" value="63" />
+          <entry key="sql" value="2705" />
+          <entry key="txt" value="20" />
+          <entry key="white" value="13" />
+          <entry key="xml" value="5622" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Groovy" value="98" />
+          <entry key="HTML" value="591" />
+          <entry key="JAVA" value="18197" />
+          <entry key="JavaScript" value="63" />
+          <entry key="PLAIN_TEXT" value="39" />
+          <entry key="SQL" value="229" />
+          <entry key="Scratch" value="2896" />
+          <entry key="VTL" value="60" />
+          <entry key="XML" value="5622" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="-529272152">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="groovy" value="1" />
+          <entry key="html" value="1" />
+          <entry key="java" value="10" />
+          <entry key="js" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Groovy" value="1" />
+          <entry key="HTML" value="1" />
+          <entry key="JAVA" value="10" />
+          <entry key="JavaScript" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="9" />
+          <entry key="js" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="9" />
+          <entry key="JavaScript" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="fadp" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hot-deploy/demo/src/com/fadp/jiyuan/service/UfKhglService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="318">
+              <caret line="313" column="33" lean-forward="true" selection-start-line="313" selection-start-column="33" selection-end-line="313" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hot-deploy/demo/src/localhost/services/ModeDateService/ModeDateServiceLocator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hot-deploy/demo/src/localhost/services/ModeDateService/ModeDateServicePortType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hot-deploy/demo/src/localhost/services/ModeDateService/ModeDateServicePortTypeProxy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hot-deploy/demo/src/localhost/services/ModeDateService/CallModeDataSerivce.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1450">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hot-deploy/demo/src/localhost/services/DocService/A.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="237">
+              <caret line="36" column="40" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hot-deploy/demo/src/localhost/services/ModeDateService/ModeDateServiceHttpBindingStub.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1475">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/regsister.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="64" column="25" lean-forward="true" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/js/client.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="48">
+              <caret line="15" column="47" lean-forward="true" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>JavacSettings</find>
+      <find>getpagedata</find>
+      <find>Condition</find>
+      <find>findList</find>
+      <find>AjaxLogin</find>
+      <find>doMainLogin</find>
+      <find>userLogin</find>
+      <find>check</find>
+      <find>ajaxCheckLogin</find>
+      <find>&lt;userlogin</find>
+      <find>6381</find>
+      <find>UserLogin</find>
+      <find>condition</find>
+      <find>findListByJsonCondition</find>
+      <find>ClassPathResource</find>
+      <find>template</find>
+      <find>DM</find>
+      <find>OrderDetailCountView</find>
+      <find>TEMP_NAME</find>
+      <find>function</find>
+      <find>uf_ddgl_dt1</find>
+      <find>count</find>
+      <find>UfKhgl</find>
+      <find>orderby</find>
+      <find>SendMsg</find>
+      <find>BaseUfKhgl</find>
+      <find>login</find>
+      <find>localhost</find>
+      <find>update</find>
+      <find>Document</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>showInQuery==&quot;Y&quot;</replace>
+      <replace>field_index</replace>
+      <replace>field.fieldType</replace>
+      <replace>field_index%2</replace>
+      <replace>&lt;#assign showIndex = showIndex+1&gt;              &lt;#if field_index%2==0&gt;</replace>
+      <replace>&lt;#if showIndex%2==0&gt;</replace>
+      <replace>&lt;input class=&quot;col-4 form-control form-control-sm&quot;</replace>
+      <replace>dataSavedEvent</replace>
+      <replace>,</replace>
+      <replace>, public list${entityName}</replace>
+      <replace>viewDataTemp</replace>
+      <replace>id</replace>
+      <replace>idField</replace>
+      <replace>provider</replace>
+      <replace>queryData</replace>
+      <replace>${minusEntityName}</replace>
+      <replace>${entityName}</replace>
+      <replace>numeric</replace>
+      <replace>${field.relEntityName}</replace>
+      <replace>getStoreKey</replace>
+      <replace>category=&quot;system&quot;</replace>
+      <replace>form-group p-0 pt-1</replace>
+      <replace>package-name=&quot;com.fadp.eiip.sale&quot;</replace>
+      <replace>reject</replace>
+      <replace>editDataTemp,'</replace>
+      <replace>efund</replace>
+      <replace>mainValue</replace>
+      <replace>退</replace>
+      <replace>&quot;</replace>
+      <replace>transfer</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/framework/common/widget</dir>
+      <dir>$PROJECT_DIR$/framework/common/servicedef</dir>
+      <dir>$PROJECT_DIR$/hot-deploy/entityMgr/webapp</dir>
+      <dir>$PROJECT_DIR$/hot-deploy/entityMgr/src</dir>
+      <dir>$PROJECT_DIR$/hot-deploy/entityMgr/webapp/entityMgr</dir>
+      <dir>$PROJECT_DIR$/framework/entity</dir>
+      <dir>$PROJECT_DIR$/hot-deploy/fadp/src</dir>
+      <dir>$PROJECT_DIR$/hot-deploy/fadp</dir>
+      <dir>$PROJECT_DIR$/hot-deploy/fadp/script/code-tool/list-$template</dir>
+      <dir>$PROJECT_DIR$/hot-deploy/fadp/script</dir>
+      <dir>$PROJECT_DIR$/hot-deploy/fadp/script/code-tool/list-$template/view-$template</dir>
+      <dir>$PROJECT_DIR$/hot-deploy/entityMgr</dir>
+      <dir>$PROJECT_DIR$/hot-deploy/eiip/script/sn</dir>
+      <dir>$PROJECT_DIR$/hot-deploy/fadp/script/code-tool</dir>
+      <dir>$PROJECT_DIR$/framework</dir>
+      <dir>$PROJECT_DIR$</dir>
+      <dir>$PROJECT_DIR$/hot-deploy/eiip</dir>
+      <dir>$PROJECT_DIR$/hot-deploy/eiip/webapp/eiip/WEB-INF</dir>
+      <dir>$PROJECT_DIR$/hot-deploy</dir>
+      <dir>$PROJECT_DIR$/hot-deploy/eiip/entitydef</dir>
+      <dir>C:\asun\java\asunerp\hot-deploy\fadp</dir>
+      <dir>C:\asun\java\asunerp</dir>
+      <dir>C:\asun\java\asunerp\hot-deploy\entityMgr\src</dir>
+      <dir>C:\asun\java\asunerp\hot-deploy</dir>
+      <dir>C:\asun\java\asunerp\hot-deploy\eiip\entitydef</dir>
+      <dir>C:\asun\java\asunerp\hot-deploy\demo\src\localhost\services\DocService</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/WEB-INF/controller.xml" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/com/fadp/msg/SendMsg.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/entitydef/UfKhgl.xml" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c6e7dbda-7edc-407a-a588-eac7e1748b8d/console_26.sql" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/com/fadp/jiyuan/service/OtherService.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/fef7d975-1355-457b-b461-db224a47f43b/console_1.sql" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/com/fadp/file/GetAllModeDataListResponse.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/com/fadp/file/ModeDataService.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/com/file/Test.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/com/file/test/Test.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/com/file/doc/FileInfo.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/com/file/doc/DocServiceLocator.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/DocService/A.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/weaver/docs/webservices/FileInfo.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/localhost/services/DocService/DocServiceLocator.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/localhost/services/ModeDateService/ModeDateServiceHttpBindingStub.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/localhost/services/ModeDateService/CallModeDataSerivce.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/com/fadp/file/Test.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/entitydef/ProductEntity.xml" />
+        <option value="$PROJECT_DIR$/hot-deploy/fadp/src/com/hanlin/fadp/common/AjaxUtil.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/fadp/src/com/hanlin/fadp/common/AjaxCURD.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/com/fadp/jiyuan/service/ProductService.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/entitydef/ActiveEntity.xml" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/com/fadp/jiyuan/user/UserEvents.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/honor.html" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/com/fadp/jiyuan/service/ActiveService.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/com/fadp/file/ImagePath.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/findPassword1.html" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/regsister.html" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/js/utils.js" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/fadp-component.xml" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/info.html" />
+        <option value="$PROJECT_DIR$/scripts/run.bat" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/template/email_jy.html" />
+        <option value="$PROJECT_DIR$/hot-deploy/fadp/webapp/root/index.html" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/css/style.css" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/detail.html" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/js/init.js" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/index.html" />
+        <option value="$PROJECT_DIR$/script.groovy" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/entitydef/Order.xml" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/jiyuanhui.html" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/uc.html" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/jiyuanhui-detail.html" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/localhost/services/DocService/A.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/com/fadp/jiyuan/service/UfKhglService.java" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/build.xml" />
+        <option value="$PROJECT_DIR$/hot-deploy/eiip/entitydef/crm-entitymodel.xml" />
+        <option value="$PROJECT_DIR$/hot-deploy/eiip/entitydef/sn-entitymodel.xml" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/js/client.js" />
+        <option value="$PROJECT_DIR$/hot-deploy/demo/src/localhost/services/ModeDateService/ModeDateServiceLocator.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="nonRecursive" value="true" />
+        <option name="usePluginRegistry" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/framework/images/webapp/images/jquery/plugins/validate/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="187" />
+    <option name="y" value="275" />
+    <option name="width" value="1364" />
+    <option name="height" value="912" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>Class structureJava</id>
+          </State>
+          <State>
+            <id>Control flow issuesJava</id>
+          </State>
+          <State>
+            <id>Control flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Error handlingGroovy</id>
+          </State>
+          <State>
+            <id>Error handlingJava</id>
+          </State>
+          <State>
+            <id>Error handlingJavaScript</id>
+          </State>
+          <State>
+            <id>Groovy</id>
+          </State>
+          <State>
+            <id>InternationalizationJava</id>
+          </State>
+          <State>
+            <id>JSON and JSON5</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsGroovy</id>
+          </State>
+          <State>
+            <id>Spring</id>
+          </State>
+          <State>
+            <id>Spring CoreSpring</id>
+          </State>
+          <State>
+            <id>XML</id>
+          </State>
+          <State>
+            <id>XMLSpring CoreSpring</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Android</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <flattenPackages ProjectPane="false" />
+      <showMembers Scope="false" ProjectPane="true" />
+      <hideEmptyPackages PackagesPane="false" ProjectPane="false" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="asunerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asunerp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asunerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asunerp" type="462c0819:PsiDirectoryNode" />
+              <item name="hot-deploy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asunerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asunerp" type="462c0819:PsiDirectoryNode" />
+              <item name="hot-deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asunerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asunerp" type="462c0819:PsiDirectoryNode" />
+              <item name="hot-deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asunerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asunerp" type="462c0819:PsiDirectoryNode" />
+              <item name="hot-deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asunerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asunerp" type="462c0819:PsiDirectoryNode" />
+              <item name="hot-deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="fadp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asunerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asunerp" type="462c0819:PsiDirectoryNode" />
+              <item name="hot-deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="fadp" type="462c0819:PsiDirectoryNode" />
+              <item name="jiyuan" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asunerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asunerp" type="462c0819:PsiDirectoryNode" />
+              <item name="hot-deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="fadp" type="462c0819:PsiDirectoryNode" />
+              <item name="jiyuan" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asunerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asunerp" type="462c0819:PsiDirectoryNode" />
+              <item name="hot-deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="localhost" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asunerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asunerp" type="462c0819:PsiDirectoryNode" />
+              <item name="hot-deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="localhost" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asunerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asunerp" type="462c0819:PsiDirectoryNode" />
+              <item name="hot-deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="localhost" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="DocService" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asunerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asunerp" type="462c0819:PsiDirectoryNode" />
+              <item name="hot-deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="localhost" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="ModeDateService" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asunerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asunerp" type="462c0819:PsiDirectoryNode" />
+              <item name="hot-deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asunerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asunerp" type="462c0819:PsiDirectoryNode" />
+              <item name="hot-deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ChangesTree.GroupingKeys" value="directory&#10;module" />
+    <property name="DatabaseDriversLRU" value="h2&#10;oracle&#10;sqlserver" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="FullScreen" value="false" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="SearchEverywhereHistoryKey" value="JasperReportsPdfViewHandler&#9;PSI&#9;JAVA://com.hanlin.fadp.webapp.view.JasperReportsPdfViewHandler&#10;ufkhg&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/demo/src/com/fadp/jiyuan/service/UfKhglService.java&#10;ajaxc&#9;PSI&#9;JAVA://com.hanlin.fadp.common.AjaxCURD&#10;datas&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/entityMgr/src/com/hanlin/fadp/petrescence/datasource/DataSourceWorker.java&#10;pack.groovy&#9;FILE&#9;file://C:/asun/java/asunerp/scripts/pack.groovy&#10;Other&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/demo/src/com/fadp/jiyuan/service/OtherService.java&#10;JSONOBJ&#9;PSI&#9;JAVA://net.sf.json.JSONObject&#10;ClassPathResource&#9;FILE&#9;jar://C:/asun/java/asunerp/framework/testtools/lib/org.springframework.core-3.1.0.M2.jar!/org/springframework/core/io/ClassPathResource.class&#10;sendm&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/demo/src/com/fadp/email/SendMail.java&#10;userev&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/demo/src/com/fadp/jiyuan/user/UserEvents.java&#10;useren&#9;PSI&#9;JAVA://org.apache.poi.hssf.record.UserSViewEnd&#10;send&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/demo/src/com/fadp/email/SendMail.java&#10;baseim&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/demo/src/com/demo/BaseIm.java&#10;userlogin&#9;FILE&#9;file://C:/asun/java/asunerp/hot-deploy/fadp/src/com/hanlin/fadp/user/UserLoginUtil.java&#10;remove&#9;FILE&#9;file:///d/svn/asunerp/scripts/removeTableData.groovy&#10;saveMaterialSnTicket&#9;null&#9;null&#10;sn&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/sn-entitymodel.xml&#10;snen&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/sn-entitymodel.xml&#10;ims&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/ims-entitymodel.xml&#10;sale&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/sale-entitymodel.xml&#10;seedd&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/data/SeedData.xml&#10;changeSnStatus&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/script/sn/changeSnStatus.groovy&#10;saleen&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/sale-entitymodel.xml&#10;pack.groo&#9;FILE&#9;file:///d/svn/asunerp/scripts/pack.groovy&#10;saveref&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/script/sale/refund/saveRefund.groovy&#10;data&#9;FILE&#9;file:///d/svn/asunerp/scripts/removeTableData.groovy&#10;checkTicketItemSn&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/script/sn/checkTicketItemSn.groovy&#10;save&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/script/sale/deliver/saveDeliver.groovy&#10;entityengine&#9;FILE&#9;file:///d/svn/asunerp/framework/entity/config/entityengine.xml&#10;system&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/entitydef/entitymodel-system.xml&#10;code&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/code-tool/exportCURDCode.groovy&#10;sal&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/sale-entitymodel.xml&#10;materi&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/material-entitymodel.xml&#10;entityengine.xml&#9;FILE&#9;file:///d/svn/asunerp/framework/entity/config/entityengine.xml&#10;fieldty&#9;FILE&#9;file:///d/svn/asunerp/framework/entity/fieldtype/fieldtypeh2.xml&#10;ajaxcur&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/src/com/hanlin/fadp/common/AjaxCURD.java&#10;getdept&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/dept/getDeptTreeData.groovy&#10;ajax&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/src/com/hanlin/fadp/common/AjaxCURD.java&#10;load&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/form/loadSelectDataList.groovy&#10;loadSelectDataList&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/form/loadSelectDataList.groovy&#10;material&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/material-entitymodel.xml&#10;sale-&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/eiip/entitydef/sale-entitymodel.xml&#10;code-&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/code-tool&#10;ajaxcurd&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/src/com/hanlin/fadp/common/AjaxCURD.java&#10;codetool&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/code-tool&#10;edit-$template.module.ts.ftl&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/code-tool/list-$template/edit-$template/edit-$template.module.ts.ftl&#10;select&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/code-tool/list-$template/select-$template/select-$template.component.html.ftl&#10;fieldtype&#9;FILE&#9;file:///d/svn/asunerp/framework/entity/fieldtype/fieldtypeh2.xml&#10;start.java&#9;FILE&#9;file:///d/svn/asunerp/framework/start/src/com/hanlin/fadp/base/start/Start.java&#10;getCommonTypeTreeData&#9;FILE&#9;file:///d/svn/asunerp/hot-deploy/fadp/script/tree/getCommonTypeTreeData.groovy" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554874973469" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="H2&#10;Derby (Embedded)" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="database.data.extractors.current.id" value="SQL Inserts" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/hot-deploy/demo/src/com" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="recentsLimit" value="5" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\asun\java\asunerp\hot-deploy\demo\template" />
+      <recent name="C:\asun\java\asunerp\hot-deploy\demo\src\com\fadp\email" />
+      <recent name="C:\asun\java\asunerp\hot-deploy\demo\src\com\fadp\jiyuan" />
+      <recent name="$PROJECT_DIR$/hot-deploy/eiip/script/stock/check" />
+      <recent name="$PROJECT_DIR$/hot-deploy/eiip/script/sn" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.eiip.constant" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.eiip.stock.check" />
+      <recent name="com.eiip.stock" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\asun\java\asunerp\hot-deploy\demo\webapp\demo\jiyuan\images" />
+      <recent name="C:\asun\java\asunerp\hot-deploy\demo\src\localhost\services\ModeDateService" />
+      <recent name="C:\asun\java\asunerp\hot-deploy\demo\src\localhost\services\DocService" />
+      <recent name="C:\asun\java\asunerp\hot-deploy\demo\src\weaver\docs\webservices" />
+      <recent name="C:\asun\java\asunerp\hot-deploy\demo\src" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.StartFadp13">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <method />
+    </configuration>
+    <configuration default="true" type="JsTestDriver-test-runner" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="Chrome" />
+      <method />
+    </configuration>
+    <configuration name="ant build reqTrace" type="AntRunConfiguration" factoryName="Ant Target">
+      <antsettings antfile="file://$PROJECT_DIR$/build.xml" target="build" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CallModeDataSerivce" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="localhost.services.ModeDateService.CallModeDataSerivce" />
+      <module name="fadp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="localhost.services.ModeDateService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SendMail" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fadp.email.SendMail" />
+      <module name="fadp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fadp.email.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SendMailOne" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fadp.email.SendMailOne" />
+      <module name="fadp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fadp.email.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StartFadp13" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.hanlin.fadp.base.start.Start" />
+      <module name="fadp" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hanlin.fadp.base.start.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StopFadp13" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.hanlin.fadp.base.start.Start" />
+      <module name="fadp" />
+      <option name="PROGRAM_PARAMETERS" value="-shutdown" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hanlin.fadp.base.start.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fadp.file.Test" />
+      <module name="fadp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fadp.file.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="changePorts to 80" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+      <module name="fadp" />
+      <setting name="path" value="file://$PROJECT_DIR$/changePorts.groovy" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="80 81 83" />
+      <setting name="workDir" value="file://$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="script" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
+      <module name="fadp" />
+      <setting name="path" value="file://$PROJECT_DIR$/script.groovy" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Ant Target.ant build reqTrace" />
+      <item itemvalue="Application.StartFadp13" />
+      <item itemvalue="Application.StopFadp13" />
+      <item itemvalue="Groovy.changePorts to 80" />
+      <item itemvalue="Application.SendMailOne" />
+      <item itemvalue="Application.SendMail" />
+      <item itemvalue="Groovy.script" />
+      <item itemvalue="Application.Test" />
+      <item itemvalue="Application.CallModeDataSerivce" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Groovy.script" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.CallModeDataSerivce" />
+        <item itemvalue="Application.SendMail" />
+        <item itemvalue="Application.SendMailOne" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",HIDE_INHERITED_FROM_OBJECT" />
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\asun-dev1\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+    <option name="runUnderTerminal" value="true" />
+    <option name="sshConnectionType" value="PASSWORD" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="684c135f-488a-405f-8e6e-ec22cc3b58b4" name="Default" comment="" />
+      <created>1481522329101</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1481522329101</updated>
+      <workItem from="1481522333784" duration="3829000" />
+      <workItem from="1481526460534" duration="2000" />
+      <workItem from="1481526741098" duration="20000" />
+      <workItem from="1481526795925" duration="194000" />
+      <workItem from="1481527183280" duration="1678000" />
+      <workItem from="1481548854437" duration="7548000" />
+      <workItem from="1481614243792" duration="17898000" />
+      <workItem from="1481696323493" duration="139000" />
+      <workItem from="1481696540675" duration="35000" />
+      <workItem from="1481696856309" duration="11310000" />
+      <workItem from="1481784201845" duration="2785000" />
+      <workItem from="1481941023143" duration="1594000" />
+      <workItem from="1482110667194" duration="8354000" />
+      <workItem from="1482132406652" duration="189000" />
+      <workItem from="1482132599731" duration="2323000" />
+      <workItem from="1482198806611" duration="4579000" />
+      <workItem from="1482230579661" duration="332000" />
+      <workItem from="1482231297981" duration="1331000" />
+      <workItem from="1482284236819" duration="2390000" />
+      <workItem from="1482307182210" duration="335000" />
+      <workItem from="1482307592534" duration="608000" />
+      <workItem from="1482411685598" duration="2629000" />
+      <workItem from="1482461057263" duration="2088000" />
+      <workItem from="1482633501078" duration="452000" />
+      <workItem from="1483266001990" duration="2370000" />
+      <workItem from="1483405548438" duration="1358000" />
+      <workItem from="1483410723520" duration="10507000" />
+      <workItem from="1483771782169" duration="12000" />
+      <workItem from="1483923495527" duration="32131000" />
+      <workItem from="1484115812411" duration="23962000" />
+      <workItem from="1484403954297" duration="428000" />
+      <workItem from="1484446196504" duration="4826000" />
+      <workItem from="1484464271964" duration="16789000" />
+      <workItem from="1484616910173" duration="4323000" />
+      <workItem from="1484624025170" duration="1015000" />
+      <workItem from="1484626101247" duration="2200000" />
+      <workItem from="1484628405803" duration="5948000" />
+      <workItem from="1484649958729" duration="3597000" />
+      <workItem from="1484656320324" duration="3000" />
+      <workItem from="1484656335435" duration="363000" />
+      <workItem from="1484656802965" duration="77000" />
+      <workItem from="1484657150219" duration="6000" />
+      <workItem from="1484657263646" duration="17000" />
+      <workItem from="1484657418407" duration="291000" />
+      <workItem from="1484699765323" duration="34693000" />
+      <workItem from="1484877369713" duration="633000" />
+      <workItem from="1485087418872" duration="1011000" />
+      <workItem from="1486358868872" duration="3627000" />
+      <workItem from="1486627297524" duration="555000" />
+      <workItem from="1487122133530" duration="596000" />
+      <workItem from="1487127645233" duration="9592000" />
+      <workItem from="1487149159631" duration="3772000" />
+      <workItem from="1487210798218" duration="2707000" />
+      <workItem from="1487223865791" duration="7565000" />
+      <workItem from="1487232839114" duration="2961000" />
+      <workItem from="1487293612296" duration="2035000" />
+      <workItem from="1487296065773" duration="1401000" />
+      <workItem from="1487299115511" duration="1546000" />
+      <workItem from="1487302476699" duration="5839000" />
+      <workItem from="1487382322000" duration="1001000" />
+      <workItem from="1512266143651" duration="7452000" />
+      <workItem from="1512280763930" duration="403000" />
+      <workItem from="1512281266144" duration="440000" />
+      <workItem from="1512281968390" duration="72000" />
+      <workItem from="1512282970600" duration="455000" />
+      <workItem from="1512283631103" duration="3588000" />
+      <workItem from="1512288019246" duration="482000" />
+      <workItem from="1513060344229" duration="5312000" />
+      <workItem from="1513082271655" duration="8976000" />
+      <workItem from="1513214720462" duration="17695000" />
+      <workItem from="1513317403954" duration="8071000" />
+      <workItem from="1513390799371" duration="2476000" />
+      <workItem from="1513565600016" duration="13118000" />
+      <workItem from="1513649483559" duration="1887000" />
+      <workItem from="1513667101293" duration="200000" />
+      <workItem from="1513670033454" duration="16000" />
+      <workItem from="1513670339145" duration="903000" />
+      <workItem from="1514009421529" duration="935000" />
+      <workItem from="1515747803483" duration="597000" />
+      <workItem from="1515824492084" duration="161000" />
+      <workItem from="1516683184665" duration="1494000" />
+      <workItem from="1516866304879" duration="474000" />
+      <workItem from="1517361881733" duration="9998000" />
+      <workItem from="1517792224741" duration="642000" />
+      <workItem from="1517830812062" duration="1715000" />
+      <workItem from="1517981239147" duration="1604000" />
+      <workItem from="1520487415344" duration="1486000" />
+      <workItem from="1520908134185" duration="1173000" />
+      <workItem from="1520917141809" duration="3257000" />
+      <workItem from="1522811800227" duration="68000" />
+      <workItem from="1523533556652" duration="569000" />
+      <workItem from="1524450184651" duration="542000" />
+      <workItem from="1525340041175" duration="1352000" />
+      <workItem from="1530499569062" duration="489000" />
+      <workItem from="1530513802607" duration="1944000" />
+      <workItem from="1530584716534" duration="28739000" />
+      <workItem from="1530841802352" duration="33934000" />
+      <workItem from="1530960312508" duration="845000" />
+      <workItem from="1531017132510" duration="1654000" />
+      <workItem from="1531098190696" duration="18827000" />
+      <workItem from="1531268306506" duration="53833000" />
+      <workItem from="1531787277044" duration="6578000" />
+      <workItem from="1531882601908" duration="2638000" />
+      <workItem from="1532047091664" duration="61201000" />
+      <workItem from="1532565022967" duration="16379000" />
+      <workItem from="1532911751506" duration="32119000" />
+      <workItem from="1533172554448" duration="56076000" />
+      <workItem from="1533612120147" duration="4652000" />
+      <workItem from="1533688196219" duration="257000" />
+      <workItem from="1533688644434" duration="154000" />
+      <workItem from="1533690802972" duration="3562000" />
+      <workItem from="1533861005897" duration="18545000" />
+      <workItem from="1534119728879" duration="6109000" />
+      <workItem from="1534163592015" duration="22897000" />
+      <workItem from="1534550951315" duration="7645000" />
+      <workItem from="1534724165318" duration="8365000" />
+      <workItem from="1534898275173" duration="27284000" />
+      <workItem from="1535156571454" duration="3506000" />
+      <workItem from="1535329763615" duration="40104000" />
+      <workItem from="1542589140593" duration="5150000" />
+      <workItem from="1542595385560" duration="15583000" />
+      <workItem from="1542674706683" duration="26988000" />
+      <workItem from="1542762983817" duration="12222000" />
+      <workItem from="1542790856884" duration="26000" />
+      <workItem from="1542854522587" duration="1513000" />
+      <workItem from="1542856063025" duration="18193000" />
+      <workItem from="1542934603824" duration="16335000" />
+      <workItem from="1542955159144" duration="125000" />
+      <workItem from="1542955291762" duration="6432000" />
+      <workItem from="1543020491919" duration="18721000" />
+      <workItem from="1543193735342" duration="245000" />
+      <workItem from="1543193997310" duration="21000" />
+      <workItem from="1543208135584" duration="819000" />
+      <workItem from="1543209024695" duration="13877000" />
+      <workItem from="1543279066418" duration="18609000" />
+      <workItem from="1543365273405" duration="27993000" />
+      <workItem from="1543452113281" duration="20416000" />
+      <workItem from="1543539309458" duration="24546000" />
+      <workItem from="1543625304151" duration="23616000" />
+      <workItem from="1543797827580" duration="20652000" />
+      <workItem from="1543883869692" duration="24947000" />
+      <workItem from="1543970528517" duration="21330000" />
+      <workItem from="1544056944296" duration="12463000" />
+      <workItem from="1544143761321" duration="1039000" />
+      <workItem from="1544432275219" duration="4578000" />
+      <workItem from="1544440454432" duration="4533000" />
+      <workItem from="1544497245853" duration="2651000" />
+      <workItem from="1544579683779" duration="15477000" />
+      <workItem from="1544672290863" duration="599000" />
+      <workItem from="1544750567967" duration="3280000" />
+      <workItem from="1544766877965" duration="219000" />
+      <workItem from="1544767250554" duration="74000" />
+      <workItem from="1544850116313" duration="11184000" />
+      <workItem from="1545101209359" duration="6527000" />
+      <workItem from="1545290096009" duration="2617000" />
+      <workItem from="1545441470058" duration="13061000" />
+      <workItem from="1545616564201" duration="13413000" />
+      <workItem from="1545727233014" duration="1981000" />
+      <workItem from="1545784076751" duration="6846000" />
+      <workItem from="1546414674204" duration="4631000" />
+      <workItem from="1546504596719" duration="5180000" />
+      <workItem from="1546597962389" duration="4336000" />
+      <workItem from="1546852464126" duration="34000" />
+      <workItem from="1548227991596" duration="2128000" />
+      <workItem from="1548289704975" duration="5059000" />
+      <workItem from="1548384855528" duration="6633000" />
+      <workItem from="1548662583462" duration="5422000" />
+      <workItem from="1549087837581" duration="182000" />
+      <workItem from="1550128823061" duration="3727000" />
+      <workItem from="1550228729554" duration="691000" />
+      <workItem from="1552028055877" duration="1937000" />
+      <workItem from="1552368906155" duration="821000" />
+      <workItem from="1553569047039" duration="3259000" />
+      <workItem from="1553650092605" duration="905000" />
+      <workItem from="1554184296964" duration="1223000" />
+      <workItem from="1554255031730" duration="589000" />
+      <workItem from="1554860682076" duration="3465000" />
+      <workItem from="1554869986130" duration="4982000" />
+    </task>
+    <task id="LOCAL-00001">
+      <created>1484628630034</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1484628630034</updated>
+    </task>
+    <task id="LOCAL-00002">
+      <created>1484653824050</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1484653824050</updated>
+    </task>
+    <task id="LOCAL-00003">
+      <created>1487307762031</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1487307762031</updated>
+    </task>
+    <task id="LOCAL-00004">
+      <created>1487308637028</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1487308637028</updated>
+    </task>
+    <task id="LOCAL-00005">
+      <created>1487317319030</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1487317319030</updated>
+    </task>
+    <task id="LOCAL-00006">
+      <created>1487382889053</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1487382889053</updated>
+    </task>
+    <task id="LOCAL-00007">
+      <created>1487383359029</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1487383359029</updated>
+    </task>
+    <task id="LOCAL-00008" summary="entityMgr+fadp模块分枝">
+      <created>1512285097032</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1512285097033</updated>
+    </task>
+    <task id="LOCAL-00009" summary="entityMgr+fadp模块分枝">
+      <created>1512286400027</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1512286400027</updated>
+    </task>
+    <task id="LOCAL-00010" summary="entityMgr+fadp模块分枝">
+      <created>1512286480032</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1512286480032</updated>
+    </task>
+    <task id="LOCAL-00011" summary="添加数据引接功能">
+      <created>1513328747037</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1513328747037</updated>
+    </task>
+    <task id="LOCAL-00012" summary="新增加外部数据引接模块前">
+      <created>1513565655036</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1513565655036</updated>
+    </task>
+    <task id="LOCAL-00013" summary="新增加外部数据引接,核心数据分级管理">
+      <created>1513587848029</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1513587848029</updated>
+    </task>
+    <task id="LOCAL-00014" summary="新增加外部数据引接,核心数据分级管理">
+      <created>1513588044031</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1513588044031</updated>
+    </task>
+    <task id="LOCAL-00015" summary="修改ajaxCURD">
+      <created>1514009505032</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1514009505032</updated>
+    </task>
+    <task id="LOCAL-00016" summary="修改ajaxCURD">
+      <created>1514009567029</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1514009567029</updated>
+    </task>
+    <task id="LOCAL-00017" summary="修改ajaxCURD">
+      <created>1514010298025</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1514010298026</updated>
+    </task>
+    <task id="LOCAL-00018" summary="放开数据抽取工具">
+      <created>1516686488026</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1516686488026</updated>
+    </task>
+    <task id="LOCAL-00019" summary="添加导出测试数据功能">
+      <created>1517469873043</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1517469873044</updated>
+    </task>
+    <task id="LOCAL-00020" summary="修改实体管理工具多租户支持">
+      <created>1517792461032</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1517792461032</updated>
+    </task>
+    <task id="LOCAL-00021" summary="fadp模块新增ajax用户登陆工具类">
+      <created>1520908714032</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1520908714032</updated>
+    </task>
+    <task id="LOCAL-00022" summary="修改ajaxCURD">
+      <created>1522811863031</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1522811863031</updated>
+    </task>
+    <task id="LOCAL-00023" summary="修改ajaxCURD">
+      <created>1523534160027</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1523534160027</updated>
+    </task>
+    <task id="LOCAL-00024" summary="添加重新加载实体定义文件的方法">
+      <created>1524450714026</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1524450714026</updated>
+    </task>
+    <task id="LOCAL-00025" summary="1.新增刷新实体定义功能&#10;2.添加WordUtil工具类&#10;3.升级AjaxCURD工具类">
+      <created>1525340353031</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1525340353031</updated>
+    </task>
+    <task id="LOCAL-00026" summary="添加前台CURD代码生成功能">
+      <created>1530956771087</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1530956771089</updated>
+    </task>
+    <task id="LOCAL-00027">
+      <created>1530957276039</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1530957276039</updated>
+    </task>
+    <task id="LOCAL-00028">
+      <created>1530957414031</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1530957414031</updated>
+    </task>
+    <task id="LOCAL-00029" summary="修改代码生成工具">
+      <created>1531120933037</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1531120933037</updated>
+    </task>
+    <task id="LOCAL-00030" summary="1.完成销售订单管理主体 &#10;2.完善代码生成工具 &#10;3.生成物料管理模块">
+      <created>1531225970051</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1531225970051</updated>
+    </task>
+    <task id="LOCAL-00031" summary="1.修改代码生成工具 &#10;2.添加通用字段选择">
+      <created>1531314826050</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1531314826051</updated>
+    </task>
+    <task id="LOCAL-00032" summary="修改代码生成工具">
+      <created>1531447690036</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1531447690036</updated>
+    </task>
+    <task id="LOCAL-00033" summary="修改代码生成工具">
+      <created>1531743818043</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1531743818044</updated>
+    </task>
+    <task id="LOCAL-00034" summary="修改代码生成工具模版">
+      <created>1531793334032</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1531793334032</updated>
+    </task>
+    <task id="LOCAL-00035" summary="1.添加通用树组件后台支持&#10;2.添加图片上传组件、图片显示组件后台支持&#10;3.修改代码生成工具">
+      <created>1532158087037</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1532158087037</updated>
+    </task>
+    <task id="LOCAL-00036" summary="修改ajaxCURD">
+      <created>1532438060043</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1532438060043</updated>
+    </task>
+    <task id="LOCAL-00037" summary="添加审批流">
+      <created>1532524129033</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1532524129033</updated>
+    </task>
+    <task id="LOCAL-00038" summary="1.修改通用数据查看组件&#10;2.修改审批流的代码生成功能">
+      <created>1532660816037</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1532660816038</updated>
+    </task>
+    <task id="LOCAL-00039" summary="添加库存管理">
+      <created>1533645661043</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1533645661043</updated>
+    </task>
+    <task id="LOCAL-00040" summary="修改入库管理">
+      <created>1533970669040</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1533970669041</updated>
+    </task>
+    <task id="LOCAL-00041" summary="销售开单">
+      <created>1534323728061</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1534323728063</updated>
+    </task>
+    <task id="LOCAL-00042" summary="修改销货管理&#10;增加收款管理&#10;增加退货管理&#10;增加退款管理">
+      <created>1535095008066</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1535095008068</updated>
+    </task>
+    <task id="LOCAL-00043" summary="完成出库管理">
+      <created>1535333184033</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1535333184033</updated>
+    </task>
+    <task id="LOCAL-00044" summary="添加库存盘点">
+      <created>1535418316030</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1535418316030</updated>
+    </task>
+    <task id="LOCAL-00045" summary="极元理财助手项目">
+      <created>1544090146542</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1544090146542</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="All_in_fadp - 2016.12.25 at 10h 39m 50s.xml">
+      <configuration name="All in fadp" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1298975000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24798928" />
+      <window_info id="Nl-Palette" order="1" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="0" sideWeight="0.49932975" weight="0.3286119" />
+      <window_info anchor="bottom" id="TypeScript" order="1" weight="0.3287483" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" sideWeight="0.43537965" weight="0.4631728" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.8163539" visible="true" weight="0.12606232" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.4852547" weight="0.37393767" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.18364611" side_tool="true" weight="0.31586403" />
+      <window_info anchor="bottom" id="SVN Repositories" order="9" sideWeight="0.490625" visible="true" weight="0.33172303" />
+      <window_info anchor="bottom" id="Application Servers" order="10" />
+      <window_info anchor="bottom" id="Debug" order="11" sideWeight="0.8438338" weight="0.11473088" />
+      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.6769437" weight="0.28328612" />
+      <window_info anchor="bottom" id="SVN Properties" order="13" weight="0.32739726" />
+      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.68230563" weight="0.5651558" />
+      <window_info anchor="bottom" id="Terminal" order="15" sideWeight="0.5073727" weight="0.5467422" />
+      <window_info anchor="bottom" id="Database Console" order="16" weight="0.43342775" />
+      <window_info anchor="bottom" id="Java Enterprise" order="17" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" visible="true" weight="0.008713136" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.04021448" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Properties" order="4" />
+      <window_info anchor="right" id="Database" order="5" weight="0.13270777" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Structure" order="9" weight="0.2546917" />
+      <window_info anchor="right" id="Maven Projects" order="10" weight="0.32956383" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="新增加外部数据引接模块前" />
+    <MESSAGE value="新增加外部数据引接,核心数据分级管理" />
+    <MESSAGE value="放开数据抽取工具" />
+    <MESSAGE value="添加导出demo数据功能" />
+    <MESSAGE value="添加导出测试数据功能" />
+    <MESSAGE value="修改实体管理工具多租户支持" />
+    <MESSAGE value="fadp模块新增ajax用户登陆工具类" />
+    <MESSAGE value="添加重新加载实体定义文件的方法" />
+    <MESSAGE value="1.新增刷新实体定义功能&#10;2.添加WordUtil工具类&#10;3.升级AjaxCURD工具类" />
+    <MESSAGE value="添加前台CURD代码生成功能" />
+    <MESSAGE value="1.完成销售订单管理主体 &#10;2.完善代码生成工具 &#10;3.生成物料管理模块" />
+    <MESSAGE value="1.修改代码生成工具 &#10;2.添加通用字段选择" />
+    <MESSAGE value="修改代码生成工具" />
+    <MESSAGE value="修改代码生成工具模版" />
+    <MESSAGE value="1.添加通用树组件后台支持&#10;2.添加图片上传组件、图片显示组件后台支持&#10;3.修改代码生成工具" />
+    <MESSAGE value="修改ajaxCURD" />
+    <MESSAGE value="添加审批流" />
+    <MESSAGE value="1.修改通用数据查看组件&#10;2.修改审批流的代码生成功能" />
+    <MESSAGE value="添加库存管理" />
+    <MESSAGE value="修改入库管理" />
+    <MESSAGE value="销售开单" />
+    <MESSAGE value="修改销货管理&#10;增加收款管理&#10;增加退货管理&#10;增加退款管理" />
+    <MESSAGE value="完成出库管理" />
+    <MESSAGE value="添加库存盘点" />
+    <MESSAGE value="极元理财助手项目" />
+    <option name="LAST_COMMIT_MESSAGE" value="极元理财助手项目" />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+    <buildFile url="file://$PROJECT_DIR$/build.xml">
+      <targetFilters>
+        <filter targetName="ofbiz-init" isVisible="false" />
+        <filter targetName="dir-init" isVisible="false" />
+        <filter targetName="copy-derby-props" isVisible="false" />
+        <filter targetName="sonar-init" isVisible="false" />
+        <filter targetName="refresh" isVisible="true" />
+        <filter targetName="clean-all" isVisible="true" />
+        <filter targetName="clean-downloads" isVisible="true" />
+        <filter targetName="clean-data" isVisible="true" />
+        <filter targetName="clean-logs" isVisible="true" />
+        <filter targetName="clean-output" isVisible="true" />
+        <filter targetName="clean-xtra" isVisible="true" />
+        <filter targetName="clean-catalina" isVisible="true" />
+        <filter targetName="clean-cache" isVisible="true" />
+        <filter targetName="clean-tempfiles" isVisible="true" />
+        <filter targetName="clean-search-indexes" isVisible="true" />
+        <filter targetName="clean-uploads" isVisible="true" />
+        <filter targetName="tests" isVisible="false" />
+        <filter targetName="clean" isVisible="false" />
+        <filter targetName="clean-framework" isVisible="false" />
+        <filter targetName="clean-applications" isVisible="false" />
+        <filter targetName="clean-specialpurpose" isVisible="false" />
+        <filter targetName="clean-hot-deploy" isVisible="false" />
+        <filter targetName="svninfo" isVisible="true" />
+        <filter targetName="clean-svninfo" isVisible="false" />
+        <filter targetName="gitinfo" isVisible="true" />
+        <filter targetName="clean-gitinfo" isVisible="false" />
+        <filter targetName="build-dev" isVisible="true" />
+        <filter targetName="calculate-svn-patch-available" isVisible="false" />
+        <filter targetName="calculate-patch-available" isVisible="false" />
+        <filter targetName="check-svn-patch-available" isVisible="false" />
+        <filter targetName="check-patch-available" isVisible="false" />
+        <filter targetName="patch-via-svn" isVisible="false" />
+        <filter targetName="patch-via-patch" isVisible="false" />
+        <filter targetName="patch" isVisible="false" />
+        <filter targetName="revert-dev" isVisible="true" />
+        <filter targetName="revert-via-svn" isVisible="false" />
+        <filter targetName="revert-via-patch" isVisible="false" />
+        <filter targetName="revert-patch" isVisible="false" />
+        <filter targetName="build-test" isVisible="true" />
+        <filter targetName="build-qa" isVisible="true" />
+        <filter targetName="build-production" isVisible="true" />
+        <filter targetName="build" isVisible="false" />
+        <filter targetName="build-framework" isVisible="false" />
+        <filter targetName="build-applications" isVisible="false" />
+        <filter targetName="build-specialpurpose" isVisible="false" />
+        <filter targetName="hot-deploy-builds" isVisible="false" />
+        <filter targetName="docs" isVisible="false" />
+        <filter targetName="docs-framework" isVisible="false" />
+        <filter targetName="docs-applications" isVisible="false" />
+        <filter targetName="docs-specialpurpose" isVisible="false" />
+        <filter targetName="docs-all" isVisible="true" />
+        <filter targetName="copy-contrib" isVisible="false" />
+        <filter targetName="build-contrib" isVisible="false" />
+        <filter targetName="build-website" isVisible="true" />
+        <filter targetName="copy-apis" isVisible="false" />
+        <filter targetName="copy-dtds" isVisible="true" />
+        <filter targetName="scriptfix" isVisible="false" />
+        <filter targetName="start" isVisible="true" />
+        <filter targetName="start-batch" isVisible="true" />
+        <filter targetName="start-debug" isVisible="true" />
+        <filter targetName="start-pos" isVisible="true" />
+        <filter targetName="start-both" isVisible="true" />
+        <filter targetName="stop" isVisible="true" />
+        <filter targetName="status" isVisible="true" />
+        <filter targetName="load-demo" isVisible="true" />
+        <filter targetName="load-demo-multitenant" isVisible="true" />
+        <filter targetName="load-seed" isVisible="true" />
+        <filter targetName="load-extseed" isVisible="true" />
+        <filter targetName="load-exttest" isVisible="true" />
+        <filter targetName="load-readers" isVisible="true" />
+        <filter targetName="load-file" isVisible="true" />
+        <filter targetName="load-tenant" isVisible="true" />
+        <filter targetName="check-tenant-id" isVisible="false" />
+        <filter targetName="check-tenant-reader" isVisible="false" />
+        <filter targetName="load-tenant-all" isVisible="false" />
+        <filter targetName="load-tenant-reader" isVisible="false" />
+        <filter targetName="load-tenant-component" isVisible="false" />
+        <filter targetName="load-tenant-component-all" isVisible="false" />
+        <filter targetName="load-tenant-component-reader" isVisible="false" />
+        <filter targetName="load-all-tenants" isVisible="true" />
+        <filter targetName="check-tenants-reader" isVisible="false" />
+        <filter targetName="load-tenants-all" isVisible="false" />
+        <filter targetName="load-tenants-reader" isVisible="false" />
+        <filter targetName="create-tenant" isVisible="true" />
+        <filter targetName="get-tenant-data" isVisible="false" />
+        <filter targetName="create-tenant-on-Derby" isVisible="false" />
+        <filter targetName="create-tenant-on-MySQL" isVisible="false" />
+        <filter targetName="create-tenant-on-Oracle" isVisible="false" />
+        <filter targetName="create-tenant-on-PostgreSQL" isVisible="false" />
+        <filter targetName="tenant-data-entry" isVisible="false" />
+        <filter targetName="load-tenant-admin-user-login" isVisible="true" />
+        <filter targetName="load-tenant-data-readers" isVisible="true" />
+        <filter targetName="load-admin-user-login" isVisible="true" />
+        <filter targetName="create-admin-user-login" isVisible="true" />
+        <filter targetName="run-tests" isVisible="true" />
+        <filter targetName="run-tests-with-cobertura" isVisible="true" />
+        <filter targetName="_check-separated-tests-already-setup" isVisible="false" />
+        <filter targetName="_setup-separated-test-run" isVisible="false" />
+        <filter targetName="run-test" isVisible="true" />
+        <filter targetName="run-test-debug" isVisible="true" />
+        <filter targetName="run-test-suite" isVisible="true" />
+        <filter targetName="run-test-list" isVisible="true" />
+        <filter targetName="cobertura-report" isVisible="true" />
+        <filter targetName="cobertura-report-xml" isVisible="true" />
+        <filter targetName="sonar" isVisible="true" />
+        <filter targetName="full-sonar" isVisible="false" />
+        <filter targetName="clean-ivy" isVisible="true" />
+        <filter targetName="download-activemq" isVisible="true" />
+        <filter targetName="download-cobertura" isVisible="true" />
+        <filter targetName="download-PG-JDBC" isVisible="true" />
+        <filter targetName="download-sonar-ant-task" isVisible="true" />
+        <filter targetName="download-mySQL-JDBC" isVisible="true" />
+        <filter targetName="create-component" isVisible="true" />
+        <filter targetName="gen-kek" isVisible="true" />
+        <filter targetName="run" isVisible="false" />
+        <filter targetName="run-debug" isVisible="false" />
+        <filter targetName="run-pos" isVisible="false" />
+        <filter targetName="run-install" isVisible="false" />
+        <filter targetName="run-install-multitenant" isVisible="false" />
+        <filter targetName="run-install-seed" isVisible="false" />
+        <filter targetName="run-install-extseed" isVisible="false" />
+        <filter targetName="run-install-exttest" isVisible="false" />
+        <filter targetName="run-install-readers" isVisible="false" />
+        <filter targetName="run-install-file" isVisible="false" />
+        <filter targetName="run-install-file-in-delegator" isVisible="false" />
+      </targetFilters>
+      <expanded value="true" />
+    </buildFile>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>context</expression-string>
+        <language-id>Groovy</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>fieldModelMap.get(&quot;${obj.entityName}/${obj.fieldName}&quot;)</expression-string>
+        <language-id>Groovy</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>modelEntity.getPkFieldNames()</expression-string>
+        <language-id>Groovy</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>file.toURI().toString()</expression-string>
+        <language-id>Groovy</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>file.toURI().path</expression-string>
+        <language-id>Groovy</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>RequestHandler.getRequestUri(targetRequestUri)</expression-string>
+        <language-id>Groovy</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>requestHandler.getControllerConfig().getRequestMapMap()</expression-string>
+        <language-id>Groovy</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/scripts/run.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="60" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2975">
+          <caret line="119" column="23" selection-start-line="119" selection-start-column="23" selection-end-line="119" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/js/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/fadp-component.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/src/com/fadp/jiyuan/service/OrderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27475">
+          <caret line="1099" column="17" selection-start-line="1099" selection-start-column="17" selection-end-line="1099" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1250">
+          <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://fef7d975-1355-457b-b461-db224a47f43b/database/ecology/schema/dbo/table/uf_ddgl">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2050">
+          <caret line="82" column="42" selection-start-line="82" selection-start-column="42" selection-end-line="82" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/jiyuanhui.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2950">
+          <caret line="118" column="18" selection-start-line="118" selection-start-column="18" selection-end-line="118" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/说明.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/说明.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://ca198e2f-d82f-4fcb-b491-b3ecb3c96eaa/database/ecology/schema/dbo/table/uf_khgl">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/src/com/fadp/file/ImagePath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="36" column="9" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/jiyuanhui-detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1950">
+          <caret line="12" column="52" lean-forward="true" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/fadp/src/com/hanlin/fadp/common/AjaxUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="31" column="41" lean-forward="true" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/base/src/com/hanlin/fadp/base/util/UtilHttp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="343" column="9" lean-forward="true" selection-start-line="343" selection-start-column="9" selection-end-line="343" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/src/com/fadp/jiyuan/user/UserEvents.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1450">
+          <caret line="76" column="35" selection-start-line="76" selection-start-column="35" selection-end-line="76" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/js/init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="725">
+          <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/uc.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1325">
+          <caret line="53" column="23" selection-start-line="53" selection-start-column="23" selection-end-line="54" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/entitydef/Order.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1100">
+          <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/entity/fieldtype/fieldtypemssql.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="950">
+          <caret line="38" column="52" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/fadp/webapp/root/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="58" lean-forward="true" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fadp.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30608" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/hot-deploy/fadp/lib/dom4j-1.6.1.jar!/org/dom4j/Document.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/fadp/src/com/hanlin/fadp/common/AjaxCURD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="681">
+          <caret line="374" column="17" lean-forward="true" selection-start-line="374" selection-start-column="17" selection-end-line="374" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/fadp/fadp-component.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/eiip/entitydef/base-entitymodel.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3983" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/webapp/src/com/hanlin/fadp/webapp/view/JasperReportsPdfViewHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2302">
+          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="28" column="53" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/eiip/entitydef/crm-entitymodel.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4000">
+          <caret line="160" column="18" selection-start-line="160" selection-start-column="18" selection-end-line="160" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/eiip/entitydef/db10247.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/eiip/entitydef/sn-entitymodel.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5050">
+          <caret line="202" column="47" selection-start-line="202" selection-start-column="47" selection-end-line="202" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dtds/entitymodel.xsd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7600">
+          <caret line="304" column="53" selection-start-line="304" selection-start-column="44" selection-end-line="304" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/eiip/entitydef/sale-entitymodel.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="79" column="35" lean-forward="true" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/regsister.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="64" column="25" lean-forward="true" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/webapp/demo/jiyuan/js/client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="15" column="47" lean-forward="true" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/src/localhost/services/ModeDateService/ModeDateService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/src/localhost/services/ModeDateService/ModeDateServiceHttpBindingStub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1475">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/src/localhost/services/ModeDateService/ModeDateServiceLocator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/src/localhost/services/ModeDateService/ModeDateServicePortType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/src/localhost/services/ModeDateService/ModeDateServicePortTypeProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/src/localhost/services/ModeDateService/CallModeDataSerivce.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1450">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/src/localhost/services/DocService/A.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="36" column="40" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot-deploy/demo/src/com/fadp/jiyuan/service/UfKhglService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="313" column="33" lean-forward="true" selection-start-line="313" selection-start-column="33" selection-end-line="313" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Detection</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>groovy-2.4.13</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>fadp</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>entitymgr-lib</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

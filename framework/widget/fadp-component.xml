@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+-->
+
+<fadp-component name="widget"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://127.0.0.1:8888/dtds/fadp-component.xsd">
+    <resource-loader name="main" type="component"/>
+    <classpath type="dir" location="config"/>
+    <classpath type="dir" location="dtd"/>
+    <classpath type="jar" location="build/lib/*"/>
+    <test-suite loader="main" location="testdef/widgettests.xml"/>
+</fadp-component>

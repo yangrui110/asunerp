@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="../../../dtds/widget-screen.xsd">
+
+    <screen name="main-decorator">
+        <section>
+            <widgets>
+
+                <platform-specific>
+                    <html>
+                        <html-template location="component://entityMgr/webapp/entityMgr/includes/css-js.ftl"/>
+                        <html-template location="component://entityMgr/webapp/dataclassify/includes/header.ftl"/>
+                    </html>
+                </platform-specific>
+
+                <decorator-section-include name="left"/>
+                <container style="pane ui-layout-center">
+                    <decorator-section-include name="body"/>
+                </container>
+                <platform-specific>
+                    <html>
+                        <html-template location="component://entityMgr/webapp/entityMgr/includes/footer.ftl"/>
+                    </html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="header-footer">
+        <section>
+            <widgets>
+
+                <platform-specific>
+                    <html>
+                        <html-template location="component://entityMgr/webapp/entityMgr/includes/css-js.ftl"/>
+                        <html-template location="component://entityMgr/webapp/dataclassify/includes/header.ftl"/>
+                    </html>
+                </platform-specific>
+                <decorator-section-include name="body"/>
+
+
+                <platform-specific>
+                    <html>
+                        <html-template location="component://entityMgr/webapp/entityMgr/includes/footer.ftl"/>
+                    </html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="baseDataClassify">
+        <!--核心数据分级管理-->
+        <section>
+            <actions>
+                <script location="component://entityMgr/scripts/baseDataClassify.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="header-footer" location="${parameters.mainDecoratorLocation}">
+
+                    <decorator-section name="body">
+
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://entityMgr/webapp/dataclassify/baseDataClassify.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+
+</screens>
+	
+	
+

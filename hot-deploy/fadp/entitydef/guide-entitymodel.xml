@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="../../../dtds/entitymodel.xsd">
+
+    <entity entity-name="TestClass" package-name="">
+        <description>班级</description>
+        <field name="classId" type="id"></field>
+        <field name="className" type="name"></field>
+        <prim-key field="classId"/>
+    </entity>
+    <entity entity-name="TestStudent" package-name="">
+        <description>学生</description>
+        <field name="studentId" type="id"></field>
+        <field name="studentName" type="name"></field>
+        <field name="sex" type="indicator"></field>
+        <prim-key field="studentId"/>
+    </entity>
+    <entity entity-name="TestStudentClass" package-name="">
+        <description>学生班级表</description>
+        <field name="classId" type="id"></field>
+        <field name="studentId" type="id"></field>
+        <prim-key field="classId"/>
+        <prim-key field="studentId"/>
+        <relation type="one" rel-entity-name="TestStudent">
+            <key-map field-name="studentId"/>
+        </relation>
+        <relation type="one" rel-entity-name="TestClass">
+            <key-map field-name="classId"/>
+        </relation>
+    </entity>
+    <entity entity-name="TestCourse" package-name="">
+        <description>课程</description>
+        <field name="courseId" type="id"></field>
+        <field name="courseName" type="name"></field>
+        <prim-key field="courseId"/>
+    </entity>
+    <entity entity-name="TestRecords" package-name="">
+        <description>学生成绩</description>
+        <field name="studentId" type="id"></field>
+        <field name="courseId" type="id"></field>
+        <field name="results" type="floating-point"><description>成绩</description></field>
+        <prim-key field="classId"/>
+        <prim-key field="studentId"/>
+    </entity>
+
+    <view-entity entity-name="TestStudentClassView" package-name="">
+        <description>学生班级视图</description>
+        <member-entity entity-alias="CL" entity-name="TestClass"/>
+        <member-entity entity-alias="STU" entity-name="TestStudent"/>
+        <member-entity entity-alias="SC" entity-name="TestStudentClass"/>
+        <alias-all entity-alias="CL"/>
+        <alias-all entity-alias="STU"/>
+        <view-link entity-alias="CL" rel-entity-alias="SC">
+            <key-map field-name="classId"/>
+        </view-link>
+        <view-link entity-alias="SC" rel-entity-alias="STU">
+            <key-map field-name="studentId"/>
+        </view-link>
+    </view-entity>
+
+    <view-entity entity-name="TestStudentCourseView" package-name="">
+        <description>学生课程连接视图</description>
+        <member-entity entity-alias="STU" entity-name="TestStudent"/>
+        <member-entity entity-alias="COU" entity-name="TestCourse"/>
+        <alias-all entity-alias="STU"/>
+        <alias-all entity-alias="COU"/>
+    </view-entity>
+
+    <view-entity entity-name="TestStudentRecordsView" package-name="">
+        <description>学生成绩视图</description>
+        <member-entity entity-alias="SC" entity-name="TestStudentCourseView"/>
+        <member-entity entity-alias="REC" entity-name="TestRecords"/>
+        <alias-all entity-alias="SC"/>
+        <alias name="results" entity-alias="REC"/>
+        <view-link entity-alias="SC" rel-entity-alias="REC" rel-optional="true">
+            <key-map field-name="courseId"/>
+        </view-link>
+    </view-entity>
+
+    <view-entity entity-name="TestClassStudentNumView" package-name="">
+        <description>各班级学生人数视图</description>
+        <member-entity entity-alias="SC" entity-name="TestStudentClass"/>
+        <alias name="classId" entity-alias="SC" group-by="true"/>
+        <alias name="studentId" entity-alias="SC" function="count"><description>学生人数</description></alias>
+    </view-entity>
+
+    <view-entity entity-name="TestBoyStudentView" package-name="">
+        <description>男生视图</description>
+        <member-entity entity-alias="CL" entity-name="TestClass"/>
+        <member-entity entity-alias="STU" entity-name="TestStudent"/>
+        <member-entity entity-alias="SC" entity-name="TestStudentClass"/>
+        <alias-all entity-alias="CL"/>
+        <alias-all entity-alias="STU"/>
+        <view-link entity-alias="CL" rel-entity-alias="SC">
+            <key-map field-name="classId"/>
+        </view-link>
+        <view-link entity-alias="SC" rel-entity-alias="STU">
+            <key-map field-name="studentId"/>
+            <entity-condition>
+                <condition-list>
+                    <condition-expr field-name="sex" entity-alias="STU" value="男"/>
+                </condition-list>
+            </entity-condition>
+        </view-link>
+    </view-entity>
+
+    <view-entity entity-name="TestClassView" package-name="">
+        <description>班级视图以字符串形式展示班级的学生</description>
+        <member-entity entity-alias="STU" entity-name="TestStudentClassView"></member-entity>
+        <alias name="className" group-by="true" entity-alias="STU"/>
+        <alias name="studentName">
+            <complex-alias operator="">
+                <complex-alias-field  value="group_concat("/>
+                <complex-alias-field  entity-alias="STU" field="studentName"/>
+                <complex-alias-field  value=")"/>
+            </complex-alias>
+        </alias>
+    </view-entity>
+
+</entitymodel>

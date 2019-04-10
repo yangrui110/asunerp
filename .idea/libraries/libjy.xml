@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="libjy">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/hot-deploy/demo/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/hot-deploy/demo/lib" recursive="false" />
+  </library>
+</component>

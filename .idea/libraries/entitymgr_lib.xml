@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="entitymgr-lib">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/hot-deploy/entityMgr/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/hot-deploy/entityMgr/lib" recursive="false" />
+  </library>
+</component>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/dtds/widget-screen.xsd">
+	<screen name="MongoCollectionList">
+		<section>
+			<actions>
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/mongodb/mongoCollectionList.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/mongodb/mongoCollectionList.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="MongoCollection">
+		<section>
+			<actions>
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/mongodb/mongoCollection.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/mongodb/mongoCollection.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="MongoDataList">
+		<section>
+			<actions>
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/mongoData/mongoDataList.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/mongoData/mongoDataList.ftl" />
+								<html-template location="component://entityMgr/webapp/entityMgr/includes/pager.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="MongoData">
+		<section>
+			<actions>
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/mongoData/mongoData.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/mongoData/mongoData.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+
+</screens>

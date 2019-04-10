@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://localhost:8888/dtds/entitymodel.xsd">
+    <entity author="None" auto-clear-cache="true" copyright="Copyright 2001-2016 The Apache Software Foundation" enable-lock="false" entity-name="Hello" never-cache="false" never-check="false" no-auto-stamp="true" package-name="" title="None" version="1.0">
+        <description>None</description>
+        <field enable-audit-log="false" encrypt="false" field-set="" name="ff" not-null="true" type="short-varchar"/>
+        <prim-key field="ff"/>
+    </entity>
+    <entity auto-clear-cache="true" enable-lock="false" entity-name="UserLogin" never-cache="false" never-check="false" no-auto-stamp="true" package-name="" title="用户表">
+        <description/>
+        <field enable-audit-log="false" encrypt="false" field-set="" name="userId" not-null="false" type="id">
+            <description>用户Id</description>
+        </field>
+        <prim-key field="userId"/>
+    </entity>
+    <entity entity-name="MonthAmount93" no-auto-stamp="true" package-name="" title="93#汽油月产量">
+        <description/>
+        <field name="company" type="id">
+            <description>公司</description>
+        </field>
+        <field name="monthTime" type="id">
+            <description>月份</description>
+        </field>
+        <field name="amount" type="numeric">
+            <description>产量(t)</description>
+        </field>
+        <prim-key field="company"/>
+        <prim-key field="monthTime"/>
+    </entity>
+</entitymodel>

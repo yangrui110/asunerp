@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="../../../dtds/entitymodel.xsd">
+    <description>极元模块</description>
+    <entity entity-name="UfCpxx" package-name="">
+        <field name="id" type="numeric">
+            <description>id值，主键</description>
+        </field>
+        <field name="cpmc" type="other-name">
+            <description>产品名称</description>
+        </field>
+        <field name="cplx" type="numeric">
+            <description>产品类型</description>
+        </field>
+        <field name="fxjg" type="other-name">
+            <description>发行/保险机构</description>
+        </field>
+        <field name="ztmk" type="currency-amount">
+            <description>投资门槛</description>
+        </field>
+        <field name="cpgs" type="very-long">
+            <description>产品概述</description>
+        </field>
+        <field name="tzdqr" type="other-char">
+            <description>投资到期日</description>
+        </field>
+        <field name="cjrq" type="other-char">
+            <description>创建日期</description>
+        </field>
+        <field name="zgnhsy" type="currency-precise">
+            <description>最高年化收益</description>
+        </field>
+        <field name="cpwl" type="other-long">
+            <description>产品链接</description>
+        </field>
+        <field name="cpfj" type="other-long">
+            <description>产品附件</description>
+        </field>
+        <field name="xszt" type="id">
+            <description>销售状态</description>
+        </field>
+        <prim-key field="id"/>
+    </entity>
+    <view-entity entity-name="UfCpxxView" package-name="">
+        <member-entity entity-alias="AV" entity-name="UfCpxx"></member-entity>
+        <member-entity entity-alias="AP" entity-name="SelectItem"/>
+        <alias name="cpleixing" field="cplx" entity-alias="AV"></alias>
+        <alias-all entity-alias="AV"/>
+        <alias name="cplx" field="selectname" entity-alias="AP"/>
+        <view-link entity-alias="AV" rel-entity-alias="AP" rel-optional="true">
+            <key-map field-name="cplx" rel-field-name="selectvalue"/>
+            <entity-condition>
+                <condition-list>
+                    <condition-expr field-name="fieldid" entity-alias="AP" value="6381"/>
+                </condition-list>
+            </entity-condition>
+        </view-link>
+    </view-entity>
+
+</entitymodel>

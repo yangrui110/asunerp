@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../dtds/widget-screen.xsd">
+	<screen name="extractModel">
+		<section>
+			<actions>
+				<!-- <script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/model/addOrUpdateDataModel.groovy" /> -->
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/extractModel/editExtarctModel.groovy" />
+				<entity-condition list="dataSourceList" entity-name="DatabaseSeq">
+				<condition-list>
+					<condition-expr field-name="dataSourceName" operator="not-equals" value="default"/>
+					<condition-expr field-name="dataSourceName" operator="not-equals" value="savemodel"/>
+				</condition-list>
+				</entity-condition>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/extractModel/editExtractModel.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="extractModelList">
+		<section>
+			<actions>
+				<set field="entityName" value="ExtractModel" />
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/common/pager.groovy" />
+				<entity-condition list="fieldTypeList" entity-name="Dictionary">
+					<condition-expr field-name="module" operator="equals" value="databaseType" />
+				</entity-condition>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<!-- <label text="${context}"></label> -->
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/extractModel/extractModelList.ftl" />
+								<html-template location="component://entityMgr/webapp/entityMgr/includes/pager.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+</screens>

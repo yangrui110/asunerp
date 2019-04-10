@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://localhost:8888/dtds/entitymodel.xsd">
+  <!-- ========================================================= -->
+  <!-- ======================== Defaults ======================= -->
+  <!-- ========================================================= -->
+    <title>Entity of an Open For Business Project Component</title>
+    <description>None</description>
+    <version>1.0</version>
+
+  <!-- ========================================================= -->
+  <!-- ======================== Data Model ===================== -->
+  <!-- The modules in this file are as follows:                  -->
+  <!--  - com.hanlin.fadp.catalina.session -->
+  <!-- ========================================================= -->
+
+
+  <!-- ========================================================= -->
+  <!-- com.hanlin.fadp.catalina.session -->
+  <!-- ========================================================= -->
+
+    <entity entity-name="CatalinaSession"
+            package-name="com.hanlin.fadp.catalina.session"
+            title="Catalina Session Store">
+      <field name="sessionId" type="id-long-ne"></field>
+      <field name="sessionSize" type="numeric"></field>
+      <field name="sessionInfo" type="blob"></field>
+      <field name="isValid" type="indicator"></field>
+      <field name="maxIdle" type="numeric"></field>
+      <field name="lastAccessed" type="numeric"></field>
+      <prim-key field="sessionId"/>
+    </entity>
+</entitymodel>

@@ -1,0 +1,64 @@
+<?xml version="1.0" ?><wsdl:definitions name="MailServiceImplService" targetNamespace="http://mail.jianzhou.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://mail.jianzhou.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://mail.jianzhou.com/" xmlns="http://mail.jianzhou.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="email">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="content" type="xs:string"></xs:element>
+      <xs:element name="id" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="senderemail" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="sendername" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="subject" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="type" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="sendMailApi" type="sendMailApi"></xs:element>
+  <xs:complexType name="sendMailApi">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="arg2" type="email"></xs:element>
+      <xs:element minOccurs="0" name="arg3" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="sendMailApiResponse" type="sendMailApiResponse"></xs:element>
+  <xs:complexType name="sendMailApiResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="sendMailApiResponse">
+    <wsdl:part element="tns:sendMailApiResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendMailApi">
+    <wsdl:part element="tns:sendMailApi" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MailService">
+    <wsdl:operation name="sendMailApi">
+      <wsdl:input message="tns:sendMailApi" name="sendMailApi">
+    </wsdl:input>
+      <wsdl:output message="tns:sendMailApiResponse" name="sendMailApiResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MailServiceImplServiceSoapBinding" type="tns:MailService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <wsdl:operation name="sendMailApi">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="sendMailApi">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="sendMailApiResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MailServiceImplService">
+    <wsdl:port binding="tns:MailServiceImplServiceSoapBinding" name="MailServiceImplPort">
+      <soap:address location="http://www.jianzhou.sh.cn/JianzhouSMSWSServer/services/MailService"></soap:address>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

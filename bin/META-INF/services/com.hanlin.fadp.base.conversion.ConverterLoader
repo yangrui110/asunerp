@@ -1,0 +1,10 @@
+# 
+
+com.hanlin.fadp.entity.util.Converters
+com.hanlin.fadp.base.conversion.BooleanConverters
+com.hanlin.fadp.base.conversion.CollectionConverters
+com.hanlin.fadp.base.conversion.DateTimeConverters
+com.hanlin.fadp.base.conversion.JSONConverters
+com.hanlin.fadp.base.conversion.MiscConverters
+com.hanlin.fadp.base.conversion.NetConverters
+com.hanlin.fadp.base.conversion.NumberConverters

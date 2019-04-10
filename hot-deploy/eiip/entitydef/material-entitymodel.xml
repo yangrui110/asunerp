@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../dtds/entitymodel.xsd">
+    <entity entity-name="DataMaterialType" package-name="">
+        <description>物料类型</description>
+        <field name="materialTypeId" not-null="true" type="id">
+            <description>类别ID</description>
+        </field>
+        <field name="materialTypeName" type="short-varchar">
+            <description>类型名称</description>
+        </field>
+        <field name="parentMaterialTypeId" type="id">
+            <description>父类别</description>
+        </field>
+        <field name="isDisplayInBomEdit" type="indicator">
+            <description>是否显示在BOM编辑</description>
+        </field>
+        <field name="materialTypeStatus" type="id">
+            <description>类别状态</description>
+        </field>
+        <field name="descCnt" type="very-long">
+            <description>备注</description>
+        </field>
+        <field name="domainId" type="id">
+            <description>所属单位</description>
+        </field>
+        <field name="materialTypeFullName" type="long-varchar">
+            <description>类型全称</description>
+        </field>
+        <field name="materialTypeCode" type="short-varchar">
+            <description>类型编码</description>
+        </field>
+        <field name="materialTypePrefix" type="short-varchar">
+            <description>类别前缀</description>
+        </field>
+        <field name="snTag" type="short-varchar">
+            <description>SN标识</description>
+        </field>
+        <prim-key field="materialTypeId"/>
+    </entity>
+    <view-entity entity-name="DataMaterialTypeView" package-name="">
+        <member-entity entity-alias="MT" entity-name="DataMaterialType"></member-entity>
+        <member-entity entity-alias="PMT" entity-name="DataMaterialType"></member-entity>
+        <alias-all entity-alias="MT"/>
+        <alias name="parentMaterialTypeIdValue" field="materialTypeName" entity-alias="PMT"/>
+        <view-link entity-alias="MT" rel-entity-alias="PMT" rel-optional="true">
+            <key-map field-name="parentMaterialTypeId" rel-field-name="materialTypeId"/>
+        </view-link>
+    </view-entity>
+
+    <entity entity-name="DataMaterial" package-name="">
+        <description>物料</description>
+        <field name="materialId" not-null="true" type="id">
+            <description>原料ID</description>
+        </field>
+        <field name="purchasedType" type="id">
+            <description>采购类型</description>
+        </field>
+        <field name="materialModel" type="very-long">
+            <description>物料型号</description>
+        </field>
+        <field name="domainId" type="id">
+            <description>所属单位</description>
+        </field>
+        <field name="routeId" type="id"/>
+        <field name="isBatchSupport" type="id">
+            <description>是否支持批次管理</description>
+        </field>
+        <field name="priceCurrency" type="id">
+            <description>计价币种</description>
+        </field>
+        <field name="snTag" type="short-varchar">
+            <description>SN标识</description>
+        </field>
+        <field name="defaultStorehouseId" type="id">
+            <description>默认仓库</description>
+        </field>
+        <field name="materialEnName" type="very-long">
+            <description>英文名称</description>
+        </field>
+        <field name="materialUnitName" not-null="true" type="short-varchar">
+            <description>物料单位名</description>
+        </field>
+        <field name="materialUnitId" type="id">
+            <description>库存单位ID</description>
+        </field>
+        <field name="defaultProviderId" type="id">
+            <description>默认供应商</description>
+        </field>
+        <field name="manufactureDate" type="long-varchar">
+            <description>生产日期</description>
+        </field>
+        <field name="minimunPurchaseNum" type="id">
+            <description>最低采购量</description>
+        </field>
+        <field name="price" type="currency-amount">
+            <description>标准价格</description>
+        </field>
+        <field name="departmentId" type="id">
+            <description>所属部门</description>
+        </field>
+        <field name="preDays" type="id">
+            <description>前置天数</description>
+        </field>
+        <field name="isAttachExist" type="id">
+            <description>是否有附件</description>
+        </field>
+        <field name="isSalePriceControl" type="id">
+            <description>售价控制</description>
+        </field>
+        <field name="madeType" type="id">
+            <description>生产类型</description>
+        </field>
+        <field name="isPhotoExist" type="id">
+            <description>是否有照片</description>
+        </field>
+        <field name="intField1" type="id">
+            <description>整型字段1</description>
+        </field>
+        <field name="materialSrc" type="id">
+            <description>物料来源</description>
+        </field>
+        <field name="packageSpec" type="long-varchar">
+            <description>包装规格</description>
+        </field>
+        <field name="intField8" type="id">
+            <description>整型字段8</description>
+        </field>
+        <field name="intField9" type="id">
+            <description>整型字段9</description>
+        </field>
+        <field name="intField6" type="id">
+            <description>整型字段6</description>
+        </field>
+        <field name="intField7" type="id">
+            <description>整型字段7</description>
+        </field>
+        <field name="intField4" type="id">
+            <description>整型字段4</description>
+        </field>
+        <field name="intField5" type="id">
+            <description>整型字段5</description>
+        </field>
+        <field name="intField2" type="id">
+            <description>整型字段2</description>
+        </field>
+        <field name="intField3" type="id">
+            <description>整型字段3</description>
+        </field>
+        <field name="descCnt" type="very-long">
+            <description>备注</description>
+        </field>
+        <field name="isSnSupport" type="id">
+            <description>是否支持SN管理</description>
+        </field>
+        <field name="purchasePriceUp" type="id">
+            <description>进价上限</description>
+        </field>
+        <field name="materialSpec" type="very-long">
+            <description>物料规格</description>
+        </field>
+        <field name="materialDesc" type="very-long">
+            <description>物料描述</description>
+        </field>
+        <field name="batchCode" type="long-varchar">
+            <description>生产批号</description>
+        </field>
+        <field name="packageSpecNum" type="id">
+            <description>包装规格数量</description>
+        </field>
+        <field name="materialName" type="very-long">
+            <description>物料名称</description>
+        </field>
+        <field name="currency" type="id">
+            <description>默认币种</description>
+        </field>
+        <field name="strField8" type="long-varchar">
+            <description>字符字段8</description>
+        </field>
+        <field name="dblField1" type="id">
+            <description>浮点字段1</description>
+        </field>
+        <field name="safeStock" type="id">
+            <description>安全库存</description>
+        </field>
+        <field name="materialStatus" type="id">
+            <description>物料状态</description>
+        </field>
+        <field name="strField9" type="long-varchar">
+            <description>字符字段9</description>
+        </field>
+        <field name="dblField2" type="id">
+            <description>浮点字段2</description>
+        </field>
+        <field name="dblField3" type="id">
+            <description>浮点字段3</description>
+        </field>
+        <field name="dblField4" type="id">
+            <description>浮点字段4</description>
+        </field>
+        <field name="materialPhoto" type="very-long">
+            <description>物料照片</description>
+        </field>
+        <field name="strField4" type="long-varchar">
+            <description>字符字段4</description>
+        </field>
+        <field name="dblField5" type="id">
+            <description>浮点字段5</description>
+        </field>
+        <field name="strField5" type="long-varchar">
+            <description>字符字段5</description>
+        </field>
+        <field name="dblField6" type="id">
+            <description>浮点字段6</description>
+        </field>
+        <field name="strField6" type="long-varchar">
+            <description>字符字段6</description>
+        </field>
+        <field name="dblField7" type="id">
+            <description>浮点字段7</description>
+        </field>
+        <field name="snGenRule" type="id">
+            <description>SN生成规则</description>
+        </field>
+        <field name="strField7" type="long-varchar">
+            <description>字符字段7</description>
+        </field>
+        <field name="dblField8" type="id">
+            <description>浮点字段8</description>
+        </field>
+        <field name="strField1" type="long-varchar">
+            <description>字符字段1</description>
+        </field>
+        <field name="strField2" type="long-varchar">
+            <description>字符字段2</description>
+        </field>
+        <field name="materialTypeId" type="id">
+            <description>类别ID</description>
+        </field>
+        <field name="strField3" type="long-varchar">
+            <description>字符字段3</description>
+        </field>
+        <field name="manufacturer" type="long-varchar">
+            <description>生产商</description>
+        </field>
+        <field name="materialSn" type="short-varchar">
+            <description>SN号</description>
+        </field>
+        <field name="productType" type="long-varchar">
+            <description>品种</description>
+        </field>
+        <field name="materialBarcode" type="short-varchar">
+            <description>条码编号</description>
+        </field>
+        <field name="taxRate" type="id">
+            <description>标准税率</description>
+        </field>
+        <field name="salePriceDown" type="id">
+            <description>售价下限</description>
+        </field>
+        <field name="dblField9" type="id">
+            <description>浮点字段9</description>
+        </field>
+        <field name="isPurchasePriceControl" type="id">
+            <description>进价控制</description>
+        </field>
+        <field name="materialCode" type="short-varchar">
+            <description>物料编码</description>
+        </field>
+        <field name="isBomReady" type="id">
+            <description>BOM是否就绪</description>
+        </field>
+        <prim-key field="materialId"/>
+    </entity>
+    <view-entity entity-name="DataMaterialView" package-name="">
+        <description>物料视图</description>
+        <member-entity entity-alias="DM" entity-name="DataMaterial"></member-entity>
+        <member-entity entity-alias="DIC" entity-name="FadpDic"></member-entity>
+        <member-entity entity-alias="SH" entity-name="DataStorehouse"></member-entity>
+        <member-entity entity-alias="MT" entity-name="DataMaterialType"></member-entity>
+        <member-entity entity-alias="DIC2" entity-name="FadpDic"></member-entity>
+        <member-entity entity-alias="DIC3" entity-name="FadpDic"></member-entity>
+
+        <alias-all entity-alias="DM"></alias-all>
+        <alias name="materialSrcValue" field="dicValue" entity-alias="DIC"/>
+        <alias name="priceCurrencyValue" field="dicValue" entity-alias="DIC2"/>
+        <alias name="currencyValue" field="dicValue" entity-alias="DIC3"/>
+        <alias name="defaultStorehouseIdValue" field="storehouseName" entity-alias="SH"/>
+        <alias name="materialTypeIdValue" field="materialTypeName" entity-alias="MT"/>
+        <view-link entity-alias="DM" rel-entity-alias="DIC" rel-optional="true">
+            <key-map field-name="materialSrc" rel-field-name="dicId"/>
+        </view-link>
+        <view-link entity-alias="DM" rel-entity-alias="DIC2" rel-optional="true">
+            <key-map field-name="priceCurrency" rel-field-name="dicId"/>
+        </view-link>
+        <view-link entity-alias="DM" rel-entity-alias="DIC3" rel-optional="true">
+            <key-map field-name="currency" rel-field-name="dicId"/>
+        </view-link>
+        <view-link entity-alias="DM" rel-entity-alias="SH" rel-optional="true">
+            <key-map field-name="defaultStorehouseId" rel-field-name="storehouseId"/>
+        </view-link>
+        <view-link entity-alias="DM" rel-entity-alias="MT" rel-optional="true">
+            <key-map field-name="materialTypeId" rel-field-name="materialTypeId"/>
+        </view-link>
+    </view-entity>
+
+    <view-entity entity-name="MaterialForItemView" package-name="">
+        <description>在订单条目、销货条目、入库条目中使用</description>
+        <member-entity entity-alias="MTE" entity-name="DataMaterial"></member-entity>
+        <alias name="materialId" entity-alias="MTE"/>
+        <alias name="materialTypeId" entity-alias="MTE"/>
+        <alias name="materialName" entity-alias="MTE"><description>名称</description></alias>
+        <alias name="materialCode" entity-alias="MTE"><description>编码</description></alias>
+        <alias name="materialSpec" entity-alias="MTE"><description>规格</description></alias>
+        <alias name="materialModel" entity-alias="MTE"><description>型号</description></alias>
+        <alias name="materialUnitName" entity-alias="MTE"><description>单位</description></alias>
+        <alias name="isSnSupport" entity-alias="MTE"></alias>
+        <alias name="isBatchSupport" entity-alias="MTE"></alias>
+    </view-entity>
+
+    <entity entity-name="DataMaterialUnit" package-name="">
+        <description>物料单位</description>
+        <field name="materialUnitName" type="short-varchar">
+            <description>单位名</description>
+        </field>
+        <field name="unitValue" type="numeric">
+            <description>换算值</description>
+        </field>
+        <field name="materialUnitId" not-null="true" type="id">
+            <description>单位ID</description>
+        </field>
+        <field name="descCnt" type="very-long">
+            <description>备注</description>
+        </field>
+        <field name="domainId" type="id">
+            <description>所属单位</description>
+        </field>
+        <field name="convertExpression" type="very-long">
+            <description>换算表达式</description>
+        </field>
+        <field name="materialUnitType" type="id">
+            <description>单位类型</description>
+        </field>
+        <field name="materialId" type="id">
+            <description>物料ID</description>
+        </field>
+        <field name="materialUnitStatus" type="id">
+            <description>单位状态</description>
+        </field>
+        <prim-key field="materialUnitId"/>
+    </entity>
+
+    <entity entity-name="DataProviderMaterial" package-name="">
+        <description>物料供应商</description>
+        <field name="providerMaterialId" not-null="true" type="id">
+            <description>供应商物料ID</description>
+        </field>
+        <field name="currency" type="id">
+            <description>币种</description>
+        </field>
+        <field name="priceTax" type="currency-amount">
+            <description>含税价</description>
+        </field>
+        <field name="providerMaterialName" type="long-varchar">
+            <description>供应商物料名称</description>
+        </field>
+        <field name="providerMaterialCode" type="short-varchar">
+            <description>供应商物料编号</description>
+        </field>
+        <field name="descCnt" type="very-long">
+            <description>备注</description>
+        </field>
+        <field name="domainId" type="id">
+            <description>所属单位</description>
+        </field>
+        <field name="providerMaterialStatus" type="id">
+            <description>供应商物料状态</description>
+        </field>
+        <field name="providerId" type="id">
+            <description>供应商ID</description>
+        </field>
+        <field name="materialId" type="id">
+            <description>原料ID</description>
+        </field>
+        <field name="operateTime" type="short-varchar">
+            <description>操作时间</description>
+        </field>
+        <field name="operator" type="id">
+            <description>操作人</description>
+        </field>
+        <field name="taxRate" type="numeric">
+            <description>税率</description>
+        </field>
+        <field name="providerMaterialType" type="id">
+            <description>供应商物料类型</description>
+        </field>
+        <field name="providerMaterialModel" type="long-varchar">
+            <description>供应商物料型号</description>
+        </field>
+        <field name="providerMaterialSpec" type="long-varchar">
+            <description>供应商物料规格</description>
+        </field>
+        <field name="priceNotax" type="currency-amount">
+            <description>不含税价</description>
+        </field>
+        <field name="materialUnit" type="id">
+            <description>计价单位</description>
+        </field>
+        <prim-key field="providerMaterialId"/>
+    </entity>
+    <view-entity entity-name="DataProviderMaterialView" package-name="">
+        <description>物料供应商</description>
+        <member-entity entity-alias="DPM" entity-name="DataProviderMaterial"></member-entity>
+        <member-entity entity-alias="DM" entity-name="MaterialForItemView"></member-entity>
+        <member-entity entity-alias="DP" entity-name="DataProvider"></member-entity>
+        <member-entity entity-alias="UL" entity-name="UserLogin"></member-entity>
+        <member-entity entity-alias="DIC" entity-name="FadpDic"></member-entity>
+
+        <alias-all entity-alias="DM"><exclude field="materialId"/></alias-all>
+        <alias name="providerName" entity-alias="DP"/>
+        <alias-all entity-alias="DPM"/>
+        <alias name="currencyValue" field="dicValue" entity-alias="DIC"/>
+        <alias name="operatorValue" field="userName" entity-alias="UL"/>
+
+
+        <view-link entity-alias="DPM" rel-entity-alias="DM">
+            <key-map field-name="materialId"/>
+        </view-link>
+        <view-link entity-alias="DPM" rel-entity-alias="DP">
+            <key-map field-name="providerId"/>
+        </view-link>
+        <view-link entity-alias="DPM" rel-entity-alias="DIC">
+            <key-map field-name="currency" rel-field-name="dicId"/>
+        </view-link>
+        <view-link entity-alias="DPM" rel-entity-alias="UL">
+            <key-map field-name="operator" rel-field-name="userLoginId"/>
+        </view-link>
+    </view-entity>
+    <view-entity entity-name="DataMaterialByProvider" package-name="">
+        <description>物料供应商</description>
+        <member-entity entity-alias="DPM" entity-name="DataProviderMaterial"></member-entity>
+        <member-entity entity-alias="DM" entity-name="DataMaterial"></member-entity>
+
+        <alias name="materialId" entity-alias="DM"/>
+        <alias name="materialTypeId" entity-alias="DM"/>
+        <alias name="materialName" entity-alias="DM"><description>名称</description></alias>
+        <alias name="materialCode" entity-alias="DM"><description>编码</description></alias>
+        <alias name="materialSpec" entity-alias="DM"><description>规格</description></alias>
+        <alias name="materialModel" entity-alias="DM"><description>型号</description></alias>
+        <alias name="materialUnitName" entity-alias="DM"><description>单位</description></alias>
+
+        <!--FIXME 这里是使用供应商【含税单价】还是【物料单价】-->
+        <alias name="providerId" entity-alias="DPM"/>
+        <alias name="price" field="priceTax" entity-alias="DPM"/>
+        <view-link entity-alias="DPM" rel-entity-alias="DM">
+            <key-map field-name="materialId"/>
+        </view-link>
+
+    </view-entity>
+</entitymodel>

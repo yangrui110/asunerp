@@ -1,0 +1,1016 @@
+<?xml version="1.0" encoding="UTF-8"?><entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../dtds/entitymodel.xsd">
+
+    <entity entity-name="SaleOrder" package-name="com.fadp.eiip.sale">
+        <description>销售订单</description>
+        <field name="preDeliverDate" type="short-varchar">
+            <description>预交货日期</description>
+        </field>
+        <field name="receivedMoney" type="currency-amount">
+            <description>已收金额</description>
+        </field>
+        <field name="deliverFlag" type="id">
+            <description>销货标记</description>
+        </field>
+        <field name="descCnt" type="very-long">
+            <description>备注</description>
+        </field>
+        <field name="domainId" type="id">
+            <description>所属单位</description>
+        </field>
+        <field name="paymentCustomerId" type="id">
+            <description>请款客户</description>
+        </field>
+        <field name="delTime" type="short-varchar">
+            <description>删除时间</description>
+        </field>
+        <field name="operateTime" type="short-varchar">
+            <description>操作日期</description>
+        </field>
+        <field name="marketingStaff" type="id">
+            <description>业务员</description>
+        </field>
+        <field name="isDel" type="id">
+            <description>删除标记</description>
+        </field>
+        <field name="orderStatus" type="id">
+            <description>订单状态</description>
+        </field>
+        <field name="auditTime" type="short-varchar">
+            <description>审批日期</description>
+        </field>
+        <field name="currency" type="id">
+            <description>币种</description>
+        </field>
+        <field name="orderDate" type="short-varchar">
+            <description>订单日期</description>
+        </field>
+        <field name="orderCode" type="short-varchar">
+            <description>订单号</description>
+        </field>
+        <field name="customerId" type="id">
+            <description>客户</description>
+        </field>
+        <field name="totalMoney" type="currency-amount">
+            <description>订单总金额</description>
+        </field>
+        <field name="delOperator" type="id">
+            <description>删除人</description>
+        </field>
+        <field name="customerSaleCode" type="short-varchar">
+            <description>客户订单号</description>
+        </field>
+        <field name="marketingDepartment" type="id">
+            <description>业务部门</description>
+        </field>
+        <field name="orderId" not-null="true" type="id">
+            <description>销售订单ID</description>
+        </field>
+        <field name="operator" type="id">
+            <description>操作员</description>
+        </field>
+        <field name="rejectFlag" type="id">
+            <description>销退标记</description>
+        </field>
+        <field name="shippingAddr" type="very-long">
+            <description>送货地址</description>
+        </field>
+        <field name="auditor" type="id">
+            <description>审批人</description>
+        </field>
+        <prim-key field="orderId"/>
+    </entity>
+    <view-entity entity-name="SaleOrderView" package-name="com.fadp.eiip.sale">
+        <description>销售订单视图</description>
+        <member-entity entity-alias="SO" entity-name="SaleOrder"></member-entity>
+        <member-entity entity-alias="UL" entity-name="UserLogin"></member-entity>
+        <member-entity entity-alias="DC" entity-name="DataCustomer"></member-entity>
+        <member-entity entity-alias="DC2" entity-name="DataCustomer"></member-entity>
+        <member-entity entity-alias="DIC" entity-name="FadpDic"></member-entity>
+        <member-entity entity-alias="DIC2" entity-name="FadpDic"></member-entity>
+        <alias-all entity-alias="SO"/>
+        <alias name="marketingStaffValue" field="userName" entity-alias="UL"/>
+        <alias name="paymentCustomerIdValue" field="customerName" entity-alias="DC"/>
+        <alias name="customerIdValue" field="customerName" entity-alias="DC2"/>
+        <alias name="currencyValue" field="dicValue" entity-alias="DIC"/>
+        <alias name="orderStatusValue" field="dicValue" entity-alias="DIC2"/>
+
+        <view-link entity-alias="SO" rel-entity-alias="UL" rel-optional="true">
+            <key-map field-name="marketingStaff" rel-field-name="userLoginId"/>
+        </view-link>
+        <view-link entity-alias="SO" rel-entity-alias="DC" rel-optional="true">
+            <key-map field-name="paymentCustomerId" rel-field-name="customerId"/>
+        </view-link>
+        <view-link entity-alias="SO" rel-entity-alias="DC2" rel-optional="true">
+            <key-map field-name="customerId" rel-field-name="customerId"/>
+        </view-link>
+        <view-link entity-alias="SO" rel-entity-alias="DIC" rel-optional="true">
+            <key-map field-name="currency" rel-field-name="dicId"/>
+        </view-link>
+        <view-link entity-alias="SO" rel-entity-alias="DIC2" rel-optional="true">
+            <key-map field-name="orderStatus" rel-field-name="dicId"/>
+        </view-link>
+    </view-entity>
+    <entity entity-name="SaleOrderItem" package-name="com.fadp.eiip.sale">
+        <description>销售订单明细</description>
+        <field name="orderItemDeliverFlag" type="id">
+            <description>条目销货标记</description>
+        </field>
+        <field name="preDeliverDate" type="short-varchar">
+            <description>预交货日期</description>
+        </field>
+        <field name="orderNum" type="currency-amount">
+            <description>数量</description>
+        </field>
+        <field name="orderItemPurchasePlanFlag" type="id">
+            <description>条目采购计划标记</description>
+        </field>
+        <field name="descCnt" type="very-long">
+            <description>备注</description>
+        </field>
+        <field name="orderItemMakeFlag" type="id">
+            <description>条目制料标记</description>
+        </field>
+        <field name="discountRate" type="currency-amount">
+            <description>折扣</description>
+        </field>
+        <field name="amountTaxed" type="currency-amount">
+            <description>含税总金额</description>
+        </field>
+        <field name="purchasePlanId" type="id">
+            <description>采购计划</description>
+        </field>
+        <field name="priceTaxed" type="currency-amount">
+            <description>含税单价</description>
+        </field>
+        <field name="manufacturedNum" type="currency-amount">
+            <description>已生产数量</description>
+        </field>
+        <field name="priceNotaxed" type="currency-amount">
+            <description>不含税单价</description>
+        </field>
+        <field name="orderItemRejectFlag" type="id">
+            <description>条目退货标记</description>
+        </field>
+        <field name="deliveredNum" type="currency-amount">
+            <description>已出货数量</description>
+        </field>
+        <field name="amount" type="currency-amount">
+            <description>总金额</description>
+        </field>
+        <field name="isDel" type="id">
+            <description>删除标记</description>
+        </field>
+        <field name="workOrderMakeId" type="id">
+            <description>工令单制料ID</description>
+        </field>
+        <field name="defaultMaterialUnit" type="id">
+            <description>默认单位</description>
+        </field>
+        <field name="orderMaterialUnit" type="id">
+            <description>单位</description>
+        </field>
+        <field name="currency" type="id">
+            <description>币种</description>
+        </field>
+        <field name="isTaxed" type="id">
+            <description>是否含税</description>
+        </field>
+        <field name="price" type="currency-amount">
+            <description>单价</description>
+        </field>
+        <field name="orderItemStatus" type="id">
+            <description>条目状态</description>
+        </field>
+        <field name="orderItemCode" type="short-varchar">
+            <description>订单条目号</description>
+        </field>
+        <field name="materialId" type="id">
+            <description>物料</description>
+        </field>
+        <field name="amountNotaxed" type="currency-amount">
+            <description>不含税总金额</description>
+        </field>
+        <field name="canDeliverNum" type="currency-amount">
+            <description>可出货数量</description>
+        </field>
+        <field name="orderId" type="id">
+            <description>销售订单ID</description>
+        </field>
+        <field name="taxRate" type="currency-amount">
+            <description>税率</description>
+        </field>
+        <field name="canRejectNum" type="currency-amount">
+            <description>可退货数量</description>
+        </field>
+        <field name="discountAmount" type="currency-amount">
+            <description>折扣价</description>
+        </field>
+        <field name="orderItemId" not-null="true" type="id">
+            <description>订单条目ID</description>
+        </field>
+        <field name="orderNumWithDefault" type="currency-amount"/>
+        <field name="rejectedNum" type="currency-amount">
+            <description>已退货数量</description>
+        </field>
+        <field name="scheduledNum" type="currency-amount">
+            <description>已排单数量</description>
+        </field>
+        <prim-key field="orderItemId"/>
+    </entity>
+    <view-entity entity-name="SaleOrderItemMaterialView" package-name="com.fadp.eiip.sale">
+        <description>销售订单物料明细</description>
+        <member-entity entity-alias="SOI" entity-name="SaleOrderItem"></member-entity>
+        <member-entity entity-alias="DM" entity-name="MaterialForItemView"></member-entity>
+        <alias name="orderItemId" entity-alias="SOI"/>
+        <alias name="materialId" entity-alias="SOI"/>
+        <alias name="orderId" entity-alias="SOI"/>
+        <alias name="price" entity-alias="SOI"/>
+        <alias name="amount" entity-alias="SOI"/>
+        <alias name="orderNum" entity-alias="SOI"/>
+        <alias name="preDeliverDate" entity-alias="SOI"/>
+        <alias name="descCnt" entity-alias="SOI"/>
+        <alias-all entity-alias="DM"><exclude field="materialId"/></alias-all>
+        <view-link entity-alias="SOI" rel-entity-alias="DM">
+            <key-map field-name="materialId"/>
+        </view-link>
+    </view-entity>
+    <entity entity-name="SaleDeliver" package-name="com.fadp.eiip.sale">
+        <description>销货单</description>
+        <field name="preCheckoutDate" type="short-varchar">
+            <description>预结账日</description>
+        </field>
+        <field name="receivedMoney" type="currency-amount">
+            <description>已收金额</description>
+        </field>
+        <field name="deliverCode" type="short-varchar">
+            <description>销货单号</description>
+        </field>
+        <field name="descCnt" type="very-long">
+            <description>备注</description>
+        </field>
+        <field name="deliverDate" type="short-varchar">
+            <description>销货日期</description>
+        </field>
+        <field name="domainId" type="id">
+            <description>所属单位</description>
+        </field>
+        <field name="expressCode" type="short-varchar">
+            <description>快递单号</description>
+        </field>
+        <field name="expressCompany" type="short-varchar">
+            <description>快递公司</description>
+        </field>
+        <field name="paymentCustomerId" type="id">
+            <description>请款客户</description>
+        </field>
+        <field name="deliverStatus" type="id">
+            <description>销货状态</description>
+        </field>
+        <field name="delTime" type="short-varchar">
+            <description>删除时间</description>
+        </field>
+        <field name="operateTime" type="short-varchar">
+            <description>操作日期</description>
+        </field>
+        <field name="marketingStaff" type="id">
+            <description>业务员</description>
+        </field>
+        <field name="isDel" type="id">
+            <description>删除标记</description>
+        </field>
+        <field name="customerReceiver" type="short-varchar">
+            <description>客户收货人</description>
+        </field>
+        <field name="preCollectionDate" type="short-varchar">
+            <description>预收款日</description>
+        </field>
+        <field name="auditTime" type="short-varchar">
+            <description>审批日期</description>
+        </field>
+        <field name="currency" type="id">
+            <description>币种</description>
+        </field>
+        <field name="saleType" type="id">
+            <description>销售类型</description>
+        </field>
+        <field name="customerId" type="id">
+            <description>客户</description>
+        </field>
+        <field name="totalMoney" type="currency-amount">
+            <description>销货单总金额</description>
+        </field>
+        <field name="delOperator" type="id">
+            <description>删除人</description>
+        </field>
+        <field name="marketingDepartment" type="id">
+            <description>业务部门</description>
+        </field>
+        <field name="deliverId" not-null="true" type="id">
+            <description>销货单ID</description>
+        </field>
+        <field name="orderId" type="id">
+            <description>销售订单ID</description>
+        </field>
+        <field name="operator" type="id">
+            <description>操作员</description>
+        </field>
+        <field name="declareStatus" type="id">
+            <description>报关状态</description>
+        </field>
+        <field name="shippingAddr" type="very-long">
+            <description>送货地址</description>
+        </field>
+        <field name="customerReceiveDate" type="short-varchar">
+            <description>客户收货日期</description>
+        </field>
+        <field name="auditor" type="id">
+            <description>审批人</description>
+        </field>
+        <prim-key field="deliverId"/>
+    </entity>
+    <view-entity entity-name="SaleOrder4DeliverView" package-name="com.fadp.eiip.sale">
+        <member-entity entity-alias="SO" entity-name="SaleOrderView"></member-entity>
+        <alias-all entity-alias="SO"/>
+        <entity-condition>
+            <condition-list>
+                <condition-expr field-name="deliverFlag" value="A" operator="not-equals" entity-alias="SO"/>
+                <condition-expr field-name="deliverFlag" value="N" operator="not-equals" entity-alias="SO"/>
+            </condition-list>
+        </entity-condition>
+    </view-entity>
+    <view-entity entity-name="SaleDeliverView" package-name="com.fadp.eiip.sale">
+        <member-entity entity-alias="SD" entity-name="SaleDeliver"></member-entity>
+        <member-entity entity-alias="SO" entity-name="SaleOrderView"></member-entity>
+        <member-entity entity-alias="STA_DIC" entity-name="FadpDic"></member-entity>
+
+        <alias-all entity-alias="SO">
+            <exclude field="orderId"/>
+            <exclude field="totalMoney"/>
+            <exclude field="receivedMoney"/>
+        </alias-all>
+        <alias name="totalMoneyOrder" field="totalMoney" entity-alias="SO"/>
+        <alias name="receivedMoneyOrder" field="receivedMoney" entity-alias="SO"/>
+        <alias-all entity-alias="SD"></alias-all>
+        <alias name="deliverStatusValue" field="dicValue" entity-alias="STA_DIC"/>
+
+        <view-link entity-alias="SD" rel-entity-alias="SO">
+            <key-map field-name="orderId"/>
+        </view-link>
+        <view-link entity-alias="SD" rel-entity-alias="STA_DIC" rel-optional="true">
+            <key-map field-name="deliverStatus" rel-field-name="dicId"/>
+        </view-link>
+
+    </view-entity>
+    <entity entity-name="SaleDeliverItem" package-name="com.fadp.eiip.sale">
+        <description>销货清单详情</description>
+        <field name="descCnt" type="very-long">
+            <description>备注</description>
+        </field>
+        <field name="amountTaxed" type="currency-amount">
+            <description>含税总金额</description>
+        </field>
+        <field name="discountRate" type="currency-amount">
+            <description>折扣</description>
+        </field>
+        <field name="deliverMaterialUnit" type="id">
+            <description>单位</description>
+        </field>
+        <field name="batchId" type="id">
+            <description>批号ID</description>
+        </field>
+        <field name="priceTaxed" type="currency-amount">
+            <description>含税单价</description>
+        </field>
+        <field name="priceNotaxed" type="currency-amount">
+            <description>不含税单价</description>
+        </field>
+        <field name="storehouseId" type="id">
+            <description>仓库</description>
+        </field>
+        <field name="amount" type="currency-amount">
+            <description>金额</description>
+        </field>
+        <field name="isDel" type="id">
+            <description>删除标记</description>
+        </field>
+        <!--<field name="stockNum" type="currency-amount">-->
+            <!--<description>库存数量</description>-->
+        <!--</field>-->
+        <field name="currency" type="id">
+            <description>币种</description>
+        </field>
+        <field name="isTaxed" type="id">
+            <description>是否含税</description>
+        </field>
+        <field name="price" type="currency-amount">
+            <description>单价</description>
+        </field>
+        <field name="deliverItemId" not-null="true" type="id">
+            <description>销货条目ID</description>
+        </field>
+        <field name="deliverItemStatus" type="id">
+            <description>销货条目状态</description>
+        </field>
+        <field name="materialId" type="id">
+            <description>物料</description>
+        </field>
+        <field name="outputedSnNum" type="id">
+            <description>已出SN数</description>
+        </field>
+        <field name="amountNotaxed" type="currency-amount">
+            <description>不含税总金额</description>
+        </field>
+        <field name="deliverId" type="id">
+            <description>销货单ID</description>
+        </field>
+        <field name="orderId" type="id">
+            <description>销售订单ID</description>
+        </field>
+        <field name="taxRate" type="currency-amount">
+            <description>税率</description>
+        </field>
+        <field name="discountAmount" type="currency-amount">
+            <description>折扣价</description>
+        </field>
+        <field name="deliverNum" type="currency-amount">
+            <description>数量</description>
+        </field>
+        <field name="orderItemId" type="id">
+            <description>订单条目ID</description>
+        </field>
+        <prim-key field="deliverItemId"/>
+    </entity>
+    <view-entity entity-name="SaleDeliverItemView" package-name="com.fadp.eiip.sale">
+        <description>销货清单-物料视图</description>
+        <member-entity entity-alias="SDI" entity-name="SaleDeliverItem"></member-entity>
+        <member-entity entity-alias="SOI" entity-name="SaleOrderItem"></member-entity>
+        <member-entity entity-alias="DM" entity-name="MaterialForItemView"></member-entity>
+
+        <member-entity entity-alias="SH" entity-name="DataStorehouse"></member-entity>
+        <member-entity entity-alias="SNT" entity-name="SnTicketMaterialSn"></member-entity>
+        <member-entity entity-alias="MB" entity-name="BatchMaterialBatch"></member-entity>
+        <member-entity entity-alias="MS" entity-name="DataMaterialStore"></member-entity>
+
+        <alias name="deliverId" entity-alias="SDI"/>
+        <alias name="deliverItemId" entity-alias="SDI"/>
+        <alias name="orderItemStatus" entity-alias="SDI"/>
+        <alias name="deliverNum" entity-alias="SDI"/>
+        <alias name="storehouseId" entity-alias="SDI"/>
+        <alias name="batchId" entity-alias="SDI"/>
+        <alias name="stockNum" entity-alias="SDI"/>
+        <alias name="descCnt" entity-alias="SDI"/>
+        <alias name="isDel" entity-alias="SDI"/>
+        <alias name="price" entity-alias="SDI"/>
+        <alias name="amount" entity-alias="SDI"/>
+
+
+
+
+        <alias name="storehouseIdValue" field="storehouseName" entity-alias="SH"/>
+        <alias name="ticketMaterialSnId" entity-alias="SNT"/>
+        <alias name="batchIdValue" field="batchCode" entity-alias="MB"/>
+        <alias name="storeNum" entity-alias="MS"/>
+
+        <alias name="orderId" entity-alias="SOI"/>
+        <alias name="orderItemId" entity-alias="SOI"/>
+        <alias name="deliveredNum" entity-alias="SOI"/>
+        <alias name="canDeliverNum" entity-alias="SOI"/>
+        <alias name="orderNum" entity-alias="SOI"/>
+
+        <alias-all entity-alias="DM"></alias-all>
+        <view-link entity-alias="SDI" rel-entity-alias="DM">
+            <key-map field-name="materialId"/>
+        </view-link>
+        <view-link entity-alias="SDI" rel-entity-alias="SOI" rel-optional="true">
+            <key-map field-name="orderItemId"/>
+        </view-link>
+        <view-link entity-alias="SDI" rel-entity-alias="SH" rel-optional="true">
+            <key-map field-name="storehouseId"/>
+        </view-link>
+        <view-link entity-alias="SDI" rel-entity-alias="SNT" rel-optional="true">
+            <key-map field-name="deliverId" rel-field-name="ticketId"/>
+            <key-map field-name="deliverItemId" rel-field-name="ticketItemId"/>
+        </view-link>
+        <view-link entity-alias="SDI" rel-entity-alias="MB" rel-optional="true">
+            <key-map field-name="batchId"/>
+        </view-link>
+        <view-link entity-alias="SDI" rel-entity-alias="MS" rel-optional="true">
+            <key-map field-name="storehouseId"/>
+            <key-map field-name="materialId"/>
+            <entity-condition>
+                <having-condition-list combine="or">
+                    <condition-expr field-name="batchId" entity-alias="SDI" value=""/>
+                    <condition-expr field-name="batchId" entity-alias="SDI" rel-entity-alias="MB"/>
+                </having-condition-list>
+            </entity-condition>
+        </view-link>
+    </view-entity>
+    <view-entity entity-name="SaleOrderItem4DeliverView" package-name="com.fadp.eiip.sale">
+        <description>销货清单-开单视图</description>
+        <member-entity entity-alias="SOI" entity-name="SaleOrderItem"></member-entity>
+        <member-entity entity-alias="DM" entity-name="MaterialForItemView"></member-entity>
+
+        <alias-all entity-alias="SOI"/>
+        <alias-all entity-alias="DM"><exclude field="materialId"/></alias-all>
+        <view-link entity-alias="SOI" rel-entity-alias="DM">
+            <key-map field-name="materialId"/>
+        </view-link>
+        <entity-condition>
+            <condition-expr field-name="orderItemDeliverFlag" operator="not-equals" value="A" entity-alias="SOI"/>
+        </entity-condition>
+    </view-entity>
+
+    <entity entity-name="SaleReject" package-name="com.fadp.eiip.sale">
+        <description>退货单</description>
+        <field name="preCheckoutDate" type="short-varchar">
+            <description>预结账日</description>
+        </field>
+        <field name="rejectId" not-null="true" type="id">
+            <description>销退单ID</description>
+        </field>
+        <field name="descCnt" type="very-long">
+            <description>备注</description>
+        </field>
+        <field name="domainId" type="id">
+            <description>所属单位</description>
+        </field>
+        <field name="paymentCustomerId" type="id">
+            <description>请款客户</description>
+        </field>
+        <field name="rejectStatus" type="id">
+            <description>销退状态</description>
+        </field>
+        <field name="delTime" type="short-varchar">
+            <description>删除时间</description>
+        </field>
+        <field name="operateTime" type="short-varchar">
+            <description>操作日期</description>
+        </field>
+        <field name="marketingStaff" type="id">
+            <description>业务员</description>
+        </field>
+        <field name="isDel" type="id">
+            <description>删除标记</description>
+        </field>
+        <field name="customerReceiver" type="short-varchar">
+            <description>客户收货人</description>
+        </field>
+        <field name="auditTime" type="short-varchar">
+            <description>审批日期</description>
+        </field>
+        <field name="currency" type="id">
+            <description>币种</description>
+        </field>
+        <field name="saleType" type="id">
+            <description>销售类型</description>
+        </field>
+        <field name="customerId" type="id">
+            <description>客户</description>
+        </field>
+        <field name="totalMoney" type="currency-amount">
+            <description>销退单总金额</description>
+        </field>
+        <field name="delOperator" type="id">
+            <description>删除人</description>
+        </field>
+        <field name="marketingDepartment" type="id">
+            <description>业务部门</description>
+        </field>
+        <field name="preRefundDate" type="short-varchar">
+            <description>预退款日</description>
+        </field>
+        <field name="orderId" type="id">
+            <description>销售订单ID</description>
+        </field>
+        <field name="operator" type="id">
+            <description>操作员</description>
+        </field>
+        <field name="rejectCode" type="short-varchar">
+            <description>销退单号</description>
+        </field>
+        <field name="rejectDate" type="short-varchar">
+            <description>退货日期</description>
+        </field>
+        <field name="shippingAddr" type="very-long">
+            <description>送货地址</description>
+        </field>
+        <field name="refundedMoney" type="currency-amount">
+            <description>已退金额</description>
+        </field>
+        <field name="customerReceiveDate" type="short-varchar">
+            <description>客户收货日期</description>
+        </field>
+        <field name="auditor" type="id">
+            <description>审批人</description>
+        </field>
+        <prim-key field="rejectId"/>
+    </entity>
+    <view-entity entity-name="SaleOrder4RejectView" package-name="com.fadp.eiip.sale">
+        <member-entity entity-alias="SD" entity-name="SaleDeliverView"></member-entity>
+        <alias-all entity-alias="SD"/>
+        <entity-condition>
+            <condition-list>
+                <condition-expr field-name="rejectFlag" value="A" operator="not-equals" entity-alias="SD"/>
+                <condition-expr field-name="rejectFlag" value="N" operator="not-equals" entity-alias="SD"/>
+            </condition-list>
+        </entity-condition>
+    </view-entity>
+
+    <view-entity entity-name="SaleRejectView" package-name="com.fadp.eiip.sale">
+        <member-entity entity-alias="ME" entity-name="SaleReject"></member-entity>
+        <member-entity entity-alias="SO" entity-name="SaleOrderView"></member-entity>
+        <member-entity entity-alias="DC" entity-name="DataCustomer"></member-entity>
+        <member-entity entity-alias="P_DC" entity-name="DataCustomer"></member-entity>
+        <member-entity entity-alias="UL_MS" entity-name="UserLogin"></member-entity>
+        <member-entity entity-alias="STA_DIC" entity-name="FadpDic"></member-entity>
+        <member-entity entity-alias="UL_OP" entity-name="UserLogin"></member-entity>
+        <member-entity entity-alias="UL_AU" entity-name="UserLogin"></member-entity>
+
+        <alias-all entity-alias="ME"></alias-all>
+
+        <alias name="orderIdValue" field="orderCode" entity-alias="SO"/>
+        <alias name="customerIdValue" field="customerName" entity-alias="DC"/>
+        <alias name="paymentCustomerIdValue" field="customerName" entity-alias="P_DC"/>
+        <alias name="marketingStaffValue" field="userName" entity-alias="UL_MS"/>
+        <alias name="rejectStatusValue" field="dicValue" entity-alias="STA_DIC"/>
+        <alias name="operatorValue" field="userName" entity-alias="UL_OP"/>
+        <alias name="auditorValue" field="userName" entity-alias="UL_AU"/>
+
+        <view-link entity-alias="ME" rel-entity-alias="SO">
+            <key-map field-name="orderId"/>
+        </view-link>
+        <view-link entity-alias="ME" rel-entity-alias="DC" rel-optional="true">
+            <key-map field-name="customerId"/>
+        </view-link>
+        <view-link entity-alias="ME" rel-entity-alias="P_DC" rel-optional="true">
+            <key-map field-name="paymentCustomerId" rel-field-name="customerId"/>
+        </view-link>
+        <view-link entity-alias="ME" rel-entity-alias="UL_MS" rel-optional="true">
+            <key-map field-name="marketingStaff" rel-field-name="userLoginId"/>
+        </view-link>
+        <view-link entity-alias="ME" rel-entity-alias="STA_DIC" rel-optional="true">
+            <key-map field-name="rejectStatus" rel-field-name="dicId"/>
+        </view-link>
+        <view-link entity-alias="ME" rel-entity-alias="UL_OP" rel-optional="true">
+            <key-map field-name="operator" rel-field-name="userLoginId"/>
+        </view-link>
+        <view-link entity-alias="ME" rel-entity-alias="UL_AU" rel-optional="true">
+            <key-map field-name="auditor" rel-field-name="userLoginId"/>
+        </view-link>
+
+    </view-entity>
+    <entity entity-name="SaleRejectItem" package-name="com.fadp.eiip.sale">
+        <description>退货单明细</description>
+        <field name="rejectId" type="id">
+            <description>销退单ID</description>
+        </field>
+        <field name="descCnt" type="very-long">
+            <description>备注</description>
+        </field>
+        <field name="rejectMaterialUnit" type="id">
+            <description>单位</description>
+        </field>
+        <field name="amountTaxed" type="currency-amount">
+            <description>含税总金额</description>
+        </field>
+        <field name="discountRate" type="currency-amount">
+            <description>折扣</description>
+        </field>
+        <field name="batchId" type="id">
+            <description>批号ID</description>
+        </field>
+        <field name="priceTaxed" type="currency-amount">
+            <description>含税单价</description>
+        </field>
+        <field name="priceNotaxed" type="currency-amount">
+            <description>不含税单价</description>
+        </field>
+        <field name="storehouseId" type="id">
+            <description>仓库</description>
+        </field>
+        <field name="amount" type="currency-amount">
+            <description>金额</description>
+        </field>
+        <field name="isDel" type="id">
+            <description>删除标记</description>
+        </field>
+        <field name="currency" type="id">
+            <description>币种</description>
+        </field>
+        <field name="isTaxed" type="id">
+            <description>是否含税</description>
+        </field>
+        <field name="rejectItemId" not-null="true" type="id">
+            <description>销退条目ID</description>
+        </field>
+        <field name="price" type="currency-amount">
+            <description>单价</description>
+        </field>
+        <field name="rejectItemStatus" type="id">
+            <description>销退单条目状态</description>
+        </field>
+        <field name="materialId" type="id">
+            <description>物料</description>
+        </field>
+        <field name="orderItemDeliveredNum" type="currency-amount">
+            <description>条目已出数量</description>
+        </field>
+        <field name="amountNotaxed" type="currency-amount">
+            <description>不含税总金额</description>
+        </field>
+        <field name="orderId" type="id">
+            <description>销售订单ID</description>
+        </field>
+        <field name="taxRate" type="currency-amount">
+            <description>税率</description>
+        </field>
+        <field name="discountAmount" type="currency-amount">
+            <description>折扣价</description>
+        </field>
+        <field name="inputedSnNum" type="id">
+            <description>已入SN数</description>
+        </field>
+        <field name="rejectNum" type="currency-amount">
+            <description>数量</description>
+        </field>
+        <field name="orderItemId" type="id">
+            <description>订单条目ID</description>
+        </field>
+        <prim-key field="rejectItemId"/>
+    </entity>
+    <view-entity entity-name="SaleRejectItemView" package-name="com.fadp.eiip.sale">
+        <description>退货清单-物料视图</description>
+        <member-entity entity-alias="ME" entity-name="SaleRejectItem"></member-entity>
+        <member-entity entity-alias="SOI" entity-name="SaleOrderItem"></member-entity>
+        <member-entity entity-alias="DM" entity-name="MaterialForItemView"></member-entity>
+
+        <member-entity entity-alias="SH" entity-name="DataStorehouse"></member-entity>
+        <member-entity entity-alias="SNT" entity-name="SnTicketMaterialSn"></member-entity>
+        <member-entity entity-alias="MB" entity-name="BatchMaterialBatch"></member-entity>
+        <member-entity entity-alias="MS" entity-name="DataMaterialStore"></member-entity>
+
+        <alias-all entity-alias="ME"></alias-all>
+
+
+
+
+        <alias name="storehouseIdValue" field="storehouseName" entity-alias="SH"/>
+        <alias name="ticketMaterialSnId" entity-alias="SNT"/>
+        <alias name="batchIdValue" field="batchCode" entity-alias="MB"/>
+        <alias name="storeNum" entity-alias="MS"/>
+
+        <alias name="orderId" entity-alias="SOI"/>
+        <alias name="orderItemId" entity-alias="SOI"/>
+        <alias name="orderNum" entity-alias="SOI"/>
+        <alias name="deliveredNum" entity-alias="SOI"/>
+        <alias name="rejectedNum" entity-alias="SOI"/>
+        <alias name="canRejectNum" entity-alias="SOI"/>
+
+        <alias-all entity-alias="DM"></alias-all>
+        <view-link entity-alias="ME" rel-entity-alias="DM">
+            <key-map field-name="materialId"/>
+        </view-link>
+        <view-link entity-alias="ME" rel-entity-alias="SOI" rel-optional="true">
+            <key-map field-name="orderItemId"/>
+        </view-link>
+        <view-link entity-alias="ME" rel-entity-alias="SH" rel-optional="true">
+            <key-map field-name="storehouseId"/>
+        </view-link>
+        <view-link entity-alias="ME" rel-entity-alias="SNT" rel-optional="true">
+            <key-map field-name="rejectId" rel-field-name="ticketId"/>
+            <key-map field-name="rejectItemId" rel-field-name="ticketItemId"/>
+        </view-link>
+        <view-link entity-alias="ME" rel-entity-alias="MB" rel-optional="true">
+            <key-map field-name="batchId"/>
+        </view-link>
+        <view-link entity-alias="ME" rel-entity-alias="MS" rel-optional="true">
+            <key-map field-name="storehouseId"/>
+            <key-map field-name="materialId"/>
+            <entity-condition>
+                <having-condition-list combine="or">
+                    <condition-expr field-name="batchId" entity-alias="SDI" value=""/>
+                    <condition-expr field-name="batchId" entity-alias="SDI" rel-entity-alias="MB"/>
+                </having-condition-list>
+            </entity-condition>
+        </view-link>
+    </view-entity>
+    <view-entity entity-name="SaleOrderItem4RejectView" package-name="com.fadp.eiip.sale">
+        <description>退货清单-开单视图</description>
+        <member-entity entity-alias="SOI" entity-name="SaleOrderItem"></member-entity>
+        <member-entity entity-alias="DM" entity-name="MaterialForItemView"></member-entity>
+
+        <alias-all entity-alias="SOI"/>
+        <alias-all entity-alias="DM"><exclude field="materialId"/></alias-all>
+        <view-link entity-alias="SOI" rel-entity-alias="DM">
+            <key-map field-name="materialId"/>
+        </view-link>
+        <entity-condition>
+            <condition-expr field-name="orderItemRejectFlag" operator="not-equals" value="A" entity-alias="SOI"/>
+        </entity-condition>
+
+    </view-entity>
+    <entity entity-name="SaleReceive" package-name="com.fadp.eiip.sale">
+        <description>收款单</description>
+        <field name="receiveStatus" type="id">
+            <description>收款状态</description>
+        </field>
+        <field name="receivedMoney" type="currency-amount">
+            <description>实收金额</description>
+        </field>
+        <field name="receiveAccountName" type="short-varchar">
+            <description>收款户名</description>
+        </field>
+        <field name="descCnt" type="very-long">
+            <description>备注</description>
+        </field>
+        <field name="customerId" type="id">
+            <description>客户</description>
+        </field>
+        <field name="domainId" type="id">
+            <description>所属单位</description>
+        </field>
+        <field name="receiveAccount" type="short-varchar">
+            <description>收款帐号</description>
+        </field>
+        <field name="delOperator" type="id">
+            <description>删除人</description>
+        </field>
+        <field name="shouldReceiveMoney" type="currency-amount">
+            <description>应收金额</description>
+        </field>
+        <field name="delTime" type="short-varchar">
+            <description>删除时间</description>
+        </field>
+        <field name="operateTime" type="short-varchar">
+            <description>操作日期</description>
+        </field>
+        <field name="deliverId" type="id">
+            <description>销货单ID</description>
+        </field>
+        <field name="receiveId" not-null="true" type="id">
+            <description>收款单ID</description>
+        </field>
+        <field name="operator" type="id">
+            <description>操作员</description>
+        </field>
+        <field name="receiveCode" type="short-varchar">
+            <description>收款单号</description>
+        </field>
+        <field name="receiveDate" type="short-varchar">
+            <description>收款日期</description>
+        </field>
+        <field name="receiveOperator" type="id">
+            <description>收款人</description>
+        </field>
+        <field name="receiveOperatorDepartment" type="short-varchar">
+            <description>收款人部门</description>
+        </field>
+        <field name="isDel" type="id">
+            <description>删除标记</description>
+        </field>
+        <field name="receiveMethod" type="id">
+            <description>收款方式</description>
+        </field>
+        <field name="handleFee" type="currency-amount">
+            <description>手续费</description>
+        </field>
+        <field name="payBank" type="short-varchar">
+            <description>开户行</description>
+        </field>
+        <field name="auditor" type="id">
+            <description>审批人</description>
+        </field>
+        <field name="auditTime" type="short-varchar">
+            <description>审批日期</description>
+        </field>
+        <prim-key field="receiveId"/>
+    </entity>
+    <view-entity entity-name="SaleOrder4ReceiveView" package-name="com.fadp.eiip.sale">
+        <member-entity entity-alias="SD" entity-name="SaleDeliverView"></member-entity>
+        <alias-all entity-alias="SD"></alias-all>
+        <entity-condition>
+            <condition-list>
+                <condition-expr field-name="deliverStatus" value="as3" entity-alias="SD"/>
+            </condition-list>
+        </entity-condition>
+    </view-entity>
+
+    <view-entity entity-name="SaleReceiveView" package-name="com.fadp.eiip.sale">
+        <member-entity entity-alias="ME" entity-name="SaleReceive"></member-entity>
+        <member-entity entity-alias="SD" entity-name="SaleDeliverView"></member-entity>
+        <alias-all entity-alias="SD">
+            <exclude field="deliverId"/>
+            <exclude field="totalMoney"/>
+            <exclude field="receivedMoney"/>
+        </alias-all>
+        <alias name="totalMoneyDeliver" field="totalMoney" entity-alias="SD"/>
+        <alias name="receivedMoneyDeliver" field="receivedMoney" entity-alias="SD"/>
+
+        <alias-all entity-alias="ME"/>
+        <view-link entity-alias="ME" rel-entity-alias="SD">
+            <key-map field-name="deliverId"/>
+        </view-link>
+    </view-entity>
+
+    <entity entity-name="SaleRefund" package-name="com.fadp.eiip.sale">
+        <description>退款单</description>
+        <field name="shouldRefundMoney" type="currency-amount">
+            <description>应退金额</description>
+        </field>
+        <field name="rejectId" type="id">
+            <description>销退单ID</description>
+        </field>
+        <field name="refundCode" type="short-varchar">
+            <description>退款单号</description>
+        </field>
+        <field name="refundDate" type="short-varchar">
+            <description>退款日期</description>
+        </field>
+        <field name="refundStatus" type="id">
+            <description>退款状态</description>
+        </field>
+        <field name="descCnt" type="very-long">
+            <description>备注</description>
+        </field>
+        <field name="customerId" type="id">
+            <description>客户</description>
+        </field>
+        <field name="domainId" type="id">
+            <description>所属单位</description>
+        </field>
+        <field name="refundId" not-null="true" type="id">
+            <description>退款单ID</description>
+        </field>
+        <field name="refundOperatorDepartment" type="short-varchar">
+            <description>退款人部门</description>
+        </field>
+        <field name="delOperator" type="id">
+            <description>删除人</description>
+        </field>
+        <field name="refundOperator" type="id">
+            <description>退款人</description>
+        </field>
+        <field name="delTime" type="short-varchar">
+            <description>删除时间</description>
+        </field>
+        <field name="operateTime" type="short-varchar">
+            <description>操作日期</description>
+        </field>
+        <field name="refundAccountName" type="short-varchar">
+            <description>退款户名</description>
+        </field>
+        <field name="operator" type="id">
+            <description>操作员</description>
+        </field>
+        <field name="isDel" type="id">
+            <description>删除标记</description>
+        </field>
+        <field name="refundedMoney" type="currency-amount">
+            <description>实退金额</description>
+        </field>
+        <field name="handleFee" type="currency-amount">
+            <description>手续费</description>
+        </field>
+        <field name="refundAccount" type="short-varchar">
+            <description>退款帐号</description>
+        </field>
+        <field name="payBank" type="short-varchar">
+            <description>开户行</description>
+        </field>
+        <field name="refundMethod" type="id">
+            <description>退款方式</description>
+        </field>
+        <field name="auditor" type="id">
+            <description>审批人</description>
+        </field>
+        <field name="auditTime" type="short-varchar">
+            <description>审批日期</description>
+        </field>
+        <prim-key field="refundId"/>
+    </entity>
+    <view-entity entity-name="SaleOrder4RefundView" package-name="com.fadp.eiip.sale">
+        <member-entity entity-alias="SJ" entity-name="SaleRejectView"></member-entity>
+        <alias-all entity-alias="SJ"></alias-all>
+        <entity-condition>
+            <condition-list>
+                <condition-expr field-name="rejectStatus" value="as3" entity-alias="SJ"/>
+            </condition-list>
+        </entity-condition>
+    </view-entity>
+
+    <view-entity entity-name="SaleRefundView" package-name="com.fadp.eiip.sale">
+        <member-entity entity-alias="ME" entity-name="SaleRefund"></member-entity>
+        <member-entity entity-alias="SR" entity-name="SaleRejectView"></member-entity>
+        <alias-all entity-alias="SR">
+            <exclude field="rejectId"/>
+            <exclude field="totalMoney"/>
+            <exclude field="refundedMoney"/>
+        </alias-all>
+        <alias-all entity-alias="ME"/>
+        <view-link entity-alias="ME" rel-entity-alias="SR">
+            <key-map field-name="rejectId"/>
+        </view-link>
+
+    </view-entity>
+
+</entitymodel>

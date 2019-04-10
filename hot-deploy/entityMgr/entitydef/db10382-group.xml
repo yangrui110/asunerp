@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><entitygroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://localhost:8888/dtds/entitygroup.xsd">
+    <entity-group entity="ArmySoldier" group="db10382"/>
+    <entity-group entity="ArmyWeapon" group="db10382"/>
+    <entity-group entity="Test" group="db10382"/>
+    <entity-group entity="Test2" group="db10382"/>
+    <entity-group entity="ArmyOrg" group="db10382"/>
+</entitygroup>

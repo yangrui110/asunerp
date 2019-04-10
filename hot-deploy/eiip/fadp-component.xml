@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<fadp-component name="eiip" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/dtds/fadp-component.xsd">
+    <resource-loader name="main" type="component"/>
+    <classpath type="jar" location="lib/*"/>
+    <classpath type="jar" location="build/lib/*"/>
+    <classpath type="dir" location="config"/>
+
+    <entity-resource loader="main" location="entitydef/base-entitymodel.xml" reader-name="main" type="model"/>
+    <entity-resource loader="main" location="entitydef/sale-entitymodel.xml" reader-name="main" type="model"/>
+    <entity-resource loader="main" location="entitydef/material-entitymodel.xml" reader-name="main" type="model"/>
+    <entity-resource loader="main" location="entitydef/crm-entitymodel.xml" reader-name="main" type="model"/>
+    <entity-resource loader="main" location="entitydef/pms-entitymodel.xml" reader-name="main" type="model"/>
+    <entity-resource loader="main" location="entitydef/ims-entitymodel.xml" reader-name="main" type="model"/>
+    <entity-resource loader="main" location="entitydef/sn-entitymodel.xml" reader-name="main" type="model"/>
+    <entity-resource loader="main" location="entitydef/purchase-entitymodel.xml" reader-name="main" type="model"/>
+
+    <webapp app-bar-display="true" location="webapp/eiip" menu-name="secondary" mount-point="/eiip" name="eiip" privileged="false" server="default-server" title="eiip"/>
+
+
+</fadp-component>

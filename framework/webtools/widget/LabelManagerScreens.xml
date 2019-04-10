@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://localhost:8888/dtds/widget-screen.xsd">
+
+    <screen name="SearchLabels">
+        <section>
+            <condition>
+                <if-has-permission permission="LABEL_MANAGER_VIEW"/>
+            </condition>
+            <actions>
+                <set field="titleProperty" value="WebtoolsLabelManagerFindLabels"/>
+                <set field="tabButtonItem" value="labels"/>
+                <script location="component://webtools/webapp/webtools/WEB-INF/actions/labelmanager/LabelManager.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CommonArtifactDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                            <decorator-section name="search-options">
+                               <platform-specific><html><html-template location="component://webtools/webapp/webtools/labelmanager/SearchLabels.ftl"/></html></platform-specific>
+                            </decorator-section>
+                            <decorator-section name="search-results">
+                                <platform-specific><html><html-template location="component://webtools/webapp/webtools/labelmanager/ViewLabels.ftl"/></html></platform-specific>
+                            </decorator-section>
+                        </decorator-screen>
+                        <!--
+                        <screenlet id="ViewHardcodedLabelsPanel" title="${uiLabelMap.WebtoolsLabelManagerHardcoded}" collapsible="false">
+                            <platform-specific><html><html-template location="component://webtools/webapp/webtools/labelmanager/ViewHardcodedLabels.ftl"/></html></platform-specific>
+                        </screenlet>
+                        -->
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+            <fail-widgets>
+                <label style="h3">${uiLabelMap.WebtoolsLabelManagerSecuryError}</label>
+            </fail-widgets>
+        </section>
+    </screen>
+
+    <screen name="UpdateLabel">
+        <section>
+            <condition>
+                <if-has-permission permission="LABEL_MANAGER_VIEW"/>
+            </condition>
+            <actions>
+                <set field="titleProperty" value="WebtoolsLabelManagerAddNew"/>
+                <script location="component://webtools/webapp/webtools/WEB-INF/actions/labelmanager/UpdateManager.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <container style="h1">
+                            <label text="${uiLabelMap.WebtoolsLabelManagerAddNew}"/>
+                        </container>
+                            <platform-specific><html><html-template location="component://webtools/webapp/webtools/labelmanager/UpdateLabel.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+            <fail-widgets>
+                <label style="h3">${uiLabelMap.WebtoolsLabelManagerSecuryError}</label>
+            </fail-widgets>
+        </section>
+    </screen>
+
+    <screen name="ViewReferences">
+        <section>
+            <condition>
+                <if-has-permission permission="LABEL_MANAGER_VIEW"/>
+            </condition>
+            <actions>
+                <set field="titleProperty" value="WebtoolsLabelManagerViewReferences"/>
+                <script location="component://webtools/webapp/webtools/WEB-INF/actions/labelmanager/ViewReferences.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://webtools/webapp/webtools/labelmanager/ViewReferences.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+            <fail-widgets>
+                <label style="h3">${uiLabelMap.WebtoolsLabelManagerSecuryError}</label>
+            </fail-widgets>
+        </section>
+    </screen>
+
+    <screen name="ViewFile">
+        <section>
+            <condition>
+                <if-has-permission permission="LABEL_MANAGER_VIEW"/>
+            </condition>
+            <actions>
+                <set field="titleProperty" value="WebtoolsLabelManagerViewFile"/>
+                <script location="component://webtools/webapp/webtools/WEB-INF/actions/labelmanager/ViewFile.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <screenlet id="ViewFilePanel" title="${uiLabelMap.WebtoolsLabelManagerViewFile}">
+                            <platform-specific><html><html-template location="component://webtools/webapp/webtools/labelmanager/ViewFile.ftl"/></html></platform-specific>
+                        </screenlet>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+            <fail-widgets>
+                <label style="h3">${uiLabelMap.WebtoolsLabelManagerSecuryError}</label>
+            </fail-widgets>
+        </section>
+    </screen>
+</screens>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../dtds/site-conf.xsd">
+
+	<request-map uri="saveDeliver" >
+		<description>保存销货单</description>
+		<security auth="true"/>
+		<event type="groovy" path="component://eiip/script/sale/deliver/saveDeliver.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="deliverSnOutput" >
+		<description>销货，sn出库</description>
+		<security auth="true"/>
+		<event type="groovy" path="component://eiip/script/sale/deliver/deliverSnOutput.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="saveReject" >
+		<description>保存退货单</description>
+		<security auth="true"/>
+		<event type="groovy" path="component://eiip/script/sale/reject/saveReject.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+
+	<request-map uri="rejectSnInput" >
+		<description>退货单sn入库</description>
+		<security auth="true"/>
+		<event type="groovy" path="component://eiip/script/sale/reject/rejectSnInput.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="saveReceive" >
+		<description>保存收款单</description>
+		<security auth="true"/>
+		<event type="groovy" path="component://eiip/script/sale/receive/saveReceive.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+
+	<request-map uri="saveRefund" >
+		<description>保存退款单</description>
+		<security auth="true"/>
+		<event type="groovy" path="component://eiip/script/sale/refund/saveRefund.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+
+</site-conf>

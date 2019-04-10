@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://localhost:8888/dtds/services.xsd">
+    <description>QRCode Services</description>
+    <vendor>OFBiz</vendor>
+    <version>1.0</version>
+
+    <service name="generateQRCodeImage" engine="java" require-new-transaction="true" max-retry="3"
+        auth="false" location="com.hanlin.fadp.common.qrcode.QRCodeServices"
+        invoke="generateQRCodeImage">
+        <description>Generate a QRCode image according to </description>
+        <attribute name="message" type="String" mode="IN" optional="false"/>
+        <attribute name="format" type="String" mode="IN" optional="true"/>
+        <attribute name="height" type="Integer" mode="IN" optional="true"/>
+        <attribute name="width" type="Integer" mode="IN" optional="true"/>
+        <attribute name="encoding" type="String" mode="IN" optional="true"/>
+        <attribute name="logoImage" type="java.awt.image.BufferedImage" mode="IN" optional="true"/>
+        <attribute name="logoImageMaxWidth" type="Integer" mode="IN" optional="true"/>
+        <attribute name="logoImageMaxHeight" type="Integer" mode="IN" optional="true"/>
+        <attribute name="verifyOutput" type="Boolean" mode="IN" optional="true"/>
+        <attribute name="bufferedImage" type="java.awt.image.BufferedImage" mode="OUT" optional="true"/>
+    </service>
+
+</services>

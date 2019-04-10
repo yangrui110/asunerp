@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/dtds/widget-screen.xsd">
+	<!-- CSV Import -->
+	<screen name="XMLExport">
+		<section>
+			<actions>
+				<entity-condition list="dataSourceList" entity-name="DatabaseSeq"></entity-condition>
+			</actions>
+
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/export/XMLExport.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="XMLQueryList">
+		<section>
+			<actions>
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/export/XMLQueryList.groovy" />
+			</actions>
+
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://entityMgr/webapp/entityMgr/export/XMLQueryList.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+
+	<!-- CSVExport -->
+	<screen name="CSVExport">
+		<section>
+			<actions>
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/export/CSVExport.groovy" />
+			</actions>
+
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/export/CSVExport.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<!-- 为CSVExport实现分页 -->
+	<screen name="CSVExport_switch">
+		<section>
+			<actions>
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/export/CSVExport.groovy" />
+			</actions>
+
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://entityMgr/webapp/entityMgr/export/CSVExport.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+
+</screens>

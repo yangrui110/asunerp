@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/dtds/site-conf.xsd">
+	<request-map uri="nextFlow">
+		<description>流程前进</description>
+		<security auth="true" />
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="backFlow">
+		<description>流程后退</description>
+		<security auth="true" />
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="restartFlow">
+		<description>流程回退到起点</description>
+		<security auth="true" />
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="endFlow">
+		<description>结束流程</description>
+		<security auth="true" />
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="cancelFlow">
+		<description>取消流程</description>
+		<security auth="true" />
+		<response name="success" type="none"></response>
+	</request-map>
+</site-conf>

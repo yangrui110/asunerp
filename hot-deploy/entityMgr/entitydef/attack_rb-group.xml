@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitygroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../dtds/entitygroup.xsd">
+    <entity-group entity="ArmyOrg" group="attack_rb"/>
+    <entity-group entity="ArmySoldier" group="attack_rb"/>
+    <entity-group entity="ArmyWeapon" group="attack_rb"/>
+    <entity-group entity="BFFacility" group="attack_rb"/>
+    <entity-group entity="Battlefield" group="attack_rb"/>
+    <entity-group entity="OtherArmy" group="attack_rb"/>
+    <entity-group entity="Battlefield" group="attack_rb"/>
+    <entity-group entity="BFHumanEnv" group="attack_rb"/>
+    <entity-group entity="BFSocietyEnv" group="attack_rb"/>
+    <entity-group entity="BFAirRaidEnv" group="attack_rb"/>
+    <entity-group entity="EnbEvn" group="attack_rb"/>
+</entitygroup>

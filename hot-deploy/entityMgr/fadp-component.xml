@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fadp-component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" enabled="true" name="entityMgr"
+                xsi:noNamespaceSchemaLocation="../../dtds/fadp-component.xsd">
+    <resource-loader name="main" type="component"/>
+    <classpath location="lib/*" type="jar"/>
+    <classpath location="build/lib/*" type="jar"/>
+    <classpath location="config" type="dir"/>
+    <entity-resource loader="main" location="entitydef/entitymodel.xml" reader-name="main" type="model"/>
+    <entity-resource type="group" reader-name="main" loader="main" location="entitydef/entitygroup.xml"/>
+    <entity-resource type="eca" reader-name="main" loader="main" location="entitydef/eeca.xml"/>
+
+    <entity-resource type="data" reader-name="seed" loader="main" location="data/EntityMgrSeedData.xml"/>
+    <!--<entity-resource type="data" reader-name="demo" loader="main" location="data/EntityMgrDemoData.xml"/>-->
+
+
+    <service-resource loader="main" location="servicedef/services.xml" type="model"/>
+
+    <webapp app-bar-display="true" location="webapp/entityMgr" menu-name="secondary" mount-point="/entityMgr"
+            name="entityMgr" privileged="false" server="default-server" session-cookie-accepted="true"
+            title="entityMgr"/>
+    <webapp app-bar-display="true" location="webapp/outdata" menu-name="secondary" mount-point="/outdata"
+            name="outdata" privileged="false" server="default-server" session-cookie-accepted="true"
+            title="outdata"/>
+    <webapp app-bar-display="true" location="webapp/dataclassify" menu-name="secondary" mount-point="/dataclassify"
+            name="dataclassify" privileged="false" server="default-server" session-cookie-accepted="true"
+            title="dataclassify"/>
+</fadp-component>

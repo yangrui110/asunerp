@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+</head>
+<style>
+    body {
+        margin: 0
+    }
+
+    .header {
+        position: relative;
+        height: 45px;
+        background-color: #009F95;
+    }
+
+    .header .left {
+        position: absolute;
+        left: 0;
+        top: 10px;
+        bottom: 10px;
+        width: 190px;
+        background-color: #0a6aa1;
+    }
+
+    .header .right {
+        position: absolute;
+        width: 100px;
+        right: 0;
+        top: 10px;
+        bottom: 10px;
+        background-color: #212121;
+    }
+
+    .content {
+        background-color: #4c5a5f;
+        position: absolute;
+        top: 45px;
+        bottom: 50px;
+        left: 0;
+        right: 0;
+    }
+
+    .content .top {
+        position: relative;
+        background-color: #4c1223;
+        height: 70%;
+        overflow: scroll;
+    }
+
+    .content .top .main {
+
+        background-color: #ff1200;
+        height: 2000px;
+        width: 2000px;
+    }
+
+    .content  .top .location-zoom-buttons {
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        background-color: #001200;
+        height: 100px;
+        width: 50px;
+    }
+
+    .content .bottom {
+        position: relative;
+        background-color: #111223;
+        height: 30%;
+
+    }
+
+    .content .bottom .block1 {
+        position: absolute;
+        background-color: #426DC9;
+        top: 0;
+        bottom: 0;
+        right: 67%;
+        left: 0;
+        border: 5px solid #ccc;
+    }
+
+    .content .bottom .block2 {
+        position: absolute;
+        background-color: #016DC9;
+        top: 0;
+        bottom: 0;
+        left: 33%;
+        right: 33%;
+        border: 5px solid #ccc;
+    }
+
+    .content .bottom .block3 {
+        position: absolute;
+        background-color: #4201C9;
+        top: 0;
+        bottom: 0;
+        left: 67%;
+        right: 0;
+        border: 5px solid #ccc;
+    }
+
+    .footer {
+        position: absolute;
+        background-color: #F54701;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 50px;
+    }
+
+</style>
+<body>
+<div class="header">
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
+<div class="content">
+    <div class="top">
+        <div class="location-zoom-buttons"></div>
+        <div class="main">
+
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="block1"></div>
+        <div class="block2"></div>
+        <div class="block3"></div>
+    </div>
+</div>
+<div class="footer">
+
+</div>
+</body>
+</html>

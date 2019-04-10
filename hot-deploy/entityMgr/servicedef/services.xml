@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../dtds/services.xsd">
+	<description>中石化</description>
+	<vendor>fadp</vendor>
+	<version>1.0</version>
+	<service name="fileUpLoad" engine="java" location="com.hanlin.fadp.petrescence.datasource.BaseInfo" invoke="fileUpLoad"></service>
+
+	<service name="addDataSource" engine="java" export="false" location="com.hanlin.fadp.petrescence.datasource.DataSourceWorker" invoke="addDataSource" auth="false">
+		<description>
+        	添加数据源
+        </description>
+		<!-- <permission-service service-name="acctgCommissionPermissionCheck" main-action="VIEW"/> -->
+		<attribute name="field-type-name" type="String" mode="IN" optional="false" />
+		<!-- <attribute name="invoiceId" type="String" mode="IN" optional="true"/> <attribute name="invoiceItemSeqId" type="String" mode="IN" optional="true"/> <attribute 
+			name="invoiceItemTypeId" type="String" mode="IN" optional="false"/> <attribute name="amount" type="BigDecimal" mode="IN" optional="false"/> <attribute name="quantity" 
+			type="BigDecimal" mode="IN" optional="true"/> <attribute name="commissions" type="List" mode="OUT" optional="false"/> -->
+		<attribute name="msg" type="String" mode="OUT" optional="false" />
+	</service>
+	<service name="removeDatasource" engine="java"  location="com.hanlin.fadp.petrescence.datasource.DataSourceWorker" invoke="deleteDataSource" auth="false">
+		<description>
+        	添加数据源
+        </description>
+		<attribute name="datasource" type="GenericValue" mode="IN"  />
+	</service>
+
+	<service name="checkDataSource" engine="java" export="true" location="com.hanlin.fadp.petrescence.datasource.DataSourceWorker" invoke="checkDataSource"
+		auth="false">
+		<description>
+        	检测数据源
+        </description>
+	</service>
+	<service name="getDataByModelService" engine="java" export="true" hideResultInLog="true" location="com.hanlin.fadp.petrescence.datasource.DataModelServices"
+		invoke="getDataByModelService" auth="true">
+		<description>
+        	soap接口向外提供数据
+        </description>
+		<attribute name="saveModelId" type="String" mode="IN" optional="false" />
+		<attribute name="selectField" type="Set" mode="IN" optional="true" />
+		<attribute name="condition" type="Map" mode="IN" optional="false" />
+		<attribute name="dataList" type="List" mode="OUT" optional="true" />
+		<attribute name="error" type="String" mode="OUT" optional="true" />
+	</service>
+	<service name="makeEntityModel" engine="java" export="false"
+		location="com.hanlin.fadp.petrescence.datasource.DataSourceWorker" invoke="makeEntityModel"
+		auth="false">
+		<description>
+			makeEntityModel
+		</description>
+		<attribute name="datasourceName" type="String" mode="IN" optional="false" />
+	</service>
+	<service name="beforeExtractDataSave" engine="groovy" default-entity-name="ExtractData" location="component://entityMgr/scripts/beforeExtractDataSave.groovy" >
+		<attribute name="value" type="com.hanlin.fadp.entity.GenericValue" mode="IN"/>
+	</service>
+
+</services>

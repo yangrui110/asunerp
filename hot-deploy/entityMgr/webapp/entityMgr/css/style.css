@@ -1,0 +1,44 @@
+.entity-list-main {
+    position: relative;
+    height: 100%;
+}
+
+.entity-list-main .button-bar {
+    height: 30px;
+}
+
+.entity-list-main .tableList {;
+    top: 30px;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    overflow: auto;
+    position: absolute;
+}
+
+.entity-list-main .bottom {
+    /*width: 100%;*/
+    height: 30px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    background-color: #f0f0f0;
+}
+
+.entity-list-main .bottom .right {
+    float: right;
+    margin-top: 2px;
+}
+
+
+
+/*=====================*/
+.my-required {
+    color: #ff0000;
+}
+.my-full-item {
+    width: 100%;
+    margin: 5px;
+}
+

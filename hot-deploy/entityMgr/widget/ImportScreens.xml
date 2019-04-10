@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/dtds/widget-screen.xsd">
+	<!-- CSV Import -->
+	<screen name="CSVImport">
+		<section>
+			<actions>
+				<entity-condition list="dataSourceList" entity-name="DatabaseSeq">
+				</entity-condition>
+
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/import/CSVImport.groovy" />
+			</actions>
+
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://entityMgr/webapp/entityMgr/import/CSVImport.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="importjson">
+		<section>
+			<actions>
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/import/addDataList.groovy" />
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://entityMgr/webapp/entityMgr/import/importjson.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+</screens>

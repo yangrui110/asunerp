@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+-->
+
+<fadp-containers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://127.0.0.1:8888/dtds/fadp-containers.xsd">
+
+    <!-- load the fadp component container (always first) -->
+    <container name="component-container" loaders="main,rmi,pos,load-data" class="com.hanlin.fadp.base.container.ComponentContainer"/>
+
+    <container name="component-container-test" loaders="test" class="com.hanlin.fadp.base.container.ComponentContainer">
+        <property name="fadp.instrumenterClassName" value="com.hanlin.fadp.base.config.CoberturaInstrumenter"/>
+        <property name="fadp.instrumenterFile" value="runtime/logs/cobertura-components.dat"/>
+    </container>
+
+    <container name="component-container-limited" loaders="limited" class="com.hanlin.fadp.base.container.ComponentContainer">
+        <property name="update-classpath" value="false"/>
+    </container>
+
+    <container name="component-container" loaders="testlist" class="com.hanlin.fadp.base.container.JustLoadComponentsContainer"/>
+
+</fadp-containers>

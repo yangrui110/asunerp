@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="../../../dtds/services.xsd">
+    <description>fadp common service</description>
+    <vendor>fadp</vendor>
+    <version>1.0</version>
+    <service name="refreshUserMap" engine="java" location="com.hanlin.fadp.common.UserUtil" invoke="refreshUserMap"
+             auth="true" use-transaction="false">
+    </service>
+
+</services>

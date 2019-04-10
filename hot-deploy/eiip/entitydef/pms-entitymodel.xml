@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?><entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../dtds/entitymodel.xsd">
+   <description>生产管理</description>
+    <entity entity-name="DataProvider" package-name="">
+        <description>供应商</description>
+        <field name="providerType" type="id">
+            <description>供应商类型</description>
+        </field>
+        <field name="facebook" type="short-varchar">
+            <description>FACEBOOK</description>
+        </field>
+        <field name="instagram" type="short-varchar">
+            <description>INSTAGRAM</description>
+        </field>
+        <field name="descCnt" type="very-long">
+            <description>备注</description>
+        </field>
+        <field name="domainId" type="id">
+            <description>所属单位</description>
+        </field>
+        <field name="email" type="short-varchar">
+            <description>Email</description>
+        </field>
+        <field name="providerId" not-null="true" type="id">
+            <description>供应商ID</description>
+        </field>
+        <field name="linkMan" type="short-varchar">
+            <description>联系人</description>
+        </field>
+        <field name="country" type="short-varchar">
+            <description>所属国别</description>
+        </field>
+        <field name="billAddr" type="very-long">
+            <description>账单地址</description>
+        </field>
+        <field name="providerStatus" type="id">
+            <description>供应商状态</description>
+        </field>
+        <field name="shipAddr" type="very-long">
+            <description>发货地址</description>
+        </field>
+        <field name="providerName" type="short-varchar">
+            <description>供应商名称</description>
+        </field>
+        <field name="county" type="very-short">
+            <description>所属县区</description>
+        </field>
+        <field name="payBank" type="short-varchar">
+            <description>付款银行</description>
+        </field>
+        <field name="qq" type="short-varchar">
+            <description>QQ</description>
+        </field>
+        <field name="departmentId" type="id">
+            <description>所属部门</description>
+        </field>
+        <field name="providerShortName" type="short-varchar">
+            <description>供应商简称</description>
+        </field>
+        <field name="backupTel" type="short-varchar">
+            <description>备用号码</description>
+        </field>
+        <field name="wechatNick" type="short-varchar">
+            <description>微信昵称</description>
+        </field>
+        <field name="bankAccount" type="short-varchar">
+            <description>银行帐号</description>
+        </field>
+        <field name="city" type="very-short">
+            <description>所属城市</description>
+        </field>
+        <field name="operator" type="id">
+            <description>录入人</description>
+        </field>
+        <field name="taxCode" type="short-varchar">
+            <description>税号</description>
+        </field>
+        <field name="operateDate" type="short-varchar">
+            <description>录入日期</description>
+        </field>
+        <field name="providerCode" type="short-varchar">
+            <description>供应商编码</description>
+        </field>
+        <field name="province" type="very-short">
+            <description>所属省份</description>
+        </field>
+        <field name="tel" type="short-varchar">
+            <description>联系电话</description>
+        </field>
+        <field name="purchaseStaff" type="id">
+            <description>采购人员</description>
+        </field>
+        <field name="settleAccountMethod" type="id">
+            <description>结算方式</description>
+        </field>
+        <field name="fax" type="short-varchar">
+            <description>传真</description>
+        </field>
+        <field name="providerLevel" type="id">
+            <description>供应商等级</description>
+        </field>
+        <field name="website" type="long-varchar">
+            <description>网址</description>
+        </field>
+        <field name="providerAddr" type="very-long">
+            <description>营业地址</description>
+        </field>
+        <field name="mobile" type="short-varchar">
+            <description>手机号码</description>
+        </field>
+        <prim-key field="providerId"/>
+    </entity>
+    <view-entity entity-name="DataProviderView" package-name="">
+        <member-entity entity-alias="DP" entity-name="DataProvider"></member-entity>
+        <member-entity entity-alias="DIC1" entity-name="FadpDic"></member-entity>
+        <member-entity entity-alias="DIC2" entity-name="FadpDic"></member-entity>
+        <member-entity entity-alias="DIC3" entity-name="FadpDic"></member-entity>
+        <member-entity entity-alias="RG1" entity-name="Region"></member-entity>
+        <member-entity entity-alias="RG2" entity-name="Region"></member-entity>
+        <member-entity entity-alias="RG3" entity-name="Region"></member-entity>
+        <member-entity entity-alias="RG4" entity-name="Region"></member-entity>
+        <alias-all entity-alias="DP"></alias-all>
+        <alias name="providerTypeValue" field="dicValue" entity-alias="DIC1"/>
+        <alias name="providerLevelValue" field="dicValue" entity-alias="DIC2"/>
+        <alias name="settleAccountMethodValue" field="dicValue" entity-alias="DIC3"/>
+
+        <alias name="countryValue" field="regionName" entity-alias="RG1"/>
+        <alias name="provinceValue" field="regionName" entity-alias="RG2"/>
+        <alias name="cityValue" field="regionName" entity-alias="RG3"/>
+        <alias name="countyValue" field="regionName" entity-alias="RG4"/>
+
+        <view-link entity-alias="DP" rel-entity-alias="DIC1" rel-optional="true">
+            <key-map field-name="providerType" rel-field-name="dicId"/>
+        </view-link>
+        <view-link entity-alias="DP" rel-entity-alias="DIC2" rel-optional="true">
+            <key-map field-name="providerLevel" rel-field-name="dicId"/>
+        </view-link>
+        <view-link entity-alias="DP" rel-entity-alias="DIC3" rel-optional="true">
+            <key-map field-name="settleAccountMethod" rel-field-name="dicId"/>
+        </view-link>
+
+        <view-link entity-alias="DP" rel-entity-alias="RG1" rel-optional="true">
+            <key-map field-name="country" rel-field-name="regionId"/>
+        </view-link>
+        <view-link entity-alias="DP" rel-entity-alias="RG2" rel-optional="true">
+            <key-map field-name="province" rel-field-name="regionId"/>
+        </view-link>
+        <view-link entity-alias="DP" rel-entity-alias="RG3" rel-optional="true">
+            <key-map field-name="city" rel-field-name="regionId"/>
+        </view-link>
+        <view-link entity-alias="DP" rel-entity-alias="RG4" rel-optional="true">
+            <key-map field-name="county" rel-field-name="regionId"/>
+        </view-link>
+
+    </view-entity>
+    <entity entity-name="WorkProcedure" package-name="">
+        <description>生成工序</description>
+        <field name="procedureId" not-null="true" type="id">
+            <description>工序ID</description>
+        </field>
+        <field name="procedureDutyDept" type="id">
+            <description>工序负责部门</description>
+        </field>
+        <field name="currency" type="id">
+            <description>币种</description>
+        </field>
+        <field name="price" type="numeric">
+            <description>单价</description>
+        </field>
+        <field name="procedureProperty" type="id">
+            <description>工序性质</description>
+        </field>
+        <field name="procedureDutyer" type="id">
+            <description>工序负责人</description>
+        </field>
+        <field name="descCnt" type="very-long">
+            <description>备注</description>
+        </field>
+        <field name="domainId" type="id">
+            <description>所属单位</description>
+        </field>
+        <field name="delOperator" type="id">
+            <description>删除人</description>
+        </field>
+        <field name="manHour" type="numeric">
+            <description>工时</description>
+        </field>
+        <field name="procedureCode" type="short-varchar">
+            <description>工序编号</description>
+        </field>
+        <field name="delTime" type="short-varchar">
+            <description>删除时间</description>
+        </field>
+        <field name="operateTime" type="short-varchar">
+            <description>操作时间</description>
+        </field>
+        <field name="procedureStatus" type="id">
+            <description>工序状态</description>
+        </field>
+        <field name="operator" type="id">
+            <description>操作人</description>
+        </field>
+        <field name="procedureDesc" type="very-long">
+            <description>工序说明</description>
+        </field>
+        <field name="isDel" type="indicator">
+            <description>删除标记</description>
+        </field>
+        <field name="procedureName" type="short-varchar">
+            <description>工序名称</description>
+        </field>
+        <prim-key field="procedureId"/>
+    </entity>
+    <view-entity entity-name="WorkProcedureView" package-name="">
+        <member-entity entity-alias="WP" entity-name="WorkProcedure"></member-entity>
+        <member-entity entity-alias="DEPT" entity-name="Department"></member-entity>
+        <member-entity entity-alias="UL" entity-name="UserLogin"></member-entity>
+        <member-entity entity-alias="UL2" entity-name="UserLogin"></member-entity>
+        <member-entity entity-alias="DIC" entity-name="FadpDic"></member-entity>
+        <alias-all entity-alias="WP"/>
+        <alias name="procedureDutyDeptValue" field="deptName" entity-alias="DEPT"/>
+        <alias name="procedureDutyerValue" field="userName" entity-alias="UL"/>
+        <alias name="operatorValue" field="userName" entity-alias="UL2"/>
+        <alias name="currencyValue" field="dicValue" entity-alias="DIC"/>
+        <view-link entity-alias="WP" rel-entity-alias="DEPT" rel-optional="true">
+            <key-map field-name="procedureDutyDept" rel-field-name="deptId"/>
+        </view-link>
+        <view-link entity-alias="WP" rel-entity-alias="UL" rel-optional="true">
+            <key-map field-name="procedureDutyer" rel-field-name="userLoginId"/>
+        </view-link>
+        <view-link entity-alias="WP" rel-entity-alias="UL2" rel-optional="true">
+            <key-map field-name="operator" rel-field-name="userLoginId"/>
+        </view-link>
+        <view-link entity-alias="WP" rel-entity-alias="DIC" rel-optional="true">
+            <key-map field-name="currency" rel-field-name="dicId"/>
+        </view-link>
+    </view-entity>
+
+    <entity entity-name="WorkRoute" package-name="">
+        <description>工艺路线</description>
+        <field name="routeId" not-null="true" type="id">
+            <description>路线ID</description>
+        </field>
+        <field name="startProcedureId" type="id">
+            <description>起点工序ID</description>
+        </field>
+        <field name="descCnt" type="very-long">
+            <description>备注</description>
+        </field>
+        <field name="domainId" type="id">
+            <description>所属单位</description>
+        </field>
+        <field name="routeDesc" type="very-long">
+            <description>路线说明</description>
+        </field>
+        <field name="delOperator" type="id">
+            <description>删除人</description>
+        </field>
+        <field name="routeCode" type="short-varchar">
+            <description>路线编码</description>
+        </field>
+        <field name="routeName" type="short-varchar">
+            <description>路线名称</description>
+        </field>
+        <field name="delTime" type="short-varchar">
+            <description>删除时间</description>
+        </field>
+        <field name="operateTime" type="short-varchar">
+            <description>操作时间</description>
+        </field>
+        <field name="operator" type="id">
+            <description>操作人</description>
+        </field>
+        <field name="isDel" type="indicator">
+            <description>删除标记</description>
+        </field>
+        <field name="endProcedureId" type="id">
+            <description>终点工序ID</description>
+        </field>
+        <prim-key field="routeId"/>
+    </entity>
+    <view-entity entity-name="WorkRouteView" package-name="">
+        <member-entity entity-alias="WR" entity-name="WorkRoute"></member-entity>
+        <member-entity entity-alias="WP1" entity-name="WorkProcedure"></member-entity>
+        <member-entity entity-alias="WP2" entity-name="WorkProcedure"></member-entity>
+        <member-entity entity-alias="UL" entity-name="UserLogin"></member-entity>
+        <alias-all entity-alias="WR"></alias-all>
+        <alias name="startProcedureIdValue" field="procedureName" entity-alias="WP1"/>
+        <alias name="endProcedureIdValue" field="procedureName" entity-alias="WP2"/>
+        <alias name="operatorValue" field="userName" entity-alias="UL"/>
+        <view-link entity-alias="WR" rel-entity-alias="WP1" rel-optional="true">
+            <key-map field-name="startProcedureId" rel-field-name="procedureId"/>
+        </view-link>
+        <view-link entity-alias="WR" rel-entity-alias="WP2" rel-optional="true">
+            <key-map field-name="endProcedureId" rel-field-name="procedureId"/>
+        </view-link>
+        <view-link entity-alias="WR" rel-entity-alias="UL" rel-optional="true">
+            <key-map field-name="operator" rel-field-name="userLoginId"/>
+        </view-link>
+
+
+    </view-entity>
+</entitymodel>

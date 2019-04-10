@@ -1,0 +1,3439 @@
+<?xml version="1.0" encoding="UTF-8"?><entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://localhost:8888/dtds/entitymodel.xsd">
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="StatusType" package-name="com.hanlin.fadp.common.status" title="Status Type Entity" version="1.0">
+        <description>None</description>
+        <field name="statusTypeId" not-null="true" type="id-ne"/>
+        <field name="parentTypeId" type="id"/>
+        <field name="hasTable" type="indicator"/>
+        <field name="description" type="description"/>
+        <prim-key field="statusTypeId"/>
+        <relation fk-name="STATUS_TYPE_PARENT" rel-entity-name="StatusType" title="Parent" type="one">
+            <key-map field-name="parentTypeId" rel-field-name="statusTypeId"/>
+        </relation>
+        <relation rel-entity-name="StatusItem" type="many">
+            <key-map field-name="statusTypeId"/>
+        </relation>
+        <relation rel-entity-name="StatusType" title="Child" type="many">
+            <key-map field-name="statusTypeId" rel-field-name="parentTypeId"/>
+        </relation>
+        <index name="STATUS_TYPE_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="STATUS_TYPE_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="Enumeration" package-name="com.hanlin.fadp.common.enum" title="Enumeration Entity" version="1.0">
+        <description>None</description>
+        <field name="enumId" not-null="true" type="id-ne"/>
+        <field name="enumTypeId" type="id-ne"/>
+        <field name="enumCode" type="short-varchar"/>
+        <field name="sequenceId" type="id"/>
+        <field name="description" type="description"/>
+        <prim-key field="enumId"/>
+        <relation fk-name="ENUM_TO_TYPE" rel-entity-name="EnumerationType" type="one">
+            <key-map field-name="enumTypeId"/>
+        </relation>
+        <relation rel-entity-name="CommunicationEvent" type="many">
+            <key-map field-name="enumId" rel-field-name="reasonEnumId"/>
+        </relation>
+        <relation rel-entity-name="Content" title="Privilege" type="many">
+            <key-map field-name="enumId" rel-field-name="privilegeEnumId"/>
+        </relation>
+        <relation rel-entity-name="ContentPurposeOperation" type="many">
+            <key-map field-name="enumId" rel-field-name="privilegeEnumId"/>
+        </relation>
+        <relation rel-entity-name="CustRequest" title="SalesChannel" type="many">
+            <key-map field-name="enumId" rel-field-name="salesChannelEnumId"/>
+        </relation>
+        <relation rel-entity-name="EmailTemplateSetting" type="many">
+            <key-map field-name="enumId" rel-field-name="emailType"/>
+        </relation>
+        <relation rel-entity-name="FacilityLocation" title="Type" type="many">
+            <key-map field-name="enumId" rel-field-name="locationTypeEnumId"/>
+        </relation>
+        <relation rel-entity-name="FinAccountTrans" title="Reason" type="many">
+            <key-map field-name="enumId" rel-field-name="reasonEnumId"/>
+        </relation>
+        <relation rel-entity-name="FinAccountType" title="Replenish" type="many">
+            <key-map field-name="enumId" rel-field-name="replenishEnumId"/>
+        </relation>
+        <relation rel-entity-name="FixedAsset" title="Class" type="many">
+            <key-map field-name="enumId" rel-field-name="classEnumId"/>
+        </relation>
+        <relation rel-entity-name="GeoPoint" title="GeoPointType" type="many">
+            <key-map field-name="enumId" rel-field-name="geoPointTypeEnumId"/>
+        </relation>
+        <relation rel-entity-name="GiftCardFulfillment" type="many">
+            <key-map field-name="enumId" rel-field-name="typeEnumId"/>
+        </relation>
+        <relation rel-entity-name="InventoryItemDetail" title="Reason" type="many">
+            <key-map field-name="enumId" rel-field-name="reasonEnumId"/>
+        </relation>
+        <relation rel-entity-name="JobInterview" type="many">
+            <key-map field-name="enumId" rel-field-name="gradeSecuredEnumId"/>
+        </relation>
+        <relation rel-entity-name="JobRequisition" title="ExamType" type="many">
+            <key-map field-name="enumId" rel-field-name="examTypeEnumId"/>
+        </relation>
+        <relation rel-entity-name="JobRequisition" title="JobPostingType" type="many">
+            <key-map field-name="enumId" rel-field-name="jobPostingTypeEnumId"/>
+        </relation>
+        <relation rel-entity-name="KeywordThesaurus" title="Relationship" type="many">
+            <key-map field-name="enumId" rel-field-name="relationshipEnumId"/>
+        </relation>
+        <relation rel-entity-name="OldValueLinkFulfillment" type="many">
+            <key-map field-name="enumId" rel-field-name="typeEnumId"/>
+        </relation>
+        <relation rel-entity-name="OrderHeader" title="SalesChannel" type="many">
+            <key-map field-name="enumId" rel-field-name="salesChannelEnumId"/>
+        </relation>
+        <relation rel-entity-name="OrderItemChange" type="many">
+            <key-map field-name="enumId" rel-field-name="changeTypeEnumId"/>
+        </relation>
+        <relation rel-entity-name="OrderItemChange" title="Reason" type="many">
+            <key-map field-name="enumId" rel-field-name="reasonEnumId"/>
+        </relation>
+        <relation rel-entity-name="OrderNotification" type="many">
+            <key-map field-name="enumId" rel-field-name="emailType"/>
+        </relation>
+        <relation rel-entity-name="PartyAcctgPreference" title="TaxForm" type="many">
+            <key-map field-name="enumId" rel-field-name="taxFormId"/>
+        </relation>
+        <relation rel-entity-name="PartyAcctgPreference" title="Cogs" type="many">
+            <key-map field-name="enumId" rel-field-name="cogsMethodId"/>
+        </relation>
+        <relation rel-entity-name="PartyAcctgPreference" title="InvoiceSequence" type="many">
+            <key-map field-name="enumId" rel-field-name="oldInvoiceSequenceEnumId"/>
+        </relation>
+        <relation rel-entity-name="PartyAcctgPreference" title="QuoteSequence" type="many">
+            <key-map field-name="enumId" rel-field-name="oldQuoteSequenceEnumId"/>
+        </relation>
+        <relation rel-entity-name="PartyAcctgPreference" title="OrderSequence" type="many">
+            <key-map field-name="enumId" rel-field-name="oldOrderSequenceEnumId"/>
+        </relation>
+        <relation rel-entity-name="PaymentGatewayResponse" title="ServiceType" type="many">
+            <key-map field-name="enumId" rel-field-name="paymentServiceTypeEnumId"/>
+        </relation>
+        <relation rel-entity-name="PaymentGatewayResponse" title="TranCode" type="many">
+            <key-map field-name="enumId" rel-field-name="transCodeEnumId"/>
+        </relation>
+        <relation rel-entity-name="Person" title="EmploymentStatus" type="many">
+            <key-map field-name="enumId" rel-field-name="employmentStatusEnumId"/>
+        </relation>
+        <relation rel-entity-name="Person" title="ResidenceStatus" type="many">
+            <key-map field-name="enumId" rel-field-name="residenceStatusEnumId"/>
+        </relation>
+        <relation rel-entity-name="Product" title="VirtualVariantMethod" type="many">
+            <key-map field-name="enumId" rel-field-name="virtualVariantMethodEnum"/>
+        </relation>
+        <relation rel-entity-name="Product" title="Rating" type="many">
+            <key-map field-name="enumId" rel-field-name="ratingTypeEnum"/>
+        </relation>
+        <relation rel-entity-name="Product" title="RequirementMethod" type="many">
+            <key-map field-name="enumId" rel-field-name="requirementMethodEnumId"/>
+        </relation>
+        <relation rel-entity-name="ProductCategoryLink" title="LinkType" type="many">
+            <key-map field-name="enumId" rel-field-name="linkTypeEnumId"/>
+        </relation>
+        <relation rel-entity-name="ProductGeo" type="many">
+            <key-map field-name="enumId" rel-field-name="productGeoEnumId"/>
+        </relation>
+        <relation rel-entity-name="ProductKeyword" type="many">
+            <key-map field-name="enumId" rel-field-name="keywordTypeId"/>
+        </relation>
+        <relation rel-entity-name="ProductPriceCond" title="InputParam" type="many">
+            <key-map field-name="enumId" rel-field-name="inputParamEnumId"/>
+        </relation>
+        <relation rel-entity-name="ProductPriceCond" title="Operator" type="many">
+            <key-map field-name="enumId" rel-field-name="operatorEnumId"/>
+        </relation>
+        <relation rel-entity-name="ProductPromoAction" title="Action" type="many">
+            <key-map field-name="enumId" rel-field-name="productPromoActionEnumId"/>
+        </relation>
+        <relation rel-entity-name="ProductPromoCategory" title="Appl" type="many">
+            <key-map field-name="enumId" rel-field-name="productPromoApplEnumId"/>
+        </relation>
+        <relation rel-entity-name="ProductPromoCond" title="InputParam" type="many">
+            <key-map field-name="enumId" rel-field-name="inputParamEnumId"/>
+        </relation>
+        <relation rel-entity-name="ProductPromoCond" title="Operator" type="many">
+            <key-map field-name="enumId" rel-field-name="operatorEnumId"/>
+        </relation>
+        <relation rel-entity-name="ProductPromoProduct" title="Appl" type="many">
+            <key-map field-name="enumId" rel-field-name="productPromoApplEnumId"/>
+        </relation>
+        <relation rel-entity-name="ProductStore" title="ReserveOrder" type="many">
+            <key-map field-name="enumId" rel-field-name="reserveOrderEnumId"/>
+        </relation>
+        <relation rel-entity-name="ProductStore" title="RequirementMethod" type="many">
+            <key-map field-name="enumId" rel-field-name="requirementMethodEnumId"/>
+        </relation>
+        <relation rel-entity-name="ProductStore" title="DefaultSalesChannel" type="many">
+            <key-map field-name="enumId" rel-field-name="defaultSalesChannelEnumId"/>
+        </relation>
+        <relation rel-entity-name="ProductStore" title="StoreCreditAccount" type="many">
+            <key-map field-name="enumId" rel-field-name="storeCreditAccountEnumId"/>
+        </relation>
+        <relation rel-entity-name="ProductStoreEmailSetting" type="many">
+            <key-map field-name="enumId" rel-field-name="emailType"/>
+        </relation>
+        <relation rel-entity-name="ProductStoreFinActSetting" title="ReplenishMethod" type="many">
+            <key-map field-name="enumId" rel-field-name="replenishMethodEnumId"/>
+        </relation>
+        <relation rel-entity-name="ProductStoreKeywordOvrd" type="many">
+            <key-map field-name="enumId" rel-field-name="targetTypeEnumId"/>
+        </relation>
+        <relation rel-entity-name="ProductStorePaymentSetting" type="many">
+            <key-map field-name="enumId" rel-field-name="paymentServiceTypeEnumId"/>
+        </relation>
+        <relation rel-entity-name="ProductStoreVendorPayment" title="CreditCard" type="many">
+            <key-map field-name="enumId" rel-field-name="creditCardEnumId"/>
+        </relation>
+        <relation rel-entity-name="Quote" title="SalesChannel" type="many">
+            <key-map field-name="enumId" rel-field-name="salesChannelEnumId"/>
+        </relation>
+        <relation rel-entity-name="SalesOpportunity" title="Type" type="many">
+            <key-map field-name="enumId" rel-field-name="typeEnumId"/>
+        </relation>
+        <relation rel-entity-name="TrackingCodeVisit" type="many">
+            <key-map field-name="enumId" rel-field-name="sourceEnumId"/>
+        </relation>
+        <relation rel-entity-name="UomConversionDated" title="Purpose" type="many">
+            <key-map field-name="enumId" rel-field-name="purposeEnumId"/>
+        </relation>
+        <relation rel-entity-name="VisualThemeResource" type="many">
+            <key-map field-name="enumId" rel-field-name="resourceTypeEnumId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffort" title="Scope" type="many">
+            <key-map field-name="enumId" rel-field-name="scopeEnumId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffortPartyAssignment" title="Expectation" type="many">
+            <key-map field-name="enumId" rel-field-name="expectationEnumId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffortPartyAssignment" title="DelegateReason" type="many">
+            <key-map field-name="enumId" rel-field-name="delegateReasonEnumId"/>
+        </relation>
+        <index name="ENUMERATION_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="ENUMERATION_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="EnumerationType" package-name="com.hanlin.fadp.common.enum" title="Enumeration Type Entity" version="1.0">
+        <description>None</description>
+        <field name="enumTypeId" not-null="true" type="id-ne"/>
+        <field name="parentTypeId" type="id"/>
+        <field name="hasTable" type="indicator"/>
+        <field name="description" type="description"/>
+        <prim-key field="enumTypeId"/>
+        <relation fk-name="ENUM_TYPE_PARENT" rel-entity-name="EnumerationType" title="Parent" type="one">
+            <key-map field-name="parentTypeId" rel-field-name="enumTypeId"/>
+        </relation>
+        <relation rel-entity-name="Enumeration" type="many">
+            <key-map field-name="enumTypeId"/>
+        </relation>
+        <relation rel-entity-name="EnumerationType" title="Child" type="many">
+            <key-map field-name="enumTypeId" rel-field-name="parentTypeId"/>
+        </relation>
+        <index name="ENMRTN_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="ENMRTN_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="Vendor" package-name="com.hanlin.fadp.party.party" title="Vendor Entity" version="1.0">
+        <description>None</description>
+        <field name="partyId" not-null="true" type="id-ne"/>
+        <field name="manifestCompanyName" type="name"/>
+        <field name="manifestCompanyTitle" type="name"/>
+        <field name="manifestLogoUrl" type="url"/>
+        <field name="manifestPolicies" type="very-long"/>
+        <prim-key field="partyId"/>
+        <relation fk-name="VENDOR_PARTY" rel-entity-name="Party" type="one">
+            <key-map field-name="partyId"/>
+        </relation>
+        <index name="VENDOR_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="VENDOR_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="Party" package-name="com.hanlin.fadp.party.party" title="Party Entity" version="1.0">
+        <description>None</description>
+        <field name="partyId" not-null="true" type="id-ne"/>
+        <field name="partyTypeId" type="id-ne"/>
+        <field name="externalId" type="id"/>
+        <field name="preferredCurrencyUomId" type="id-ne"/>
+        <field name="description" type="very-long"/>
+        <field name="statusId" type="id-ne"/>
+        <field name="createdDate" type="date-time"/>
+        <field name="createdByUserLogin" type="id-vlong"/>
+        <field name="lastModifiedDate" type="date-time"/>
+        <field name="lastModifiedByUserLogin" type="id-vlong"/>
+        <field name="dataSourceId" type="id"/>
+        <field name="isUnread" type="indicator"/>
+        <prim-key field="partyId"/>
+        <relation fk-name="PARTY_PTY_TYP" rel-entity-name="PartyType" type="one">
+            <key-map field-name="partyTypeId"/>
+        </relation>
+        <relation fk-name="PARTY_CUL" rel-entity-name="UserLogin" title="CreatedBy" type="one">
+            <key-map field-name="createdByUserLogin" rel-field-name="userLoginId"/>
+        </relation>
+        <relation fk-name="PARTY_LMCUL" rel-entity-name="UserLogin" title="LastModifiedBy" type="one">
+            <key-map field-name="lastModifiedByUserLogin" rel-field-name="userLoginId"/>
+        </relation>
+        <relation fk-name="PARTY_PREF_CRNCY" rel-entity-name="Uom" type="one">
+            <key-map field-name="preferredCurrencyUomId" rel-field-name="uomId"/>
+        </relation>
+        <relation fk-name="PARTY_STATUSITM" rel-entity-name="StatusItem" type="one">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="PartyTypeAttr" type="many">
+            <key-map field-name="partyTypeId"/>
+        </relation>
+        <relation fk-name="PARTY_DATSRC" rel-entity-name="DataSource" type="one">
+            <key-map field-name="dataSourceId"/>
+        </relation>
+        <relation rel-entity-name="AcctgTrans" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="AcctgTransEntry" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="Affiliate" type="one-nofk">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="Agreement" title="From" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdFrom"/>
+        </relation>
+        <relation rel-entity-name="Agreement" title="To" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdTo"/>
+        </relation>
+        <relation rel-entity-name="AgreementPartyApplic" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="AgreementRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="BillingAccountRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="BudgetReview" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="BudgetRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="CarrierShipmentBoxType" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="CarrierShipmentMethod" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="CommunicationEvent" title="To" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdTo"/>
+        </relation>
+        <relation rel-entity-name="CommunicationEvent" title="From" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdFrom"/>
+        </relation>
+        <relation rel-entity-name="CommunicationEventRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ContactList" title="Owner" type="many">
+            <key-map field-name="partyId" rel-field-name="ownerPartyId"/>
+        </relation>
+        <relation rel-entity-name="ContactListCommStatus" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ContactListParty" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ContentApproval" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ContentRevision" title="CommittedBy" type="many">
+            <key-map field-name="partyId" rel-field-name="committedByPartyId"/>
+        </relation>
+        <relation rel-entity-name="ContentRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="CostComponent" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="CustRequest" title="From" type="many">
+            <key-map field-name="partyId" rel-field-name="fromPartyId"/>
+        </relation>
+        <relation rel-entity-name="CustRequestParty" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="CustRequestType" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="CustomTimePeriod" title="Organization" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="DataResourceRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="EmplLeave" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="EmplLeave" title="Approver" type="many">
+            <key-map field-name="partyId" rel-field-name="approverPartyId"/>
+        </relation>
+        <relation rel-entity-name="EmplPosition" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="EmplPositionFulfillment" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="Employment" title="To" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdTo"/>
+        </relation>
+        <relation rel-entity-name="Employment" title="From" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdFrom"/>
+        </relation>
+        <relation rel-entity-name="EmploymentApp" title="Applying" type="many">
+            <key-map field-name="partyId" rel-field-name="applyingPartyId"/>
+        </relation>
+        <relation rel-entity-name="EmploymentApp" title="ReferredBy" type="many">
+            <key-map field-name="partyId" rel-field-name="referredByPartyId"/>
+        </relation>
+        <relation rel-entity-name="EmploymentApp" title="Approver" type="many">
+            <key-map field-name="partyId" rel-field-name="approverPartyId"/>
+        </relation>
+        <relation rel-entity-name="Facility" title="Owner" type="many">
+            <key-map field-name="partyId" rel-field-name="ownerPartyId"/>
+        </relation>
+        <relation rel-entity-name="FacilityCarrierShipment" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="FacilityGroupRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="FacilityParty" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="FinAccount" title="Organization" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="FinAccount" title="Owner" type="many">
+            <key-map field-name="partyId" rel-field-name="ownerPartyId"/>
+        </relation>
+        <relation rel-entity-name="FinAccountRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="FinAccountTrans" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="FinAccountTrans" title="PerformedBy" type="many">
+            <key-map field-name="partyId" rel-field-name="performedByPartyId"/>
+        </relation>
+        <relation rel-entity-name="FinAccountTypeGlAccount" title="Organization" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="FixedAsset" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="FixedAssetRegistration" title="GovAgency" type="many">
+            <key-map field-name="partyId" rel-field-name="govAgencyPartyId"/>
+        </relation>
+        <relation rel-entity-name="FixedAssetTypeGlAccount" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="GiftCardFulfillment" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="GlAccountHistory" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="GlAccountOrganization" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="GlAccountRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="GlAccountTypeDefault" title="Organization" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="GlJournal" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="GlReconciliation" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="InventoryItem" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="InventoryItem" title="Owner" type="many">
+            <key-map field-name="partyId" rel-field-name="ownerPartyId"/>
+        </relation>
+        <relation rel-entity-name="Invoice" title="From" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdFrom"/>
+        </relation>
+        <relation rel-entity-name="Invoice" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="InvoiceItem" title="TaxAuthority" type="many">
+            <key-map field-name="partyId" rel-field-name="taxAuthPartyId"/>
+        </relation>
+        <relation rel-entity-name="InvoiceItem" title="OverrideOrg" type="many">
+            <key-map field-name="partyId" rel-field-name="overrideOrgPartyId"/>
+        </relation>
+        <relation rel-entity-name="InvoiceItemAssoc" title="From" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdFrom"/>
+        </relation>
+        <relation rel-entity-name="InvoiceItemAssoc" title="To" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdTo"/>
+        </relation>
+        <relation rel-entity-name="InvoiceItemTypeGlAccount" title="Organization" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="InvoiceRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ItemIssuanceRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="JobInterview" title="Interviewee" type="many">
+            <key-map field-name="partyId" rel-field-name="jobIntervieweePartyId"/>
+        </relation>
+        <relation rel-entity-name="JobInterview" title="Interviewer" type="many">
+            <key-map field-name="partyId" rel-field-name="jobInterviewerPartyId"/>
+        </relation>
+        <relation rel-entity-name="MarketingCampaignRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="NoteData" title="Note" type="many">
+            <key-map field-name="partyId" rel-field-name="noteParty"/>
+        </relation>
+        <relation rel-entity-name="OldCustRequestRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="OldFacilityRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="OldOrderShipmentPreference" title="Carrier" type="many">
+            <key-map field-name="partyId" rel-field-name="carrierPartyId"/>
+        </relation>
+        <relation rel-entity-name="OldPartyRate" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="OldPartyTaxInfo" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="OldValueLinkFulfillment" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="OldWorkEffortAssignmentRate" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="OrderItemRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="OrderItemShipGroup" title="Supplier" type="many">
+            <key-map field-name="partyId" rel-field-name="supplierPartyId"/>
+        </relation>
+        <relation rel-entity-name="OrderItemShipGroup" title="Vendor" type="many">
+            <key-map field-name="partyId" rel-field-name="vendorPartyId"/>
+        </relation>
+        <relation rel-entity-name="OrderItemShipGroup" title="Carrier" type="many">
+            <key-map field-name="partyId" rel-field-name="carrierPartyId"/>
+        </relation>
+        <relation rel-entity-name="OrderRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyAcctgPreference" type="one-nofk">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyAttribute" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyBenefit" title="To" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdTo"/>
+        </relation>
+        <relation rel-entity-name="PartyBenefit" title="From" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdFrom"/>
+        </relation>
+        <relation rel-entity-name="PartyCarrierAccount" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyCarrierAccount" title="Carrier" type="many">
+            <key-map field-name="partyId" rel-field-name="carrierPartyId"/>
+        </relation>
+        <relation rel-entity-name="PartyClassification" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyContactMech" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyContactMechPurpose" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyContent" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyDataSource" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyFixedAssetAssignment" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyGeoPoint" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyGlAccount" title="Organization" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="PartyGlAccount" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyGroup" type="one-nofk">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyIcsAvsOverride" type="one-nofk">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyIdentification" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyInvitation" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdFrom"/>
+        </relation>
+        <relation rel-entity-name="PartyInvitationGroupAssoc" title="To" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdTo"/>
+        </relation>
+        <relation rel-entity-name="PartyNameHistory" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyNeed" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyNote" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyProfileDefault" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyQual" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyRate" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyRelationship" title="From" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdFrom"/>
+        </relation>
+        <relation rel-entity-name="PartyRelationship" title="To" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdTo"/>
+        </relation>
+        <relation rel-entity-name="PartyResume" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartySkill" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyStatus" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyTaxAuthInfo" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="Payment" title="From" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdFrom"/>
+        </relation>
+        <relation rel-entity-name="Payment" title="To" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdTo"/>
+        </relation>
+        <relation rel-entity-name="PaymentGlAccountTypeMap" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="PaymentMethod" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PaymentMethodTypeGlAccount" title="Organization" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="PayrollPreference" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PerfReview" title="Employee" type="many">
+            <key-map field-name="partyId" rel-field-name="employeePartyId"/>
+        </relation>
+        <relation rel-entity-name="PerfReview" title="Manager" type="many">
+            <key-map field-name="partyId" rel-field-name="managerPartyId"/>
+        </relation>
+        <relation rel-entity-name="PerfReviewItem" title="Employee" type="many">
+            <key-map field-name="partyId" rel-field-name="employeePartyId"/>
+        </relation>
+        <relation rel-entity-name="PerformanceNote" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="Person" type="one-nofk">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PersonTraining" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ProdCatalogRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="Product" title="Manufacturer" type="many">
+            <key-map field-name="partyId" rel-field-name="manufacturerPartyId"/>
+        </relation>
+        <relation rel-entity-name="ProductAverageCost" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="ProductCategoryGlAccount" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="ProductCategoryRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ProductGlAccount" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="ProductPrice" title="TaxAuthority" type="many">
+            <key-map field-name="partyId" rel-field-name="taxAuthPartyId"/>
+        </relation>
+        <relation rel-entity-name="ProductPromo" type="many">
+            <key-map field-name="partyId" rel-field-name="overrideOrgPartyId"/>
+        </relation>
+        <relation rel-entity-name="ProductPromoCodeParty" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ProductPromoUse" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ProductRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ProductStore" type="many">
+            <key-map field-name="partyId" rel-field-name="payToPartyId"/>
+        </relation>
+        <relation rel-entity-name="ProductStoreGroupRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ProductStoreRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ProductStoreShipmentMeth" type="many">
+            <key-map field-name="partyId" rel-field-name="companyPartyId"/>
+        </relation>
+        <relation rel-entity-name="ProductStoreVendorPayment" title="Vendor" type="many">
+            <key-map field-name="partyId" rel-field-name="vendorPartyId"/>
+        </relation>
+        <relation rel-entity-name="ProductStoreVendorShipment" title="Vendor" type="many">
+            <key-map field-name="partyId" rel-field-name="vendorPartyId"/>
+        </relation>
+        <relation rel-entity-name="ProductStoreVendorShipment" title="Carrier" type="many">
+            <key-map field-name="partyId" rel-field-name="carrierPartyId"/>
+        </relation>
+        <relation rel-entity-name="Quote" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="QuoteRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="RateAmount" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ReorderGuideline" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="RequirementRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="RespondingParty" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ReturnHeader" type="many">
+            <key-map field-name="partyId" rel-field-name="fromPartyId"/>
+        </relation>
+        <relation rel-entity-name="ReturnHeader" title="To" type="many">
+            <key-map field-name="partyId" rel-field-name="toPartyId"/>
+        </relation>
+        <relation rel-entity-name="SalesForecast" title="Organization" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="SalesForecast" title="Internal" type="many">
+            <key-map field-name="partyId" rel-field-name="internalPartyId"/>
+        </relation>
+        <relation rel-entity-name="SalesForecastHistory" title="Organization" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="SalesForecastHistory" title="Internal" type="many">
+            <key-map field-name="partyId" rel-field-name="internalPartyId"/>
+        </relation>
+        <relation rel-entity-name="SalesOpportunityRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="SegmentGroupRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ServerHit" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="Shipment" title="To" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdTo"/>
+        </relation>
+        <relation rel-entity-name="Shipment" title="From" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdFrom"/>
+        </relation>
+        <relation rel-entity-name="ShipmentCostEstimate" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentReceiptRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentRouteSegment" title="Carrier" type="many">
+            <key-map field-name="partyId" rel-field-name="carrierPartyId"/>
+        </relation>
+        <relation rel-entity-name="ShoppingList" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="Subscription" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="Subscription" title="OriginatedFrom" type="many">
+            <key-map field-name="partyId" rel-field-name="originatedFromPartyId"/>
+        </relation>
+        <relation rel-entity-name="SupplierProduct" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="SupplierProductFeature" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="SurveyResponse" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="TaxAuthority" title="TaxAuth" type="many">
+            <key-map field-name="partyId" rel-field-name="taxAuthPartyId"/>
+        </relation>
+        <relation rel-entity-name="TaxAuthorityGlAccount" title="Organization" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="TimeEntry" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="Timesheet" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="Timesheet" title="Client" type="many">
+            <key-map field-name="partyId" rel-field-name="clientPartyId"/>
+        </relation>
+        <relation rel-entity-name="TimesheetRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="UserLogin" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="UserLoginHistory" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="VarianceReasonGlAccount" title="Organization" type="many">
+            <key-map field-name="partyId" rel-field-name="organizationPartyId"/>
+        </relation>
+        <relation rel-entity-name="Vendor" type="one-nofk">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="VendorProduct" title="Vendor" type="many">
+            <key-map field-name="partyId" rel-field-name="vendorPartyId"/>
+        </relation>
+        <relation rel-entity-name="WebSiteRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="WebUserPreference" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffortEventReminder" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffortPartyAssignment" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <index name="PARTY_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PARTY_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+        <index name="PARTYEXT_ID_IDX">
+            <index-field name="externalId"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="GlAccount" package-name="com.hanlin.fadp.accounting.ledger" title="General Ledger Account Entity" version="1.0">
+        <description>None</description>
+        <field name="glAccountId" not-null="true" type="id-ne"/>
+        <field name="glAccountTypeId" type="id"/>
+        <field name="glAccountClassId" type="id"/>
+        <field name="glResourceTypeId" type="id"/>
+        <field name="glXbrlClassId" type="id"/>
+        <field name="parentGlAccountId" type="id"/>
+        <field name="accountCode" type="name"/>
+        <field name="accountName" type="name"/>
+        <field name="description" type="description"/>
+        <field name="productId" type="id"/>
+        <field name="externalId" type="id"/>
+        <prim-key field="glAccountId"/>
+        <relation fk-name="GLACCT_TYPE" rel-entity-name="GlAccountType" type="one">
+            <key-map field-name="glAccountTypeId"/>
+        </relation>
+        <relation fk-name="GLACCT_CLSS" rel-entity-name="GlAccountClass" type="one">
+            <key-map field-name="glAccountClassId"/>
+        </relation>
+        <relation fk-name="GLACCT_REC" rel-entity-name="GlResourceType" type="one">
+            <key-map field-name="glResourceTypeId"/>
+        </relation>
+        <relation fk-name="GLACCT_XBRLCLS" rel-entity-name="GlXbrlClass" type="one">
+            <key-map field-name="glXbrlClassId"/>
+        </relation>
+        <relation fk-name="GLACCT_PAR" rel-entity-name="GlAccount" title="Parent" type="one">
+            <key-map field-name="parentGlAccountId" rel-field-name="glAccountId"/>
+        </relation>
+        <relation rel-entity-name="AcctgTransEntry" type="many">
+            <key-map field-name="glAccountId"/>
+        </relation>
+        <relation rel-entity-name="FinAccount" title="PostTo" type="many">
+            <key-map field-name="glAccountId" rel-field-name="postToGlAccountId"/>
+        </relation>
+        <relation rel-entity-name="FinAccountTypeGlAccount" type="many">
+            <key-map field-name="glAccountId"/>
+        </relation>
+        <relation rel-entity-name="FixedAssetTypeGlAccount" title="Asset" type="many">
+            <key-map field-name="glAccountId" rel-field-name="assetGlAccountId"/>
+        </relation>
+        <relation rel-entity-name="FixedAssetTypeGlAccount" title="AccumulatedDepreciation" type="many">
+            <key-map field-name="glAccountId" rel-field-name="accDepGlAccountId"/>
+        </relation>
+        <relation rel-entity-name="FixedAssetTypeGlAccount" title="Depreciation" type="many">
+            <key-map field-name="glAccountId" rel-field-name="depGlAccountId"/>
+        </relation>
+        <relation rel-entity-name="FixedAssetTypeGlAccount" title="Profit" type="many">
+            <key-map field-name="glAccountId" rel-field-name="profitGlAccountId"/>
+        </relation>
+        <relation rel-entity-name="FixedAssetTypeGlAccount" title="Loss" type="many">
+            <key-map field-name="glAccountId" rel-field-name="lossGlAccountId"/>
+        </relation>
+        <relation rel-entity-name="GlAccount" title="Child" type="many">
+            <key-map field-name="glAccountId" rel-field-name="parentGlAccountId"/>
+        </relation>
+        <relation rel-entity-name="GlAccountCategoryMember" type="many">
+            <key-map field-name="glAccountId"/>
+        </relation>
+        <relation rel-entity-name="GlAccountGroupMember" type="many">
+            <key-map field-name="glAccountId"/>
+        </relation>
+        <relation rel-entity-name="GlAccountHistory" type="many">
+            <key-map field-name="glAccountId"/>
+        </relation>
+        <relation rel-entity-name="GlAccountOrganization" type="many">
+            <key-map field-name="glAccountId"/>
+        </relation>
+        <relation rel-entity-name="GlAccountRole" type="many">
+            <key-map field-name="glAccountId"/>
+        </relation>
+        <relation rel-entity-name="GlAccountTypeDefault" type="many">
+            <key-map field-name="glAccountId"/>
+        </relation>
+        <relation rel-entity-name="GlBudgetXref" type="many">
+            <key-map field-name="glAccountId"/>
+        </relation>
+        <relation rel-entity-name="GlReconciliation" type="many">
+            <key-map field-name="glAccountId"/>
+        </relation>
+        <relation rel-entity-name="InvoiceItem" title="Override" type="many">
+            <key-map field-name="glAccountId" rel-field-name="overrideGlAccountId"/>
+        </relation>
+        <relation rel-entity-name="InvoiceItemType" title="Default" type="many">
+            <key-map field-name="glAccountId" rel-field-name="defaultGlAccountId"/>
+        </relation>
+        <relation rel-entity-name="InvoiceItemTypeGlAccount" type="many">
+            <key-map field-name="glAccountId"/>
+        </relation>
+        <relation rel-entity-name="OrderAdjustment" title="Override" type="many">
+            <key-map field-name="glAccountId" rel-field-name="overrideGlAccountId"/>
+        </relation>
+        <relation rel-entity-name="OrderItem" title="Override" type="many">
+            <key-map field-name="glAccountId" rel-field-name="overrideGlAccountId"/>
+        </relation>
+        <relation rel-entity-name="PartyGlAccount" type="many">
+            <key-map field-name="glAccountId"/>
+        </relation>
+        <relation rel-entity-name="Payment" type="many">
+            <key-map field-name="glAccountId" rel-field-name="overrideGlAccountId"/>
+        </relation>
+        <relation rel-entity-name="PaymentApplication" type="many">
+            <key-map field-name="glAccountId" rel-field-name="overrideGlAccountId"/>
+        </relation>
+        <relation rel-entity-name="PaymentMethod" type="many">
+            <key-map field-name="glAccountId"/>
+        </relation>
+        <relation rel-entity-name="PaymentMethodType" title="Default" type="many">
+            <key-map field-name="glAccountId" rel-field-name="defaultGlAccountId"/>
+        </relation>
+        <relation rel-entity-name="PaymentMethodTypeGlAccount" type="many">
+            <key-map field-name="glAccountId"/>
+        </relation>
+        <relation rel-entity-name="ProductCategoryGlAccount" type="many">
+            <key-map field-name="glAccountId"/>
+        </relation>
+        <relation rel-entity-name="ProductGlAccount" type="many">
+            <key-map field-name="glAccountId"/>
+        </relation>
+        <relation rel-entity-name="QuoteAdjustment" title="Override" type="many">
+            <key-map field-name="glAccountId" rel-field-name="overrideGlAccountId"/>
+        </relation>
+        <relation rel-entity-name="ReturnAdjustment" title="Override" type="many">
+            <key-map field-name="glAccountId" rel-field-name="overrideGlAccountId"/>
+        </relation>
+        <relation rel-entity-name="TaxAuthorityGlAccount" type="many">
+            <key-map field-name="glAccountId"/>
+        </relation>
+        <relation rel-entity-name="VarianceReasonGlAccount" type="many">
+            <key-map field-name="glAccountId"/>
+        </relation>
+        <index name="GL_ACCOUNT_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="GL_ACCOUNT_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+        <index name="GLACCT_UNQCD" unique="true">
+            <index-field name="accountCode"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TelecomNumber" package-name="com.hanlin.fadp.party.contact" title="Telecommunications Number Entity" version="1.0">
+        <description>None</description>
+        <field name="contactMechId" not-null="true" type="id-ne"/>
+        <field name="countryCode" type="very-short"/>
+        <field name="areaCode" type="very-short"/>
+        <field name="contactNumber" type="short-varchar"/>
+        <field name="askForName" type="name"/>
+        <prim-key field="contactMechId"/>
+        <relation fk-name="TEL_NUM_CMECH" rel-entity-name="ContactMech" type="one">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="FacilityContactMech" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="OldWorkEffortContactMech" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="OrderItemShipGroup" title="Telecom" type="many">
+            <key-map field-name="contactMechId" rel-field-name="telecomContactMechId"/>
+        </relation>
+        <relation rel-entity-name="PartyContactMech" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="PartyContactMechPurpose" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="Shipment" title="Origin" type="many">
+            <key-map field-name="contactMechId" rel-field-name="originTelecomNumberId"/>
+        </relation>
+        <relation rel-entity-name="Shipment" title="Destination" type="many">
+            <key-map field-name="contactMechId" rel-field-name="destinationTelecomNumberId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentRouteSegment" title="Origin" type="many">
+            <key-map field-name="contactMechId" rel-field-name="originTelecomNumberId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentRouteSegment" title="Dest" type="many">
+            <key-map field-name="contactMechId" rel-field-name="destTelecomNumberId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffortContactMech" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <index name="TLCM_NMBR_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TLCM_NMBR_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+        <index name="COUNTRY_CODE_IDX">
+            <index-field name="countryCode"/>
+        </index>
+        <index name="AREA_CODE_IDX">
+            <index-field name="areaCode"/>
+        </index>
+        <index name="CONTACT_NUMBER_IDX">
+            <index-field name="contactNumber"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="StatusItem" package-name="com.hanlin.fadp.common.status" title="Status Entity" version="1.0">
+        <description>None</description>
+        <field name="statusId" not-null="true" type="id-ne"/>
+        <field name="statusTypeId" type="id-ne"/>
+        <field name="statusCode" type="short-varchar"/>
+        <field name="sequenceId" type="id"/>
+        <field name="description" type="description"/>
+        <prim-key field="statusId"/>
+        <relation fk-name="STATUS_TO_TYPE" rel-entity-name="StatusType" type="one">
+            <key-map field-name="statusTypeId"/>
+        </relation>
+        <relation rel-entity-name="AcctgTrans" type="many">
+            <key-map field-name="statusId" rel-field-name="groupStatusId"/>
+        </relation>
+        <relation rel-entity-name="AcctgTransEntry" type="many">
+            <key-map field-name="statusId" rel-field-name="reconcileStatusId"/>
+        </relation>
+        <relation rel-entity-name="BudgetStatus" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="CommunicationEvent" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="CommunicationEventRole" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="ContactListCommStatus" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="ContactListParty" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="Content" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="ContentApproval" title="Approval" type="many">
+            <key-map field-name="statusId" rel-field-name="approvalStatusId"/>
+        </relation>
+        <relation rel-entity-name="ContentPurposeOperation" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="CustRequest" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="CustRequestItem" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="CustRequestStatus" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="DataResource" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="EmplLeave" type="many">
+            <key-map field-name="statusId" rel-field-name="leaveStatus"/>
+        </relation>
+        <relation rel-entity-name="EmplPosition" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="EmploymentApp" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="FinAccountStatus" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="FinAccountTrans" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="FixedAssetMaint" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="GlReconciliation" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="InventoryItem" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="InventoryItemStatus" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="InventoryTransfer" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="Invoice" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="InvoiceStatus" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="JobSandbox" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="MarketingCampaign" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="OrderDeliverySchedule" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="OrderHeader" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="OrderHeader" title="Sync" type="many">
+            <key-map field-name="statusId" rel-field-name="syncStatusId"/>
+        </relation>
+        <relation rel-entity-name="OrderItem" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="OrderItem" title="Sync" type="many">
+            <key-map field-name="statusId" rel-field-name="syncStatusId"/>
+        </relation>
+        <relation rel-entity-name="OrderPaymentPreference" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="OrderStatus" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="Party" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="PartyFixedAssetAssignment" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="PartyInvitation" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="PartyQual" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="PartyQual" title="Verification" type="many">
+            <key-map field-name="statusId" rel-field-name="verifStatusId"/>
+        </relation>
+        <relation rel-entity-name="PartyRelationship" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="PartyStatus" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="Payment" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="Picklist" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="PicklistItem" type="many">
+            <key-map field-name="statusId" rel-field-name="itemStatusId"/>
+        </relation>
+        <relation rel-entity-name="PicklistStatusHistory" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="PicklistStatusHistory" title="To" type="many">
+            <key-map field-name="statusId" rel-field-name="statusIdTo"/>
+        </relation>
+        <relation rel-entity-name="ProductGroupOrder" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="ProductKeyword" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="ProductReview" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="ProductStore" title="HeaderApproved" type="many">
+            <key-map field-name="statusId" rel-field-name="headerApprovedStatus"/>
+        </relation>
+        <relation rel-entity-name="ProductStore" title="ItemApproved" type="many">
+            <key-map field-name="statusId" rel-field-name="itemApprovedStatus"/>
+        </relation>
+        <relation rel-entity-name="ProductStore" title="DigitalItemApproved" type="many">
+            <key-map field-name="statusId" rel-field-name="digitalItemApprovedStatus"/>
+        </relation>
+        <relation rel-entity-name="ProductStore" title="HeaderDeclined" type="many">
+            <key-map field-name="statusId" rel-field-name="headerDeclinedStatus"/>
+        </relation>
+        <relation rel-entity-name="ProductStore" title="ItemDeclined" type="many">
+            <key-map field-name="statusId" rel-field-name="itemDeclinedStatus"/>
+        </relation>
+        <relation rel-entity-name="ProductStore" title="HeaderCancel" type="many">
+            <key-map field-name="statusId" rel-field-name="headerCancelStatus"/>
+        </relation>
+        <relation rel-entity-name="ProductStore" title="ItemCancel" type="many">
+            <key-map field-name="statusId" rel-field-name="itemCancelStatus"/>
+        </relation>
+        <relation rel-entity-name="Quote" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="Requirement" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="RequirementStatus" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="ReturnHeader" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="ReturnItem" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="ReturnItem" title="Inventory" type="many">
+            <key-map field-name="statusId" rel-field-name="expectedItemStatus"/>
+        </relation>
+        <relation rel-entity-name="ReturnStatus" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="Shipment" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentRouteSegment" title="CarrierService" type="many">
+            <key-map field-name="statusId" rel-field-name="carrierServiceStatusId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentStatus" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="StatusValidChange" title="Main" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="StatusValidChange" title="To" type="many">
+            <key-map field-name="statusId" rel-field-name="statusIdTo"/>
+        </relation>
+        <relation rel-entity-name="SurveyResponse" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="Timesheet" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="UnemploymentClaim" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffort" title="Current" type="many">
+            <key-map field-name="statusId" rel-field-name="currentStatusId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffortFixedAssetAssign" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffortFixedAssetAssign" title="Availability" type="many">
+            <key-map field-name="statusId" rel-field-name="availabilityStatusId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffortGoodStandard" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffortInventoryAssign" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffortPartyAssignment" title="Assignment" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffortPartyAssignment" title="Availability" type="many">
+            <key-map field-name="statusId" rel-field-name="availabilityStatusId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffortReview" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffortStatus" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <index name="STATUS_ITEM_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="STATUS_ITEM_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="Geo" package-name="com.hanlin.fadp.common.geo" title="Geographic Boundary Entity" version="1.0">
+        <description>None</description>
+        <field name="geoId" not-null="true" type="id-ne"/>
+        <field name="geoTypeId" type="id"/>
+        <field name="geoName" type="name"/>
+        <field name="geoCode" type="short-varchar"/>
+        <field name="geoSecCode" type="short-varchar"/>
+        <field name="abbreviation" type="short-varchar"/>
+        <field name="wellKnownText" type="very-long"/>
+        <prim-key field="geoId"/>
+        <relation fk-name="GEO_TO_TYPE" rel-entity-name="GeoType" type="one">
+            <key-map field-name="geoTypeId"/>
+        </relation>
+        <relation rel-entity-name="AgreementGeographicalApplic" type="many">
+            <key-map field-name="geoId"/>
+        </relation>
+        <relation rel-entity-name="CostComponent" type="many">
+            <key-map field-name="geoId"/>
+        </relation>
+        <relation rel-entity-name="CountryAddressFormat" type="one-nofk">
+            <key-map field-name="geoId"/>
+        </relation>
+        <relation rel-entity-name="GeoAssoc" title="Main" type="many">
+            <key-map field-name="geoId"/>
+        </relation>
+        <relation rel-entity-name="GeoAssoc" title="Assoc" type="many">
+            <key-map field-name="geoId" rel-field-name="geoIdTo"/>
+        </relation>
+        <relation rel-entity-name="InvoiceItem" title="Tax" type="many">
+            <key-map field-name="geoId" rel-field-name="taxAuthGeoId"/>
+        </relation>
+        <relation rel-entity-name="OldPartyTaxInfo" type="many">
+            <key-map field-name="geoId"/>
+        </relation>
+        <relation rel-entity-name="OrderAdjustment" title="Primary" type="many">
+            <key-map field-name="geoId" rel-field-name="primaryGeoId"/>
+        </relation>
+        <relation rel-entity-name="OrderAdjustment" title="Secondary" type="many">
+            <key-map field-name="geoId" rel-field-name="secondaryGeoId"/>
+        </relation>
+        <relation rel-entity-name="PaymentApplication" type="many">
+            <key-map field-name="geoId" rel-field-name="taxAuthGeoId"/>
+        </relation>
+        <relation rel-entity-name="PostalAddress" title="Country" type="many">
+            <key-map field-name="geoId" rel-field-name="countryGeoId"/>
+        </relation>
+        <relation rel-entity-name="PostalAddress" title="StateProvince" type="many">
+            <key-map field-name="geoId" rel-field-name="stateProvinceGeoId"/>
+        </relation>
+        <relation rel-entity-name="PostalAddress" title="County" type="many">
+            <key-map field-name="geoId" rel-field-name="countyGeoId"/>
+        </relation>
+        <relation rel-entity-name="PostalAddress" title="PostalCode" type="many">
+            <key-map field-name="geoId" rel-field-name="postalCodeGeoId"/>
+        </relation>
+        <relation rel-entity-name="PostalAddressBoundary" type="many">
+            <key-map field-name="geoId"/>
+        </relation>
+        <relation rel-entity-name="Product" title="Origin" type="many">
+            <key-map field-name="geoId" rel-field-name="originGeoId"/>
+        </relation>
+        <relation rel-entity-name="ProductGeo" type="many">
+            <key-map field-name="geoId"/>
+        </relation>
+        <relation rel-entity-name="ProductPrice" title="TaxAuthority" type="many">
+            <key-map field-name="geoId" rel-field-name="taxAuthGeoId"/>
+        </relation>
+        <relation rel-entity-name="ProductStoreShipmentMeth" title="Include" type="many">
+            <key-map field-name="geoId" rel-field-name="includeGeoId"/>
+        </relation>
+        <relation rel-entity-name="ProductStoreShipmentMeth" title="Exclude" type="many">
+            <key-map field-name="geoId" rel-field-name="excludeGeoId"/>
+        </relation>
+        <relation rel-entity-name="QuoteAdjustment" title="Primary" type="many">
+            <key-map field-name="geoId" rel-field-name="primaryGeoId"/>
+        </relation>
+        <relation rel-entity-name="QuoteAdjustment" title="Secondary" type="many">
+            <key-map field-name="geoId" rel-field-name="secondaryGeoId"/>
+        </relation>
+        <relation rel-entity-name="ReorderGuideline" type="many">
+            <key-map field-name="geoId"/>
+        </relation>
+        <relation rel-entity-name="ReturnAdjustment" title="Primary" type="many">
+            <key-map field-name="geoId" rel-field-name="primaryGeoId"/>
+        </relation>
+        <relation rel-entity-name="ReturnAdjustment" title="Secondary" type="many">
+            <key-map field-name="geoId" rel-field-name="secondaryGeoId"/>
+        </relation>
+        <relation rel-entity-name="SegmentGroupGeo" type="many">
+            <key-map field-name="geoId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentCostEstimate" title="To" type="many">
+            <key-map field-name="geoId" rel-field-name="geoIdTo"/>
+        </relation>
+        <relation rel-entity-name="ShipmentCostEstimate" title="From" type="many">
+            <key-map field-name="geoId" rel-field-name="geoIdFrom"/>
+        </relation>
+        <relation rel-entity-name="SurveyQuestion" type="many">
+            <key-map field-name="geoId"/>
+        </relation>
+        <relation rel-entity-name="TaxAuthority" title="TaxAuth" type="many">
+            <key-map field-name="geoId" rel-field-name="taxAuthGeoId"/>
+        </relation>
+        <index name="GEO_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="GEO_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="ContactMech" package-name="com.hanlin.fadp.party.contact" title="Contact Mechanism Entity" version="1.0">
+        <description>None</description>
+        <field name="contactMechId" not-null="true" type="id-ne"/>
+        <field name="contactMechTypeId" type="id"/>
+        <field name="infoString" type="long-varchar"/>
+        <prim-key field="contactMechId"/>
+        <relation fk-name="CONT_MECH_TYPE" rel-entity-name="ContactMechType" type="one">
+            <key-map field-name="contactMechTypeId"/>
+        </relation>
+        <relation rel-entity-name="ContactMechTypeAttr" type="many">
+            <key-map field-name="contactMechTypeId"/>
+        </relation>
+        <relation rel-entity-name="BillingAccount" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="CommunicationEvent" title="From" type="many">
+            <key-map field-name="contactMechId" rel-field-name="contactMechIdFrom"/>
+        </relation>
+        <relation rel-entity-name="CommunicationEvent" title="To" type="many">
+            <key-map field-name="contactMechId" rel-field-name="contactMechIdTo"/>
+        </relation>
+        <relation rel-entity-name="CommunicationEventRole" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="ContactListCommStatus" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="ContactListParty" title="Preferred" type="many">
+            <key-map field-name="contactMechId" rel-field-name="preferredContactMechId"/>
+        </relation>
+        <relation rel-entity-name="ContactMechAttribute" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="ContactMechLink" title="From" type="many">
+            <key-map field-name="contactMechId" rel-field-name="contactMechIdFrom"/>
+        </relation>
+        <relation rel-entity-name="ContactMechLink" title="To" type="many">
+            <key-map field-name="contactMechId" rel-field-name="contactMechIdTo"/>
+        </relation>
+        <relation rel-entity-name="CreditCard" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="CustRequest" title="Fulfill" type="many">
+            <key-map field-name="contactMechId" rel-field-name="fulfillContactMechId"/>
+        </relation>
+        <relation rel-entity-name="EftAccount" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="FacilityContactMech" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="FacilityContactMechPurpose" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="GiftCard" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="Invoice" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="InvoiceContactMech" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="OldWorkEffortContactMech" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="OrderContactMech" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="OrderItemContactMech" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="OrderItemShipGroup" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="OrderItemShipGroup" title="Telecom" type="many">
+            <key-map field-name="contactMechId" rel-field-name="telecomContactMechId"/>
+        </relation>
+        <relation rel-entity-name="PartyContactMech" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="PartyContactMechPurpose" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="PayPalPaymentMethod" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="PostalAddress" type="one-nofk">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="RespondingParty" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="ReturnContactMech" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="ReturnHeader" type="many">
+            <key-map field-name="contactMechId" rel-field-name="originContactMechId"/>
+        </relation>
+        <relation rel-entity-name="ServerHit" title="IdByIp" type="many">
+            <key-map field-name="contactMechId" rel-field-name="idByIpContactMechId"/>
+        </relation>
+        <relation rel-entity-name="ServerHit" title="RefByWeb" type="many">
+            <key-map field-name="contactMechId" rel-field-name="refByWebContactMechId"/>
+        </relation>
+        <relation rel-entity-name="Shipment" title="Origin" type="many">
+            <key-map field-name="contactMechId" rel-field-name="originContactMechId"/>
+        </relation>
+        <relation rel-entity-name="Shipment" title="Dest" type="many">
+            <key-map field-name="contactMechId" rel-field-name="destinationContactMechId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentContactMech" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentRouteSegment" title="Origin" type="many">
+            <key-map field-name="contactMechId" rel-field-name="originContactMechId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentRouteSegment" title="Dest" type="many">
+            <key-map field-name="contactMechId" rel-field-name="destContactMechId"/>
+        </relation>
+        <relation rel-entity-name="ShoppingList" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="Subscription" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="TelecomNumber" type="one-nofk">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffortContactMech" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffortEventReminder" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <index name="CNTCT_MCH_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="CNTCT_MCH_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+        <index name="INFO_STRING_IDX">
+            <index-field name="infoString"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="PayPalPaymentMethod" package-name="com.hanlin.fadp.accounting.payment" title="Entity of an Open For Business Project Component" version="1.0">
+        <description>PayPal Payment Method Details</description>
+        <field name="paymentMethodId" not-null="true" type="id-ne"/>
+        <field name="payerId" type="id"/>
+        <field name="expressCheckoutToken" type="short-varchar"/>
+        <field name="payerStatus" type="short-varchar"/>
+        <field name="avsAddr" type="indicator"/>
+        <field name="avsZip" type="indicator"/>
+        <field name="correlationId" type="id"/>
+        <field name="contactMechId" type="id-ne"/>
+        <field name="transactionId" type="short-varchar"/>
+        <prim-key field="paymentMethodId"/>
+        <relation fk-name="PAYPAL_PMNTMETH" rel-entity-name="PaymentMethod" type="one">
+            <key-map field-name="paymentMethodId"/>
+        </relation>
+        <relation fk-name="PAYPAL_CMECH" rel-entity-name="ContactMech" type="one">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation fk-name="PAYPAL_PADDR" rel-entity-name="PostalAddress" type="one">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <index name="P_PL_PMT_MTD_TXSTP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="P_PL_PMT_MTD_TXCRS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="AccountingEntityLabels" entity-name="GlResourceType" package-name="com.hanlin.fadp.accounting.ledger" title="General Ledger Resource Entity" version="1.0">
+        <description>None</description>
+        <field name="glResourceTypeId" not-null="true" type="id-ne"/>
+        <field name="description" type="description"/>
+        <prim-key field="glResourceTypeId"/>
+        <relation rel-entity-name="GlAccount" type="many">
+            <key-map field-name="glResourceTypeId"/>
+        </relation>
+        <index name="GL_RSRC_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="GL_RSRC_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="PostalAddress" package-name="com.hanlin.fadp.party.contact" title="Postal Address Entity" version="1.0">
+        <description>None</description>
+        <field name="contactMechId" not-null="true" type="id-ne"/>
+        <field name="toName" type="name"/>
+        <field name="attnName" type="name"/>
+        <field name="address1" type="long-varchar"/>
+        <field name="address2" type="long-varchar"/>
+        <field name="directions" type="long-varchar"/>
+        <field name="city" type="name"/>
+        <field name="postalCode" type="short-varchar"/>
+        <field name="postalCodeExt" type="short-varchar"/>
+        <field name="countryGeoId" type="id"/>
+        <field name="stateProvinceGeoId" type="id"/>
+        <field name="countyGeoId" type="id"/>
+        <field name="postalCodeGeoId" type="id"/>
+        <field name="geoPointId" type="id"/>
+        <prim-key field="contactMechId"/>
+        <relation fk-name="POST_ADDR_CMECH" rel-entity-name="ContactMech" type="one">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation fk-name="POST_ADDR_CGEO" rel-entity-name="Geo" title="Country" type="one">
+            <key-map field-name="countryGeoId" rel-field-name="geoId"/>
+        </relation>
+        <relation fk-name="POST_ADDR_SPGEO" rel-entity-name="Geo" title="StateProvince" type="one">
+            <key-map field-name="stateProvinceGeoId" rel-field-name="geoId"/>
+        </relation>
+        <relation fk-name="POST_ADDR_CNTG" rel-entity-name="Geo" title="County" type="one">
+            <key-map field-name="countyGeoId" rel-field-name="geoId"/>
+        </relation>
+        <relation fk-name="POST_ADDR_PCGEO" rel-entity-name="Geo" title="PostalCode" type="one">
+            <key-map field-name="postalCodeGeoId" rel-field-name="geoId"/>
+        </relation>
+        <relation fk-name="POST_ADDR_GEOPT" rel-entity-name="GeoPoint" type="one">
+            <key-map field-name="geoPointId"/>
+        </relation>
+        <relation rel-entity-name="BillingAccount" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="CreditCard" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="EftAccount" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="GiftCard" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="OrderItemShipGroup" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="PartyContactMech" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="PartyContactMechPurpose" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="PayPalPaymentMethod" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="PostalAddressBoundary" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="ReturnHeader" type="many">
+            <key-map field-name="contactMechId" rel-field-name="originContactMechId"/>
+        </relation>
+        <relation rel-entity-name="Shipment" title="Origin" type="many">
+            <key-map field-name="contactMechId" rel-field-name="originContactMechId"/>
+        </relation>
+        <relation rel-entity-name="Shipment" title="Destination" type="many">
+            <key-map field-name="contactMechId" rel-field-name="destinationContactMechId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentRouteSegment" title="Origin" type="many">
+            <key-map field-name="contactMechId" rel-field-name="originContactMechId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentRouteSegment" title="Dest" type="many">
+            <key-map field-name="contactMechId" rel-field-name="destContactMechId"/>
+        </relation>
+        <relation rel-entity-name="ShoppingList" type="many">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <index name="PSTL_ADDRSS_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PSTL_ADDRSS_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+        <index name="ADDRESS1_IDX">
+            <index-field name="address1"/>
+        </index>
+        <index name="ADDRESS2_IDX">
+            <index-field name="address2"/>
+        </index>
+        <index name="CITY_IDX">
+            <index-field name="city"/>
+        </index>
+        <index name="POSTAL_CODE_IDX">
+            <index-field name="postalCode"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="PartyAcctgPreference" package-name="com.hanlin.fadp.accounting.ledger" title="Party (organization) accounting preferences" version="1.0">
+        <description>None</description>
+        <field name="partyId" not-null="true" type="id-ne"/>
+        <field name="fiscalYearStartMonth" type="numeric"/>
+        <field name="fiscalYearStartDay" type="numeric"/>
+        <field name="taxFormId" type="id-ne"/>
+        <field name="cogsMethodId" type="id-ne"/>
+        <field name="baseCurrencyUomId" type="id-ne"/>
+        <field name="invoiceSeqCustMethId" type="id-ne"/>
+        <field name="invoiceIdPrefix" type="very-short"/>
+        <field name="lastInvoiceNumber" type="numeric"/>
+        <field name="lastInvoiceRestartDate" type="date-time"/>
+        <field name="useInvoiceIdForReturns" type="indicator"/>
+        <field name="quoteSeqCustMethId" type="id-ne"/>
+        <field name="quoteIdPrefix" type="very-short"/>
+        <field name="lastQuoteNumber" type="numeric"/>
+        <field name="orderSeqCustMethId" type="id-ne"/>
+        <field name="orderIdPrefix" type="very-short"/>
+        <field name="lastOrderNumber" type="numeric"/>
+        <field name="refundPaymentMethodId" type="id"/>
+        <field name="errorGlJournalId" type="id"/>
+        <field col-name="INVOICE_SEQUENCE_ENUM_ID" name="oldInvoiceSequenceEnumId" type="id-ne"/>
+        <field col-name="ORDER_SEQUENCE_ENUM_ID" name="oldOrderSequenceEnumId" type="id-ne"/>
+        <field col-name="QUOTE_SEQUENCE_ENUM_ID" name="oldQuoteSequenceEnumId" type="id-ne"/>
+        <prim-key field="partyId"/>
+        <relation fk-name="ACTG_PREF_PTY" rel-entity-name="Party" type="one">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation fk-name="ACTGPREF_TAXFORM" rel-entity-name="Enumeration" title="TaxForm" type="one">
+            <key-map field-name="taxFormId" rel-field-name="enumId"/>
+        </relation>
+        <relation fk-name="ACTGPREF_COGS" rel-entity-name="Enumeration" title="Cogs" type="one">
+            <key-map field-name="cogsMethodId" rel-field-name="enumId"/>
+        </relation>
+        <relation fk-name="ACCTGPREF_CURNCY" rel-entity-name="Uom" type="one">
+            <key-map field-name="baseCurrencyUomId" rel-field-name="uomId"/>
+        </relation>
+        <relation fk-name="ACTGPREF_INVCM" rel-entity-name="CustomMethod" title="Invoice" type="one">
+            <key-map field-name="invoiceSeqCustMethId" rel-field-name="customMethodId"/>
+        </relation>
+        <relation fk-name="ACTGPREF_QTECM" rel-entity-name="CustomMethod" title="Quote" type="one">
+            <key-map field-name="quoteSeqCustMethId" rel-field-name="customMethodId"/>
+        </relation>
+        <relation fk-name="ACTGPREF_ODRCM" rel-entity-name="CustomMethod" title="Order" type="one">
+            <key-map field-name="orderSeqCustMethId" rel-field-name="customMethodId"/>
+        </relation>
+        <relation fk-name="ACTGPREF_PAYMTH" rel-entity-name="PaymentMethod" type="one">
+            <key-map field-name="refundPaymentMethodId" rel-field-name="paymentMethodId"/>
+        </relation>
+        <relation fk-name="ACTGPREF_GLJRNL" rel-entity-name="GlJournal" type="one">
+            <key-map field-name="errorGlJournalId" rel-field-name="glJournalId"/>
+        </relation>
+        <relation fk-name="ACTGPREF_INVSQ" rel-entity-name="Enumeration" title="InvoiceSequence" type="one">
+            <key-map field-name="oldInvoiceSequenceEnumId" rel-field-name="enumId"/>
+        </relation>
+        <relation fk-name="ACTGPREF_QTESQ" rel-entity-name="Enumeration" title="QuoteSequence" type="one">
+            <key-map field-name="oldQuoteSequenceEnumId" rel-field-name="enumId"/>
+        </relation>
+        <relation fk-name="ACTGPREF_ODRSQ" rel-entity-name="Enumeration" title="OrderSequence" type="one">
+            <key-map field-name="oldOrderSequenceEnumId" rel-field-name="enumId"/>
+        </relation>
+        <index name="PRT_ACG_PRFC_TXSTP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PRT_ACG_PRFC_TXCRS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="AccountingEntityLabels" entity-name="GlAccountType" package-name="com.hanlin.fadp.accounting.ledger" title="General Ledger Account Type Entity" version="1.0">
+        <description>None</description>
+        <field name="glAccountTypeId" not-null="true" type="id-ne"/>
+        <field name="parentTypeId" type="id-ne"/>
+        <field name="hasTable" type="indicator"/>
+        <field name="description" type="description"/>
+        <prim-key field="glAccountTypeId"/>
+        <relation fk-name="GLACTTY_PAR" rel-entity-name="GlAccountType" title="Parent" type="one">
+            <key-map field-name="parentTypeId" rel-field-name="glAccountTypeId"/>
+        </relation>
+        <relation rel-entity-name="AcctgTransEntry" type="many">
+            <key-map field-name="glAccountTypeId"/>
+        </relation>
+        <relation rel-entity-name="CostComponentCalc" title="Cost" type="many">
+            <key-map field-name="glAccountTypeId" rel-field-name="costGlAccountTypeId"/>
+        </relation>
+        <relation rel-entity-name="CostComponentCalc" title="Offsetting" type="many">
+            <key-map field-name="glAccountTypeId" rel-field-name="offsettingGlAccountTypeId"/>
+        </relation>
+        <relation rel-entity-name="GlAccount" type="many">
+            <key-map field-name="glAccountTypeId"/>
+        </relation>
+        <relation rel-entity-name="GlAccountType" title="Child" type="many">
+            <key-map field-name="glAccountTypeId" rel-field-name="parentTypeId"/>
+        </relation>
+        <relation rel-entity-name="GlAccountTypeDefault" type="many">
+            <key-map field-name="glAccountTypeId"/>
+        </relation>
+        <relation rel-entity-name="PartyGlAccount" type="many">
+            <key-map field-name="glAccountTypeId"/>
+        </relation>
+        <relation rel-entity-name="PaymentGlAccountTypeMap" type="many">
+            <key-map field-name="glAccountTypeId"/>
+        </relation>
+        <relation rel-entity-name="ProductCategoryGlAccount" type="many">
+            <key-map field-name="glAccountTypeId"/>
+        </relation>
+        <relation rel-entity-name="ProductGlAccount" type="many">
+            <key-map field-name="glAccountTypeId"/>
+        </relation>
+        <index name="GL_ACCNT_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="GL_ACCNT_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="GeoAssocType" package-name="com.hanlin.fadp.common.geo" title="Geographic Boundary Association Entity" version="1.0">
+        <description>None</description>
+        <field name="geoAssocTypeId" not-null="true" type="id-ne"/>
+        <field name="description" type="description"/>
+        <prim-key field="geoAssocTypeId"/>
+        <relation rel-entity-name="CountryAddressFormat" type="many">
+            <key-map field-name="geoAssocTypeId"/>
+        </relation>
+        <relation rel-entity-name="GeoAssoc" type="many">
+            <key-map field-name="geoAssocTypeId"/>
+        </relation>
+        <index name="G_ASSC_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="G_ASSC_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="CreditCard" package-name="com.hanlin.fadp.accounting.payment" title="Credit Card Information Entity" version="1.0">
+        <description>None</description>
+        <field name="paymentMethodId" not-null="true" type="id-ne"/>
+        <field name="cardType" type="short-varchar"/>
+        <field encrypt="true" name="cardNumber" type="credit-card-number"/>
+        <field name="validFromDate" type="credit-card-date"/>
+        <field name="expireDate" type="credit-card-date"/>
+        <field name="issueNumber" type="credit-card-date"/>
+        <field name="companyNameOnCard" type="name"/>
+        <field name="titleOnCard" type="name"/>
+        <field name="firstNameOnCard" type="name"/>
+        <field name="middleNameOnCard" type="name"/>
+        <field name="lastNameOnCard" type="name"/>
+        <field name="suffixOnCard" type="name"/>
+        <field name="contactMechId" type="id-ne"/>
+        <field name="consecutiveFailedAuths" type="numeric"/>
+        <field name="lastFailedAuthDate" type="date-time"/>
+        <field name="consecutiveFailedNsf" type="numeric"/>
+        <field name="lastFailedNsfDate" type="date-time"/>
+        <prim-key field="paymentMethodId"/>
+        <relation fk-name="CREDCARD_PMNTMETH" rel-entity-name="PaymentMethod" type="one">
+            <key-map field-name="paymentMethodId"/>
+        </relation>
+        <relation fk-name="CREDCARD_CMECH" rel-entity-name="ContactMech" type="one">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation fk-name="CREDCARD_PADDR" rel-entity-name="PostalAddress" type="one">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="OrderPaymentPreference" type="many">
+            <key-map field-name="paymentMethodId"/>
+        </relation>
+        <relation rel-entity-name="Payment" type="many">
+            <key-map field-name="paymentMethodId"/>
+        </relation>
+        <index name="CREDIT_CARD_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="CREDIT_CARD_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="GiftCard" package-name="com.hanlin.fadp.accounting.payment" title="Gift Card Information Entity" version="1.0">
+        <description>None</description>
+        <field name="paymentMethodId" not-null="true" type="id-ne"/>
+        <field encrypt="true" name="cardNumber" type="long-varchar"/>
+        <field encrypt="true" name="pinNumber" type="long-varchar"/>
+        <field name="expireDate" type="credit-card-date"/>
+        <field name="contactMechId" type="id-ne"/>
+        <prim-key field="paymentMethodId"/>
+        <relation fk-name="GIFTCARD_PMNTMETH" rel-entity-name="PaymentMethod" type="one">
+            <key-map field-name="paymentMethodId"/>
+        </relation>
+        <relation fk-name="GIFTCARD_CMECH" rel-entity-name="ContactMech" type="one">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation fk-name="GIFTCARD_PADDR" rel-entity-name="PostalAddress" type="one">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="OrderPaymentPreference" type="many">
+            <key-map field-name="paymentMethodId"/>
+        </relation>
+        <relation rel-entity-name="Payment" type="many">
+            <key-map field-name="paymentMethodId"/>
+        </relation>
+        <index name="GIFT_CARD_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="GIFT_CARD_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="RuntimeData" package-name="com.hanlin.fadp.service.schedule" sequence-bank-size="100" title="Runtime Data Entity" version="1.0">
+        <description>None</description>
+        <field name="runtimeDataId" not-null="true" type="id-ne"/>
+        <field name="runtimeInfo" type="very-long"/>
+        <prim-key field="runtimeDataId"/>
+        <relation rel-entity-name="ApplicationSandbox" type="many">
+            <key-map field-name="runtimeDataId"/>
+        </relation>
+        <relation rel-entity-name="JobSandbox" type="many">
+            <key-map field-name="runtimeDataId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffort" type="many">
+            <key-map field-name="runtimeDataId"/>
+        </relation>
+        <index name="RNTM_DT_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="RNTM_DT_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="UomType" package-name="com.hanlin.fadp.common.uom" title="Unit Of Measure Type Entity" version="1.0">
+        <description>None</description>
+        <field name="uomTypeId" not-null="true" type="id-ne"/>
+        <field name="parentTypeId" type="id-ne"/>
+        <field name="hasTable" type="indicator"/>
+        <field name="description" type="description"/>
+        <prim-key field="uomTypeId"/>
+        <relation fk-name="UOM_TYPE_PARENT" rel-entity-name="UomType" title="Parent" type="one">
+            <key-map field-name="parentTypeId" rel-field-name="uomTypeId"/>
+        </relation>
+        <relation rel-entity-name="Product" title="Amount" type="many">
+            <key-map field-name="uomTypeId" rel-field-name="amountUomTypeId"/>
+        </relation>
+        <relation rel-entity-name="Uom" type="many">
+            <key-map field-name="uomTypeId"/>
+        </relation>
+        <relation rel-entity-name="UomType" title="Child" type="many">
+            <key-map field-name="uomTypeId" rel-field-name="parentTypeId"/>
+        </relation>
+        <index name="UOM_TYPE_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="UOM_TYPE_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="CustomMethod" package-name="com.hanlin.fadp.common.method" title="Custom Method Entity" version="1.0">
+        <description>None</description>
+        <field name="customMethodId" not-null="true" type="id-ne"/>
+        <field name="customMethodTypeId" type="id"/>
+        <field name="customMethodName" type="long-varchar"/>
+        <field name="description" type="description"/>
+        <prim-key field="customMethodId"/>
+        <relation fk-name="CME_TO_TYPE" rel-entity-name="CustomMethodType" type="one">
+            <key-map field-name="customMethodTypeId"/>
+        </relation>
+        <relation rel-entity-name="Content" type="many">
+            <key-map field-name="customMethodId"/>
+        </relation>
+        <relation rel-entity-name="CostComponentCalc" type="many">
+            <key-map field-name="customMethodId" rel-field-name="costCustomMethodId"/>
+        </relation>
+        <relation rel-entity-name="FixedAssetDepMethod" type="many">
+            <key-map field-name="customMethodId" rel-field-name="depreciationCustomMethodId"/>
+        </relation>
+        <relation rel-entity-name="PartyAcctgPreference" title="Invoice" type="many">
+            <key-map field-name="customMethodId" rel-field-name="invoiceSeqCustMethId"/>
+        </relation>
+        <relation rel-entity-name="PartyAcctgPreference" title="Quote" type="many">
+            <key-map field-name="customMethodId" rel-field-name="quoteSeqCustMethId"/>
+        </relation>
+        <relation rel-entity-name="PartyAcctgPreference" title="Order" type="many">
+            <key-map field-name="customMethodId" rel-field-name="orderSeqCustMethId"/>
+        </relation>
+        <relation rel-entity-name="ProductAssoc" type="many">
+            <key-map field-name="customMethodId" rel-field-name="estimateCalcMethod"/>
+        </relation>
+        <relation rel-entity-name="ProductPrice" type="many">
+            <key-map field-name="customMethodId" rel-field-name="customPriceCalcService"/>
+        </relation>
+        <relation rel-entity-name="ProductStorePaymentSetting" type="many">
+            <key-map field-name="customMethodId" rel-field-name="paymentCustomMethodId"/>
+        </relation>
+        <relation rel-entity-name="ProductStoreShipmentMeth" type="many">
+            <key-map field-name="customMethodId" rel-field-name="shipmentCustomMethodId"/>
+        </relation>
+        <relation rel-entity-name="UomConversion" title="uomCustomMethod" type="many">
+            <key-map field-name="customMethodId"/>
+        </relation>
+        <relation rel-entity-name="UomConversionDated" title="uomCustomMethod" type="many">
+            <key-map field-name="customMethodId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffort" type="many">
+            <key-map field-name="customMethodId" rel-field-name="estimateCalcMethod"/>
+        </relation>
+        <index name="CSTM_MTHD_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="CSTM_MTHD_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="Uom" package-name="com.hanlin.fadp.common.uom" title="Unit Of Measure Entity" version="1.0">
+        <description>None</description>
+        <field name="uomId" not-null="true" type="id-ne"/>
+        <field name="uomTypeId" type="id"/>
+        <field name="abbreviation" type="short-varchar"/>
+        <field name="description" type="description"/>
+        <prim-key field="uomId"/>
+        <relation fk-name="UOM_TO_TYPE" rel-entity-name="UomType" type="one">
+            <key-map field-name="uomTypeId"/>
+        </relation>
+        <relation rel-entity-name="AcctgTransEntry" title="Currency" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="AcctgTransEntry" title="OrigCurrency" type="many">
+            <key-map field-name="uomId" rel-field-name="origCurrencyUomId"/>
+        </relation>
+        <relation rel-entity-name="BillingAccount" type="many">
+            <key-map field-name="uomId" rel-field-name="accountCurrencyUomId"/>
+        </relation>
+        <relation rel-entity-name="BillingAccountTerm" type="many">
+            <key-map field-name="uomId"/>
+        </relation>
+        <relation rel-entity-name="CostComponent" title="Currency" type="many">
+            <key-map field-name="uomId" rel-field-name="costUomId"/>
+        </relation>
+        <relation rel-entity-name="CostComponentCalc" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="CustRequest" title="MaximumAmount" type="many">
+            <key-map field-name="uomId" rel-field-name="maximumAmountUomId"/>
+        </relation>
+        <relation rel-entity-name="CustRequest" title="Currency" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="Facility" title="Dimension" type="many">
+            <key-map field-name="uomId" rel-field-name="defaultDimensionUomId"/>
+        </relation>
+        <relation rel-entity-name="Facility" title="Weight" type="many">
+            <key-map field-name="uomId" rel-field-name="defaultWeightUomId"/>
+        </relation>
+        <relation rel-entity-name="Facility" title="FacilitySize" type="many">
+            <key-map field-name="uomId" rel-field-name="facilitySizeUomId"/>
+        </relation>
+        <relation rel-entity-name="FinAccount" title="Currency" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="FixedAsset" type="many">
+            <key-map field-name="uomId"/>
+        </relation>
+        <relation rel-entity-name="FixedAssetMaint" title="Interval" type="many">
+            <key-map field-name="uomId" rel-field-name="intervalUomId"/>
+        </relation>
+        <relation rel-entity-name="FixedAssetProduct" type="many">
+            <key-map field-name="uomId" rel-field-name="quantityUomId"/>
+        </relation>
+        <relation rel-entity-name="FixedAssetStdCost" type="many">
+            <key-map field-name="uomId" rel-field-name="amountUomId"/>
+        </relation>
+        <relation rel-entity-name="GeoPoint" title="Elevation" type="many">
+            <key-map field-name="uomId" rel-field-name="elevationUomId"/>
+        </relation>
+        <relation rel-entity-name="InventoryItem" type="many">
+            <key-map field-name="uomId"/>
+        </relation>
+        <relation rel-entity-name="InventoryItem" title="Currency" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="Invoice" title="Currency" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="InvoiceItem" type="many">
+            <key-map field-name="uomId"/>
+        </relation>
+        <relation rel-entity-name="MarketingCampaign" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="OldPartyRate" title="Currency" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="OrderDeliverySchedule" title="TotalCubic" type="many">
+            <key-map field-name="uomId" rel-field-name="totalCubicUomId"/>
+        </relation>
+        <relation rel-entity-name="OrderDeliverySchedule" title="TotalWeight" type="many">
+            <key-map field-name="uomId" rel-field-name="totalWeightUomId"/>
+        </relation>
+        <relation rel-entity-name="OrderHeader" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUom"/>
+        </relation>
+        <relation rel-entity-name="OrderItem" title="RecurringFreq" type="many">
+            <key-map field-name="uomId" rel-field-name="recurringFreqUomId"/>
+        </relation>
+        <relation rel-entity-name="OrderTerm" type="many">
+            <key-map field-name="uomId"/>
+        </relation>
+        <relation rel-entity-name="Party" type="many">
+            <key-map field-name="uomId" rel-field-name="preferredCurrencyUomId"/>
+        </relation>
+        <relation rel-entity-name="PartyAcctgPreference" type="many">
+            <key-map field-name="uomId" rel-field-name="baseCurrencyUomId"/>
+        </relation>
+        <relation rel-entity-name="Payment" title="Currency" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="Payment" title="ActualCurrency" type="many">
+            <key-map field-name="uomId" rel-field-name="actualCurrencyUomId"/>
+        </relation>
+        <relation rel-entity-name="PaymentGatewayResponse" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="PeriodType" type="many">
+            <key-map field-name="uomId"/>
+        </relation>
+        <relation rel-entity-name="Product" title="Quantity" type="many">
+            <key-map field-name="uomId" rel-field-name="quantityUomId"/>
+        </relation>
+        <relation rel-entity-name="Product" title="Weight" type="many">
+            <key-map field-name="uomId" rel-field-name="weightUomId"/>
+        </relation>
+        <relation rel-entity-name="Product" title="Height" type="many">
+            <key-map field-name="uomId" rel-field-name="heightUomId"/>
+        </relation>
+        <relation rel-entity-name="Product" title="Width" type="many">
+            <key-map field-name="uomId" rel-field-name="widthUomId"/>
+        </relation>
+        <relation rel-entity-name="Product" title="Depth" type="many">
+            <key-map field-name="uomId" rel-field-name="depthUomId"/>
+        </relation>
+        <relation rel-entity-name="Product" title="Diameter" type="many">
+            <key-map field-name="uomId" rel-field-name="diameterUomId"/>
+        </relation>
+        <relation rel-entity-name="ProductContent" title="UseTime" type="many">
+            <key-map field-name="uomId" rel-field-name="useTimeUomId"/>
+        </relation>
+        <relation rel-entity-name="ProductFeature" type="many">
+            <key-map field-name="uomId"/>
+        </relation>
+        <relation rel-entity-name="ProductFeaturePrice" title="Currency" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="ProductMaint" title="Interval" type="many">
+            <key-map field-name="uomId" rel-field-name="intervalUomId"/>
+        </relation>
+        <relation rel-entity-name="ProductMeter" title="Meter" type="many">
+            <key-map field-name="uomId" rel-field-name="meterUomId"/>
+        </relation>
+        <relation rel-entity-name="ProductMeterType" title="Default" type="many">
+            <key-map field-name="uomId" rel-field-name="defaultUomId"/>
+        </relation>
+        <relation rel-entity-name="ProductPrice" title="Currency" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="ProductPrice" title="Term" type="many">
+            <key-map field-name="uomId" rel-field-name="termUomId"/>
+        </relation>
+        <relation rel-entity-name="ProductStore" type="many">
+            <key-map field-name="uomId" rel-field-name="defaultCurrencyUomId"/>
+        </relation>
+        <relation rel-entity-name="ProductSubscriptionResource" title="UseTime" type="many">
+            <key-map field-name="uomId" rel-field-name="useTimeUomId"/>
+        </relation>
+        <relation rel-entity-name="ProductSubscriptionResource" title="CancelTime" type="many">
+            <key-map field-name="uomId" rel-field-name="canclAutmExtTimeUomId"/>
+        </relation>
+        <relation rel-entity-name="ProductSubscriptionResource" title="AvailableTime" type="many">
+            <key-map field-name="uomId" rel-field-name="availableTimeUomId"/>
+        </relation>
+        <relation rel-entity-name="ProductSubscriptionResource" title="MaxLifeTime" type="many">
+            <key-map field-name="uomId" rel-field-name="maxLifeTimeUomId"/>
+        </relation>
+        <relation rel-entity-name="ProductSubscriptionResource" title="GracePeriod" type="many">
+            <key-map field-name="uomId" rel-field-name="gracePeriodOnExpiryUomId"/>
+        </relation>
+        <relation rel-entity-name="Quote" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="QuoteItem" type="many">
+            <key-map field-name="uomId"/>
+        </relation>
+        <relation rel-entity-name="RateAmount" type="many">
+            <key-map field-name="uomId" rel-field-name="rateCurrencyUomId"/>
+        </relation>
+        <relation rel-entity-name="ReturnHeader" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="SalesForecast" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="SalesForecastDetail" title="Quantity" type="many">
+            <key-map field-name="uomId" rel-field-name="quantityUomId"/>
+        </relation>
+        <relation rel-entity-name="SalesForecastHistory" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="SalesOpportunity" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="SalesOpportunityHistory" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="Shipment" title="Currency" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentBoxType" title="Dimension" type="many">
+            <key-map field-name="uomId" rel-field-name="dimensionUomId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentBoxType" title="Weight" type="many">
+            <key-map field-name="uomId" rel-field-name="weightUomId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentCostEstimate" title="Weight" type="many">
+            <key-map field-name="uomId" rel-field-name="weightUomId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentCostEstimate" title="Quantity" type="many">
+            <key-map field-name="uomId" rel-field-name="quantityUomId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentCostEstimate" title="Price" type="many">
+            <key-map field-name="uomId" rel-field-name="priceUomId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentPackage" title="Dimension" type="many">
+            <key-map field-name="uomId" rel-field-name="dimensionUomId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentPackage" title="Weight" type="many">
+            <key-map field-name="uomId" rel-field-name="weightUomId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentPackageRouteSeg" title="Currency" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentRouteSegment" title="Currency" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="ShipmentRouteSegment" title="BillingWeight" type="many">
+            <key-map field-name="uomId" rel-field-name="billingWeightUomId"/>
+        </relation>
+        <relation rel-entity-name="Subscription" title="UseTime" type="many">
+            <key-map field-name="uomId" rel-field-name="useTimeUomId"/>
+        </relation>
+        <relation rel-entity-name="Subscription" title="CancelTime" type="many">
+            <key-map field-name="uomId" rel-field-name="canclAutmExtTimeUomId"/>
+        </relation>
+        <relation rel-entity-name="Subscription" title="AvailableTime" type="many">
+            <key-map field-name="uomId" rel-field-name="availableTimeUomId"/>
+        </relation>
+        <relation rel-entity-name="Subscription" title="MaxLifeTime" type="many">
+            <key-map field-name="uomId" rel-field-name="maxLifeTimeUomId"/>
+        </relation>
+        <relation rel-entity-name="Subscription" title="GracePeriod" type="many">
+            <key-map field-name="uomId" rel-field-name="gracePeriodOnExpiryUomId"/>
+        </relation>
+        <relation rel-entity-name="SupplierProduct" title="Currency" type="many">
+            <key-map field-name="uomId" rel-field-name="currencyUomId"/>
+        </relation>
+        <relation rel-entity-name="SupplierProduct" title="Quantity" type="many">
+            <key-map field-name="uomId" rel-field-name="quantityUomId"/>
+        </relation>
+        <relation rel-entity-name="SupplierProductFeature" type="many">
+            <key-map field-name="uomId"/>
+        </relation>
+        <relation rel-entity-name="UomConversion" title="Main" type="many">
+            <key-map field-name="uomId"/>
+        </relation>
+        <relation rel-entity-name="UomConversion" title="ConvTo" type="many">
+            <key-map field-name="uomId" rel-field-name="uomIdTo"/>
+        </relation>
+        <relation rel-entity-name="UomConversionDated" title="DatedMain" type="many">
+            <key-map field-name="uomId"/>
+        </relation>
+        <relation rel-entity-name="UomConversionDated" title="DatedConvTo" type="many">
+            <key-map field-name="uomId" rel-field-name="uomIdTo"/>
+        </relation>
+        <relation rel-entity-name="UomGroup" type="many">
+            <key-map field-name="uomId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffort" title="Money" type="many">
+            <key-map field-name="uomId" rel-field-name="moneyUomId"/>
+        </relation>
+        <index name="UOM_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="UOM_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="JobSandbox" never-cache="true" package-name="com.hanlin.fadp.service.schedule" sequence-bank-size="100" title="Job Scheduler Sandbox Entity" version="1.0">
+        <description>None</description>
+        <field name="jobId" not-null="true" type="id-ne"/>
+        <field name="jobName" type="name"/>
+        <field name="runTime" type="date-time"/>
+        <field name="poolId" type="name"/>
+        <field name="statusId" type="id"/>
+        <field name="parentJobId" type="id"/>
+        <field name="previousJobId" type="id"/>
+        <field name="serviceName" type="name"/>
+        <field name="loaderName" type="name"/>
+        <field name="maxRetry" type="numeric"/>
+        <field name="currentRetryCount" type="numeric"/>
+        <field name="authUserLoginId" type="id-vlong"/>
+        <field name="runAsUser" type="id-vlong"/>
+        <field name="runtimeDataId" type="id"/>
+        <field name="recurrenceInfoId" type="id"/>
+        <field name="tempExprId" type="id"/>
+        <field name="currentRecurrenceCount" type="numeric"/>
+        <field name="maxRecurrenceCount" type="numeric"/>
+        <field name="runByInstanceId" type="id"/>
+        <field name="startDateTime" type="date-time"/>
+        <field name="finishDateTime" type="date-time"/>
+        <field name="cancelDateTime" type="date-time"/>
+        <field name="jobResult" type="value"/>
+        <prim-key field="jobId"/>
+        <relation fk-name="JOB_SNDBX_RECINFO" rel-entity-name="RecurrenceInfo" type="one">
+            <key-map field-name="recurrenceInfoId"/>
+        </relation>
+        <relation fk-name="JOB_SNDBX_TEMPEXPR" rel-entity-name="TemporalExpression" type="one">
+            <key-map field-name="tempExprId"/>
+        </relation>
+        <relation fk-name="JOB_SNDBX_RNTMDTA" rel-entity-name="RuntimeData" type="one">
+            <key-map field-name="runtimeDataId"/>
+        </relation>
+        <relation fk-name="JOB_SNDBX_AUSRLGN" rel-entity-name="UserLogin" title="Auth" type="one">
+            <key-map field-name="authUserLoginId" rel-field-name="userLoginId"/>
+        </relation>
+        <relation fk-name="JOB_SNDBX_USRLGN" rel-entity-name="UserLogin" title="RunAs" type="one">
+            <key-map field-name="runAsUser" rel-field-name="userLoginId"/>
+        </relation>
+        <relation fk-name="JOB_SNDBX_STTS" rel-entity-name="StatusItem" type="one">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="ProductGroupOrder" type="many">
+            <key-map field-name="jobId"/>
+        </relation>
+        <index name="JOB_SANDBOX_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="JOB_SANDBOX_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+        <index name="JOB_SNDBX_RUNSTAT">
+            <index-field name="runByInstanceId"/>
+            <index-field name="statusId"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="PartyEntityLabels" entity-name="PartyType" package-name="com.hanlin.fadp.party.party" title="Party Type Entity" version="1.0">
+        <description>None</description>
+        <field name="partyTypeId" not-null="true" type="id-ne"/>
+        <field name="parentTypeId" type="id"/>
+        <field name="hasTable" type="indicator"/>
+        <field name="description" type="description"/>
+        <prim-key field="partyTypeId"/>
+        <relation fk-name="PARTY_TYPE_PAR" rel-entity-name="PartyType" title="Parent" type="one">
+            <key-map field-name="parentTypeId" rel-field-name="partyTypeId"/>
+        </relation>
+        <relation rel-entity-name="PartyType" title="Sibling" type="many">
+            <key-map field-name="parentTypeId"/>
+        </relation>
+        <relation rel-entity-name="Party" type="many">
+            <key-map field-name="partyTypeId"/>
+        </relation>
+        <relation rel-entity-name="PartyNeed" type="many">
+            <key-map field-name="partyTypeId"/>
+        </relation>
+        <relation rel-entity-name="PartyType" title="Child" type="many">
+            <key-map field-name="partyTypeId" rel-field-name="parentTypeId"/>
+        </relation>
+        <relation rel-entity-name="PartyTypeAttr" type="many">
+            <key-map field-name="partyTypeId"/>
+        </relation>
+        <index name="PARTY_TYPE_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PARTY_TYPE_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="PartyGroup" package-name="com.hanlin.fadp.party.party" title="Party Group Entity" version="1.0">
+        <description>None</description>
+        <field name="partyId" not-null="true" type="id-ne"/>
+        <field name="groupName" type="name"/>
+        <field name="groupNameLocal" type="name"/>
+        <field name="officeSiteName" type="name"/>
+        <field name="annualRevenue" type="currency-amount"/>
+        <field name="numEmployees" type="numeric"/>
+        <field name="tickerSymbol" type="very-short"/>
+        <field name="comments" type="comment"/>
+        <field name="logoImageUrl" type="url"/>
+        <prim-key field="partyId"/>
+        <relation fk-name="PARTY_GRP_PARTY" rel-entity-name="Party" type="one">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="Affiliate" type="one-nofk">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyContactMech" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyContactMechPurpose" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyInvitationGroupAssoc" title="To" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdTo"/>
+        </relation>
+        <relation rel-entity-name="ProdCatalogRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ProductStoreRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="Shipment" title="To" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdTo"/>
+        </relation>
+        <relation rel-entity-name="Shipment" title="From" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdFrom"/>
+        </relation>
+        <relation rel-entity-name="ShipmentRouteSegment" title="Carrier" type="many">
+            <key-map field-name="partyId" rel-field-name="carrierPartyId"/>
+        </relation>
+        <relation rel-entity-name="UserLogin" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="WebSiteRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <index name="PARTY_GROUP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PARTY_GROUP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+        <index name="GROUP_NAME_IDX">
+            <index-field name="groupName"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="EftAccount" package-name="com.hanlin.fadp.accounting.payment" title="EFT Account Information Entity" version="1.0">
+        <description>None</description>
+        <field name="paymentMethodId" not-null="true" type="id-ne"/>
+        <field name="bankName" type="name"/>
+        <field name="routingNumber" type="short-varchar"/>
+        <field name="accountType" type="short-varchar"/>
+        <field name="accountNumber" type="long-varchar"/>
+        <field name="nameOnAccount" type="name"/>
+        <field name="companyNameOnAccount" type="name"/>
+        <field name="contactMechId" type="id-ne"/>
+        <field name="yearsAtBank" type="numeric"/>
+        <prim-key field="paymentMethodId"/>
+        <relation fk-name="EFTACCT_PMETH" rel-entity-name="PaymentMethod" type="one">
+            <key-map field-name="paymentMethodId"/>
+        </relation>
+        <relation fk-name="EFTACCT_CMECH" rel-entity-name="ContactMech" type="one">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation fk-name="EFTACCT_PADDR" rel-entity-name="PostalAddress" type="one">
+            <key-map field-name="contactMechId"/>
+        </relation>
+        <relation rel-entity-name="OrderPaymentPreference" type="many">
+            <key-map field-name="paymentMethodId"/>
+        </relation>
+        <relation rel-entity-name="Payment" type="many">
+            <key-map field-name="paymentMethodId"/>
+        </relation>
+        <index name="EFT_ACCOUNT_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="EFT_ACCOUNT_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="RecurrenceRule" package-name="com.hanlin.fadp.service.schedule" title="Recurrence Rule Entity" version="1.0">
+        <description>None</description>
+        <field name="recurrenceRuleId" not-null="true" type="id-ne"/>
+        <field name="frequency" type="short-varchar"/>
+        <field name="untilDateTime" type="date-time"/>
+        <field name="countNumber" type="numeric"/>
+        <field name="intervalNumber" type="numeric"/>
+        <field name="bySecondList" type="very-long"/>
+        <field name="byMinuteList" type="very-long"/>
+        <field name="byHourList" type="very-long"/>
+        <field name="byDayList" type="very-long"/>
+        <field name="byMonthDayList" type="very-long"/>
+        <field name="byYearDayList" type="very-long"/>
+        <field name="byWeekNoList" type="very-long"/>
+        <field name="byMonthList" type="very-long"/>
+        <field name="bySetPosList" type="very-long"/>
+        <field name="weekStart" type="short-varchar"/>
+        <field name="xName" type="very-long"/>
+        <prim-key field="recurrenceRuleId"/>
+        <relation rel-entity-name="RecurrenceInfo" type="many">
+            <key-map field-name="recurrenceRuleId"/>
+        </relation>
+        <relation rel-entity-name="RecurrenceInfo" title="Exception" type="many">
+            <key-map field-name="recurrenceRuleId" rel-field-name="exceptionRuleId"/>
+        </relation>
+        <index name="RCRRNC_RL_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="RCRRNC_RL_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="CountryAddressFormat" package-name="com.hanlin.fadp.common.geo" title="Entity of an Open For Business Project Component" version="1.0">
+        <description>None</description>
+        <field name="geoId" not-null="true" type="id-ne"/>
+        <field name="geoAssocTypeId" type="id"/>
+        <field name="requireStateProvinceId" type="id"/>
+        <field name="requirePostalCode" type="indicator"/>
+        <field name="postalCodeRegex" type="long-varchar"/>
+        <field name="hasPostalCodeExt" type="indicator"/>
+        <field name="requirePostalCodeExt" type="indicator"/>
+        <field name="addressFormat" type="long-varchar"/>
+        <prim-key field="geoId"/>
+        <relation fk-name="CNY_ADR_GEO" rel-entity-name="Geo" type="one">
+            <key-map field-name="geoId"/>
+        </relation>
+        <relation fk-name="CNY_ADR_GEO_TYPE" rel-entity-name="GeoAssocType" type="one">
+            <key-map field-name="geoAssocTypeId"/>
+        </relation>
+        <index name="CNR_ADDS_FRT_TXSTP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="CNR_ADDS_FRT_TXCRS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="GlXbrlClass" package-name="com.hanlin.fadp.accounting.ledger" title="General Ledger XBRL Class Entity" version="1.0">
+        <description>None</description>
+        <field name="glXbrlClassId" not-null="true" type="id-ne"/>
+        <field name="description" type="description"/>
+        <prim-key field="glXbrlClassId"/>
+        <relation rel-entity-name="GlAccount" type="many">
+            <key-map field-name="glXbrlClassId"/>
+        </relation>
+        <index name="GL_XBRL_CLS_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="GL_XBRL_CLS_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="Person" package-name="com.hanlin.fadp.party.party" title="Person Entity" version="1.0">
+        <description>None</description>
+        <field name="partyId" not-null="true" type="id-ne"/>
+        <field name="salutation" type="name"/>
+        <field name="firstName" type="name"/>
+        <field name="middleName" type="name"/>
+        <field name="lastName" type="name"/>
+        <field name="personalTitle" type="name"/>
+        <field name="suffix" type="name"/>
+        <field name="nickname" type="name"/>
+        <field name="firstNameLocal" type="name"/>
+        <field name="middleNameLocal" type="name"/>
+        <field name="lastNameLocal" type="name"/>
+        <field name="otherLocal" type="name"/>
+        <field name="memberId" type="id"/>
+        <field name="gender" type="indicator"/>
+        <field name="birthDate" type="date"/>
+        <field name="deceasedDate" type="date"/>
+        <field name="height" type="floating-point"/>
+        <field name="weight" type="floating-point"/>
+        <field encrypt="true" name="mothersMaidenName" type="long-varchar"/>
+        <field name="maritalStatus" type="indicator"/>
+        <field encrypt="true" name="socialSecurityNumber" type="long-varchar"/>
+        <field encrypt="true" name="passportNumber" type="long-varchar"/>
+        <field name="passportExpireDate" type="date"/>
+        <field name="totalYearsWorkExperience" type="floating-point"/>
+        <field name="comments" type="comment"/>
+        <field name="employmentStatusEnumId" type="id"/>
+        <field name="residenceStatusEnumId" type="id"/>
+        <field name="occupation" type="name"/>
+        <field name="yearsWithEmployer" type="numeric"/>
+        <field name="monthsWithEmployer" type="numeric"/>
+        <field name="existingCustomer" type="indicator"/>
+        <field name="cardId" type="id-long"/>
+        <prim-key field="partyId"/>
+        <relation fk-name="PERSON_PARTY" rel-entity-name="Party" type="one">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation fk-name="PERSON_EMPS_ENUM" rel-entity-name="Enumeration" title="EmploymentStatus" type="one">
+            <key-map field-name="employmentStatusEnumId" rel-field-name="enumId"/>
+        </relation>
+        <relation fk-name="PERSON_RESS_ENUM" rel-entity-name="Enumeration" title="ResidenceStatus" type="one">
+            <key-map field-name="residenceStatusEnumId" rel-field-name="enumId"/>
+        </relation>
+        <relation rel-entity-name="PartyContactMech" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyContactMechPurpose" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PersonTraining" title="Approver" type="many">
+            <key-map field-name="partyId" rel-field-name="approverId"/>
+        </relation>
+        <relation rel-entity-name="ProdCatalogRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ProductStoreRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="Shipment" title="To" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdTo"/>
+        </relation>
+        <relation rel-entity-name="Shipment" title="From" type="many">
+            <key-map field-name="partyId" rel-field-name="partyIdFrom"/>
+        </relation>
+        <relation rel-entity-name="ShipmentRouteSegment" title="Carrier" type="many">
+            <key-map field-name="partyId" rel-field-name="carrierPartyId"/>
+        </relation>
+        <relation rel-entity-name="UserLogin" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="WebSiteRole" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffortPartyAssignment" type="many">
+            <key-map field-name="partyId"/>
+        </relation>
+        <index name="PERSON_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PERSON_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+        <index name="FIRST_NAME_IDX">
+            <index-field name="firstName"/>
+        </index>
+        <index name="LAST_NAME_IDX">
+            <index-field name="lastName"/>
+        </index>
+        <index name="CARD_ID_IDX" unique="true">
+            <index-field name="cardId"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="UserLogin" package-name="com.hanlin.fadp.security.login" title="User Login Entity" version="1.0">
+        <description>None</description>
+        <field name="userLoginId" not-null="true" type="id-vlong-ne"/>
+        <field name="currentPassword" type="short-varchar"/>
+        <field name="passwordHint" type="description"/>
+        <field name="isSystem" type="indicator"/>
+        <field name="enabled" type="indicator"/>
+        <field name="hasLoggedOut" type="indicator"/>
+        <field name="requirePasswordChange" type="indicator"/>
+        <field name="lastCurrencyUom" type="id"/>
+        <field name="lastLocale" type="very-short"/>
+        <field name="lastTimeZone" type="id-long"/>
+        <field name="disabledDateTime" type="date-time"/>
+        <field name="successiveFailedLogins" type="numeric"/>
+        <field name="externalAuthId" type="id-vlong-ne"/>
+        <field name="userLdapDn" type="id-vlong-ne"/>
+        <field name="partyId" type="id"/>
+        <prim-key field="userLoginId"/>
+        <relation fk-name="USER_PARTY" rel-entity-name="Party" type="one">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="Person" type="one-nofk">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="PartyGroup" type="one-nofk">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="ContactList" title="CreatedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="createdByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="ContactList" title="LastModifiedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="lastModifiedByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="Content" title="CreatedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="createdByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="Content" title="LastModifiedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="lastModifiedByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="ContentAssoc" title="CreatedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="createdByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="ContentAssoc" title="LastModifiedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="lastModifiedByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="DataResource" title="CreatedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="createdByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="DataResource" title="LastModifiedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="lastModifiedByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="ItemIssuance" title="IssuedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="issuedByUserLoginId"/>
+        </relation>
+        <relation rel-entity-name="JobSandbox" title="Auth" type="many">
+            <key-map field-name="userLoginId" rel-field-name="authUserLoginId"/>
+        </relation>
+        <relation rel-entity-name="JobSandbox" title="RunAs" type="many">
+            <key-map field-name="userLoginId" rel-field-name="runAsUser"/>
+        </relation>
+        <relation rel-entity-name="OrderAdjustment" type="many">
+            <key-map field-name="userLoginId" rel-field-name="createdByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="OrderHeader" title="CreatedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="createdBy"/>
+        </relation>
+        <relation rel-entity-name="OrderItem" title="DontCancelSet" type="many">
+            <key-map field-name="userLoginId" rel-field-name="dontCancelSetUserLogin"/>
+        </relation>
+        <relation rel-entity-name="OrderItem" title="ChangeBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="changeByUserLoginId"/>
+        </relation>
+        <relation rel-entity-name="OrderItemChange" type="many">
+            <key-map field-name="userLoginId" rel-field-name="changeUserLogin"/>
+        </relation>
+        <relation rel-entity-name="OrderPaymentPreference" type="many">
+            <key-map field-name="userLoginId" rel-field-name="createdByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="OrderStatus" type="many">
+            <key-map field-name="userLoginId" rel-field-name="statusUserLogin"/>
+        </relation>
+        <relation rel-entity-name="Party" title="CreatedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="createdByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="Party" title="LastModifiedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="lastModifiedByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="PicklistRole" title="CreatedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="createdByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="PicklistRole" title="LastModifiedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="lastModifiedByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="PicklistStatusHistory" title="Change" type="many">
+            <key-map field-name="userLoginId" rel-field-name="changeUserLoginId"/>
+        </relation>
+        <relation rel-entity-name="Product" title="CreatedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="createdByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="Product" title="LastModifiedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="lastModifiedByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="ProductFeaturePrice" title="CreatedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="createdByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="ProductFeaturePrice" title="LastModifiedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="lastModifiedByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="ProductPrice" title="CreatedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="createdByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="ProductPrice" title="LastModifiedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="lastModifiedByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="ProductPriceChange" title="ChangedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="changedByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="ProductPromo" title="CreatedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="createdByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="ProductPromo" title="LastModifiedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="lastModifiedByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="ProductPromoCode" title="CreatedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="createdByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="ProductPromoCode" title="LastModifiedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="lastModifiedByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="ProductReview" type="many">
+            <key-map field-name="userLoginId"/>
+        </relation>
+        <relation rel-entity-name="QuoteAdjustment" type="many">
+            <key-map field-name="userLoginId" rel-field-name="createdByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="ReturnAdjustment" type="many">
+            <key-map field-name="userLoginId" rel-field-name="createdByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="ReturnHeader" type="many">
+            <key-map field-name="userLoginId" rel-field-name="createdBy"/>
+        </relation>
+        <relation rel-entity-name="ReturnStatus" title="ChangeBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="changeByUserLoginId"/>
+        </relation>
+        <relation rel-entity-name="SalesForecast" title="CreatedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="createdByUserLoginId"/>
+        </relation>
+        <relation rel-entity-name="SalesForecast" title="ModifiedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="modifiedByUserLoginId"/>
+        </relation>
+        <relation rel-entity-name="SalesForecastHistory" title="ModifiedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="modifiedByUserLoginId"/>
+        </relation>
+        <relation rel-entity-name="SalesOpportunity" type="many">
+            <key-map field-name="userLoginId" rel-field-name="createdByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="SalesOpportunityHistory" type="many">
+            <key-map field-name="userLoginId" rel-field-name="modifiedByUserLogin"/>
+        </relation>
+        <relation rel-entity-name="ShipmentReceipt" type="many">
+            <key-map field-name="userLoginId" rel-field-name="receivedByUserLoginId"/>
+        </relation>
+        <relation rel-entity-name="Timesheet" title="ApprovedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="approvedByUserLoginId"/>
+        </relation>
+        <relation rel-entity-name="UserLoginHistory" type="many">
+            <key-map field-name="userLoginId"/>
+        </relation>
+        <relation rel-entity-name="UserLoginPasswordHistory" type="many">
+            <key-map field-name="userLoginId"/>
+        </relation>
+        <relation rel-entity-name="UserLoginSecurityGroup" type="many">
+            <key-map field-name="userLoginId"/>
+        </relation>
+        <relation rel-entity-name="UserLoginSession" type="one-nofk">
+            <key-map field-name="userLoginId"/>
+        </relation>
+        <relation rel-entity-name="Visitor" type="many">
+            <key-map field-name="userLoginId"/>
+        </relation>
+        <relation rel-entity-name="WebUserPreference" type="many">
+            <key-map field-name="userLoginId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffortPartyAssignment" title="AssignedBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="assignedByUserLoginId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffortReview" type="many">
+            <key-map field-name="userLoginId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffortStatus" title="SetBy" type="many">
+            <key-map field-name="userLoginId" rel-field-name="setByUserLogin"/>
+        </relation>
+        <index name="USER_LOGIN_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="USER_LOGIN_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="CustomMethodType" package-name="com.hanlin.fadp.common.method" title="Custom Method Type Entity" version="1.0">
+        <description>None</description>
+        <field name="customMethodTypeId" not-null="true" type="id-ne"/>
+        <field name="parentTypeId" type="id-ne"/>
+        <field name="hasTable" type="indicator"/>
+        <field name="description" type="description"/>
+        <prim-key field="customMethodTypeId"/>
+        <relation fk-name="CME_TYPE_PARENT" rel-entity-name="CustomMethodType" title="Parent" type="one">
+            <key-map field-name="parentTypeId" rel-field-name="customMethodTypeId"/>
+        </relation>
+        <relation rel-entity-name="CustomMethod" type="many">
+            <key-map field-name="customMethodTypeId"/>
+        </relation>
+        <relation rel-entity-name="CustomMethodType" title="Child" type="many">
+            <key-map field-name="customMethodTypeId" rel-field-name="parentTypeId"/>
+        </relation>
+        <index name="CSTM_MTD_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="CSTM_MTD_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="GeoType" package-name="com.hanlin.fadp.common.geo" title="Geographic Boundary Type Entity" version="1.0">
+        <description>None</description>
+        <field name="geoTypeId" not-null="true" type="id-ne"/>
+        <field name="parentTypeId" type="id-ne"/>
+        <field name="hasTable" type="indicator"/>
+        <field name="description" type="description"/>
+        <prim-key field="geoTypeId"/>
+        <relation fk-name="GEO_TYPE_PARENT" rel-entity-name="GeoType" title="Parent" type="one">
+            <key-map field-name="parentTypeId" rel-field-name="geoTypeId"/>
+        </relation>
+        <relation rel-entity-name="Geo" type="many">
+            <key-map field-name="geoTypeId"/>
+        </relation>
+        <relation rel-entity-name="GeoType" title="Child" type="many">
+            <key-map field-name="geoTypeId" rel-field-name="parentTypeId"/>
+        </relation>
+        <index name="GEO_TYPE_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="GEO_TYPE_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="DataSourceType" package-name="com.hanlin.fadp.common.datasource" title="Data Source Type Entity" version="1.0">
+        <description>None</description>
+        <field name="dataSourceTypeId" not-null="true" type="id"/>
+        <field name="description" type="description"/>
+        <prim-key field="dataSourceTypeId"/>
+        <relation rel-entity-name="DataSource" type="many">
+            <key-map field-name="dataSourceTypeId"/>
+        </relation>
+        <index name="DT_SRC_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="DT_SRC_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="Affiliate" package-name="com.hanlin.fadp.party.party" title="Affiliate Party Entity" version="1.0">
+        <description>None</description>
+        <field name="partyId" not-null="true" type="id-ne"/>
+        <field name="affiliateName" type="name"/>
+        <field name="affiliateDescription" type="description"/>
+        <field name="yearEstablished" type="very-short"/>
+        <field name="siteType" type="comment"/>
+        <field name="sitePageViews" type="comment"/>
+        <field name="siteVisitors" type="comment"/>
+        <field name="dateTimeCreated" type="date-time"/>
+        <field name="dateTimeApproved" type="date-time"/>
+        <prim-key field="partyId"/>
+        <relation fk-name="AFFILIATE_PARTY" rel-entity-name="Party" type="one">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation fk-name="AFFILIATE_PGRP" rel-entity-name="PartyGroup" type="one">
+            <key-map field-name="partyId"/>
+        </relation>
+        <index name="AFFILIATE_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="AFFILIATE_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="PartyIcsAvsOverride" package-name="com.hanlin.fadp.party.party" title="Party ICS AVS Override Entity" version="1.0">
+        <description>None</description>
+        <field name="partyId" not-null="true" type="id-ne"/>
+        <field name="avsDeclineString" type="long-varchar"/>
+        <prim-key field="partyId"/>
+        <relation fk-name="PARTY_ICSAVS_PARTY" rel-entity-name="Party" type="one">
+            <key-map field-name="partyId"/>
+        </relation>
+        <index name="PRT_ICS_AVS_OVD_TP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PRT_ICS_AVS_OVD_TS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="GlJournal" package-name="com.hanlin.fadp.accounting.ledger" title="General Ledger Journal Entity" version="1.0">
+        <description>None</description>
+        <field name="glJournalId" not-null="true" type="id-ne"/>
+        <field name="glJournalName" type="name"/>
+        <field name="organizationPartyId" type="id-ne"/>
+        <field name="isPosted" type="indicator"/>
+        <field name="postedDate" type="date-time"/>
+        <prim-key field="glJournalId"/>
+        <relation fk-name="GLJOURN_PARTY" rel-entity-name="Party" type="one">
+            <key-map field-name="organizationPartyId" rel-field-name="partyId"/>
+        </relation>
+        <relation rel-entity-name="AcctgTrans" type="many">
+            <key-map field-name="glJournalId"/>
+        </relation>
+        <relation rel-entity-name="PartyAcctgPreference" type="many">
+            <key-map field-name="glJournalId" rel-field-name="errorGlJournalId"/>
+        </relation>
+        <index name="GL_JOURNAL_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="GL_JOURNAL_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="DataSource" package-name="com.hanlin.fadp.common.datasource" title="Data Source Entity" version="1.0">
+        <description>None</description>
+        <field name="dataSourceId" not-null="true" type="id-ne"/>
+        <field name="dataSourceTypeId" type="id"/>
+        <field name="description" type="description"/>
+        <prim-key field="dataSourceId"/>
+        <relation fk-name="DATA_SRC_TYP" rel-entity-name="DataSourceType" type="one">
+            <key-map field-name="dataSourceTypeId"/>
+        </relation>
+        <relation rel-entity-name="Content" type="many">
+            <key-map field-name="dataSourceId"/>
+        </relation>
+        <relation rel-entity-name="ContentAssoc" type="many">
+            <key-map field-name="dataSourceId"/>
+        </relation>
+        <relation rel-entity-name="ContentMetaData" type="many">
+            <key-map field-name="dataSourceId"/>
+        </relation>
+        <relation rel-entity-name="DataResource" type="many">
+            <key-map field-name="dataSourceId"/>
+        </relation>
+        <relation rel-entity-name="DataResourceMetaData" type="many">
+            <key-map field-name="dataSourceId"/>
+        </relation>
+        <relation rel-entity-name="GeoPoint" type="many">
+            <key-map field-name="dataSourceId"/>
+        </relation>
+        <relation rel-entity-name="Party" type="many">
+            <key-map field-name="dataSourceId"/>
+        </relation>
+        <relation rel-entity-name="PartyDataSource" type="many">
+            <key-map field-name="dataSourceId"/>
+        </relation>
+        <index name="DATA_SOURCE_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="DATA_SOURCE_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="PartyEntityLabels" entity-name="ContactMechType" package-name="com.hanlin.fadp.party.contact" title="Contact Mechanism Type Entity" version="1.0">
+        <description>None</description>
+        <field name="contactMechTypeId" not-null="true" type="id-ne"/>
+        <field name="parentTypeId" type="id-ne"/>
+        <field name="hasTable" type="indicator"/>
+        <field name="description" type="description"/>
+        <prim-key field="contactMechTypeId"/>
+        <relation fk-name="CONT_MECH_TYP_PAR" rel-entity-name="ContactMechType" title="Parent" type="one">
+            <key-map field-name="parentTypeId" rel-field-name="contactMechTypeId"/>
+        </relation>
+        <relation rel-entity-name="CommunicationEvent" type="many">
+            <key-map field-name="contactMechTypeId"/>
+        </relation>
+        <relation rel-entity-name="CommunicationEventType" title="ContacMechType" type="many">
+            <key-map field-name="contactMechTypeId"/>
+        </relation>
+        <relation rel-entity-name="ContactList" type="many">
+            <key-map field-name="contactMechTypeId"/>
+        </relation>
+        <relation rel-entity-name="ContactMech" type="many">
+            <key-map field-name="contactMechTypeId"/>
+        </relation>
+        <relation rel-entity-name="ContactMechType" title="Child" type="many">
+            <key-map field-name="contactMechTypeId" rel-field-name="parentTypeId"/>
+        </relation>
+        <relation rel-entity-name="ContactMechTypeAttr" type="many">
+            <key-map field-name="contactMechTypeId"/>
+        </relation>
+        <relation rel-entity-name="ContactMechTypePurpose" type="many">
+            <key-map field-name="contactMechTypeId"/>
+        </relation>
+        <relation rel-entity-name="ValidContactMechRole" type="many">
+            <key-map field-name="contactMechTypeId"/>
+        </relation>
+        <index name="CNTT_MCH_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="CNTT_MCH_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="AccountingEntityLabels" entity-name="PaymentMethodType" package-name="com.hanlin.fadp.accounting.payment" title="PaymentMethodType Entity" version="1.0">
+        <description>None</description>
+        <field name="paymentMethodTypeId" not-null="true" type="id-ne"/>
+        <field name="description" type="description"/>
+        <field name="defaultGlAccountId" type="id"/>
+        <prim-key field="paymentMethodTypeId"/>
+        <relation fk-name="PAYMENT_MTP_DGLAC" rel-entity-name="GlAccount" title="Default" type="one">
+            <key-map field-name="defaultGlAccountId" rel-field-name="glAccountId"/>
+        </relation>
+        <relation rel-entity-name="OrderPaymentPreference" type="many">
+            <key-map field-name="paymentMethodTypeId"/>
+        </relation>
+        <relation rel-entity-name="Payment" type="many">
+            <key-map field-name="paymentMethodTypeId"/>
+        </relation>
+        <relation rel-entity-name="PaymentGatewayResponse" type="many">
+            <key-map field-name="paymentMethodTypeId"/>
+        </relation>
+        <relation rel-entity-name="PaymentMethod" type="many">
+            <key-map field-name="paymentMethodTypeId"/>
+        </relation>
+        <relation rel-entity-name="PaymentMethodTypeGlAccount" type="many">
+            <key-map field-name="paymentMethodTypeId"/>
+        </relation>
+        <relation rel-entity-name="PayrollPreference" type="many">
+            <key-map field-name="paymentMethodTypeId"/>
+        </relation>
+        <relation rel-entity-name="ProductPaymentMethodType" type="many">
+            <key-map field-name="paymentMethodTypeId"/>
+        </relation>
+        <relation rel-entity-name="ProductStorePaymentSetting" type="many">
+            <key-map field-name="paymentMethodTypeId"/>
+        </relation>
+        <relation rel-entity-name="ProductStoreVendorPayment" type="many">
+            <key-map field-name="paymentMethodTypeId"/>
+        </relation>
+        <index name="PMNT_MTD_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PMNT_MTD_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="AccountingEntityLabels" entity-name="GlAccountClass" package-name="com.hanlin.fadp.accounting.ledger" title="General Ledger Account Class Entity" version="1.0">
+        <description>None</description>
+        <field name="glAccountClassId" not-null="true" type="id-ne"/>
+        <field name="parentClassId" type="id-ne"/>
+        <field name="description" type="description"/>
+        <field name="isAssetClass" type="indicator"/>
+        <prim-key field="glAccountClassId"/>
+        <relation fk-name="GLACTCLS_PAR" rel-entity-name="GlAccountClass" title="Parent" type="one">
+            <key-map field-name="parentClassId" rel-field-name="glAccountClassId"/>
+        </relation>
+        <relation rel-entity-name="GlAccount" type="many">
+            <key-map field-name="glAccountClassId"/>
+        </relation>
+        <relation rel-entity-name="GlAccountClass" title="Child" type="many">
+            <key-map field-name="glAccountClassId" rel-field-name="parentClassId"/>
+        </relation>
+        <index name="GL_ACCT_CLS_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="GL_ACCT_CLS_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="RecurrenceInfo" package-name="com.hanlin.fadp.service.schedule" title="Recurrence Info Entity" version="1.0">
+        <description>None</description>
+        <field name="recurrenceInfoId" not-null="true" type="id-ne"/>
+        <field name="startDateTime" type="date-time"/>
+        <field name="exceptionDateTimes" type="very-long"/>
+        <field name="recurrenceDateTimes" type="very-long"/>
+        <field name="exceptionRuleId" type="id-ne"/>
+        <field name="recurrenceRuleId" type="id-ne"/>
+        <field name="recurrenceCount" type="numeric"/>
+        <prim-key field="recurrenceInfoId"/>
+        <relation fk-name="REC_INFO_RCRLE" rel-entity-name="RecurrenceRule" type="one">
+            <key-map field-name="recurrenceRuleId"/>
+        </relation>
+        <relation fk-name="REC_INFO_EX_RCRLE" rel-entity-name="RecurrenceRule" title="Exception" type="one">
+            <key-map field-name="exceptionRuleId" rel-field-name="recurrenceRuleId"/>
+        </relation>
+        <relation rel-entity-name="Invoice" type="many">
+            <key-map field-name="recurrenceInfoId"/>
+        </relation>
+        <relation rel-entity-name="JobSandbox" type="many">
+            <key-map field-name="recurrenceInfoId"/>
+        </relation>
+        <relation rel-entity-name="ProductAssoc" type="many">
+            <key-map field-name="recurrenceInfoId"/>
+        </relation>
+        <relation rel-entity-name="ShoppingList" type="many">
+            <key-map field-name="recurrenceInfoId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffort" type="many">
+            <key-map field-name="recurrenceInfoId"/>
+        </relation>
+        <index name="RCRRNC_INF_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="RCRRNC_INF_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="UserLoginSession" never-cache="true" package-name="com.hanlin.fadp.security.login" title="User Login History Entity" version="1.0">
+        <description>None</description>
+        <field name="userLoginId" not-null="true" type="id-vlong-ne"/>
+        <field name="savedDate" type="date-time"/>
+        <field name="sessionData" type="very-long"/>
+        <prim-key field="userLoginId"/>
+        <relation fk-name="USER_SESSION_USER" rel-entity-name="UserLogin" type="one">
+            <key-map field-name="userLoginId"/>
+        </relation>
+        <index name="USR_LGN_SSN_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="USR_LGN_SSN_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="FinAccount" package-name="com.hanlin.fadp.accounting.finaccount" title="Financial Account Entity" version="1.0">
+        <description>None</description>
+        <field name="finAccountId" not-null="true" type="id-ne"/>
+        <field name="finAccountTypeId" type="id"/>
+        <field name="statusId" type="id"/>
+        <field name="finAccountName" type="name"/>
+        <field encrypt="true" name="finAccountCode" type="long-varchar"/>
+        <field encrypt="true" name="finAccountPin" type="long-varchar"/>
+        <field name="currencyUomId" type="id-ne"/>
+        <field name="organizationPartyId" type="id"/>
+        <field name="ownerPartyId" type="id"/>
+        <field name="postToGlAccountId" type="id"/>
+        <field name="fromDate" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
+        <field name="isRefundable" type="indicator"/>
+        <field name="replenishPaymentId" type="id"/>
+        <field name="replenishLevel" type="currency-amount"/>
+        <field name="actualBalance" type="currency-amount"/>
+        <field name="availableBalance" type="currency-amount"/>
+        <prim-key field="finAccountId"/>
+        <relation fk-name="FINACCT_TYPE" rel-entity-name="FinAccountType" type="one">
+            <key-map field-name="finAccountTypeId"/>
+        </relation>
+        <relation fk-name="FINACCT_CURUOM" rel-entity-name="Uom" title="Currency" type="one">
+            <key-map field-name="currencyUomId" rel-field-name="uomId"/>
+        </relation>
+        <relation fk-name="FINACCT_ORGPTY" rel-entity-name="Party" title="Organization" type="one">
+            <key-map field-name="organizationPartyId" rel-field-name="partyId"/>
+        </relation>
+        <relation fk-name="FINACCT_OWNPTY" rel-entity-name="Party" title="Owner" type="one">
+            <key-map field-name="ownerPartyId" rel-field-name="partyId"/>
+        </relation>
+        <relation fk-name="FINACCT_GLAC" rel-entity-name="GlAccount" title="PostTo" type="one">
+            <key-map field-name="postToGlAccountId" rel-field-name="glAccountId"/>
+        </relation>
+        <relation fk-name="FINACCT_PAYMETH" rel-entity-name="PaymentMethod" title="Replenish" type="one">
+            <key-map field-name="replenishPaymentId" rel-field-name="paymentMethodId"/>
+        </relation>
+        <relation rel-entity-name="FinAccountTypeAttr" type="many">
+            <key-map field-name="finAccountTypeId"/>
+        </relation>
+        <relation rel-entity-name="FinAccountAttribute" type="many">
+            <key-map field-name="finAccountId"/>
+        </relation>
+        <relation rel-entity-name="FinAccountAuth" type="many">
+            <key-map field-name="finAccountId"/>
+        </relation>
+        <relation rel-entity-name="FinAccountRole" type="many">
+            <key-map field-name="finAccountId"/>
+        </relation>
+        <relation rel-entity-name="FinAccountStatus" type="many">
+            <key-map field-name="finAccountId"/>
+        </relation>
+        <relation rel-entity-name="FinAccountTrans" type="many">
+            <key-map field-name="finAccountId"/>
+        </relation>
+        <relation rel-entity-name="OrderPaymentPreference" type="many">
+            <key-map field-name="finAccountId"/>
+        </relation>
+        <relation rel-entity-name="PaymentMethod" type="many">
+            <key-map field-name="finAccountId"/>
+        </relation>
+        <relation rel-entity-name="ReturnHeader" type="many">
+            <key-map field-name="finAccountId"/>
+        </relation>
+        <index name="FIN_ACCOUNT_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="FIN_ACCOUNT_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TemporalExpression" package-name="com.hanlin.fadp.service.schedule" title="Temporal Expression" version="1.0">
+        <description>None</description>
+        <field name="tempExprId" not-null="true" type="id-ne"/>
+        <field name="tempExprTypeId" type="id-ne"/>
+        <field name="description" type="description"/>
+        <field name="date1" type="date-time"/>
+        <field name="date2" type="date-time"/>
+        <field name="integer1" type="numeric"/>
+        <field name="integer2" type="numeric"/>
+        <field name="string1" type="id"/>
+        <field name="string2" type="id"/>
+        <prim-key field="tempExprId"/>
+        <relation rel-entity-name="JobSandbox" type="many">
+            <key-map field-name="tempExprId"/>
+        </relation>
+        <relation rel-entity-name="TemporalExpressionAssoc" title="From" type="many">
+            <key-map field-name="tempExprId" rel-field-name="fromTempExprId"/>
+        </relation>
+        <relation rel-entity-name="TemporalExpressionAssoc" title="To" type="many">
+            <key-map field-name="tempExprId" rel-field-name="toTempExprId"/>
+        </relation>
+        <relation rel-entity-name="WorkEffort" type="many">
+            <key-map field-name="tempExprId"/>
+        </relation>
+        <index name="TMPL_EXPRSN_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TMPL_EXPRSN_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="GeoPoint" package-name="com.hanlin.fadp.common.geo" title="Geographic Location" version="1.0">
+        <description>None</description>
+        <field name="geoPointId" not-null="true" type="id-ne"/>
+        <field name="geoPointTypeEnumId" type="id"/>
+        <field name="description" type="description"/>
+        <field name="dataSourceId" type="id"/>
+        <field name="latitude" not-null="true" type="short-varchar"/>
+        <field name="longitude" not-null="true" type="short-varchar"/>
+        <field name="elevation" type="fixed-point"/>
+        <field name="elevationUomId" type="id"/>
+        <field name="information" type="comment"/>
+        <prim-key field="geoPointId"/>
+        <relation fk-name="GEOPOINT_DTSRC" rel-entity-name="DataSource" type="one">
+            <key-map field-name="dataSourceId"/>
+        </relation>
+        <relation fk-name="GEOPOINT_TYPE" rel-entity-name="Enumeration" title="GeoPointType" type="one">
+            <key-map field-name="geoPointTypeEnumId" rel-field-name="enumId"/>
+        </relation>
+        <relation fk-name="GPT_ELEV_UOM" rel-entity-name="Uom" title="Elevation" type="one">
+            <key-map field-name="elevationUomId" rel-field-name="uomId"/>
+        </relation>
+        <relation rel-entity-name="ContainerGeoPoint" type="many">
+            <key-map field-name="geoPointId"/>
+        </relation>
+        <relation rel-entity-name="Facility" type="many">
+            <key-map field-name="geoPointId"/>
+        </relation>
+        <relation rel-entity-name="FacilityLocation" type="many">
+            <key-map field-name="geoPointId"/>
+        </relation>
+        <relation rel-entity-name="FacilityLocationGeoPoint" type="many">
+            <key-map field-name="geoPointId"/>
+        </relation>
+        <relation rel-entity-name="FixedAssetGeoPoint" type="many">
+            <key-map field-name="geoPointId"/>
+        </relation>
+        <relation rel-entity-name="PartyGeoPoint" type="many">
+            <key-map field-name="geoPointId"/>
+        </relation>
+        <relation rel-entity-name="PostalAddress" type="many">
+            <key-map field-name="geoPointId"/>
+        </relation>
+        <index name="GEO_POINT_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="GEO_POINT_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="PaymentMethod" package-name="com.hanlin.fadp.accounting.payment" title="Payment Method Entity" version="1.0">
+        <description>None</description>
+        <field name="paymentMethodId" not-null="true" type="id-ne"/>
+        <field name="paymentMethodTypeId" type="id"/>
+        <field name="partyId" type="id-ne"/>
+        <field name="glAccountId" type="id-ne"/>
+        <field name="finAccountId" type="id-ne"/>
+        <field name="description" type="description"/>
+        <field name="fromDate" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
+        <prim-key field="paymentMethodId"/>
+        <relation fk-name="PAYMETH_TYPE" rel-entity-name="PaymentMethodType" type="one">
+            <key-map field-name="paymentMethodTypeId"/>
+        </relation>
+        <relation fk-name="PAYMETH_PARTY" rel-entity-name="Party" type="one">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation fk-name="PAYMETH_GLACCT" rel-entity-name="GlAccount" type="one">
+            <key-map field-name="glAccountId"/>
+        </relation>
+        <relation fk-name="PAYMETH_FINACCT" rel-entity-name="FinAccount" type="one">
+            <key-map field-name="finAccountId"/>
+        </relation>
+        <relation rel-entity-name="CreditCard" type="one-nofk">
+            <key-map field-name="paymentMethodId"/>
+        </relation>
+        <relation rel-entity-name="EftAccount" type="one-nofk">
+            <key-map field-name="paymentMethodId"/>
+        </relation>
+        <relation rel-entity-name="FinAccount" title="Replenish" type="many">
+            <key-map field-name="paymentMethodId" rel-field-name="replenishPaymentId"/>
+        </relation>
+        <relation rel-entity-name="GiftCard" type="one-nofk">
+            <key-map field-name="paymentMethodId"/>
+        </relation>
+        <relation rel-entity-name="OrderPaymentPreference" type="many">
+            <key-map field-name="paymentMethodId"/>
+        </relation>
+        <relation rel-entity-name="PartyAcctgPreference" type="many">
+            <key-map field-name="paymentMethodId" rel-field-name="refundPaymentMethodId"/>
+        </relation>
+        <relation rel-entity-name="PayPalPaymentMethod" type="one-nofk">
+            <key-map field-name="paymentMethodId"/>
+        </relation>
+        <relation rel-entity-name="Payment" type="many">
+            <key-map field-name="paymentMethodId"/>
+        </relation>
+        <relation rel-entity-name="PaymentGatewayResponse" type="many">
+            <key-map field-name="paymentMethodId"/>
+        </relation>
+        <relation rel-entity-name="ReturnHeader" type="many">
+            <key-map field-name="paymentMethodId"/>
+        </relation>
+        <relation rel-entity-name="ShoppingList" type="many">
+            <key-map field-name="paymentMethodId"/>
+        </relation>
+        <index name="PMNT_MTHD_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PMNT_MTHD_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="AccountingEntityLabels" entity-name="FinAccountType" package-name="com.hanlin.fadp.accounting.finaccount" title="Financial Account Type Entity" version="1.0">
+        <description>None</description>
+        <field name="finAccountTypeId" not-null="true" type="id-ne"/>
+        <field name="parentTypeId" type="id-ne"/>
+        <field name="replenishEnumId" type="id-ne"/>
+        <field name="isRefundable" type="indicator"/>
+        <field name="hasTable" type="indicator"/>
+        <field name="description" type="description"/>
+        <prim-key field="finAccountTypeId"/>
+        <relation fk-name="FINACCT_TYPE_PAR" rel-entity-name="FinAccountType" title="Parent" type="one">
+            <key-map field-name="parentTypeId" rel-field-name="finAccountTypeId"/>
+        </relation>
+        <relation fk-name="FINACCT_TYPE_RENUM" rel-entity-name="Enumeration" title="Replenish" type="one">
+            <key-map field-name="replenishEnumId" rel-field-name="enumId"/>
+        </relation>
+        <relation rel-entity-name="FinAccount" type="many">
+            <key-map field-name="finAccountTypeId"/>
+        </relation>
+        <relation rel-entity-name="FinAccountType" title="Child" type="many">
+            <key-map field-name="finAccountTypeId" rel-field-name="parentTypeId"/>
+        </relation>
+        <relation rel-entity-name="FinAccountTypeAttr" type="many">
+            <key-map field-name="finAccountTypeId"/>
+        </relation>
+        <relation rel-entity-name="FinAccountTypeGlAccount" type="many">
+            <key-map field-name="finAccountTypeId"/>
+        </relation>
+        <relation rel-entity-name="ProductStoreFinActSetting" type="many">
+            <key-map field-name="finAccountTypeId"/>
+        </relation>
+        <index name="FN_ACCNT_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="FN_ACCNT_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+</entitymodel>

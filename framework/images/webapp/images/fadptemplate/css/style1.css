@@ -1,0 +1,197 @@
+/*文件上传输入框*/
+#file-text{
+	margin-left: 16.7%;
+	height: 24px;
+	width: 200px;
+	float:left;
+	line-height:24px;
+}
+
+#mask-file{
+	position: relative;
+	width: 100%;
+	text-align: center;
+	width: 100px;
+	height:25px;
+	line-height: 25px;
+	background-color: rgb(217, 240, 252);
+	border-radius:5px;
+	float:left;
+	margin-left:10px;
+	
+}
+
+#mask-file:hover{
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+}
+
+.file-style{
+	right: 0px;
+	top: 0px;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	cursor: pointer;
+	position:absolute;
+}
+
+/*--------կԶӣ࠲ݜ--------*/
+.input-table {
+	font-size: 12px;
+	text-align: center;
+	boder:2px solid red;
+}
+
+.center {
+	width: 1000px;
+	margin: auto;
+	background: #FFFFFF;
+	
+}
+
+.input-label {
+	/*background-color: rgb(153, 205, 252);*/
+	font-weight: bold;
+	text-align: center;
+	width:170px;
+}
+
+.input-table input {
+	width: 100%;
+	text-align: center;
+	width: 155px;
+	height: 30px;
+}
+
+.input-table input:FOCUS {
+	width: 100%;
+	text-align: center;
+	width: 155px;
+	height: 30px;
+}
+
+.input-table select {
+	width: 100%;
+	text-align: center;
+	width: 220px;
+	height:30px;
+}
+
+
+.input-table select option{
+	height: 22px;
+}
+
+
+.input-table textarea {
+	width: 100%;
+	border: none;
+	height: 30px;
+}
+
+.input-table td {
+	height: 30px;
+}
+
+
+/* dialog head title*/
+.dialog-head-title{
+	height: 46px;
+  cursor: move;
+  position: relative;
+}
+.headerL {
+float:left;
+background: transparent url("images/lightbox-header.png") no-repeat scroll left 0px;
+height: 46px;
+padding: 0px 0px 0px 20px;
+}
+.headerR {
+background: transparent url("images/lightbox-header.png") no-repeat scroll right 0px;
+height: 46px;
+float: left;
+width: 20px;
+cursor: move;
+}
+.msg1closeBtn{
+float:right;
+background:url(images/lightbox-close.png) no-repeat 0 center;
+display:inline-block;
+height:46px;
+width:16px;
+cursor:pointer;
+}
+
+.BodyL {
+background: url(images/lightbox-body.png) repeat-y left 0;
+padding: 10px 0 10px 20px;
+float: left;
+display: block;
+}
+.BodyR {
+background: url(images/lightbox-body.png) repeat-y right 0;
+float: left;
+width: 20px;
+}
+
+/*dialog bottom*/
+.dialog-bottom{
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	height: 30px;
+	background: rgb(224, 236, 225);
+}
+
+/*dialog btn*/
+.dialog-btn{
+	border-radius:8px;
+	width:100px;
+	height: 28px;
+	background: rgb(70, 153, 214);
+	color: rgb(255, 255, 255);
+	font-size: 14px;
+	font-weight: 400px;
+}
+.dialog-btn:hover{
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+}
+
+/*dialog ok*/
+.dialog-ok{
+	border-radius:8px;
+	width:100px;
+	height: 28px;
+	background: rgb(70, 153, 214);
+	color: rgb(255, 255, 255);
+	font-size: 14px;
+	font-weight: 400px;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+}
+/*dialog cancle*/
+.dialog-cancle{
+	border-radius:8px;
+	width:100px;
+	height: 28px;
+	background: rgb(70, 153, 214);
+	color: rgb(255, 255, 255);
+	font-size: 14px;
+	font-weight: 400px;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+}
+
+/*dialog container*/
+.dialog-container{
+	position: absolute;
+	left: 350px;
+	top: 80px;
+	width: 400px;
+}
+
+
+#tab tr td{
+	    background-color: #F0E7E7;
+}

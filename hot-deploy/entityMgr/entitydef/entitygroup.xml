@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitygroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="../../../dtds/entitygroup.xsd">
+    <entity-group group="com.hanlin.fadp.entitymgr" entity="DatabaseSeq"/>
+    <entity-group group="com.hanlin.fadp.entitymgr" entity="DatabaseModel"/>
+    <entity-group group="com.hanlin.fadp.entitymgr" entity="ExtractModel"/>
+    <entity-group group="com.hanlin.fadp.entitymgr" entity="ExtractData"/>
+    <entity-group group="com.hanlin.fadp.entitymgr" entity="Dictionary"/>
+</entitygroup>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="../../../dtds/entitymodel.xsd">
+    <description>极元模块</description>
+    <entity entity-name="message" package-name="">
+        <field name="id" type="id">
+            <description>id值，主键</description>
+        </field>
+        <field name="sender" type="id-vlong-ne">
+            <description>发送者</description>
+        </field>
+        <field name="content" type="very-long">
+            <description>内容</description>
+        </field>
+        <field name="gtime" type="very-short">
+            <description>创建时间</description>
+        </field>
+        <field name="offTime" type="very-short">
+            <description>到期时间</description>
+        </field>
+        <field name="type" type="id">
+            <description>消息类型，包含（所有人/个人)</description>
+        </field>
+        <prim-key field="id"/>
+    </entity>
+</entitymodel>

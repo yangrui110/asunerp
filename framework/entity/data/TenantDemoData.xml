@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-engine-xml>
+    <!-- Search the Ofbiz Wiki for "Multitenancy support" to get instructions on how to setup multi-tenancy -->
+    <Tenant tenantId="DEMO1" tenantName="Demo Tenant One"/>
+    <TenantDataSource tenantId="DEMO1" entityGroupName="com.hanlin.fadp" 
+        jdbcUri="jdbc:derby:ofbiz_DEMO1;create=true" jdbcUsername="ofbiz" jdbcPassword="ofbiz"/>
+    <TenantDataSource tenantId="DEMO1" entityGroupName="com.hanlin.fadp.olap" 
+        jdbcUri="jdbc:derby:ofbizolap_DEMO1;create=true" jdbcUsername="ofbiz" jdbcPassword="ofbiz"/>
+    <!-- the com.hanlin.fadp.tenant URI should be the same for ALL tenants, so don't create a TenantDataSource record for it, it will be ignored anyway -->
+    <!-- See comments on entity def: <TenantUserLogin tenantId="DEMO1" userLoginId="admin" fromDate="2001-05-13 00:00:00.000" thruDate="" isManager="Y"/> -->
+
+    <Tenant tenantId="DEMO2" tenantName="Demo Tenant Two"/>
+    <TenantDataSource tenantId="DEMO2" entityGroupName="com.hanlin.fadp" 
+        jdbcUri="jdbc:derby:ofbiz_DEMO2;create=true" jdbcUsername="ofbiz" jdbcPassword="ofbiz"/>
+    <TenantDataSource tenantId="DEMO2" entityGroupName="com.hanlin.fadp.olap" 
+        jdbcUri="jdbc:derby:ofbizolap_DEMO2;create=true" jdbcUsername="ofbiz" jdbcPassword="ofbiz"/>
+    <!-- See comments on entity def: <TenantUserLogin tenantId="DEMO2" userLoginId="admin" fromDate="2001-05-13 00:00:00.000" thruDate="" isManager="N"/> -->
+</entity-engine-xml>

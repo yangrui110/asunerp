@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<!-- head -->
+<head>
+    <title>极元理财助手—个人中心</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=640, target-densitydpi=device-dpi, user-scalable=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content="">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- Stucture CSS -->
+    <link href="css/stucture.css" rel="stylesheet">
+    <link href="css/datetimepicker.css" rel="stylesheet">
+    <link href="css/wap.css" rel="stylesheet">
+    <link href="css/loading.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<!-- /end head -->
+
+<body>
+
+<div class="viewport messages" ng-controller="baseController">
+    <ul>
+        <li ng-repeat="message in messages">
+            <div class="clearfix top">
+                <div class="left">{{message.sender}}</div>
+                <div class="right">{{message.gtime}}</div>
+            </div>
+            <p>{{message.content}}</p>
+        </li>
+    </ul>
+
+    <a class="block text-center c7 mt30 ft20" id="more">加载更多</a>
+    <!--暂无数据-->
+    <div class="text-center mt100 c8 line40" id="noElse" style="display: none;margin-top:200px"><i class="icon-all icon-nodata"></i><br />暂无数据</div>
+    <br/><br/>
+    <div id="loading" class="loading" style="display: block"><img src="images/wap/loading.gif" width="80"/><br />数据加载中</div>
+</div>
+
+<footer>
+    <div class="footer">
+        <ul>
+            <li><a href="uc.html"><i class="fa fa-area-chart"></i><span>订单</span></a></li>
+            <li class="on"><a href="message.html"><i class="fa fa-envelope"></i><span>消息</span></a></li>
+            <li><a href="set.html"><i class="fa fa-cog"></i><span>设置</span></a></li>
+        </ul>
+    </div>
+</footer>
+<script type="text/javascript" src="js/1.6.10angular.js"></script>
+　　
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/client.js"></script>
+<script type="text/javascript" src="js/entityUtil.js"></script>
+<script type="text/javascript" src="js/jsDate.js"></script>
+<script>
+    var app = angular.module('MyApp', []);
+    app.controller("baseController", function ($scope) {
+        $scope.messages = [];
+        $scope.page = 0;
+        $scope.size = 5;
+        $scope.totalSize = Number.MAX_VALUE;
+        getData(function (data) {
+            $scope.$apply(function () {
+                $scope.messages = data.list;
+                $scope.totalSize = data.listSize;
+                console.log(JSON.stringify(data.list));
+                if(($scope.page+1) * $scope.size >= $scope.totalSize) {
+                    $("#more").css("display", "none");
+                }
+                if($scope.totalSize==0)
+                    $("#noElse").css("display", "block");
+            })
+        }, $scope.page, $scope.size)
+        //响应更多的点击事件
+        $("#more").click(function () {
+            $scope.page = $scope.page + 1;
+            if ($scope.page * $scope.size >= $scope.totalSize)
+                $("#more").css("display", "none");
+            else {
+                getData(function (data) {
+                    $scope.$apply(function () {
+                        $scope.messages = $scope.messages.concat(data.list)
+                    })
+                }, $scope.page, $scope.size)
+            }
+        });
+    })
+
+    function getData(callback, page, size) {
+        //
+        var user = cookie.getCookie("user");
+        if (user) {
+            user = JSON.parse(user);
+            if (user.id) {
+                console.log(user.id);
+                var condition = {
+                    conditionList: [{lhs: 'type', operator: Operator.IN, rhs: ['all', '' + user.id]},{lhs: 'offTime', operator: Operator.GREATER_THAN, rhs: new Date().format("yyyy-MM-dd")}],
+                    operator: Operator.AND
+                };
+                apiClient.getMessagePage(JSON.stringify(EntityUtil.createEntityWithConditionOrderBy("message", condition, ["id"], page, size)), function (data) {
+                    if (!data.error)
+                        callback(data);
+                    else alert(data.error);
+                });
+            }
+
+        }
+        else return;
+    }
+</script>
+</body>
+</html>

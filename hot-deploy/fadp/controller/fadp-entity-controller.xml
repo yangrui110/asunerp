@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/dtds/site-conf.xsd">
+	<request-map uri="restart">
+		<security auth="true" />
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/restart.groovy"></event>
+		<response name="success" type="none" />
+	</request-map>
+	
+	<request-map uri="getTreeJson">
+		<event type="groovy" path="component://scripts/entity/getTreeJson.groovy"></event>
+		<response name="success" type="none"></response>
+	</request-map>
+	
+	<request-map uri="SOAPService">
+		<security auth="false" />
+		<event type="soap" />
+		<response name="error" type="none" />
+		<response name="success" type="none" />
+	</request-map>
+	
+
+	<request-map uri="getDataSourceNameList">
+		<security auth="true" />
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/dataSource/getDataSourceNameList.groovy"></event>
+		<response name="success" type="none"></response>
+	</request-map>
+	<!--数据源列表 -->
+	<request-map uri="dataSourceList">
+		<security auth="true" />
+		<response name="success" type="view" value="DataSourceList" />
+	</request-map>
+
+	<!--数据源新增/修改 -->
+	<request-map uri="dataSource">
+		<security auth="true" />
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/dataSource/saveDataSource.groovy"></event>
+		<response name="success" type="url" value="dataSourceList" />
+		<response name="error" type="view" value="DataSource" />
+		<response name="testing" type="view" value="DataSource" />
+		<response name="get" type="view" value="DataSource" />
+	</request-map>
+	<!-- 删除数据源 -->
+	<request-map uri="deleteDataSource">
+		<security auth="true" />
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/dataSource/deleteDataSource.groovy"></event>
+		<response name="success" type="url" value="dataSourceList" />
+		<response name="error" type="url" value="dataSourceList" />
+	</request-map>
+	<!--数据源列表为了查询 -->
+	<request-map uri="dataSourceListForQuery">
+		<security auth="true" />
+		<response name="success" type="view" value="DataSourceListForQuery" />
+	</request-map>
+	<!-- 查看表 -->
+	<request-map uri="viewTableList">
+		<security auth="true" />
+		<response name="success" type="view" value="ViewTableList" />
+		<response name="error" type="url" value="dataSourceListForQuery" />
+	</request-map>
+	<!-- 查看表数据 -->
+	<request-map uri="viewTableData">
+		<security auth="true" />
+		<response name="success" type="view" value="ViewTableData" />
+		<response name="error" type="view" value="error" />
+	</request-map>
+	<!-- 编辑数据 -->
+	<request-map uri="editTableData">
+		<security auth="true" />
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/data/saveTableData.groovy"></event>
+		<response name="success" type="none"></response>
+		<response name="get" type="view" value="EditTableData"></response>
+	</request-map>
+	<!-- 删除数据 -->
+	<request-map uri="deleteTableData">
+		<security auth="true" />
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/data/deleteTableData.groovy"></event>
+		<response name="success" type="request-redirect" value="viewTableData"></response>
+		<response name="error" type="view" value="error"></response>
+	</request-map>
+
+
+	<!--字典列表 -->
+	<request-map uri="dictionaryList">
+		<security auth="true" />
+		<response name="success" type="view" value="DictionaryList" />
+	</request-map>
+
+	<!--字典新增/修改 -->
+	<request-map uri="dictionary">
+		<security auth="true" />
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/dic/saveDictionary.groovy"></event>
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<!-- 删除字典 -->
+	<request-map uri="deleteDictionary">
+		<security auth="true" />
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/dic/deleteDictionary.groovy"></event>
+		<response name="success" type="none" />
+	</request-map>
+
+	<!-- 编辑entityModel -->
+	<request-map uri="entityModel">
+		<security auth="true" />
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/entitymodel/saveEntityModel.groovy"></event>
+		<!-- <response name="success" type="view" value="EntityModel"></response> -->
+		<response name="success" type="none"></response>
+		<response name="get" type="view" value="EntityModel"></response>
+	</request-map>
+
+	<request-map uri="getFieldList">
+		<security auth="true" />
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/entitymodel/getFieldList.groovy"></event>
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="entityModelList">
+		<description>元数据定义</description>
+		<security auth="true" />
+		<response name="success" type="view" value="EntityModelList"></response>
+	</request-map>
+	<request-map uri="finalEntityModelList">
+		<description>存储模型主界面</description>
+		<security auth="true" />
+		<response name="success" type="view" value="FinalEntityModelList"></response>
+	</request-map>
+	<request-map uri="tableList">
+		<description>数据表列表</description>
+		<security auth="true" />
+		<response name="success" type="view" value="TableList"></response>
+	</request-map>
+	<!-- 删除元数据定义 -->
+	<request-map uri="deleteEntityModel">
+		<security auth="true" />
+		<event type="java" path="com.hanlin.fadp.petrescence.datasource.EntityModelWorker" invoke="deleteEntityModel"></event>
+		<response name="success" type="url" value="entityModelList"></response>
+	</request-map>
+	<request-map uri="saveModelList">
+		<security auth="true" />
+		<response name="success" type="view" value="saveModelList"></response>
+	</request-map>
+	
+	
+	
+	<!--mondoDB collection list(关系数据库中的数据库中的所有表) -->
+	<request-map uri="mongoCollectionList">
+		<security auth="true" />
+		<response name="success" type="view" value="MongoCollectionList"></response>
+	</request-map>
+	<!--mondoDB collection (关系数据库中的表定义) -->
+	<request-map uri="mongoCollection">
+		<security auth="true" />
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/mongodb/saveMongoCollection.groovy"></event>
+		<response name="success" type="none"></response>
+		<response name="get" type="view" value="MongoCollection"></response>
+	</request-map>
+	<!-- 删除mondoDB collection -->
+	<request-map uri="deleteMongoCollection">
+		<security auth="true" />
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/mongodb/deleteMongoCollection.groovy"></event>
+		<response name="success" type="url" value="mongoCollectionList"></response>
+	</request-map>
+	<!--mondoDB collection中的 数据 -->
+	<request-map uri="mongoDataList">
+		<security auth="true" />
+		<response name="success" type="view" value="MongoDataList"></response>
+	</request-map>
+	<!--mondoDB 单条数据编辑或添加 -->
+	<request-map uri="mongoData">
+		<security auth="true" />
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/mongoData/saveMongoData.groovy"></event>
+		<response name="success" type="none"></response>
+		<response name="get" type="view" value="MongoData"></response>
+	</request-map>
+	<!-- 删除mondoDB collection -->
+	<request-map uri="deleteMongoData">
+		<security auth="true" />
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/mongoData/deleteMongoData.groovy"></event>
+		<response name="success" type="none"></response>
+	</request-map>
+	<!-- 导入数据到mongodb -->
+	<request-map uri="importCSVDataToMongo">
+		<security auth="true" />
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/mongoData/importCSVDataToMongo.groovy"></event>
+		<response name="success" type="none"></response>
+	</request-map>
+	<!-- 导入数据到mongodb -->
+	<request-map uri="exportCSVMongoData">
+		<security auth="true" />
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/mongoData/exportCSVMongoData.groovy"></event>
+		<response name="success" type="none"></response>
+	</request-map>
+
+
+
+
+
+	<request-map uri="query">
+		<security auth="true" />
+		<response name="success" type="view" value="query" />
+	</request-map>
+	<request-map uri="CSVExport">
+		<security auth="true" />
+		<response name="success" type="view" value="CSVExport" />
+	</request-map>
+
+	<request-map uri="ModelExport">
+		<security auth="true" />
+		<response name="success" type="view" value="ModelExport" />
+	</request-map>
+	<request-map uri="Model_Export">
+		<security auth="true" />
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/ModelExport/Export.groovy"></event>
+		<response name="success" type="none"></response>
+	</request-map>
+
+	<request-map uri="CSVImport">
+		<event type="service" invoke="fileUpLoad"></event>
+		<response name="success" type="view" value="CSVImport"></response>
+	</request-map>
+	<request-map uri="CSVExport_switch">
+		<response name="success" type="view" value="CSVExport_switch"></response>
+	</request-map>
+	<request-map uri="getDataForCsv">
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/import/getDataForCsv.groovy"></event>
+		<response name="success" type="request" value="json"></response>
+	</request-map>
+	<request-map uri="CSVImportResult">
+		<response name="success" type="view"></response>
+	</request-map>
+
+	<!-- XMLExport -->
+	<request-map uri="XMLExport">
+		<response name="success" type="view" value="XMLExport"></response>
+	</request-map>
+	<request-map uri="XMLQueryList">
+		<response name="success" type="view" value="XMLQueryList"></response>
+	</request-map>
+	<!-- 仅用于完成下载 -->
+	<request-map uri="XMLDownLoad">
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/export/XMLDownLoad.groovy"></event>
+		<response name="success" type="request" value="json"></response>
+	</request-map>
+
+	<!-- <request-map uri="download"> <event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/export/download.groovy" /> <response name="success" type="none" 
+		></response> </request-map> -->
+
+	<request-map uri="download">
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/export/download.groovy" />
+		<response name="success" type="none"></response>
+	</request-map>
+
+	<request-map uri="CSVExportList">
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/export/CSVExportList.groovy"></event>
+		<response name="success" type="none"></response>
+	</request-map>
+
+
+	<request-map uri="table_data">
+		<!-- <response name="success" type="view" value="table_data"></response> -->
+		<response name="success" type="view" value="ViewTableData"></response>
+	</request-map>
+	<request-map uri="tree">
+		<response name="success" type="view" value="tree"></response>
+	</request-map>
+
+	<request-map uri="addDataList">
+
+		<!-- <response name="success" type="request" value="json"></response> -->
+		<response name="success" type="view" value="importjson"></response>
+	</request-map>
+
+	<!-- delete -->
+	<request-map uri="delete">
+		<response name="success" type="view" value="delete"></response>
+	</request-map>
+	<request-map uri="deleteData">
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/delete/deleteData.groovy"></event>
+		<response name="success" type="request" value="json"></response>
+	</request-map>
+
+	<!-- add -->
+	<request-map uri="addData">
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/add/addData.groovy"></event>
+		<response name="success" type="request" value="json"></response>
+	</request-map>
+
+	<!-- modefy -->
+	<request-map uri="modefyData">
+		<event type="groovy" path="component://fadptemplate/webapp/fadptemplate/WEB-INF/actions/modefy/modefy.groovy"></event>
+		<response name="success" type="request" value="json"></response>
+	</request-map>
+
+	<!-- update page -->
+	<request-map uri="updatePage">
+		<response name="success" type="view" value="updatePage"></response>
+	</request-map>
+
+
+<request-map uri="extract">
+	<security auth="true"/>
+	<response name="success" type="view" value="extract"></response>
+</request-map>
+<request-map uri="getExtractSaveFieldMapping">
+	<security auth="true"/>
+	<event type="groovy" path="component://fadptemplate/scripts/getExtractSaveFieldMapping.groovy"></event>
+	<response name="success" type="none"></response>
+</request-map>
+<request-map uri="extractData">
+	<security auth="true"/>
+	<event type="groovy" path="component://fadptemplate/scripts/extractData.groovy"></event>
+	<response name="success" type="none"></response>
+</request-map>
+
+	<!-- <view-map name="login" type="screen" page="component://fadptemplate/widget/CommonScreens.xml#login" /> -->
+	<view-map name="login" type="jsp" page="/login.jsp" />
+	<view-map name="main" type="screen" page="component://fadptemplate/widget/CommonScreens.xml#test" />
+	<view-map name="query" type="screen" page="component://fadptemplate/widget/OtherScreens.xml#query" />
+	<view-map name="table_data" type="screen" page="component://fadptemplate/widget/OtherScreens.xml#table_data" />
+	<!-- <view-map name="FindGeneric" type="screen" page="component://fadptemplate/widget/EntityScreens.xml#FindGeneric"></view-map> -->
+	<view-map name="ModelExport" type="screen" page="component://fadptemplate/widget/ModelExportScreens.xml#ModelExport"></view-map>
+	<view-map name="CSVExport" type="screen" page="component://fadptemplate/widget/ExportScreens.xml#CSVExport"></view-map>
+	<!-- 用于实现分页 -->
+	<view-map name="CSVExport_switch" type="screen" page="component://fadptemplate/widget/ExportScreens.xml#CSVExport_switch"></view-map>
+	<view-map name="CSVImport" type="screen" page="component://fadptemplate/widget/ImportScreens.xml#CSVImport" />
+	<view-map name="XMLExport" type="screen" page="component://fadptemplate/widget/ExportScreens.xml#XMLExport" />
+	<view-map name="XMLQueryList" type="screen" page="component://fadptemplate/widget/ExportScreens.xml#XMLQueryList" />
+
+	<view-map name="tree" type="screen" page="component://fadptemplate/widget/OtherScreens.xml#tree" />
+
+	<!-- 增加 修改 删除 -->
+	<view-map name="delete" type="screen" page="component://fadptemplate/widget/UpdateScreens.xml#delete"></view-map>
+
+	<view-map name="updatePage" type="screen" page="component://fadptemplate/widget/UpdateScreens.xml#updatePage"></view-map>
+
+	<view-map name="importjson" type="screen" page="component://fadptemplate/widget/ImportScreens.xml#importjson"></view-map>
+
+	<!-- cl -->
+	<view-map name="extractModel" type="screen" page="component://fadptemplate/widget/ExtractModelScreens.xml#extractModel" />
+	<view-map name="extractModelList" type="screen" page="component://fadptemplate/widget/ExtractModelScreens.xml#extractModelList" />
+	
+	<view-map name="DataSourceList" type="screen" page="component://fadptemplate/widget/DataModelScreens.xml#DataSourceList" />
+	<view-map name="DataSourceListForQuery" type="screen" page="component://fadptemplate/widget/DataModelScreens.xml#DataSourceListForQuery" />
+	<view-map name="DataSource" type="screen" page="component://fadptemplate/widget/DataModelScreens.xml#DataSource" />
+	<view-map name="ViewTableList" type="screen" page="component://fadptemplate/widget/DataModelScreens.xml#ViewTableList" />
+	<view-map name="ViewTableData" type="screen" page="component://fadptemplate/widget/DataModelScreens.xml#ViewTableData" />
+	<view-map name="EditTableData" type="screen" page="component://fadptemplate/widget/DataModelScreens.xml#EditTableData" />
+
+	<view-map name="DictionaryList" type="screen" page="component://fadptemplate/widget/DataModelScreens.xml#DictionaryList" />
+	<view-map name="Dictionary" type="screen" page="component://fadptemplate/widget/DataModelScreens.xml#Dictionary" />
+
+	<view-map name="EntityModel" type="screen" page="component://fadptemplate/widget/DataModelScreens.xml#EntityModel" />
+	<view-map name="EntityModelList" type="screen" page="component://fadptemplate/widget/DataModelScreens.xml#EntityModelList" />
+	<view-map name="TableList" type="screen" page="component://fadptemplate/widget/DataModelScreens.xml#TableList" />
+
+	<view-map name="FinalEntityModelList" type="screen" page="component://fadptemplate/widget/DataModelScreens.xml#FinalEntityModelList" />
+
+	<view-map name="MongoCollection" type="screen" page="component://fadptemplate/widget/MongoScreens.xml#MongoCollection" />
+	<view-map name="MongoCollectionList" type="screen" page="component://fadptemplate/widget/MongoScreens.xml#MongoCollectionList" />
+
+	<view-map name="MongoData" type="screen" page="component://fadptemplate/widget/MongoScreens.xml#MongoData" />
+	<view-map name="MongoDataList" type="screen" page="component://fadptemplate/widget/MongoScreens.xml#MongoDataList" />
+
+	<view-map name="saveModelList" type="screen" page="component://fadptemplate/widget/DataModelScreens.xml#saveModelList" />
+	<view-map name="extract" type="screen" page="component://fadptemplate/widget/CommonScreens.xml#extract" />
+	
+	
+</site-conf>

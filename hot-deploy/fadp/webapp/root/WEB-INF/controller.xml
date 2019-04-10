@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/dtds/site-conf.xsd">
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml" />
+    <include location="component://common/webcommon/WEB-INF/handlers-controller.xml" />
+
+    <request-map uri="uploadFile">
+        <security auth="false" />
+        <event type="groovy" path="component://websdt/scripts/uploadFile.groovy"></event>
+        <response name="success" type="none"></response>
+        <response name="error" type="none"></response>
+    </request-map>
+</site-conf>

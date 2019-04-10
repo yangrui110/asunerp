@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+	<display-name>炼化</display-name>
+	<description>炼化</description>
+
+	<context-param>
+		<param-name>entityDelegatorName</param-name>
+		<param-value>default</param-value>
+		<description>定义在entityengine.xml中的实体代表</description>
+	</context-param>
+	<context-param>
+		<param-name>localDispatcherName</param-name>
+		<param-value>entityMgr</param-value>
+		<description>为ServiceEngine唯一标识一个localDispatcher</description>
+	</context-param>
+	<context-param>
+		<param-name>mainDecoratorLocation</param-name>
+		<param-value>component://entityMgr/widget/CommonScreens.xml</param-value>
+		<description>这个应用的main-decorator位置; 被用作screen定义文件中的上下文变量</description>
+	</context-param>
+	<context-param>
+		<param-name>serviceReaderUrls</param-name>
+		<param-value>/WEB-INF/services.xml</param-value>
+		<description>The Service Dispatcher的配置文件</description>
+	</context-param>
+
+	<filter>
+		<filter-name>ContextFilter</filter-name>
+		<display-name>ContextFilter</display-name>
+		<filter-class>com.hanlin.fadp.webapp.control.ContextFilter</filter-class>
+		<init-param>
+			<param-name>disableContextSecurity</param-name>
+			<param-value>N</param-value>
+		</init-param>
+		<init-param>
+			<param-name>allowedPaths</param-name>
+			<param-value>/error:/control:/select:/index.html:/index.jsp:/default.html:/default.jsp:/images:/includes/maincss.css:/css:/images:/scripts</param-value>
+		</init-param>
+		<init-param>
+			<param-name>errorCode</param-name>
+			<param-value>403</param-value>
+		</init-param>
+		<init-param>
+			<param-name>redirectPath</param-name>
+			<param-value>/control/main</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>ContextFilter</filter-name>
+		<url-pattern>/control/*</url-pattern>
+	</filter-mapping>
+
+	<listener>
+		<listener-class>com.hanlin.fadp.webapp.control.ControlEventListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.hanlin.fadp.webapp.control.LoginEventListener</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>ControlServlet</servlet-name>
+		<display-name>ControlServlet</display-name>
+		<description>Main Control Servlet</description>
+		<servlet-class>com.hanlin.fadp.webapp.control.ControlServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ControlServlet</servlet-name>
+		<url-pattern>/control/*</url-pattern>
+	</servlet-mapping>
+
+	<session-config>
+		<session-timeout>60</session-timeout> <!-- in minutes -->
+	</session-config>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+	</welcome-file-list>
+</web-app>

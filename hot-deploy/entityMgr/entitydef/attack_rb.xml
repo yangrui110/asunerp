@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="../../../dtds/entitymodel.xsd">
+    <entity entity-name="ArmyOrg" package-name="" title="None" no-auto-stamp="true">
+        <description>部队</description>
+        <field name="armyName" type="name"/>
+        <field name="armyId" type="id"/>
+        <field name="parentArmyId" type="id"/>
+        <prim-key field="armyId"/>
+        <relation rel-entity-name="ArmySoldier" type="many">
+            <key-map field-name="armyId" rel-field-name="armyId"/>
+        </relation>
+        <relation rel-entity-name="ArmyWeapon" type="many">
+            <key-map field-name="armyId" rel-field-name="armyId"/>
+        </relation>
+    </entity>
+    <entity entity-name="ArmySoldier" package-name="" title="None" no-auto-stamp="true">
+        <description>士兵</description>
+        <field name="armyId" type="id"/>
+        <field name="soldierId" type="id"/>
+        <field name="soldierName" type="name"/>
+        <prim-key field="soldierId"/>
+        <relation fk-name="soldier_army" rel-entity-name="ArmyOrg" type="one">
+            <key-map field-name="armyId"/>
+        </relation>
+    </entity>
+    <entity entity-name="ArmyWeapon" package-name="" title="None" no-auto-stamp="true">
+        <description>武器</description>
+        <field name="armyId" type="id"/>
+        <field name="weaponId" type="id"/>
+        <field name="weaponName" type="name"/>
+        <prim-key field="weaponId"/>
+        <relation fk-name="weapon_army" rel-entity-name="ArmyOrg" type="one">
+            <key-map field-name="armyId"/>
+        </relation>
+    </entity>
+
+    <entity entity-name="OtherArmy" package-name="" title="台军外军" no-auto-stamp="true">
+        <description>台军外军</description>
+        <field name="armyId" type="id">
+            <description>军队id</description>
+        </field>
+        <field name="armyName" type="name">
+            <description>军队番号</description>
+        </field>
+        <field name="armyBelong" type="id">
+            <description>国家或地区</description>
+        </field>
+        <prim-key field="armyId"/>
+    </entity>
+    <entity entity-name="Battlefield" package-name="" title="" no-auto-stamp="true">
+        <description>战场</description>
+        <field name="bfEnvId" type="id">
+            <description>战场id</description>
+        </field>
+        <field name="envName" type="name">
+            <description>战场名称</description>
+        </field>
+        <field name="envLocation" type="id">
+            <description>战场位置</description>
+        </field>
+        <field name="envType" type="id">
+            <description>战场类型</description>
+        </field>
+        <field name="envScale" type="id">
+            <description>战场规模</description>
+        </field>
+
+        <prim-key field="bfEnvId"/>
+    </entity>
+    <entity entity-name="BFFacility" package-name="" title="战场设施" no-auto-stamp="true">
+        <description>战场设施</description>
+        <field name="facilityId" type="id">
+            <description>设施id</description>
+        </field>
+        <field name="bfEnvId" type="id">
+            <description>部队id</description>
+        </field>
+        <field name="facilityName" type="name">
+            <description>设施名称</description>
+        </field>
+        <field name="facilityType" type="name">
+            <description>设施类型</description>
+        </field>
+        <field name="facilityState" type="name">
+            <description>设施状态</description>
+        </field>
+        <prim-key field="facilityId"/>
+        <relation fk-name="facility_battlefield" rel-entity-name="Battlefield" type="one">
+            <key-map field-name="bfEnvId"/>
+        </relation>
+    </entity>
+
+    <entity entity-name="BFHumanEnv" no-auto-stamp="true" package-name="" title="战场人文环境">
+        <description>战场人文环境</description>
+        <field name="bfEnvId" type="id">
+            <description>环境id</description>
+        </field>
+        <field name="bfHumanEnvId" type="id">
+            <description>人文环境id</description>
+        </field>
+        <field name="nationMain" type="name">
+            <description>主要民族</description>
+        </field>
+        <field name="religionMain" type="name">
+            <description>主要宗教信仰</description>
+        </field>
+        <prim-key field="bfHumanEnvId"/>
+        <relation type="one" rel-entity-name="Battlefield" fk-name="human_battlefield">
+            <key-map field-name="bfEnvId"/>
+        </relation>
+    </entity>
+    <entity entity-name="BFSocietyEnv" no-auto-stamp="true" package-name="" title="战场社会情况">
+        <description>战场社会情况</description>
+        <field name="bfEnvId" type="id">
+            <description>环境id</description>
+        </field>
+        <field name="bfSocietyEnvId" type="id">
+            <description>社会环境id</description>
+        </field>
+        <prim-key field="bfSocietyEnvId"/>
+        <relation type="one" rel-entity-name="Battlefield" fk-name="society_battlefield">
+            <key-map field-name="bfEnvId"/>
+        </relation>
+    </entity>
+    <entity entity-name="BFAirRaidEnv" no-auto-stamp="true" package-name="" title="战场人民防空信息">
+        <description>战场人民防空</description>
+        <field name="bfEnvId" type="id">
+            <description>环境id</description>
+        </field>
+        <field name="airRaidId" type="id">
+            <description>防空信息id</description>
+        </field>
+        <prim-key field="airRaidId"/>
+        <relation type="one" rel-entity-name="Battlefield" fk-name="airRaid_battlefield">
+            <key-map field-name="bfEnvId"/>
+        </relation>
+    </entity>
+    <entity entity-name="EnbEvn" no-auto-stamp="true" package-name="" title="电磁核生化环境">
+        <description>电磁核生化环境</description>
+        <field name="bfEnvId" type="id">
+            <description>环境id</description>
+        </field>
+        <field name="enbId" type="id">
+            <description>电磁核生化id</description>
+        </field>
+        <prim-key field="enbId"/>
+        <relation type="one" rel-entity-name="Battlefield" fk-name="enb_battlefield">
+            <key-map field-name="bfEnvId"/>
+        </relation>
+    </entity>
+</entitymodel>

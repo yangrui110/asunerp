@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../dtds/site-conf.xsd">
+
+	<request-map uri="genPurchaseOrderByPlan" >
+		<description>由采购计划生成订单</description>
+		<security auth="true"/>
+		<event type="groovy" path="component://eiip/script/purchase/plan/genPurchaseOrderByPlan.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="saveArrival" >
+		<description>保存到货单</description>
+		<security auth="true"/>
+		<event type="groovy" path="component://eiip/script/purchase/arrival/saveArrival.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="savePurchaseReject" >
+		<description>保存到货单</description>
+		<security auth="true"/>
+		<event type="groovy" path="component://eiip/script/purchase/reject/savePurchaseReject.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="getStatementByProvider" >
+		<description>获取供应商的对账单数据</description>
+		<security auth="false"/>
+		<event type="groovy" path="component://eiip/script/purchase/statement/getStatementByProvider.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+
+</site-conf>

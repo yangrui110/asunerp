@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://localhost:8888/dtds/site-conf.xsd">
+    <description>Define the following handlers</description>
+
+    <!-- event handlers -->
+    <handler name="java" type="request" class="com.hanlin.fadp.webapp.event.JavaEventHandler"/>
+    <handler name="soap" type="request" class="com.hanlin.fadp.webapp.event.SOAPEventHandler"/>
+    <handler name="xmlrpc" type="request" class="com.hanlin.fadp.webapp.event.XmlRpcEventHandler"/>
+    <handler name="service" type="request" class="com.hanlin.fadp.webapp.event.ServiceEventHandler"/>
+    <handler name="service-multi" type="request" class="com.hanlin.fadp.webapp.event.ServiceMultiEventHandler"/>
+    <handler name="service-stream" type="request" class="com.hanlin.fadp.webapp.event.ServiceStreamHandler"/>
+    <handler name="simple" type="request" class="com.hanlin.fadp.webapp.event.SimpleEventHandler"/>
+    <handler name="groovy" type="request" class="com.hanlin.fadp.webapp.event.GroovyEventHandler"/>
+    <handler name="rome" type="request" class="com.hanlin.fadp.webapp.event.RomeEventHandler"/>
+    <handler name="script" type="request" class="com.hanlin.fadp.webapp.event.ScriptEventHandler"/>
+
+    <!-- view handlers -->
+    <handler name="screen" type="view" class="com.hanlin.fadp.widget.renderer.macro.MacroScreenViewHandler"/>
+    <handler name="screenxml" type="view" class="com.hanlin.fadp.widget.renderer.macro.MacroScreenViewHandler"/>
+    <handler name="screentext" type="view" class="com.hanlin.fadp.widget.renderer.macro.MacroScreenViewHandler"/>
+    <handler name="screencsv" type="view" class="com.hanlin.fadp.widget.renderer.macro.MacroScreenViewHandler"/>
+    <handler name="screenfop" type="view" class="com.hanlin.fadp.widget.renderer.fo.ScreenFopViewHandler"/>
+    <handler name="jsp" type="view" class="com.hanlin.fadp.webapp.view.JspViewHandler"/>
+    <handler name="http" type="view" class="com.hanlin.fadp.webapp.view.HttpViewHandler"/>
+</site-conf>

@@ -1,0 +1,2603 @@
+<?xml version="1.0" encoding="UTF-8"?><entitymodel>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="EntitySyncHistory" package-name="com.hanlin.fadp.entity.synchronization" title="Entity Synchronization History Entity" version="1.0">
+        <description>None</description>
+        <field name="entitySyncId" not-null="true" type="id-ne"/>
+        <field name="startDate" not-null="true" type="date-time"/>
+        <field name="runStatusId" type="id-ne"/>
+        <field name="beginningSynchTime" type="date-time"/>
+        <field name="lastSuccessfulSynchTime" type="date-time"/>
+        <field name="lastCandidateEndTime" type="date-time"/>
+        <field name="lastSplitStartTime" type="numeric"/>
+        <field name="toCreateInserted" type="numeric"/>
+        <field name="toCreateUpdated" type="numeric"/>
+        <field name="toCreateNotUpdated" type="numeric"/>
+        <field name="toStoreInserted" type="numeric"/>
+        <field name="toStoreUpdated" type="numeric"/>
+        <field name="toStoreNotUpdated" type="numeric"/>
+        <field name="toRemoveDeleted" type="numeric"/>
+        <field name="toRemoveAlreadyDeleted" type="numeric"/>
+        <field name="totalRowsExported" type="numeric"/>
+        <field name="totalRowsToCreate" type="numeric"/>
+        <field name="totalRowsToStore" type="numeric"/>
+        <field name="totalRowsToRemove" type="numeric"/>
+        <field name="totalSplits" type="numeric"/>
+        <field name="totalStoreCalls" type="numeric"/>
+        <field name="runningTimeMillis" type="numeric"/>
+        <field name="perSplitMinMillis" type="numeric"/>
+        <field name="perSplitMaxMillis" type="numeric"/>
+        <field name="perSplitMinItems" type="numeric"/>
+        <field name="perSplitMaxItems" type="numeric"/>
+        <prim-key field="entitySyncId"/>
+        <prim-key field="startDate"/>
+        <relation fk-name="ENTSYNC_HSTSNC" rel-entity-name="EntitySync" type="one">
+            <key-map field-name="entitySyncId"/>
+        </relation>
+        <relation rel-entity-name="EntitySync" title="Last" type="one-nofk">
+            <key-map field-name="entitySyncId"/>
+        </relation>
+        <index name="ENT_SNC_HSR_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="ENT_SNC_HSR_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="GeoPoint" package-name="com.hanlin.fadp.common.geo" title="Geographic Location" version="1.0">
+        <description>None</description>
+        <field name="geoPointId" not-null="true" type="id-ne"/>
+        <field name="geoPointTypeEnumId" type="id"/>
+        <field name="description" type="description"/>
+        <field name="dataSourceId" type="id"/>
+        <field name="latitude" not-null="true" type="short-varchar"/>
+        <field name="longitude" not-null="true" type="short-varchar"/>
+        <field name="elevation" type="fixed-point"/>
+        <field name="elevationUomId" type="id"/>
+        <field name="information" type="comment"/>
+        <prim-key field="geoPointId"/>
+        <relation fk-name="GEOPOINT_DTSRC" rel-entity-name="DataSource" type="one">
+            <key-map field-name="dataSourceId"/>
+        </relation>
+        <relation fk-name="GEOPOINT_TYPE" rel-entity-name="Enumeration" title="GeoPointType" type="one">
+            <key-map field-name="geoPointTypeEnumId" rel-field-name="enumId"/>
+        </relation>
+        <relation fk-name="GPT_ELEV_UOM" rel-entity-name="Uom" title="Elevation" type="one">
+            <key-map field-name="elevationUomId" rel-field-name="uomId"/>
+        </relation>
+        <index name="GEO_POINT_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="GEO_POINT_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="UserAgent" package-name="com.hanlin.fadp.webapp.visit" title="User Agent Entity" version="1.0">
+        <description>None</description>
+        <field name="userAgentId" not-null="true" type="id-ne"/>
+        <field name="browserTypeId" type="id"/>
+        <field name="platformTypeId" type="id"/>
+        <field name="protocolTypeId" type="id"/>
+        <field name="userAgentTypeId" type="id"/>
+        <field name="userAgentMethodTypeId" type="id"/>
+        <prim-key field="userAgentId"/>
+        <relation fk-name="UAGENT_BROWSER" rel-entity-name="BrowserType" type="one">
+            <key-map field-name="browserTypeId"/>
+        </relation>
+        <relation fk-name="UAGENT_PLATFORM" rel-entity-name="PlatformType" type="one">
+            <key-map field-name="platformTypeId"/>
+        </relation>
+        <relation fk-name="UAGENT_PROTOCOL" rel-entity-name="ProtocolType" type="one">
+            <key-map field-name="protocolTypeId"/>
+        </relation>
+        <relation fk-name="UAGENT_TYPE" rel-entity-name="UserAgentType" type="one">
+            <key-map field-name="userAgentTypeId"/>
+        </relation>
+        <relation fk-name="UAGENT_METHOD" rel-entity-name="UserAgentMethodType" type="one">
+            <key-map field-name="userAgentMethodTypeId"/>
+        </relation>
+        <relation rel-entity-name="Visit" type="many">
+            <key-map field-name="userAgentId"/>
+        </relation>
+        <index name="USER_AGENT_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="USER_AGENT_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="PortletCategory" package-name="com.hanlin.fadp.common.portal" title="Portlet Category Entity" version="1.0">
+        <description>None</description>
+        <field name="portletCategoryId" not-null="true" type="id-ne"/>
+        <field name="description" type="description"/>
+        <prim-key field="portletCategoryId"/>
+        <relation rel-entity-name="PortletPortletCategory" type="many">
+            <key-map field-name="portletCategoryId"/>
+        </relation>
+        <index name="PRTLT_CTGR_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PRTLT_CTGR_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="SystemProperty" package-name="com.hanlin.fadp.common.property" title="Defines a System Property" version="1.0">
+        <description>None</description>
+        <field name="systemResourceId" not-null="true" type="id-long-ne"/>
+        <field name="systemPropertyId" not-null="true" type="id-long-ne"/>
+        <field name="systemPropertyValue" type="value"/>
+        <field name="description" type="description"/>
+        <prim-key field="systemResourceId"/>
+        <prim-key field="systemPropertyId"/>
+        <index name="SSTM_PRPRT_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="SSTM_PRPRT_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TestingCryptoRawView" package-name="com.hanlin.fadp.entity.test" table-name="" title="TestingCrypto Raw View" version="1.0">
+        <description>None</description>
+        <field name="rawEncryptedValue" type="description"/>
+        <field name="rawSaltedEncryptedValue" type="description"/>
+        <field col-name="TC_SALTED_ENCRYPTED_VALUE" encrypt="salt" name="saltedEncryptedValue" type="description"/>
+        <field col-name="TC_ENCRYPTED_VALUE" encrypt="true" name="encryptedValue" type="description"/>
+        <field col-name="TC_TESTING_CRYPTO_TYPE_ID" name="testingCryptoTypeId" type="id-ne"/>
+        <field col-name="TC_TESTING_CRYPTO_ID" name="testingCryptoId" not-null="true" type="id-ne"/>
+        <field col-name="TC_UNENCRYPTED_VALUE" name="unencryptedValue" type="description"/>
+        <prim-key field="testingCryptoId"/>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="UserLoginHistory" never-cache="true" package-name="com.hanlin.fadp.security.login" title="User Login History Entity" version="1.0">
+        <description>None</description>
+        <field name="userLoginId" not-null="true" type="id-vlong-ne"/>
+        <field name="visitId" type="id"/>
+        <field name="fromDate" not-null="true" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
+        <field encrypt="true" name="passwordUsed" type="long-varchar"/>
+        <field name="successfulLogin" type="indicator"/>
+        <prim-key field="userLoginId"/>
+        <prim-key field="fromDate"/>
+        <relation fk-name="USER_LH_USER" rel-entity-name="UserLogin" type="one">
+            <key-map field-name="userLoginId"/>
+        </relation>
+        <index name="USR_LGN_HSR_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="USR_LGN_HSR_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="GeoType" package-name="com.hanlin.fadp.common.geo" title="Geographic Boundary Type Entity" version="1.0">
+        <description>None</description>
+        <field name="geoTypeId" not-null="true" type="id-ne"/>
+        <field name="parentTypeId" type="id-ne"/>
+        <field name="hasTable" type="indicator"/>
+        <field name="description" type="description"/>
+        <prim-key field="geoTypeId"/>
+        <relation fk-name="GEO_TYPE_PARENT" rel-entity-name="GeoType" title="Parent" type="one">
+            <key-map field-name="parentTypeId" rel-field-name="geoTypeId"/>
+        </relation>
+        <relation rel-entity-name="Geo" type="many">
+            <key-map field-name="geoTypeId"/>
+        </relation>
+        <relation rel-entity-name="GeoType" title="Child" type="many">
+            <key-map field-name="geoTypeId" rel-field-name="parentTypeId"/>
+        </relation>
+        <index name="GEO_TYPE_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="GEO_TYPE_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TestingNodeAndMember" package-name="com.hanlin.fadp.entity.test" table-name="" title="TestingNode And TestingNodeMember View" version="1.0">
+        <description>None</description>
+        <field col-name="TN_PRIMARY_PARENT_NODE_ID" name="primaryParentNodeId" type="id"/>
+        <field col-name="TN_DESCRIPTION" name="description" type="description"/>
+        <field col-name="TN_TESTING_NODE_ID" name="testingNodeId" not-null="true" type="id-ne"/>
+        <field col-name="TNM_THRU_DATE" name="thruDate" type="date-time"/>
+        <field col-name="TNM_FROM_DATE" name="fromDate" not-null="true" type="date-time"/>
+        <field col-name="TNM_TESTING_ID" name="testingId" not-null="true" type="id-ne"/>
+        <field col-name="TNM_EXTEND_FROM_DATE" name="extendFromDate" type="date-time"/>
+        <field col-name="TNM_EXTEND_THRU_DATE" name="extendThruDate" type="date-time"/>
+        <prim-key field="testingNodeId"/>
+        <prim-key field="fromDate"/>
+        <prim-key field="testingId"/>
+        <relation rel-entity-name="TestingNodeMember" type="one-nofk">
+            <key-map field-name="testingNodeId"/>
+            <key-map field-name="testingId"/>
+            <key-map field-name="fromDate"/>
+        </relation>
+        <relation rel-entity-name="TestingNode" type="one-nofk">
+            <key-map field-name="testingNodeId"/>
+        </relation>
+        <relation rel-entity-name="Testing" type="one-nofk">
+            <key-map field-name="testingId"/>
+        </relation>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="PortalPortlet" package-name="com.hanlin.fadp.common.portal" title="Defines a Portlet to be used in Portals" version="1.0">
+        <description>None</description>
+        <field name="portalPortletId" not-null="true" type="id-ne"/>
+        <field name="portletName" type="name"/>
+        <field name="screenName" type="long-varchar"/>
+        <field name="screenLocation" type="long-varchar"/>
+        <field name="editFormName" type="long-varchar"/>
+        <field name="editFormLocation" type="long-varchar"/>
+        <field name="description" type="description"/>
+        <field name="screenshot" type="url"/>
+        <field name="securityServiceName" type="long-varchar"/>
+        <field name="securityMainAction" type="short-varchar"/>
+        <prim-key field="portalPortletId"/>
+        <relation rel-entity-name="PortalPagePortlet" type="many">
+            <key-map field-name="portalPortletId"/>
+        </relation>
+        <relation rel-entity-name="PortletAttribute" type="many">
+            <key-map field-name="portalPortletId"/>
+        </relation>
+        <relation rel-entity-name="PortletPortletCategory" type="many">
+            <key-map field-name="portalPortletId"/>
+        </relation>
+        <index name="PRTL_PRTLT_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PRTL_PRTLT_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="RecurrenceInfo" package-name="com.hanlin.fadp.service.schedule" title="Recurrence Info Entity" version="1.0">
+        <description>None</description>
+        <field name="recurrenceInfoId" not-null="true" type="id-ne"/>
+        <field name="startDateTime" type="date-time"/>
+        <field name="exceptionDateTimes" type="very-long"/>
+        <field name="recurrenceDateTimes" type="very-long"/>
+        <field name="exceptionRuleId" type="id-ne"/>
+        <field name="recurrenceRuleId" type="id-ne"/>
+        <field name="recurrenceCount" type="numeric"/>
+        <prim-key field="recurrenceInfoId"/>
+        <relation fk-name="REC_INFO_RCRLE" rel-entity-name="RecurrenceRule" type="one">
+            <key-map field-name="recurrenceRuleId"/>
+        </relation>
+        <relation fk-name="REC_INFO_EX_RCRLE" rel-entity-name="RecurrenceRule" title="Exception" type="one">
+            <key-map field-name="exceptionRuleId" rel-field-name="recurrenceRuleId"/>
+        </relation>
+        <relation rel-entity-name="JobSandbox" type="many">
+            <key-map field-name="recurrenceInfoId"/>
+        </relation>
+        <index name="RCRRNC_INF_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="RCRRNC_INF_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="MenuState" package-name="org.ofbiz.entity" title="Entity of an Apache OFBiz Component" version="1.0">
+        <description>None</description>
+        <field name="menuStateId" not-null="true" type="id-ne"/>
+        <field name="description" type="name"/>
+        <prim-key field="menuStateId"/>
+        <index name="MENU_STATE_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="MENU_STATE_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TemporalExpressionChild" package-name="com.hanlin.fadp.service.schedule" table-name="" title="Temporal Expression Children View Entity" version="1.0">
+        <description>None</description>
+        <field col-name="TEA_FROM_TEMP_EXPR_ID" name="fromTempExprId" not-null="true" type="id-ne"/>
+        <field col-name="TEA_EXPR_ASSOC_TYPE" name="exprAssocType" type="id"/>
+        <field col-name="TE_INTEGER1" name="integer1" type="numeric"/>
+        <field col-name="TE_STRING2" name="string2" type="id"/>
+        <field col-name="TE_STRING1" name="string1" type="id"/>
+        <field col-name="TE_TEMP_EXPR_ID" name="tempExprId" not-null="true" type="id-ne"/>
+        <field col-name="TE_INTEGER2" name="integer2" type="numeric"/>
+        <field col-name="TE_TEMP_EXPR_TYPE_ID" name="tempExprTypeId" type="id-ne"/>
+        <field col-name="TE_DESCRIPTION" name="description" type="description"/>
+        <field col-name="TE_DATE2" name="date2" type="date-time"/>
+        <field col-name="TE_DATE1" name="date1" type="date-time"/>
+        <prim-key field="fromTempExprId"/>
+        <prim-key field="tempExprId"/>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="GeoAssocType" package-name="com.hanlin.fadp.common.geo" title="Geographic Boundary Association Entity" version="1.0">
+        <description>None</description>
+        <field name="geoAssocTypeId" not-null="true" type="id-ne"/>
+        <field name="description" type="description"/>
+        <prim-key field="geoAssocTypeId"/>
+        <relation rel-entity-name="CountryAddressFormat" type="many">
+            <key-map field-name="geoAssocTypeId"/>
+        </relation>
+        <relation rel-entity-name="GeoAssoc" type="many">
+            <key-map field-name="geoAssocTypeId"/>
+        </relation>
+        <index name="G_ASSC_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="G_ASSC_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TestingSubtype" package-name="com.hanlin.fadp.entity.test" title="Testing Subtype Entity" version="1.0">
+        <description>None</description>
+        <field name="testingTypeId" not-null="true" type="id-ne"/>
+        <field name="subtypeDescription" type="description"/>
+        <prim-key field="testingTypeId"/>
+        <index name="TSTNG_SBTP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TSTNG_SBTP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="SequenceValueItem" package-name="com.hanlin.fadp.entity.sequence" title="Sequence Value Item Entity" version="1.0">
+        <description>None</description>
+        <field name="seqName" not-null="true" type="id-long-ne"/>
+        <field name="seqId" type="numeric"/>
+        <prim-key field="seqName"/>
+        <index name="SQNC_VL_ITM_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="SQNC_VL_ITM_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="EmailTemplateSetting" package-name="com.hanlin.fadp.common.email" title="Email Template Setting Entity" version="1.0">
+        <description>None</description>
+        <field name="emailTemplateSettingId" not-null="true" type="id-ne"/>
+        <field name="emailType" type="id-ne"/>
+        <field name="description" type="description"/>
+        <field name="bodyScreenLocation" type="long-varchar"/>
+        <field name="xslfoAttachScreenLocation" type="long-varchar"/>
+        <field name="fromAddress" type="email"/>
+        <field name="ccAddress" type="email"/>
+        <field name="bccAddress" type="email"/>
+        <field name="subject" type="comment"/>
+        <field name="contentType" type="long-varchar"/>
+        <prim-key field="emailTemplateSettingId"/>
+        <relation fk-name="EMAILSET_ENUM" rel-entity-name="Enumeration" type="one">
+            <key-map field-name="emailType" rel-field-name="enumId"/>
+        </relation>
+        <index name="EML_TMPT_STG_TXSTP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="EML_TMPT_STG_TXCRS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="GeoAssocAndGeoFrom" package-name="com.hanlin.fadp.common.geo" table-name="" title="Entity of an Open For Business Project Component" version="1.0">
+        <description>None</description>
+        <field col-name="GA_GEO_ID_TO" name="geoIdTo" not-null="true" type="id-ne"/>
+        <field col-name="GA_GEO_ASSOC_TYPE_ID" name="geoAssocTypeId" type="id"/>
+        <field col-name="GFR_GEO_ID" name="geoId" not-null="true" type="id-ne"/>
+        <field col-name="GFR_WELL_KNOWN_TEXT" name="wellKnownText" type="very-long"/>
+        <field col-name="GFR_GEO_SEC_CODE" name="geoSecCode" type="short-varchar"/>
+        <field col-name="GFR_GEO_NAME" name="geoName" type="name"/>
+        <field col-name="GFR_ABBREVIATION" name="abbreviation" type="short-varchar"/>
+        <field col-name="GFR_GEO_CODE" name="geoCode" type="short-varchar"/>
+        <field col-name="GFR_GEO_TYPE_ID" name="geoTypeId" type="id"/>
+        <prim-key field="geoIdTo"/>
+        <prim-key field="geoId"/>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TestingViewPks" package-name="com.hanlin.fadp.entity.test" table-name="" title="Testing And TestingSubtype View" version="1.0">
+        <description>None</description>
+        <field col-name="TST_DESCRIPTION" name="description" type="description"/>
+        <field col-name="TST_TESTING_TYPE_ID" name="testingTypeId" not-null="true" type="id-ne"/>
+        <field col-name="TSTSUB_SUBTYPE_DESCRIPTION" name="subtypeDescription" type="description"/>
+        <prim-key field="testingTypeId"/>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="WebPage" package-name="com.hanlin.fadp.webapp.website" title="Web Page Entity" version="1.0">
+        <description>None</description>
+        <field name="webPageId" not-null="true" type="id-ne"/>
+        <field name="pageName" type="name"/>
+        <field name="webSiteId" type="id"/>
+        <prim-key field="webPageId"/>
+        <relation fk-name="WEB_PAGE_SITE" rel-entity-name="WebSite" type="one">
+            <key-map field-name="webSiteId"/>
+        </relation>
+        <index name="WEB_PAGE_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="WEB_PAGE_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="KeywordThesaurus" package-name="com.hanlin.fadp.common.keyword" title="Entity of an Open For Business Project Component" version="1.0">
+        <description>None</description>
+        <field name="enteredKeyword" not-null="true" type="long-varchar"/>
+        <field name="alternateKeyword" not-null="true" type="long-varchar"/>
+        <field name="relationshipEnumId" type="id"/>
+        <prim-key field="enteredKeyword"/>
+        <prim-key field="alternateKeyword"/>
+        <relation fk-name="KW_THRS_RLENM" rel-entity-name="Enumeration" title="Relationship" type="one">
+            <key-map field-name="relationshipEnumId" rel-field-name="enumId"/>
+        </relation>
+        <index name="KWRD_THSRS_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="KWRD_THSRS_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="PortalPagePortlet" package-name="com.hanlin.fadp.common.portal" title="Defines Portlets included into Portal Pages" version="1.0">
+        <description>None</description>
+        <field name="portalPageId" not-null="true" type="id-ne"/>
+        <field name="portalPortletId" not-null="true" type="id-ne"/>
+        <field name="portletSeqId" not-null="true" type="id-ne"/>
+        <field name="columnSeqId" type="id-ne"/>
+        <field name="sequenceNum" type="numeric"/>
+        <prim-key field="portalPageId"/>
+        <prim-key field="portalPortletId"/>
+        <prim-key field="portletSeqId"/>
+        <relation fk-name="PRTL_PGPTLT_PAGE" rel-entity-name="PortalPage" type="one">
+            <key-map field-name="portalPageId"/>
+        </relation>
+        <relation fk-name="PRTL_PGPTLT_PTLT" rel-entity-name="PortalPortlet" type="one">
+            <key-map field-name="portalPortletId"/>
+        </relation>
+        <relation rel-entity-name="PortalPageColumn" type="one-nofk">
+            <key-map field-name="portalPageId"/>
+            <key-map field-name="columnSeqId"/>
+        </relation>
+        <index name="PRL_PG_PRTT_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PRL_PG_PRTT_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="UserLoginAndSecurityGroup" never-cache="true" package-name="com.hanlin.fadp.security.securitygroup" table-name="" title="UserLogin And SecurityGroup View Entity" version="1.0">
+        <description>None</description>
+        <field col-name="ULSG_GROUP_ID" name="groupId" not-null="true" type="id-ne"/>
+        <field col-name="ULSG_THRU_DATE" name="thruDate" type="date-time"/>
+        <field col-name="ULSG_FROM_DATE" name="fromDate" not-null="true" type="date-time"/>
+        <field col-name="ULSG_USER_LOGIN_ID" name="userLoginId" not-null="true" type="id-vlong-ne"/>
+        <field col-name="UL_ENABLED" name="enabled" type="indicator"/>
+        <field col-name="UL_SUCCESSIVE_FAILED_LOGINS" name="successiveFailedLogins" type="numeric"/>
+        <field col-name="UL_PASSWORD_HINT" name="passwordHint" type="description"/>
+        <field col-name="UL_LAST_CURRENCY_UOM" name="lastCurrencyUom" type="id"/>
+        <field col-name="UL_LAST_TIME_ZONE" name="lastTimeZone" type="id-long"/>
+        <field col-name="UL_EXTERNAL_AUTH_ID" name="externalAuthId" type="id-vlong-ne"/>
+        <field col-name="UL_CURRENT_PASSWORD" name="currentPassword" type="short-varchar"/>
+        <field col-name="UL_IS_SYSTEM" name="isSystem" type="indicator"/>
+        <field col-name="UL_HAS_LOGGED_OUT" name="hasLoggedOut" type="indicator"/>
+        <field col-name="UL_REQUIRE_PASSWORD_CHANGE" name="requirePasswordChange" type="indicator"/>
+        <field col-name="UL_USER_LDAP_DN" name="userLdapDn" type="id-vlong-ne"/>
+        <field col-name="UL_LAST_LOCALE" name="lastLocale" type="very-short"/>
+        <field col-name="UL_DISABLED_DATE_TIME" name="disabledDateTime" type="date-time"/>
+        <prim-key field="groupId"/>
+        <prim-key field="fromDate"/>
+        <prim-key field="userLoginId"/>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="GeoAssocAndGeoTo" package-name="com.hanlin.fadp.common.geo" table-name="" title="Entity of an Open For Business Project Component" version="1.0">
+        <description>None</description>
+        <field col-name="GA_GEO_ID" name="geoIdFrom" not-null="true" type="id-ne"/>
+        <field col-name="GA_GEO_ASSOC_TYPE_ID" name="geoAssocTypeId" type="id"/>
+        <field col-name="GTO_GEO_ID" name="geoId" not-null="true" type="id-ne"/>
+        <field col-name="GTO_WELL_KNOWN_TEXT" name="wellKnownText" type="very-long"/>
+        <field col-name="GTO_GEO_SEC_CODE" name="geoSecCode" type="short-varchar"/>
+        <field col-name="GTO_GEO_NAME" name="geoName" type="name"/>
+        <field col-name="GTO_ABBREVIATION" name="abbreviation" type="short-varchar"/>
+        <field col-name="GTO_GEO_CODE" name="geoCode" type="short-varchar"/>
+        <field col-name="GTO_GEO_TYPE_ID" name="geoTypeId" type="id"/>
+        <prim-key field="geoIdFrom"/>
+        <prim-key field="geoId"/>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="CustomMethod" package-name="com.hanlin.fadp.common.method" title="Custom Method Entity" version="1.0">
+        <description>None</description>
+        <field name="customMethodId" not-null="true" type="id-ne"/>
+        <field name="customMethodTypeId" type="id"/>
+        <field name="customMethodName" type="long-varchar"/>
+        <field name="description" type="description"/>
+        <prim-key field="customMethodId"/>
+        <relation fk-name="CME_TO_TYPE" rel-entity-name="CustomMethodType" type="one">
+            <key-map field-name="customMethodTypeId"/>
+        </relation>
+        <relation rel-entity-name="UomConversion" title="uomCustomMethod" type="many">
+            <key-map field-name="customMethodId"/>
+        </relation>
+        <relation rel-entity-name="UomConversionDated" title="uomCustomMethod" type="many">
+            <key-map field-name="customMethodId"/>
+        </relation>
+        <index name="CSTM_MTHD_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="CSTM_MTHD_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="EntitySyncIncludeGroup" package-name="com.hanlin.fadp.entity.synchronization" title="Entity Synchronization Include Entity Group Entity" version="1.0">
+        <description>None</description>
+        <field name="entitySyncId" not-null="true" type="id-ne"/>
+        <field name="entityGroupId" not-null="true" type="id-ne"/>
+        <prim-key field="entitySyncId"/>
+        <prim-key field="entityGroupId"/>
+        <relation fk-name="ENTSNCGU_GRP" rel-entity-name="EntityGroup" type="one">
+            <key-map field-name="entityGroupId"/>
+        </relation>
+        <relation fk-name="ENTSNCGU_SNC" rel-entity-name="EntitySync" type="one">
+            <key-map field-name="entitySyncId"/>
+        </relation>
+        <index name="ENT_SNC_IND_GRP_TP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="ENT_SNC_IND_GRP_TS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="Testing" package-name="com.hanlin.fadp.entity.test" title="Testing Entity" version="1.0">
+        <description>None</description>
+        <field name="testingId" not-null="true" type="id-ne"/>
+        <field name="testingTypeId" type="id-ne"/>
+        <field name="testingName" type="name"/>
+        <field name="description" type="description"/>
+        <field name="comments" type="comment"/>
+        <field name="testingSize" type="numeric"/>
+        <field name="testingDate" type="date-time"/>
+        <prim-key field="testingId"/>
+        <relation fk-name="ENTITY_ENTY_TYP" rel-entity-name="TestingType" type="one">
+            <key-map field-name="testingTypeId"/>
+        </relation>
+        <relation rel-entity-name="TestingItem" type="many">
+            <key-map field-name="testingId"/>
+        </relation>
+        <relation rel-entity-name="TestingNodeMember" type="many">
+            <key-map field-name="testingId"/>
+        </relation>
+        <index name="TESTING_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TESTING_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="StatusValidChange" package-name="com.hanlin.fadp.common.status" title="Status Valid Change Entity" version="1.0">
+        <description>None</description>
+        <field name="statusId" not-null="true" type="id-ne"/>
+        <field name="statusIdTo" not-null="true" type="id-ne"/>
+        <field name="conditionExpression" type="long-varchar"/>
+        <field name="transitionName" type="name"/>
+        <prim-key field="statusId"/>
+        <prim-key field="statusIdTo"/>
+        <relation fk-name="STATUS_CHG_MAIN" rel-entity-name="StatusItem" title="Main" type="one">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation fk-name="STATUS_CHG_TO" rel-entity-name="StatusItem" title="To" type="one">
+            <key-map field-name="statusIdTo" rel-field-name="statusId"/>
+        </relation>
+        <index name="STS_VLD_CHG_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="STS_VLD_CHG_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="PlatformType" package-name="com.hanlin.fadp.webapp.visit" title="Platform Type Entity" version="1.0">
+        <description>None</description>
+        <field name="platformTypeId" not-null="true" type="id-ne"/>
+        <field name="platformName" type="name"/>
+        <field name="platformVersion" type="very-short"/>
+        <prim-key field="platformTypeId"/>
+        <relation rel-entity-name="UserAgent" type="many">
+            <key-map field-name="platformTypeId"/>
+        </relation>
+        <index name="PLTFRM_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PLTFRM_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="EnumTypeChildAndEnum" package-name="com.hanlin.fadp.common.enum" table-name="" title="Entity of an Open For Business Project Component" version="1.0">
+        <description>None</description>
+        <field name="parentEnumTypeId" not-null="true" type="id-ne"/>
+        <field name="parentHasTable" type="indicator"/>
+        <field name="parentDescription" type="description"/>
+        <field name="parentParentTypeId" type="id"/>
+        <field name="childEnumTypeId" not-null="true" type="id-ne"/>
+        <field name="childHasTable" type="indicator"/>
+        <field name="childDescription" type="description"/>
+        <field col-name="ENUM_ENUM_TYPE_ID" name="enumTypeId" type="id-ne"/>
+        <field col-name="ENUM_DESCRIPTION" name="description" type="description"/>
+        <field col-name="ENUM_ENUM_ID" name="enumId" not-null="true" type="id-ne"/>
+        <field col-name="ENUM_ENUM_CODE" name="enumCode" type="short-varchar"/>
+        <field col-name="ENUM_SEQUENCE_ID" name="sequenceId" type="id"/>
+        <prim-key field="parentEnumTypeId"/>
+        <prim-key field="childEnumTypeId"/>
+        <prim-key field="enumId"/>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TemporalExpressionAssoc" package-name="com.hanlin.fadp.service.schedule" title="Temporal Expression Association" version="1.0">
+        <description>None</description>
+        <field name="fromTempExprId" not-null="true" type="id-ne"/>
+        <field name="toTempExprId" not-null="true" type="id-ne"/>
+        <field name="exprAssocType" type="id"/>
+        <prim-key field="fromTempExprId"/>
+        <prim-key field="toTempExprId"/>
+        <relation fk-name="TEMP_EXPR_FROM" rel-entity-name="TemporalExpression" title="From" type="one">
+            <key-map field-name="fromTempExprId" rel-field-name="tempExprId"/>
+        </relation>
+        <relation fk-name="TEMP_EXPR_TO" rel-entity-name="TemporalExpression" title="To" type="one">
+            <key-map field-name="toTempExprId" rel-field-name="tempExprId"/>
+        </relation>
+        <index name="TML_EXPRN_ASC_TXSP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TML_EXPRN_ASC_TXCS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="CountryCode" package-name="com.hanlin.fadp.common.geo" title="ISO Country Code Entity" version="1.0">
+        <description>None</description>
+        <field name="countryCode" not-null="true" type="id-ne"/>
+        <field name="countryAbbr" type="short-varchar"/>
+        <field name="countryNumber" type="short-varchar"/>
+        <field name="countryName" type="description"/>
+        <prim-key field="countryCode"/>
+        <relation rel-entity-name="CountryCapital" type="one-nofk">
+            <key-map field-name="countryCode"/>
+        </relation>
+        <relation rel-entity-name="CountryTeleCode" type="one-nofk">
+            <key-map field-name="countryCode"/>
+        </relation>
+        <index name="CNTR_CD_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="CNTR_CD_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="Dictionary" package-name="com.hanlin.fadp.petrescence.datasource" title="None" version="1.0">
+        <description>数据字典</description>
+        <field name="module" not-null="true" type="id"/>
+        <field name="label" type="name"/>
+        <field name="value" not-null="true" type="name"/>
+        <field name="description" type="description"/>
+        <prim-key field="module"/>
+        <prim-key field="value"/>
+        <index name="DICTIONARY_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="DICTIONARY_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="DatabaseModel" package-name="com.hanlin.fadp.petrescence.datasource" title="None" version="1.0">
+        <description>数据模型</description>
+        <field name="dataModelId" not-null="true" type="id"/>
+        <field name="description" type="description"/>
+        <field name="dataSourceName" type="name"/>
+        <field name="myEntityName" type="name"/>
+        <field name="needSave" type="indicator"/>
+        <field name="modelCondition" type="object"/>
+        <field name="modelSql" type="very-long"/>
+        <field name="modelResult" type="object"/>
+        <field name="saveModelId" type="id"/>
+        <field name="fieldMapping" type="object"/>
+        <field name="syncTime" type="date-time"/>
+        <prim-key field="dataModelId"/>
+        <index name="DTBS_MDL_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="DTBS_MDL_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="CountryTeleCodeAndName" package-name="com.hanlin.fadp.common.geo" table-name="" title="Telephone country code and country name" version="1.0">
+        <description>None</description>
+        <field col-name="CT_TELE_CODE" name="teleCode" type="short-varchar"/>
+        <field col-name="CC_COUNTRY_CODE" name="countryCode" type="id-ne"/>
+        <field col-name="CC_COUNTRY_NAME" name="countryName" type="description"/>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="ExtractModel" package-name="com.hanlin.fadp.petrescence.datasource" title="None" version="1.0">
+        <description>数据抽取模型</description>
+        <field name="extractModelId" not-null="true" type="id"/>
+        <field name="dataSourceName" type="name"/>
+        <field name="description" type="description"/>
+        <field name="modelSql" type="very-long"/>
+        <field name="modelParaList" type="object"/>
+        <prim-key field="extractModelId"/>
+        <index name="EXTRCT_MDL_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="EXTRCT_MDL_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="VisualTheme" package-name="com.hanlin.fadp.common.theme" title="Defines a Visual Theme" version="1.0">
+        <description>The VisualTheme entity contains one entry per visual theme.</description>
+        <field name="visualThemeId" not-null="true" type="id-ne"/>
+        <field name="visualThemeSetId" type="id"/>
+        <field name="description" type="description"/>
+        <prim-key field="visualThemeId"/>
+        <relation fk-name="VT_THEME_SET" rel-entity-name="VisualThemeSet" type="one">
+            <key-map field-name="visualThemeSetId"/>
+        </relation>
+        <relation rel-entity-name="VisualThemeResource" type="many">
+            <key-map field-name="visualThemeId"/>
+        </relation>
+        <index name="VSL_THM_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="VSL_THM_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="PortalPageColumn" package-name="com.hanlin.fadp.common.portal" title="Defines a Portal Page" version="1.0">
+        <description>None</description>
+        <field name="portalPageId" not-null="true" type="id-ne"/>
+        <field name="columnSeqId" not-null="true" type="id-ne"/>
+        <field name="columnWidthPixels" type="numeric"/>
+        <field name="columnWidthPercentage" type="numeric"/>
+        <prim-key field="portalPageId"/>
+        <prim-key field="columnSeqId"/>
+        <relation fk-name="PRTL_PGCOL_PAGE" rel-entity-name="PortalPage" type="one">
+            <key-map field-name="portalPageId"/>
+        </relation>
+        <relation rel-entity-name="PortalPagePortlet" type="many">
+            <key-map field-name="portalPageId"/>
+            <key-map field-name="columnSeqId"/>
+        </relation>
+        <index name="PRTL_PG_CLN_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PRTL_PG_CLN_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="UomGroup" package-name="com.hanlin.fadp.common.uom" title="Unit Of Measure Group Entity" version="1.0">
+        <description>None</description>
+        <field name="uomGroupId" not-null="true" type="id-ne"/>
+        <field name="uomId" not-null="true" type="id-ne"/>
+        <prim-key field="uomGroupId"/>
+        <prim-key field="uomId"/>
+        <relation fk-name="UOM_GROUP_UOM" rel-entity-name="Uom" type="one">
+            <key-map field-name="uomId"/>
+        </relation>
+        <index name="UOM_GROUP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="UOM_GROUP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="NoteData" package-name="com.hanlin.fadp.common.note" title="Note Data Entity" version="1.0">
+        <description>None</description>
+        <field name="noteId" not-null="true" type="id-ne"/>
+        <field name="noteName" type="name"/>
+        <field name="noteInfo" type="very-long"/>
+        <field name="noteDateTime" type="date-time"/>
+        <prim-key field="noteId"/>
+        <index name="NOTE_DATA_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="NOTE_DATA_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TestingType" package-name="com.hanlin.fadp.entity.test" title="Testing Entity Type" version="1.0">
+        <description>None</description>
+        <field name="testingTypeId" not-null="true" type="id-ne"/>
+        <field name="description" type="description"/>
+        <prim-key field="testingTypeId"/>
+        <relation rel-entity-name="Testing" type="many">
+            <key-map field-name="testingTypeId"/>
+        </relation>
+        <index name="TSTNG_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TSTNG_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TenantComponent" package-name="com.hanlin.fadp.entity.tenant" title="Entity of an Open For Business Project Component" version="1.0">
+        <description>None</description>
+        <field name="tenantId" not-null="true" type="id-ne"/>
+        <field name="componentName" not-null="true" type="name"/>
+        <field name="sequenceNum" type="numeric"/>
+        <prim-key field="componentName"/>
+        <prim-key field="tenantId"/>
+        <relation fk-name="TNTCOMP_TNT" rel-entity-name="Tenant" type="one">
+            <key-map field-name="tenantId"/>
+        </relation>
+        <relation fk-name="COMP_CNT" rel-entity-name="Component" type="one">
+            <key-map field-name="componentName"/>
+        </relation>
+        <index name="TNNT_CMPNNT_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TNNT_CMPNNT_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TenantDataSource" package-name="com.hanlin.fadp.entity.tenant" title="Entity of an Open For Business Project Component" version="1.0">
+        <description>
+            There should be one record for each tenant and each group-map for the active delegator.
+            The jdbc fields will override the datasource -&gt; inline-jdbc values for the per-tenant delegator.
+        </description>
+        <field name="tenantId" not-null="true" type="id-ne"/>
+        <field name="entityGroupName" not-null="true" type="name"/>
+        <field name="jdbcUri" type="long-varchar"/>
+        <field name="jdbcUsername" type="long-varchar"/>
+        <field name="jdbcPassword" type="long-varchar"/>
+        <prim-key field="tenantId"/>
+        <prim-key field="entityGroupName"/>
+        <relation fk-name="TNTDTSRC_TNT" rel-entity-name="Tenant" type="one">
+            <key-map field-name="tenantId"/>
+        </relation>
+        <index name="TNNT_DT_SRC_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TNNT_DT_SRC_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="ProtocolType" package-name="com.hanlin.fadp.webapp.visit" title="Protocol Type Entity" version="1.0">
+        <description>None</description>
+        <field name="protocolTypeId" not-null="true" type="id-ne"/>
+        <field name="protocolName" type="name"/>
+        <prim-key field="protocolTypeId"/>
+        <relation rel-entity-name="UserAgent" type="many">
+            <key-map field-name="protocolTypeId"/>
+        </relation>
+        <index name="PRTCL_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PRTCL_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="ExtractData" package-name="com.hanlin.fadp.petrescence.datasource" title="None" version="1.0">
+        <description>数据抽取</description>
+        <field name="extractModelId" not-null="true" type="id"/>
+        <field name="saveModelId" not-null="true" type="id"/>
+        <field name="description" type="description"/>
+        <field name="fieldMapping" type="object"/>
+        <field name="modelParaList" type="object"/>
+        <prim-key field="extractModelId"/>
+        <prim-key field="saveModelId"/>
+        <index name="EXTRCT_DT_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="EXTRCT_DT_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="EnumerationType" package-name="com.hanlin.fadp.common.enum" title="Enumeration Type Entity" version="1.0">
+        <description>None</description>
+        <field name="enumTypeId" not-null="true" type="id-ne"/>
+        <field name="parentTypeId" type="id"/>
+        <field name="hasTable" type="indicator"/>
+        <field name="description" type="description"/>
+        <prim-key field="enumTypeId"/>
+        <relation fk-name="ENUM_TYPE_PARENT" rel-entity-name="EnumerationType" title="Parent" type="one">
+            <key-map field-name="parentTypeId" rel-field-name="enumTypeId"/>
+        </relation>
+        <relation rel-entity-name="Enumeration" type="many">
+            <key-map field-name="enumTypeId"/>
+        </relation>
+        <relation rel-entity-name="EnumerationType" title="Child" type="many">
+            <key-map field-name="enumTypeId" rel-field-name="parentTypeId"/>
+        </relation>
+        <index name="ENMRTN_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="ENMRTN_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="SecurityEntityLabels" entity-name="SecurityPermission" package-name="com.hanlin.fadp.security.securitygroup" title="Security Component - Security Permission Entity" version="1.0">
+        <description>None</description>
+        <field name="permissionId" not-null="true" type="id-long-ne"/>
+        <field name="description" type="description"/>
+        <prim-key field="permissionId"/>
+        <relation rel-entity-name="SecurityGroupPermission" type="many">
+            <key-map field-name="permissionId"/>
+        </relation>
+        <index name="SCRT_PRMSSN_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="SCRT_PRMSSN_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TemporalExpression" package-name="com.hanlin.fadp.service.schedule" title="Temporal Expression" version="1.0">
+        <description>None</description>
+        <field name="tempExprId" not-null="true" type="id-ne"/>
+        <field name="tempExprTypeId" type="id-ne"/>
+        <field name="description" type="description"/>
+        <field name="date1" type="date-time"/>
+        <field name="date2" type="date-time"/>
+        <field name="integer1" type="numeric"/>
+        <field name="integer2" type="numeric"/>
+        <field name="string1" type="id"/>
+        <field name="string2" type="id"/>
+        <prim-key field="tempExprId"/>
+        <relation rel-entity-name="JobSandbox" type="many">
+            <key-map field-name="tempExprId"/>
+        </relation>
+        <relation rel-entity-name="TemporalExpressionAssoc" title="From" type="many">
+            <key-map field-name="tempExprId" rel-field-name="fromTempExprId"/>
+        </relation>
+        <relation rel-entity-name="TemporalExpressionAssoc" title="To" type="many">
+            <key-map field-name="tempExprId" rel-field-name="toTempExprId"/>
+        </relation>
+        <index name="TMPL_EXPRSN_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TMPL_EXPRSN_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="PortalPagePortletView" package-name="com.hanlin.fadp.common.portal" table-name="" title="View entity to have all Portlet information with portalPageId " version="1.0">
+        <description>None</description>
+        <field col-name="PPGPTLT_PORTAL_PAGE_ID" name="portalPageId" not-null="true" type="id-ne"/>
+        <field col-name="PPGPTLT_PORTLET_SEQ_ID" name="portletSeqId" not-null="true" type="id-ne"/>
+        <field col-name="PPGPTLT_PORTAL_PORTLET_ID" name="portalPortletId" not-null="true" type="id-ne"/>
+        <field col-name="PPGPTLT_COLUMN_SEQ_ID" name="columnSeqId" type="id-ne"/>
+        <field col-name="PPGPTLT_SEQUENCE_NUM" name="sequenceNum" type="numeric"/>
+        <field col-name="PTLT_SCREEN_LOCATION" name="screenLocation" type="long-varchar"/>
+        <field col-name="PTLT_SCREENSHOT" name="screenshot" type="url"/>
+        <field col-name="PTLT_DESCRIPTION" name="description" type="description"/>
+        <field col-name="PTLT_SCREEN_NAME" name="screenName" type="long-varchar"/>
+        <field col-name="PTLT_PORTLET_NAME" name="portletName" type="name"/>
+        <field col-name="PTLT_EDIT_FORM_LOCATION" name="editFormLocation" type="long-varchar"/>
+        <field col-name="PTLT_EDIT_FORM_NAME" name="editFormName" type="long-varchar"/>
+        <field col-name="PTLT_SECURITY_MAIN_ACTION" name="securityMainAction" type="short-varchar"/>
+        <field col-name="PTLT_SECURITY_SERVICE_NAME" name="securityServiceName" type="long-varchar"/>
+        <prim-key field="portalPageId"/>
+        <prim-key field="portletSeqId"/>
+        <prim-key field="portalPortletId"/>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="WebSite" package-name="com.hanlin.fadp.webapp.website" title="Web Site Entity" version="1.0">
+        <description>None</description>
+        <field name="webSiteId" not-null="true" type="id-ne"/>
+        <field name="siteName" type="name"/>
+        <field name="httpHost" type="long-varchar"/>
+        <field name="httpPort" type="very-short"/>
+        <field name="httpsHost" type="long-varchar"/>
+        <field name="httpsPort" type="very-short"/>
+        <field name="enableHttps" type="indicator"/>
+        <field name="standardContentPrefix" type="url"/>
+        <field name="secureContentPrefix" type="url"/>
+        <field name="cookieDomain" type="long-varchar"/>
+        <field name="visualThemeSetId" type="id"/>
+        <prim-key field="webSiteId"/>
+        <relation fk-name="WEB_SITE_THEME_SET" rel-entity-name="VisualThemeSet" type="one">
+            <key-map field-name="visualThemeSetId"/>
+        </relation>
+        <relation rel-entity-name="WebPage" type="many">
+            <key-map field-name="webSiteId"/>
+        </relation>
+        <index name="WEB_SITE_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="WEB_SITE_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="GeoAssoc" package-name="com.hanlin.fadp.common.geo" title="Geographic Boundary Association Entity" version="1.0">
+        <description>None</description>
+        <field name="geoId" not-null="true" type="id-ne"/>
+        <field name="geoIdTo" not-null="true" type="id-ne"/>
+        <field name="geoAssocTypeId" type="id"/>
+        <prim-key field="geoId"/>
+        <prim-key field="geoIdTo"/>
+        <relation fk-name="GEO_ASSC_TO_MAIN" rel-entity-name="Geo" title="Main" type="one">
+            <key-map field-name="geoId"/>
+        </relation>
+        <relation fk-name="GEO_ASSC_TO_ASSC" rel-entity-name="Geo" title="Assoc" type="one">
+            <key-map field-name="geoIdTo" rel-field-name="geoId"/>
+        </relation>
+        <relation fk-name="GEO_ASSC_TO_TYPE" rel-entity-name="GeoAssocType" type="one">
+            <key-map field-name="geoAssocTypeId"/>
+        </relation>
+        <index name="GEO_ASSOC_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="GEO_ASSOC_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="UomAndGroup" package-name="com.hanlin.fadp.common.uom" table-name="" title="Unit Of Measure and Group/Type View Entity" version="1.0">
+        <description>None</description>
+        <field col-name="UOMGP_UOM_GROUP_ID" name="uomGroupId" not-null="true" type="id-ne"/>
+        <field col-name="UOMGP_UOM_ID" name="uomId" not-null="true" type="id-ne"/>
+        <field col-name="UOM_UOM_TYPE_ID" name="uomTypeId" type="id"/>
+        <field col-name="UOM_DESCRIPTION" name="description" type="description"/>
+        <field col-name="UOM_ABBREVIATION" name="abbreviation" type="short-varchar"/>
+        <field col-name="UOMTP_UOM_TYPE_ID" name="typeUomTypeId" not-null="true" type="id-ne"/>
+        <field col-name="UOMTP_HAS_TABLE" name="typeHasTable" type="indicator"/>
+        <field col-name="UOMTP_DESCRIPTION" name="typeDescription" type="description"/>
+        <field col-name="UOMTP_PARENT_TYPE_ID" name="typeParentTypeId" type="id-ne"/>
+        <prim-key field="uomGroupId"/>
+        <prim-key field="uomId"/>
+        <prim-key field="typeUomTypeId"/>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="UserLoginSecurityGroup" package-name="com.hanlin.fadp.security.securitygroup" title="Security Component - User Login Security Group Entity" version="1.0">
+        <description>Maps a UserLogin to a security group</description>
+        <field name="userLoginId" not-null="true" type="id-vlong-ne"/>
+        <field name="groupId" not-null="true" type="id-ne"/>
+        <field name="fromDate" not-null="true" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
+        <prim-key field="userLoginId"/>
+        <prim-key field="groupId"/>
+        <prim-key field="fromDate"/>
+        <relation fk-name="USER_SECGRP_USER" rel-entity-name="UserLogin" type="one">
+            <key-map field-name="userLoginId"/>
+        </relation>
+        <relation fk-name="USER_SECGRP_GRP" rel-entity-name="SecurityGroup" type="one">
+            <key-map field-name="groupId"/>
+        </relation>
+        <relation rel-entity-name="SecurityGroupPermission" type="many">
+            <key-map field-name="groupId"/>
+        </relation>
+        <index name="USR_LGN_SCT_GRP_TP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="USR_LGN_SCT_GRP_TS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="CountryAddressFormat" package-name="com.hanlin.fadp.common.geo" title="Entity of an Open For Business Project Component" version="1.0">
+        <description>None</description>
+        <field name="geoId" not-null="true" type="id-ne"/>
+        <field name="geoAssocTypeId" type="id"/>
+        <field name="requireStateProvinceId" type="id"/>
+        <field name="requirePostalCode" type="indicator"/>
+        <field name="postalCodeRegex" type="long-varchar"/>
+        <field name="hasPostalCodeExt" type="indicator"/>
+        <field name="requirePostalCodeExt" type="indicator"/>
+        <field name="addressFormat" type="long-varchar"/>
+        <prim-key field="geoId"/>
+        <relation fk-name="CNY_ADR_GEO" rel-entity-name="Geo" type="one">
+            <key-map field-name="geoId"/>
+        </relation>
+        <relation fk-name="CNY_ADR_GEO_TYPE" rel-entity-name="GeoAssocType" type="one">
+            <key-map field-name="geoAssocTypeId"/>
+        </relation>
+        <index name="CNR_ADDS_FRT_TXSTP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="CNR_ADDS_FRT_TXCRS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="CustomTimePeriod" package-name="com.hanlin.fadp.common.period" title="Custom Time Period Entity" version="1.0">
+        <description>None</description>
+        <field name="customTimePeriodId" not-null="true" type="id-ne"/>
+        <field name="parentPeriodId" type="id"/>
+        <field name="periodTypeId" type="id"/>
+        <field name="periodNum" type="numeric"/>
+        <field name="periodName" type="name"/>
+        <field name="fromDate" type="date"/>
+        <field name="thruDate" type="date"/>
+        <field name="isClosed" type="indicator"/>
+        <prim-key field="customTimePeriodId"/>
+        <relation fk-name="ORG_PRD_PARPER" rel-entity-name="CustomTimePeriod" title="Parent" type="one">
+            <key-map field-name="parentPeriodId" rel-field-name="customTimePeriodId"/>
+        </relation>
+        <relation fk-name="ORG_PRD_PERTYP" rel-entity-name="PeriodType" type="one">
+            <key-map field-name="periodTypeId"/>
+        </relation>
+        <relation rel-entity-name="CustomTimePeriod" title="Child" type="many">
+            <key-map field-name="customTimePeriodId" rel-field-name="parentPeriodId"/>
+        </relation>
+        <index name="CSTM_TM_PRD_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="CSTM_TM_PRD_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="StatusItem" package-name="com.hanlin.fadp.common.status" title="Status Entity" version="1.0">
+        <description>None</description>
+        <field name="statusId" not-null="true" type="id-ne"/>
+        <field name="statusTypeId" type="id-ne"/>
+        <field name="statusCode" type="short-varchar"/>
+        <field name="sequenceId" type="id"/>
+        <field name="description" type="description"/>
+        <prim-key field="statusId"/>
+        <relation fk-name="STATUS_TO_TYPE" rel-entity-name="StatusType" type="one">
+            <key-map field-name="statusTypeId"/>
+        </relation>
+        <relation rel-entity-name="JobSandbox" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="StatusValidChange" title="Main" type="many">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation rel-entity-name="StatusValidChange" title="To" type="many">
+            <key-map field-name="statusId" rel-field-name="statusIdTo"/>
+        </relation>
+        <index name="STATUS_ITEM_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="STATUS_ITEM_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="UserLoginAndProtectedView" package-name="com.hanlin.fadp.security.securitygroup" table-name="" title="UserLogin And ProtectedView View Entity" version="1.0">
+        <description>None</description>
+        <field col-name="ULSGPV_GROUP_ID" name="groupId" not-null="true" type="id-ne"/>
+        <field col-name="ULSGPV_THRU_DATE" name="thruDate" type="date-time"/>
+        <field col-name="ULSGPV_FROM_DATE" name="fromDate" not-null="true" type="date-time"/>
+        <field col-name="ULSGPV_USER_LOGIN_ID" name="userLoginId" not-null="true" type="id-vlong-ne"/>
+        <field col-name="PV_MAX_HITS_DURATION" name="maxHitsDuration" type="numeric"/>
+        <field col-name="PV_TARPIT_DURATION" name="tarpitDuration" type="numeric"/>
+        <field col-name="PV_VIEW_NAME_ID" name="viewNameId" not-null="true" type="id-long-ne"/>
+        <field col-name="PV_MAX_HITS" name="maxHits" type="numeric"/>
+        <prim-key field="groupId"/>
+        <prim-key field="fromDate"/>
+        <prim-key field="userLoginId"/>
+        <prim-key field="viewNameId"/>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="Geo" package-name="com.hanlin.fadp.common.geo" title="Geographic Boundary Entity" version="1.0">
+        <description>None</description>
+        <field name="geoId" not-null="true" type="id-ne"/>
+        <field name="geoTypeId" type="id"/>
+        <field name="geoName" type="name"/>
+        <field name="geoCode" type="short-varchar"/>
+        <field name="geoSecCode" type="short-varchar"/>
+        <field name="abbreviation" type="short-varchar"/>
+        <field name="wellKnownText" type="very-long"/>
+        <prim-key field="geoId"/>
+        <relation fk-name="GEO_TO_TYPE" rel-entity-name="GeoType" type="one">
+            <key-map field-name="geoTypeId"/>
+        </relation>
+        <relation rel-entity-name="CountryAddressFormat" type="one-nofk">
+            <key-map field-name="geoId"/>
+        </relation>
+        <relation rel-entity-name="GeoAssoc" title="Main" type="many">
+            <key-map field-name="geoId"/>
+        </relation>
+        <relation rel-entity-name="GeoAssoc" title="Assoc" type="many">
+            <key-map field-name="geoId" rel-field-name="geoIdTo"/>
+        </relation>
+        <index name="GEO_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="GEO_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="StatusValidChangeToDetail" package-name="com.hanlin.fadp.common.status" table-name="" title="Status Valid Change To Detail View Entity" version="1.0">
+        <description>None</description>
+        <field col-name="SVC_STATUS_ID" name="statusId" not-null="true" type="id-ne"/>
+        <field col-name="SVC_CONDITION_EXPRESSION" name="conditionExpression" type="long-varchar"/>
+        <field col-name="SVC_STATUS_ID_TO" name="statusIdTo" not-null="true" type="id-ne"/>
+        <field col-name="SVC_TRANSITION_NAME" name="transitionName" type="name"/>
+        <field col-name="SI_STATUS_CODE" name="statusCode" type="short-varchar"/>
+        <field col-name="SI_DESCRIPTION" name="description" type="description"/>
+        <field col-name="SI_STATUS_TYPE_ID" name="statusTypeId" type="id-ne"/>
+        <field col-name="SI_SEQUENCE_ID" name="sequenceId" type="id"/>
+        <prim-key field="statusId"/>
+        <prim-key field="statusIdTo"/>
+        <relation rel-entity-name="StatusValidChange" type="one">
+            <key-map field-name="statusId"/>
+            <key-map field-name="statusIdTo"/>
+        </relation>
+        <relation rel-entity-name="StatusItem" type="one">
+            <key-map field-name="statusId"/>
+        </relation>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TestBlob" package-name="com.hanlin.fadp.entity.test" title="Entity for testing the blob type (Deprecated)" version="1.0">
+        <description>Deprecated - use TestFieldType instead</description>
+        <field name="testBlobId" not-null="true" type="id-ne"/>
+        <field name="testBlobField" type="blob"/>
+        <prim-key field="testBlobId"/>
+        <index name="TEST_BLOB_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TEST_BLOB_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="StatusType" package-name="com.hanlin.fadp.common.status" title="Status Type Entity" version="1.0">
+        <description>None</description>
+        <field name="statusTypeId" not-null="true" type="id-ne"/>
+        <field name="parentTypeId" type="id"/>
+        <field name="hasTable" type="indicator"/>
+        <field name="description" type="description"/>
+        <prim-key field="statusTypeId"/>
+        <relation fk-name="STATUS_TYPE_PARENT" rel-entity-name="StatusType" title="Parent" type="one">
+            <key-map field-name="parentTypeId" rel-field-name="statusTypeId"/>
+        </relation>
+        <relation rel-entity-name="StatusItem" type="many">
+            <key-map field-name="statusTypeId"/>
+        </relation>
+        <relation rel-entity-name="StatusType" title="Child" type="many">
+            <key-map field-name="statusTypeId" rel-field-name="parentTypeId"/>
+        </relation>
+        <index name="STATUS_TYPE_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="STATUS_TYPE_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="EntityAuditLog" package-name="com.hanlin.fadp.entity.audit" title="Entity Audit Log" version="1.0">
+        <description>None</description>
+        <field name="auditHistorySeqId" not-null="true" type="id-ne"/>
+        <field name="changedEntityName" type="long-varchar"/>
+        <field name="changedFieldName" type="long-varchar"/>
+        <field name="pkCombinedValueText" type="long-varchar"/>
+        <field name="oldValueText" type="long-varchar"/>
+        <field name="newValueText" type="long-varchar"/>
+        <field name="changedDate" type="date-time"/>
+        <field name="changedByInfo" type="long-varchar"/>
+        <field name="changedSessionInfo" type="long-varchar"/>
+        <prim-key field="auditHistorySeqId"/>
+        <index name="ENTT_ADT_LG_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="ENTT_ADT_LG_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="PeriodType" package-name="com.hanlin.fadp.common.period" title="Period Type Entity" version="1.0">
+        <description>None</description>
+        <field name="periodTypeId" not-null="true" type="id-ne"/>
+        <field name="description" type="description"/>
+        <field name="periodLength" type="numeric"/>
+        <field name="uomId" type="id"/>
+        <prim-key field="periodTypeId"/>
+        <relation fk-name="PER_TYPE_UOM" rel-entity-name="Uom" type="one">
+            <key-map field-name="uomId"/>
+        </relation>
+        <relation rel-entity-name="CustomTimePeriod" type="many">
+            <key-map field-name="periodTypeId"/>
+        </relation>
+        <index name="PERIOD_TYPE_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PERIOD_TYPE_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" dependent-on="CountryCode" entity-name="CountryTeleCode" package-name="com.hanlin.fadp.common.geo" title="Telephone Country Code Entity" version="1.0">
+        <description>None</description>
+        <field name="countryCode" not-null="true" type="id-ne"/>
+        <field name="teleCode" type="short-varchar"/>
+        <prim-key field="countryCode"/>
+        <relation fk-name="CNTRY_TELE_TO_CODE" rel-entity-name="CountryCode" type="one">
+            <key-map field-name="countryCode"/>
+        </relation>
+        <index name="CNTR_TL_CD_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="CNTR_TL_CD_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TestingRemoveAll" package-name="com.hanlin.fadp.entity.test" title="Testing Entity" version="1.0">
+        <description>None</description>
+        <field name="testingRemoveAllId" not-null="true" type="id-ne"/>
+        <field name="description" type="description"/>
+        <prim-key field="testingRemoveAllId"/>
+        <index name="TSTG_RMV_ALL_TXSTP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TSTG_RMV_ALL_TXCRS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="SecurityGroupPermission" package-name="com.hanlin.fadp.security.securitygroup" title="Security Component - Security Group Permission Entity" version="1.0">
+        <description>Defines a permission available to a security group; there is no FK to SecurityPermission because we want to leave open the possibility of ad-hoc permissions, especially for the Entity Data Maintenance pages which have TONS of permissions</description>
+        <field name="groupId" not-null="true" type="id-ne"/>
+        <field name="permissionId" not-null="true" type="id-long-ne"/>
+        <prim-key field="groupId"/>
+        <prim-key field="permissionId"/>
+        <relation fk-name="SEC_GRP_PERM_GRP" rel-entity-name="SecurityGroup" type="one">
+            <key-map field-name="groupId"/>
+        </relation>
+        <relation rel-entity-name="SecurityPermission" type="one-nofk">
+            <key-map field-name="permissionId"/>
+        </relation>
+        <index name="SCT_GRP_PRMN_TXSTP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="SCT_GRP_PRMN_TXCRS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="Component" package-name="com.hanlin.fadp.entity.tenant" title="Entity of an Open For Business Project Component" version="1.0">
+        <description>Component Entity</description>
+        <field name="componentName" not-null="true" type="name"/>
+        <field name="rootLocation" type="description"/>
+        <prim-key field="componentName"/>
+        <relation rel-entity-name="TenantComponent" type="many">
+            <key-map field-name="componentName"/>
+        </relation>
+        <index name="COMPONENT_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="COMPONENT_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="MenuType" package-name="org.ofbiz.entity" title="Entity of an Apache OFBiz Component" version="1.0">
+        <description>None</description>
+        <field name="menuTypeId" not-null="true" type="id-ne"/>
+        <field name="description" type="name"/>
+        <prim-key field="menuTypeId"/>
+        <index name="MENU_TYPE_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="MENU_TYPE_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TestingCrypto" package-name="com.hanlin.fadp.entity.test" title="Testing Crypto Entity" version="1.0">
+        <description>None</description>
+        <field name="testingCryptoId" not-null="true" type="id-ne"/>
+        <field name="testingCryptoTypeId" type="id-ne"/>
+        <field name="unencryptedValue" type="description"/>
+        <field encrypt="true" name="encryptedValue" type="description"/>
+        <field encrypt="salt" name="saltedEncryptedValue" type="description"/>
+        <prim-key field="testingCryptoId"/>
+        <index name="TSTNG_CRPT_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TSTNG_CRPT_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TarpittedLoginView" package-name="com.hanlin.fadp.security.securitygroup" title="Security Component - Protected View Entity" version="1.0">
+        <description>Login View couple currently tarpitted : any access to the view for the login is denied</description>
+        <field name="viewNameId" not-null="true" type="id-long-ne"/>
+        <field name="userLoginId" not-null="true" type="id-vlong-ne"/>
+        <field name="tarpitReleaseDateTime" type="numeric"/>
+        <prim-key field="viewNameId"/>
+        <prim-key field="userLoginId"/>
+        <index name="TRPTD_LGN_VW_TXSTP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TRPTD_LGN_VW_TXCRS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TenantDomainName" package-name="com.hanlin.fadp.entity.tenant" title="Tenant and its Domain Name" version="1.0">
+        <description>None</description>
+        <field name="tenantId" type="id-ne"/>
+        <field name="domainName" not-null="true" type="long-varchar"/>
+        <prim-key field="domainName"/>
+        <relation fk-name="TNNT_DMNAM" rel-entity-name="Tenant" type="one">
+            <key-map field-name="tenantId"/>
+        </relation>
+        <index name="TNNT_DMN_NM_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TNNT_DMN_NM_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="PortletPortletCategory" package-name="com.hanlin.fadp.common.portal" title="Defines Portlets included into Categories" version="1.0">
+        <description>None</description>
+        <field name="portalPortletId" not-null="true" type="id-ne"/>
+        <field name="portletCategoryId" not-null="true" type="id-ne"/>
+        <prim-key field="portalPortletId"/>
+        <prim-key field="portletCategoryId"/>
+        <relation fk-name="PPTLTCAT_PTPL" rel-entity-name="PortalPortlet" type="one">
+            <key-map field-name="portalPortletId"/>
+        </relation>
+        <relation fk-name="PPTLTCAT_PTLTCAT" rel-entity-name="PortletCategory" type="one">
+            <key-map field-name="portletCategoryId"/>
+        </relation>
+        <index name="PRTT_PRT_CTR_TXSTP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PRTT_PRT_CTR_TXCRS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="Visit" never-cache="true" package-name="com.hanlin.fadp.webapp.visit" sequence-bank-size="100" title="Visit Entity" version="1.0">
+        <description>None</description>
+        <field name="visitId" not-null="true" type="id-ne"/>
+        <field name="visitorId" type="id"/>
+        <field name="userLoginId" type="id-vlong"/>
+        <field name="userCreated" type="indicator"/>
+        <field name="sessionId" type="id-vlong"/>
+        <field name="serverIpAddress" type="id"/>
+        <field name="serverHostName" type="long-varchar"/>
+        <field name="webappName" type="short-varchar"/>
+        <field name="initialLocale" type="short-varchar"/>
+        <field name="initialRequest" type="url"/>
+        <field name="initialReferrer" type="url"/>
+        <field name="initialUserAgent" type="long-varchar"/>
+        <field name="userAgentId" type="id"/>
+        <field name="clientIpAddress" type="short-varchar"/>
+        <field name="clientHostName" type="long-varchar"/>
+        <field name="clientUser" type="short-varchar"/>
+        <field name="clientIpIspName" type="short-varchar"/>
+        <field name="clientIpPostalCode" type="short-varchar"/>
+        <field name="cookie" type="short-varchar"/>
+        <field name="fromDate" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
+        <field name="clientIpStateProvGeoId" type="id"/>
+        <field name="clientIpCountryGeoId" type="id"/>
+        <prim-key field="visitId"/>
+        <relation fk-name="VISIT_VISITOR" rel-entity-name="Visitor" type="one">
+            <key-map field-name="visitorId"/>
+        </relation>
+        <relation fk-name="VISIT_USER_AGNT" rel-entity-name="UserAgent" type="one">
+            <key-map field-name="userAgentId"/>
+        </relation>
+        <relation rel-entity-name="ServerHit" type="many">
+            <key-map field-name="visitId"/>
+        </relation>
+        <index name="VISIT_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="VISIT_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+        <index name="VISIT_THRU_IDX">
+            <index-field name="thruDate"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="EntityKeyStore" package-name="com.hanlin.fadp.entity.crypto" title="Entity Key Store Entity" version="1.0">
+        <description>None</description>
+        <field name="keyName" not-null="true" type="id-vlong-ne"/>
+        <field name="keyText" type="long-varchar"/>
+        <prim-key field="keyName"/>
+        <index name="ENTT_K_STR_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="ENTT_K_STR_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="UserLoginPasswordHistory" never-cache="true" package-name="com.hanlin.fadp.security.login" title="User Login Password History Entity" version="1.0">
+        <description>None</description>
+        <field name="userLoginId" not-null="true" type="id-vlong-ne"/>
+        <field name="fromDate" not-null="true" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
+        <field name="currentPassword" type="short-varchar"/>
+        <prim-key field="userLoginId"/>
+        <prim-key field="fromDate"/>
+        <relation fk-name="USER_LPH_USER" rel-entity-name="UserLogin" type="one">
+            <key-map field-name="userLoginId"/>
+        </relation>
+        <index name="USR_LGN_PSD_HSR_TP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="USR_LGN_PSD_HSR_TS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TestingNodeMember" package-name="com.hanlin.fadp.entity.test" title="Testing Node Member" version="1.0">
+        <description>None</description>
+        <field name="testingNodeId" not-null="true" type="id-ne"/>
+        <field name="testingId" not-null="true" type="id-ne"/>
+        <field name="fromDate" not-null="true" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
+        <field name="extendFromDate" type="date-time"/>
+        <field name="extendThruDate" type="date-time"/>
+        <prim-key field="testingNodeId"/>
+        <prim-key field="testingId"/>
+        <prim-key field="fromDate"/>
+        <relation fk-name="TESTING_NMBR_TEST" rel-entity-name="Testing" type="one">
+            <key-map field-name="testingId"/>
+        </relation>
+        <relation fk-name="TEST_NMBR_NODE" rel-entity-name="TestingNode" type="one">
+            <key-map field-name="testingNodeId"/>
+        </relation>
+        <index name="TSTG_ND_MMR_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TSTG_ND_MMR_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="Uom" package-name="com.hanlin.fadp.common.uom" title="Unit Of Measure Entity" version="1.0">
+        <description>None</description>
+        <field name="uomId" not-null="true" type="id-ne"/>
+        <field name="uomTypeId" type="id"/>
+        <field name="abbreviation" type="short-varchar"/>
+        <field name="description" type="description"/>
+        <prim-key field="uomId"/>
+        <relation fk-name="UOM_TO_TYPE" rel-entity-name="UomType" type="one">
+            <key-map field-name="uomTypeId"/>
+        </relation>
+        <relation rel-entity-name="GeoPoint" title="Elevation" type="many">
+            <key-map field-name="uomId" rel-field-name="elevationUomId"/>
+        </relation>
+        <relation rel-entity-name="PeriodType" type="many">
+            <key-map field-name="uomId"/>
+        </relation>
+        <relation rel-entity-name="UomConversion" title="Main" type="many">
+            <key-map field-name="uomId"/>
+        </relation>
+        <relation rel-entity-name="UomConversion" title="ConvTo" type="many">
+            <key-map field-name="uomId" rel-field-name="uomIdTo"/>
+        </relation>
+        <relation rel-entity-name="UomConversionDated" title="DatedMain" type="many">
+            <key-map field-name="uomId"/>
+        </relation>
+        <relation rel-entity-name="UomConversionDated" title="DatedConvTo" type="many">
+            <key-map field-name="uomId" rel-field-name="uomIdTo"/>
+        </relation>
+        <relation rel-entity-name="UomGroup" type="many">
+            <key-map field-name="uomId"/>
+        </relation>
+        <index name="UOM_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="UOM_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="SecurityEntityLabels" entity-name="SecurityGroup" package-name="com.hanlin.fadp.security.securitygroup" title="Security Component - Security Group Entity" version="1.0">
+        <description>None</description>
+        <field name="groupId" not-null="true" type="id-ne"/>
+        <field name="description" type="description"/>
+        <prim-key field="groupId"/>
+        <relation rel-entity-name="PortalPage" type="many">
+            <key-map field-name="groupId" rel-field-name="securityGroupId"/>
+        </relation>
+        <relation rel-entity-name="ProtectedView" type="many">
+            <key-map field-name="groupId"/>
+        </relation>
+        <relation rel-entity-name="SecurityGroupPermission" type="many">
+            <key-map field-name="groupId"/>
+        </relation>
+        <relation rel-entity-name="UserLoginSecurityGroup" type="many">
+            <key-map field-name="groupId"/>
+        </relation>
+        <index name="SCRT_GRP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="SCRT_GRP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="PortletAttribute" package-name="com.hanlin.fadp.common.portal" title="Allows to set different attribute values for each instance of the same portlet" version="1.0">
+        <description>None</description>
+        <field name="portalPageId" not-null="true" type="id-ne"/>
+        <field name="portalPortletId" not-null="true" type="id-ne"/>
+        <field name="portletSeqId" not-null="true" type="id-ne"/>
+        <field name="attrName" not-null="true" type="id-long-ne"/>
+        <field name="attrValue" type="value"/>
+        <field name="attrType" type="value"/>
+        <prim-key field="portalPageId"/>
+        <prim-key field="portalPortletId"/>
+        <prim-key field="portletSeqId"/>
+        <prim-key field="attrName"/>
+        <relation fk-name="PTLT_ATTR_PTLT" rel-entity-name="PortalPortlet" type="one">
+            <key-map field-name="portalPortletId"/>
+        </relation>
+        <index name="PRTLT_ATTRT_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PRTLT_ATTRT_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="UserLoginSession" never-cache="true" package-name="com.hanlin.fadp.security.login" title="User Login History Entity" version="1.0">
+        <description>None</description>
+        <field name="userLoginId" not-null="true" type="id-vlong-ne"/>
+        <field name="savedDate" type="date-time"/>
+        <field name="sessionData" type="very-long"/>
+        <prim-key field="userLoginId"/>
+        <relation fk-name="USER_SESSION_USER" rel-entity-name="UserLogin" type="one">
+            <key-map field-name="userLoginId"/>
+        </relation>
+        <index name="USR_LGN_SSN_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="USR_LGN_SSN_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonPortalEntityLabels" entity-name="PortalPage" package-name="com.hanlin.fadp.common.portal" title="Defines a Portal Page" version="1.0">
+        <description>None</description>
+        <field name="portalPageId" not-null="true" type="id-ne"/>
+        <field name="portalPageName" type="name"/>
+        <field name="description" type="description"/>
+        <field name="ownerUserLoginId" type="id-vlong-ne"/>
+        <field name="originalPortalPageId" type="id"/>
+        <field name="parentPortalPageId" type="id"/>
+        <field name="sequenceNum" type="numeric"/>
+        <field name="securityGroupId" type="id"/>
+        <prim-key field="portalPageId"/>
+        <relation fk-name="PortPage_PARENT" rel-entity-name="PortalPage" title="Parent" type="one">
+            <key-map field-name="parentPortalPageId" rel-field-name="portalPageId"/>
+        </relation>
+        <relation fk-name="PORTPAGE_SECGRP" rel-entity-name="SecurityGroup" type="one">
+            <key-map field-name="securityGroupId" rel-field-name="groupId"/>
+        </relation>
+        <relation rel-entity-name="PortalPage" title="Child" type="many">
+            <key-map field-name="portalPageId" rel-field-name="parentPortalPageId"/>
+        </relation>
+        <relation rel-entity-name="PortalPageColumn" type="many">
+            <key-map field-name="portalPageId"/>
+        </relation>
+        <relation rel-entity-name="PortalPagePortlet" type="many">
+            <key-map field-name="portalPageId"/>
+        </relation>
+        <index name="PORTAL_PAGE_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PORTAL_PAGE_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="EntitySync" package-name="com.hanlin.fadp.entity.synchronization" title="Entity Synchronization Entity" version="1.0">
+        <description>None</description>
+        <field name="entitySyncId" not-null="true" type="id-ne"/>
+        <field name="runStatusId" type="id-ne"/>
+        <field name="lastSuccessfulSynchTime" type="date-time"/>
+        <field name="lastHistoryStartDate" type="date-time"/>
+        <field name="preOfflineSynchTime" type="date-time"/>
+        <field name="offlineSyncSplitMillis" type="numeric"/>
+        <field name="syncSplitMillis" type="numeric"/>
+        <field name="syncEndBufferMillis" type="numeric"/>
+        <field name="maxRunningNoUpdateMillis" type="numeric"/>
+        <field name="targetServiceName" type="long-varchar"/>
+        <field name="targetDelegatorName" type="long-varchar"/>
+        <field name="keepRemoveInfoHours" type="floating-point"/>
+        <field name="forPullOnly" type="indicator"/>
+        <field name="forPushOnly" type="indicator"/>
+        <prim-key field="entitySyncId"/>
+        <relation rel-entity-name="EntitySyncInclGrpDetailView" type="many">
+            <key-map field-name="entitySyncId"/>
+        </relation>
+        <relation rel-entity-name="EntitySyncHistory" title="Last" type="one-nofk">
+            <key-map field-name="entitySyncId"/>
+            <key-map field-name="lastHistoryStartDate" rel-field-name="startDate"/>
+        </relation>
+        <relation rel-entity-name="EntitySyncHistory" type="many">
+            <key-map field-name="entitySyncId"/>
+        </relation>
+        <relation rel-entity-name="EntitySyncInclude" type="many">
+            <key-map field-name="entitySyncId"/>
+        </relation>
+        <relation rel-entity-name="EntitySyncIncludeGroup" type="many">
+            <key-map field-name="entitySyncId"/>
+        </relation>
+        <index name="ENTITY_SYNC_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="ENTITY_SYNC_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="ServerHit" never-cache="true" package-name="com.hanlin.fadp.webapp.visit" title="Server Hit Entity" version="1.0">
+        <description>None</description>
+        <field name="visitId" not-null="true" type="id-ne"/>
+        <field name="contentId" not-null="true" type="id-vlong-ne"/>
+        <field name="hitStartDateTime" not-null="true" type="date-time"/>
+        <field name="hitTypeId" not-null="true" type="id-ne"/>
+        <field name="numOfBytes" type="numeric"/>
+        <field name="runningTimeMillis" type="numeric"/>
+        <field name="userLoginId" type="id-vlong"/>
+        <field name="statusId" type="id"/>
+        <field name="requestUrl" type="url"/>
+        <field name="referrerUrl" type="url"/>
+        <field name="serverIpAddress" type="id"/>
+        <field name="serverHostName" type="long-varchar"/>
+        <prim-key field="visitId"/>
+        <prim-key field="contentId"/>
+        <prim-key field="hitStartDateTime"/>
+        <prim-key field="hitTypeId"/>
+        <relation fk-name="SERVER_HIT_SHTYP" rel-entity-name="ServerHitType" type="one">
+            <key-map field-name="hitTypeId"/>
+        </relation>
+        <relation fk-name="SERVER_HIT_VISIT" rel-entity-name="Visit" type="one">
+            <key-map field-name="visitId"/>
+        </relation>
+        <index name="SERVER_HIT_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="SERVER_HIT_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="UomType" package-name="com.hanlin.fadp.common.uom" title="Unit Of Measure Type Entity" version="1.0">
+        <description>None</description>
+        <field name="uomTypeId" not-null="true" type="id-ne"/>
+        <field name="parentTypeId" type="id-ne"/>
+        <field name="hasTable" type="indicator"/>
+        <field name="description" type="description"/>
+        <prim-key field="uomTypeId"/>
+        <relation fk-name="UOM_TYPE_PARENT" rel-entity-name="UomType" title="Parent" type="one">
+            <key-map field-name="parentTypeId" rel-field-name="uomTypeId"/>
+        </relation>
+        <relation rel-entity-name="Uom" type="many">
+            <key-map field-name="uomTypeId"/>
+        </relation>
+        <relation rel-entity-name="UomType" title="Child" type="many">
+            <key-map field-name="uomTypeId" rel-field-name="parentTypeId"/>
+        </relation>
+        <index name="UOM_TYPE_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="UOM_TYPE_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="VisualThemeSet" package-name="com.hanlin.fadp.common.theme" title="Defines a set of Visual Themes" version="1.0">
+        <description>Groups toghether Visual Themes that can be used for one (or a set of) application.</description>
+        <field name="visualThemeSetId" not-null="true" type="id-ne"/>
+        <field name="description" type="description"/>
+        <prim-key field="visualThemeSetId"/>
+        <relation rel-entity-name="VisualTheme" type="many">
+            <key-map field-name="visualThemeSetId"/>
+        </relation>
+        <relation rel-entity-name="WebSite" type="many">
+            <key-map field-name="visualThemeSetId"/>
+        </relation>
+        <index name="VSL_THM_ST_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="VSL_THM_ST_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="GeoAssocAndGeoToWithState" package-name="com.hanlin.fadp.common.geo" table-name="" title="Entity of an Open For Business Project Component" version="1.0">
+        <description>None</description>
+        <field col-name="GA_GEO_ID" name="geoIdFrom" not-null="true" type="id-ne"/>
+        <field col-name="GA_GEO_ASSOC_TYPE_ID" name="geoAssocTypeId" type="id"/>
+        <field col-name="GTO_GEO_ID" name="geoId" not-null="true" type="id-ne"/>
+        <field col-name="GTO_WELL_KNOWN_TEXT" name="wellKnownText" type="very-long"/>
+        <field col-name="GTO_GEO_SEC_CODE" name="geoSecCode" type="short-varchar"/>
+        <field col-name="GTO_GEO_NAME" name="geoName" type="name"/>
+        <field col-name="GTO_ABBREVIATION" name="abbreviation" type="short-varchar"/>
+        <field col-name="GTO_GEO_CODE" name="geoCode" type="short-varchar"/>
+        <field col-name="GTO_GEO_TYPE_ID" name="geoTypeId" type="id"/>
+        <prim-key field="geoIdFrom"/>
+        <prim-key field="geoId"/>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="PortalPageAndPortlet" package-name="com.hanlin.fadp.common.portal" table-name="" title="View entity to have all Portal and Portlet information" version="1.0">
+        <description>None</description>
+        <field col-name="PPP_SEQUENCE_NUM" name="portletSequenceNum" type="numeric"/>
+        <field col-name="PP_DESCRIPTION" name="description" type="description"/>
+        <field col-name="PP_PORTAL_PAGE_ID" name="portalPageId" not-null="true" type="id-ne"/>
+        <field col-name="PP_PARENT_PORTAL_PAGE_ID" name="parentPortalPageId" type="id"/>
+        <field col-name="PP_PORTAL_PAGE_NAME" name="portalPageName" type="name"/>
+        <field col-name="PP_ORIGINAL_PORTAL_PAGE_ID" name="originalPortalPageId" type="id"/>
+        <field col-name="PP_SECURITY_GROUP_ID" name="securityGroupId" type="id"/>
+        <field col-name="PP_OWNER_USER_LOGIN_ID" name="ownerUserLoginId" type="id-vlong-ne"/>
+        <field col-name="PP_SEQUENCE_NUM" name="sequenceNum" type="numeric"/>
+        <field col-name="PPP_PORTLET_SEQ_ID" name="portletSeqId" not-null="true" type="id-ne"/>
+        <field col-name="PPP_PORTAL_PORTLET_ID" name="portalPortletId" not-null="true" type="id-ne"/>
+        <field col-name="PPP_COLUMN_SEQ_ID" name="columnSeqId" type="id-ne"/>
+        <prim-key field="portalPageId"/>
+        <prim-key field="portletSeqId"/>
+        <prim-key field="portalPortletId"/>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TestingItem" package-name="com.hanlin.fadp.entity.test" title="Testing Item" version="1.0">
+        <description>None</description>
+        <field name="testingId" not-null="true" type="id-ne"/>
+        <field name="testingSeqId" not-null="true" type="id-ne"/>
+        <field name="testingHistory" type="very-long"/>
+        <prim-key field="testingId"/>
+        <prim-key field="testingSeqId"/>
+        <relation fk-name="TESTING_IT_TEST" rel-entity-name="Testing" type="one">
+            <key-map field-name="testingId"/>
+        </relation>
+        <index name="TSTNG_ITM_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TSTNG_ITM_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="BrowserType" package-name="com.hanlin.fadp.webapp.visit" title="Browser Type Entity" version="1.0">
+        <description>None</description>
+        <field name="browserTypeId" not-null="true" type="id-ne"/>
+        <field name="browserName" type="name"/>
+        <field name="browserVersion" type="very-short"/>
+        <prim-key field="browserTypeId"/>
+        <relation rel-entity-name="UserAgent" type="many">
+            <key-map field-name="browserTypeId"/>
+        </relation>
+        <index name="BRWSR_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="BRWSR_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="JavaResource" package-name="com.hanlin.fadp.entity" title="Java Resource" version="1.0">
+        <description>None</description>
+        <field name="resourceName" not-null="true" type="id-vlong-ne"/>
+        <field name="resourceValue" type="byte-array"/>
+        <prim-key field="resourceName"/>
+        <index name="JV_RSRC_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="JV_RSRC_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="PortalPageAndUserLogin" package-name="com.hanlin.fadp.common.portal" table-name="" title="PortalPage accessible via security group to a userLogin" version="1.0">
+        <description>None</description>
+        <field col-name="PP_PORTAL_PAGE_ID" name="portalPageId" not-null="true" type="id-ne"/>
+        <field col-name="PP_SECURITY_GROUP_ID" name="securityGroupId" type="id"/>
+        <field col-name="PP_PARENT_PORTAL_PAGE_ID" name="parentPortalPageId" type="id"/>
+        <field col-name="UG_USER_LOGIN_ID" name="userLoginId" not-null="true" type="id-vlong-ne"/>
+        <field col-name="UG_FROM_DATE" name="fromDate" not-null="true" type="date-time"/>
+        <field col-name="UG_THRU_DATE" name="thruDate" type="date-time"/>
+        <prim-key field="portalPageId"/>
+        <prim-key field="userLoginId"/>
+        <prim-key field="fromDate"/>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="ServerHitBin" never-cache="true" package-name="com.hanlin.fadp.webapp.visit" title="Server Hit Bin Entity" version="1.0">
+        <description>None</description>
+        <field name="serverHitBinId" not-null="true" type="id-ne"/>
+        <field name="contentId" type="id-vlong-ne"/>
+        <field name="hitTypeId" type="id-ne"/>
+        <field name="serverIpAddress" type="id"/>
+        <field name="serverHostName" type="long-varchar"/>
+        <field name="binStartDateTime" type="date-time"/>
+        <field name="binEndDateTime" type="date-time"/>
+        <field name="numberHits" type="numeric"/>
+        <field name="totalTimeMillis" type="numeric"/>
+        <field name="minTimeMillis" type="numeric"/>
+        <field name="maxTimeMillis" type="numeric"/>
+        <prim-key field="serverHitBinId"/>
+        <relation fk-name="SERVER_HBIN_TYPE" rel-entity-name="ServerHitType" type="one">
+            <key-map field-name="hitTypeId"/>
+        </relation>
+        <index name="SRVR_HT_BN_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="SRVR_HT_BN_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="UserAgentType" package-name="com.hanlin.fadp.webapp.visit" title="User Agent Type Entity" version="1.0">
+        <description>None</description>
+        <field name="userAgentTypeId" not-null="true" type="id-ne"/>
+        <field name="description" type="description"/>
+        <prim-key field="userAgentTypeId"/>
+        <relation rel-entity-name="UserAgent" type="many">
+            <key-map field-name="userAgentTypeId"/>
+        </relation>
+        <index name="USR_AGNT_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="USR_AGNT_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="ServiceSemaphore" package-name="com.hanlin.fadp.service.semaphore" sequence-bank-size="100" title="Semaphore Lock Entity" version="1.0">
+        <description>None</description>
+        <field name="serviceName" not-null="true" type="name"/>
+        <field name="lockedByInstanceId" type="id"/>
+        <field name="lockThread" type="name"/>
+        <field name="lockTime" type="date-time"/>
+        <prim-key field="serviceName"/>
+        <index name="SRVC_SMPHR_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="SRVC_SMPHR_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="RuntimeData" package-name="com.hanlin.fadp.service.schedule" sequence-bank-size="100" title="Runtime Data Entity" version="1.0">
+        <description>None</description>
+        <field name="runtimeDataId" not-null="true" type="id-ne"/>
+        <field name="runtimeInfo" type="very-long"/>
+        <prim-key field="runtimeDataId"/>
+        <relation rel-entity-name="JobSandbox" type="many">
+            <key-map field-name="runtimeDataId"/>
+        </relation>
+        <index name="RNTM_DT_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="RNTM_DT_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="WebappEntityLabels" entity-name="ServerHitType" package-name="com.hanlin.fadp.webapp.visit" title="Server Hit Bin Entity" version="1.0">
+        <description>None</description>
+        <field name="hitTypeId" not-null="true" type="id"/>
+        <field name="description" type="description"/>
+        <prim-key field="hitTypeId"/>
+        <relation rel-entity-name="ServerHit" type="many">
+            <key-map field-name="hitTypeId"/>
+        </relation>
+        <relation rel-entity-name="ServerHitBin" type="many">
+            <key-map field-name="hitTypeId"/>
+        </relation>
+        <index name="SRVR_HT_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="SRVR_HT_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="DataSource" package-name="com.hanlin.fadp.common.datasource" title="Data Source Entity" version="1.0">
+        <description>None</description>
+        <field name="dataSourceId" not-null="true" type="id-ne"/>
+        <field name="dataSourceTypeId" type="id"/>
+        <field name="description" type="description"/>
+        <prim-key field="dataSourceId"/>
+        <relation fk-name="DATA_SRC_TYP" rel-entity-name="DataSourceType" type="one">
+            <key-map field-name="dataSourceTypeId"/>
+        </relation>
+        <relation rel-entity-name="GeoPoint" type="many">
+            <key-map field-name="dataSourceId"/>
+        </relation>
+        <index name="DATA_SOURCE_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="DATA_SOURCE_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="EntitySyncRemove" package-name="com.hanlin.fadp.entity.synchronization" title="Entity Synchronization Remove Entity" version="1.0">
+        <description>None</description>
+        <field name="entitySyncRemoveId" not-null="true" type="id-ne"/>
+        <field name="primaryKeyRemoved" type="very-long"/>
+        <prim-key field="entitySyncRemoveId"/>
+        <index name="ENT_SNC_RMV_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="ENT_SNC_RMV_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="DatabaseSeq" package-name="com.hanlin.fadp.petrescence.datasource" title="None" version="1.0">
+        <description>数据源</description>
+        <field name="dataSourceName" not-null="true" type="name"/>
+        <field name="fieldTypeName" type="id"/>
+        <field name="schemaName" type="name"/>
+        <field name="databaseName" type="name"/>
+        <field name="ip" type="id"/>
+        <field name="port" type="id"/>
+        <field name="jdbcUsername" type="name"/>
+        <field name="jdbcPassword" type="name"/>
+        <field name="description" type="description"/>
+        <prim-key field="dataSourceName"/>
+        <index name="DTBS_SQ_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="DTBS_SQ_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="Visitor" package-name="com.hanlin.fadp.webapp.visit" sequence-bank-size="100" title="Visitor Entity" version="1.0">
+        <description>None</description>
+        <field name="visitorId" not-null="true" type="id-ne"/>
+        <field name="userLoginId" type="id-vlong"/>
+        <prim-key field="visitorId"/>
+        <relation fk-name="VISITOR_USRLGN" rel-entity-name="UserLogin" type="one">
+            <key-map field-name="userLoginId"/>
+        </relation>
+        <relation rel-entity-name="Visit" type="many">
+            <key-map field-name="visitorId"/>
+        </relation>
+        <index name="VISITOR_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="VISITOR_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="CustomMethodType" package-name="com.hanlin.fadp.common.method" title="Custom Method Type Entity" version="1.0">
+        <description>None</description>
+        <field name="customMethodTypeId" not-null="true" type="id-ne"/>
+        <field name="parentTypeId" type="id-ne"/>
+        <field name="hasTable" type="indicator"/>
+        <field name="description" type="description"/>
+        <prim-key field="customMethodTypeId"/>
+        <relation fk-name="CME_TYPE_PARENT" rel-entity-name="CustomMethodType" title="Parent" type="one">
+            <key-map field-name="parentTypeId" rel-field-name="customMethodTypeId"/>
+        </relation>
+        <relation rel-entity-name="CustomMethod" type="many">
+            <key-map field-name="customMethodTypeId"/>
+        </relation>
+        <relation rel-entity-name="CustomMethodType" title="Child" type="many">
+            <key-map field-name="customMethodTypeId" rel-field-name="parentTypeId"/>
+        </relation>
+        <index name="CSTM_MTD_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="CSTM_MTD_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="StandardLanguage" package-name="com.hanlin.fadp.common.language" title="Entity of an Open For Business Project Component" version="1.0">
+        <description>None</description>
+        <field name="standardLanguageId" not-null="true" type="id-ne"/>
+        <field name="langCode3t" type="very-short"/>
+        <field name="langCode3b" type="very-short"/>
+        <field name="langCode2" type="very-short"/>
+        <field name="langName" type="short-varchar"/>
+        <field name="langFamily" type="short-varchar"/>
+        <field name="langCharset" type="short-varchar"/>
+        <prim-key field="standardLanguageId"/>
+        <index name="STNDRD_LNGG_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="STNDRD_LNGG_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TenantKeyEncryptingKey" package-name="com.hanlin.fadp.entity.tenant" title="Entity of an Open For Business Project Component" version="1.0">
+        <description>
+            There should be one record for each tenant and each group-map for the active delegator.
+            The jdbc fields will override the datasource -&gt; inline-jdbc values for the per-tenant delegator.
+        </description>
+        <field name="tenantId" not-null="true" type="id-ne"/>
+        <field name="kekText" type="long-varchar"/>
+        <prim-key field="tenantId"/>
+        <relation fk-name="TNTKEK_TNT" rel-entity-name="Tenant" type="one">
+            <key-map field-name="tenantId"/>
+        </relation>
+        <index name="TNT_K_ENCRG_K_TXSP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TNT_K_ENCRG_K_TXCS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="EntityGroupEntry" package-name="com.hanlin.fadp.entity.group" title="Entity Grouping Entity" version="1.0">
+        <description>None</description>
+        <field name="entityGroupId" not-null="true" type="id-ne"/>
+        <field name="entityOrPackage" not-null="true" type="long-varchar"/>
+        <field name="applEnumId" type="id-ne"/>
+        <prim-key field="entityGroupId"/>
+        <prim-key field="entityOrPackage"/>
+        <relation fk-name="ENTGRP_GRP" rel-entity-name="EntityGroup" type="one">
+            <key-map field-name="entityGroupId"/>
+        </relation>
+        <index name="ENT_GRP_ENR_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="ENT_GRP_ENR_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="ProtectedView" package-name="com.hanlin.fadp.security.securitygroup" title="Security Component - Protected View Entity" version="1.0">
+        <description>Defines views protected from data leakage</description>
+        <field name="groupId" not-null="true" type="id-ne"/>
+        <field name="viewNameId" not-null="true" type="id-long-ne"/>
+        <field name="maxHits" type="numeric"/>
+        <field name="maxHitsDuration" type="numeric"/>
+        <field name="tarpitDuration" type="numeric"/>
+        <prim-key field="groupId"/>
+        <prim-key field="viewNameId"/>
+        <relation fk-name="VIEW_SECGRP_GRP" rel-entity-name="SecurityGroup" type="one">
+            <key-map field-name="groupId"/>
+        </relation>
+        <relation rel-entity-name="SecurityGroupPermission" type="many">
+            <key-map field-name="groupId"/>
+        </relation>
+        <index name="PRTCTD_VW_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="PRTCTD_VW_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="Tenant" package-name="com.hanlin.fadp.entity.tenant" title="Entity of an Open For Business Project Component" version="1.0">
+        <description>None</description>
+        <field name="tenantId" not-null="true" type="id-ne"/>
+        <field name="tenantName" type="name"/>
+        <field name="initialPath" type="value"/>
+        <field name="disabled" type="indicator"/>
+        <prim-key field="tenantId"/>
+        <relation rel-entity-name="TenantComponent" type="many">
+            <key-map field-name="tenantId"/>
+        </relation>
+        <relation rel-entity-name="TenantDataSource" type="many">
+            <key-map field-name="tenantId"/>
+        </relation>
+        <relation rel-entity-name="TenantDomainName" type="many">
+            <key-map field-name="tenantId"/>
+        </relation>
+        <relation rel-entity-name="TenantKeyEncryptingKey" type="one-nofk">
+            <key-map field-name="tenantId"/>
+        </relation>
+        <index name="TENANT_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TENANT_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="UserPreference" package-name="com.hanlin.fadp.common.user" title="Application preferences for a given userLogin." version="1.0">
+        <description>The UserPreference entity contains one entry per preference per
+          userLogin. User preferences are stored as key/value pairs (userPrefTypeId/userPrefValue).
+          All values are stored as strings. Value strings can be converted to
+          other data types by specifying a java data type in the userPrefDataType field.
+      </description>
+        <field name="userLoginId" not-null="true" type="id-vlong-ne"/>
+        <field name="userPrefTypeId" not-null="true" type="id-long-ne"/>
+        <field name="userPrefGroupTypeId" type="id-long"/>
+        <field name="userPrefValue" type="value"/>
+        <field name="userPrefDataType" type="id-long"/>
+        <prim-key field="userLoginId"/>
+        <prim-key field="userPrefTypeId"/>
+        <index name="USR_PRFRNC_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="USR_PRFRNC_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="UserLogin" package-name="com.hanlin.fadp.security.login" title="User Login Entity" version="1.0">
+        <description>None</description>
+        <field name="userLoginId" not-null="true" type="id-vlong-ne"/>
+        <field name="currentPassword" type="short-varchar"/>
+        <field name="passwordHint" type="description"/>
+        <field name="isSystem" type="indicator"/>
+        <field name="enabled" type="indicator"/>
+        <field name="hasLoggedOut" type="indicator"/>
+        <field name="requirePasswordChange" type="indicator"/>
+        <field name="lastCurrencyUom" type="id"/>
+        <field name="lastLocale" type="very-short"/>
+        <field name="lastTimeZone" type="id-long"/>
+        <field name="disabledDateTime" type="date-time"/>
+        <field name="successiveFailedLogins" type="numeric"/>
+        <field name="externalAuthId" type="id-vlong-ne"/>
+        <field name="userLdapDn" type="id-vlong-ne"/>
+        <prim-key field="userLoginId"/>
+        <relation rel-entity-name="JobSandbox" title="Auth" type="many">
+            <key-map field-name="userLoginId" rel-field-name="authUserLoginId"/>
+        </relation>
+        <relation rel-entity-name="JobSandbox" title="RunAs" type="many">
+            <key-map field-name="userLoginId" rel-field-name="runAsUser"/>
+        </relation>
+        <relation rel-entity-name="UserLoginHistory" type="many">
+            <key-map field-name="userLoginId"/>
+        </relation>
+        <relation rel-entity-name="UserLoginPasswordHistory" type="many">
+            <key-map field-name="userLoginId"/>
+        </relation>
+        <relation rel-entity-name="UserLoginSecurityGroup" type="many">
+            <key-map field-name="userLoginId"/>
+        </relation>
+        <relation rel-entity-name="UserLoginSession" type="one-nofk">
+            <key-map field-name="userLoginId"/>
+        </relation>
+        <relation rel-entity-name="Visitor" type="many">
+            <key-map field-name="userLoginId"/>
+        </relation>
+        <index name="USER_LOGIN_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="USER_LOGIN_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="JobSandbox" never-cache="true" package-name="com.hanlin.fadp.service.schedule" sequence-bank-size="100" title="Job Scheduler Sandbox Entity" version="1.0">
+        <description>None</description>
+        <field name="jobId" not-null="true" type="id-ne"/>
+        <field name="jobName" type="name"/>
+        <field name="runTime" type="date-time"/>
+        <field name="poolId" type="name"/>
+        <field name="statusId" type="id"/>
+        <field name="parentJobId" type="id"/>
+        <field name="previousJobId" type="id"/>
+        <field name="serviceName" type="name"/>
+        <field name="loaderName" type="name"/>
+        <field name="maxRetry" type="numeric"/>
+        <field name="currentRetryCount" type="numeric"/>
+        <field name="authUserLoginId" type="id-vlong"/>
+        <field name="runAsUser" type="id-vlong"/>
+        <field name="runtimeDataId" type="id"/>
+        <field name="recurrenceInfoId" type="id"/>
+        <field name="tempExprId" type="id"/>
+        <field name="currentRecurrenceCount" type="numeric"/>
+        <field name="maxRecurrenceCount" type="numeric"/>
+        <field name="runByInstanceId" type="id"/>
+        <field name="startDateTime" type="date-time"/>
+        <field name="finishDateTime" type="date-time"/>
+        <field name="cancelDateTime" type="date-time"/>
+        <field name="jobResult" type="value"/>
+        <prim-key field="jobId"/>
+        <relation fk-name="JOB_SNDBX_RECINFO" rel-entity-name="RecurrenceInfo" type="one">
+            <key-map field-name="recurrenceInfoId"/>
+        </relation>
+        <relation fk-name="JOB_SNDBX_TEMPEXPR" rel-entity-name="TemporalExpression" type="one">
+            <key-map field-name="tempExprId"/>
+        </relation>
+        <relation fk-name="JOB_SNDBX_RNTMDTA" rel-entity-name="RuntimeData" type="one">
+            <key-map field-name="runtimeDataId"/>
+        </relation>
+        <relation fk-name="JOB_SNDBX_AUSRLGN" rel-entity-name="UserLogin" title="Auth" type="one">
+            <key-map field-name="authUserLoginId" rel-field-name="userLoginId"/>
+        </relation>
+        <relation fk-name="JOB_SNDBX_USRLGN" rel-entity-name="UserLogin" title="RunAs" type="one">
+            <key-map field-name="runAsUser" rel-field-name="userLoginId"/>
+        </relation>
+        <relation fk-name="JOB_SNDBX_STTS" rel-entity-name="StatusItem" type="one">
+            <key-map field-name="statusId"/>
+        </relation>
+        <index name="JOB_SANDBOX_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="JOB_SANDBOX_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+        <index name="JOB_SNDBX_RUNSTAT">
+            <index-field name="runByInstanceId"/>
+            <index-field name="statusId"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="EntitySyncInclude" package-name="com.hanlin.fadp.entity.synchronization" title="Entity Synchronization Include Entity" version="1.0">
+        <description>None</description>
+        <field name="entitySyncId" not-null="true" type="id-ne"/>
+        <field name="entityOrPackage" not-null="true" type="long-varchar"/>
+        <field name="applEnumId" type="id-ne"/>
+        <prim-key field="entitySyncId"/>
+        <prim-key field="entityOrPackage"/>
+        <relation fk-name="ENTSYNC_INCSNC" rel-entity-name="EntitySync" type="one">
+            <key-map field-name="entitySyncId"/>
+        </relation>
+        <index name="ENT_SNC_INCD_TXSTP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="ENT_SNC_INCD_TXCRS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="UserAgentMethodType" package-name="com.hanlin.fadp.webapp.visit" title="User Agent Method Type Entity" version="1.0">
+        <description>None</description>
+        <field name="userAgentMethodTypeId" not-null="true" type="id-ne"/>
+        <field name="description" type="description"/>
+        <prim-key field="userAgentMethodTypeId"/>
+        <relation rel-entity-name="UserAgent" type="many">
+            <key-map field-name="userAgentMethodTypeId"/>
+        </relation>
+        <index name="USR_AGT_MTD_TP_TXP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="USR_AGT_MTD_TP_TXS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="UomConversion" package-name="com.hanlin.fadp.common.uom" title="Unit Of Measure Conversion Type Entity" version="1.0">
+        <description>None</description>
+        <field name="uomId" not-null="true" type="id-ne"/>
+        <field name="uomIdTo" not-null="true" type="id-ne"/>
+        <field name="conversionFactor" type="floating-point"/>
+        <field name="customMethodId" type="id-ne"/>
+        <field name="decimalScale" type="numeric"/>
+        <field name="roundingMode" type="id"/>
+        <prim-key field="uomId"/>
+        <prim-key field="uomIdTo"/>
+        <relation fk-name="UOM_CONV_MAIN" rel-entity-name="Uom" title="Main" type="one">
+            <key-map field-name="uomId"/>
+        </relation>
+        <relation fk-name="UOM_CONV_TO" rel-entity-name="Uom" title="ConvTo" type="one">
+            <key-map field-name="uomIdTo" rel-field-name="uomId"/>
+        </relation>
+        <relation fk-name="UOM_CUSTOM_METHOD" rel-entity-name="CustomMethod" title="uomCustomMethod" type="one">
+            <key-map field-name="customMethodId"/>
+        </relation>
+        <index name="UM_CNVRSN_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="UM_CNVRSN_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="UomConversionDated" package-name="com.hanlin.fadp.common.uom" title="Unit Of Measure Conversion Entity for those Units of Measure whose conversion values change over time (ie, currencies)" version="1.0">
+        <description>None</description>
+        <field name="uomId" not-null="true" type="id-ne"/>
+        <field name="uomIdTo" not-null="true" type="id-ne"/>
+        <field name="fromDate" not-null="true" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
+        <field name="conversionFactor" type="floating-point"/>
+        <field name="customMethodId" type="id-ne"/>
+        <field name="decimalScale" type="numeric"/>
+        <field name="roundingMode" type="id"/>
+        <field name="purposeEnumId" type="id"/>
+        <prim-key field="uomId"/>
+        <prim-key field="uomIdTo"/>
+        <prim-key field="fromDate"/>
+        <relation fk-name="DATE_UOM_CONV_MAIN" rel-entity-name="Uom" title="DatedMain" type="one">
+            <key-map field-name="uomId"/>
+        </relation>
+        <relation fk-name="DATE_UOM_CONV_TO" rel-entity-name="Uom" title="DatedConvTo" type="one">
+            <key-map field-name="uomIdTo" rel-field-name="uomId"/>
+        </relation>
+        <relation fk-name="UOMD_CUSTOM_METHOD" rel-entity-name="CustomMethod" title="uomCustomMethod" type="one">
+            <key-map field-name="customMethodId"/>
+        </relation>
+        <relation fk-name="UOMD_PURPOSE_ENUM" rel-entity-name="Enumeration" title="Purpose" type="one">
+            <key-map field-name="purposeEnumId" rel-field-name="enumId"/>
+        </relation>
+        <index name="UM_CNVRN_DTD_TXSTP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="UM_CNVRN_DTD_TXCRS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="SysMenu" package-name="org.ofbiz.entity" title="Entity of an Apache OFBiz Component" version="1.0">
+        <description>None</description>
+        <field name="menuId" not-null="true" type="id-ne"/>
+        <field name="parentMenuId" type="id-ne"/>
+        <field name="seq" type="id-ne"/>
+        <field name="menuName" type="name"/>
+        <field name="menuTypeId" type="id-ne"/>
+        <field name="url" type="name"/>
+        <field name="menuDesc" type="name"/>
+        <field name="menuState" type="id-ne"/>
+        <field name="menuStsTime" type="date-time"/>
+        <field name="iconName" type="name"/>
+        <field name="isShortCut" type="name"/>
+        <field name="menuFullName" type="long-varchar"/>
+        <field name="domainId" type="id-ne"/>
+        <field name="urlExt" type="long-varchar"/>
+        <field name="menuLevel" type="id-ne"/>
+        <field name="parentMenuName" type="name"/>
+        <prim-key field="menuId"/>
+        <index name="SYS_MENU_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="SYS_MENU_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TestingNode" package-name="com.hanlin.fadp.entity.test" title="Testing Node" version="1.0">
+        <description>None</description>
+        <field name="testingNodeId" not-null="true" type="id-ne"/>
+        <field name="primaryParentNodeId" type="id"/>
+        <field name="description" type="description"/>
+        <prim-key field="testingNodeId"/>
+        <relation fk-name="TESTNG_NDE_PARNT" rel-entity-name="TestingNode" title="PrimaryParent" type="one">
+            <key-map field-name="primaryParentNodeId" rel-field-name="testingNodeId"/>
+        </relation>
+        <relation rel-entity-name="TestingNode" title="PrimaryChild" type="many">
+            <key-map field-name="testingNodeId" rel-field-name="primaryParentNodeId"/>
+        </relation>
+        <relation rel-entity-name="TestingNodeMember" type="many">
+            <key-map field-name="testingNodeId"/>
+        </relation>
+        <index name="TSTNG_ND_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TSTNG_ND_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="UomAndType" package-name="com.hanlin.fadp.common.uom" table-name="" title="Unit Of Measure and Type View Entity" version="1.0">
+        <description>None</description>
+        <field col-name="UOM_UOM_TYPE_ID" name="uomTypeId" type="id"/>
+        <field col-name="UOM_DESCRIPTION" name="description" type="description"/>
+        <field col-name="UOM_ABBREVIATION" name="abbreviation" type="short-varchar"/>
+        <field col-name="UOM_UOM_ID" name="uomId" not-null="true" type="id-ne"/>
+        <field col-name="UOMTP_UOM_TYPE_ID" name="typeUomTypeId" not-null="true" type="id-ne"/>
+        <field col-name="UOMTP_HAS_TABLE" name="typeHasTable" type="indicator"/>
+        <field col-name="UOMTP_DESCRIPTION" name="typeDescription" type="description"/>
+        <field col-name="UOMTP_PARENT_TYPE_ID" name="typeParentTypeId" type="id-ne"/>
+        <prim-key field="uomId"/>
+        <prim-key field="typeUomTypeId"/>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="Enumeration" package-name="com.hanlin.fadp.common.enum" title="Enumeration Entity" version="1.0">
+        <description>None</description>
+        <field name="enumId" not-null="true" type="id-ne"/>
+        <field name="enumTypeId" type="id-ne"/>
+        <field name="enumCode" type="short-varchar"/>
+        <field name="sequenceId" type="id"/>
+        <field name="description" type="description"/>
+        <prim-key field="enumId"/>
+        <relation fk-name="ENUM_TO_TYPE" rel-entity-name="EnumerationType" type="one">
+            <key-map field-name="enumTypeId"/>
+        </relation>
+        <relation rel-entity-name="EmailTemplateSetting" type="many">
+            <key-map field-name="enumId" rel-field-name="emailType"/>
+        </relation>
+        <relation rel-entity-name="GeoPoint" title="GeoPointType" type="many">
+            <key-map field-name="enumId" rel-field-name="geoPointTypeEnumId"/>
+        </relation>
+        <relation rel-entity-name="KeywordThesaurus" title="Relationship" type="many">
+            <key-map field-name="enumId" rel-field-name="relationshipEnumId"/>
+        </relation>
+        <relation rel-entity-name="UomConversionDated" title="Purpose" type="many">
+            <key-map field-name="enumId" rel-field-name="purposeEnumId"/>
+        </relation>
+        <relation rel-entity-name="VisualThemeResource" type="many">
+            <key-map field-name="enumId" rel-field-name="resourceTypeEnumId"/>
+        </relation>
+        <index name="ENUMERATION_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="ENUMERATION_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="EntityGroup" package-name="com.hanlin.fadp.entity.group" title="Entity Grouping Entity" version="1.0">
+        <description>None</description>
+        <field name="entityGroupId" not-null="true" type="id-ne"/>
+        <field name="entityGroupName" type="name"/>
+        <prim-key field="entityGroupId"/>
+        <relation rel-entity-name="EntityGroupEntry" type="many">
+            <key-map field-name="entityGroupId"/>
+        </relation>
+        <relation rel-entity-name="EntitySyncIncludeGroup" type="many">
+            <key-map field-name="entityGroupId"/>
+        </relation>
+        <index name="ENTT_GRP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="ENTT_GRP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="TestFieldType" package-name="com.hanlin.fadp.entity.test" title="Entity for testing the field data types" version="1.0">
+        <description>An entity for testing the field data types</description>
+        <field name="testFieldTypeId" not-null="true" type="id-ne"/>
+        <field name="blobField" type="blob"/>
+        <field name="byteArrayField" type="byte-array"/>
+        <field name="objectField" type="object"/>
+        <field name="dateField" type="date"/>
+        <field name="timeField" type="time"/>
+        <field name="dateTimeField" type="date-time"/>
+        <field name="fixedPointField" type="fixed-point"/>
+        <field name="floatingPointField" type="floating-point"/>
+        <field name="numericField" type="numeric"/>
+        <field name="clobField" type="very-long"/>
+        <prim-key field="testFieldTypeId"/>
+        <index name="TST_FLD_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="TST_FLD_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="UserPrefGroupType" package-name="com.hanlin.fadp.common.user" title="Defines a group of User Preferences" version="1.0">
+        <description>The UserPrefGroupType entity contains one entry per preference
+          group type.
+      </description>
+        <field name="userPrefGroupTypeId" not-null="true" type="id-long-ne"/>
+        <field name="description" type="description"/>
+        <prim-key field="userPrefGroupTypeId"/>
+        <index name="USR_PRF_GRP_TP_TXP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="USR_PRF_GRP_TP_TXS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="RecurrenceRule" package-name="com.hanlin.fadp.service.schedule" title="Recurrence Rule Entity" version="1.0">
+        <description>None</description>
+        <field name="recurrenceRuleId" not-null="true" type="id-ne"/>
+        <field name="frequency" type="short-varchar"/>
+        <field name="untilDateTime" type="date-time"/>
+        <field name="countNumber" type="numeric"/>
+        <field name="intervalNumber" type="numeric"/>
+        <field name="bySecondList" type="very-long"/>
+        <field name="byMinuteList" type="very-long"/>
+        <field name="byHourList" type="very-long"/>
+        <field name="byDayList" type="very-long"/>
+        <field name="byMonthDayList" type="very-long"/>
+        <field name="byYearDayList" type="very-long"/>
+        <field name="byWeekNoList" type="very-long"/>
+        <field name="byMonthList" type="very-long"/>
+        <field name="bySetPosList" type="very-long"/>
+        <field name="weekStart" type="short-varchar"/>
+        <field name="xName" type="very-long"/>
+        <prim-key field="recurrenceRuleId"/>
+        <relation rel-entity-name="RecurrenceInfo" type="many">
+            <key-map field-name="recurrenceRuleId"/>
+        </relation>
+        <relation rel-entity-name="RecurrenceInfo" title="Exception" type="many">
+            <key-map field-name="recurrenceRuleId" rel-field-name="exceptionRuleId"/>
+        </relation>
+        <index name="RCRRNC_RL_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="RCRRNC_RL_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="CatalinaSession" package-name="com.hanlin.fadp.catalina.session" title="Catalina Session Store" version="1.0">
+        <description>None</description>
+        <field name="sessionId" not-null="true" type="id-long-ne"/>
+        <field name="sessionSize" type="numeric"/>
+        <field name="sessionInfo" type="blob"/>
+        <field name="isValid" type="indicator"/>
+        <field name="maxIdle" type="numeric"/>
+        <field name="lastAccessed" type="numeric"/>
+        <prim-key field="sessionId"/>
+        <index name="CTLN_SSSN_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="CTLN_SSSN_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="VisualThemeResource" package-name="com.hanlin.fadp.common.theme" title="Contains All Visual Theme Resources" version="1.0">
+        <description>The VisualThemeResource entity contains visual theme
+          resources. Each visual theme can have any number of resources.</description>
+        <field name="visualThemeId" not-null="true" type="id-ne"/>
+        <field name="resourceTypeEnumId" not-null="true" type="id-ne"/>
+        <field name="sequenceId" not-null="true" type="id-ne"/>
+        <field name="resourceValue" type="value"/>
+        <prim-key field="visualThemeId"/>
+        <prim-key field="resourceTypeEnumId"/>
+        <prim-key field="sequenceId"/>
+        <relation fk-name="VT_RES_THEME" rel-entity-name="VisualTheme" type="one">
+            <key-map field-name="visualThemeId"/>
+        </relation>
+        <relation fk-name="VT_RES_TYPE_ENUM" rel-entity-name="Enumeration" type="one">
+            <key-map field-name="resourceTypeEnumId" rel-field-name="enumId"/>
+        </relation>
+        <index name="VSL_THM_RSC_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="VSL_THM_RSC_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="EntitySyncInclGrpDetailView" package-name="com.hanlin.fadp.entity.synchronization" table-name="" title="Entity Synchronization Include Entity Group Detail View Entity" version="1.0">
+        <description>None</description>
+        <field col-name="ESIG_ENTITY_SYNC_ID" name="entitySyncId" not-null="true" type="id-ne"/>
+        <field col-name="ESIG_ENTITY_GROUP_ID" name="entityGroupId" not-null="true" type="id-ne"/>
+        <field col-name="EGE_APPL_ENUM_ID" name="applEnumId" type="id-ne"/>
+        <field col-name="EGE_ENTITY_OR_PACKAGE" name="entityOrPackage" not-null="true" type="long-varchar"/>
+        <prim-key field="entitySyncId"/>
+        <prim-key field="entityGroupId"/>
+        <prim-key field="entityOrPackage"/>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" default-resource-name="CommonEntityLabels" entity-name="GeoPointTest" package-name="localhost_oracle_root" title="Geographic Location" version="1.0">
+        <description>None</description>
+        <field name="geoPointId" not-null="true" type="id-ne"/>
+        <field name="dataSourceId" type="id"/>
+        <field name="latitude" not-null="true" type="short-varchar"/>
+        <field name="longitude" not-null="true" type="short-varchar"/>
+        <field name="elevation" type="fixed-point"/>
+        <field name="elevationUomId" type="id"/>
+        <field name="information" type="comment"/>
+        <prim-key field="geoPointId"/>
+        <index name="G_PNT_TST_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="G_PNT_TST_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="X509IssuerProvision" never-cache="true" package-name="com.hanlin.fadp.security.cert" title="Valid issuer data for authentication of x.509 certificates" version="1.0">
+        <description>None</description>
+        <field name="certProvisionId" not-null="true" type="id-ne"/>
+        <field name="commonName" type="value"/>
+        <field name="organizationalUnit" type="value"/>
+        <field name="organizationName" type="value"/>
+        <field name="cityLocality" type="value"/>
+        <field name="stateProvince" type="value"/>
+        <field name="country" type="value"/>
+        <field name="serialNumber" type="value"/>
+        <prim-key field="certProvisionId"/>
+        <index name="X59_ISR_PRVN_TXSTP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="X59_ISR_PRVN_TXCRS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" dependent-on="CountryCode" entity-name="CountryCapital" package-name="com.hanlin.fadp.common.geo" title="Country Capital Entity" version="1.0">
+        <description>None</description>
+        <field name="countryCode" not-null="true" type="id-ne"/>
+        <field name="countryCapital" type="description"/>
+        <prim-key field="countryCode"/>
+        <relation fk-name="CNTRY_CAP_TO_CODE" rel-entity-name="CountryCode" type="one">
+            <key-map field-name="countryCode"/>
+        </relation>
+        <index name="CNTR_CPTL_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="CNTR_CPTL_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+    <entity author="None" copyright="Copyright 2001-2016 The Apache Software Foundation" entity-name="DataSourceType" package-name="com.hanlin.fadp.common.datasource" title="Data Source Type Entity" version="1.0">
+        <description>None</description>
+        <field name="dataSourceTypeId" not-null="true" type="id"/>
+        <field name="description" type="description"/>
+        <prim-key field="dataSourceTypeId"/>
+        <relation rel-entity-name="DataSource" type="many">
+            <key-map field-name="dataSourceTypeId"/>
+        </relation>
+        <index name="DT_SRC_TP_TXSTMP">
+            <index-field name="lastUpdatedTxStamp"/>
+        </index>
+        <index name="DT_SRC_TP_TXCRTS">
+            <index-field name="createdTxStamp"/>
+        </index>
+    </entity>
+</entitymodel>

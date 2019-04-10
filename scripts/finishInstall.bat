@@ -1,0 +1,1 @@
+mshta vbscript:msgbox("安装完成",64,"提示")(window.close)

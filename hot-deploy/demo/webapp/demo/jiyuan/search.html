@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<!-- head -->
+<head>
+<title>极元理财助手—个人中心</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=640, target-densitydpi=device-dpi, user-scalable=no" />
+<meta name="description" content="" />
+<meta name="keywords" content="">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/loading.css" rel="stylesheet">
+<!-- Stucture CSS -->
+<link href="css/stucture.css" rel="stylesheet">
+<link href="css/datetimepicker.css" rel="stylesheet">
+<link href="css/wap.css" rel="stylesheet">
+	<link href="css/jquery.datetimepicker.css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.datetimepicker.js"></script>
+</head>
+<!-- /end head -->
+
+<body>
+	<div class="viewport viewport_b0 bg-fff">
+		<form>
+			<ul class="rowlist" style="margin-top:0;">
+				<li>
+					<div class="pull-left">产品名称</div>
+					<div class="pull-right"><input type="text" name="productName" placeholder="产品名称"></div>
+				</li>
+				<li>
+					<div class="pull-left">开始时间</div>
+					<div class="pull-right"><input type="text" id="startTime" name="startTime" placeholder="例如：2018-10-10" ></div>
+				</li>
+				<li class="relative">
+					<div class="pull-left">结束时间</div>
+					<div class="pull-right"><input  type="text" id="endTime" name="endTime" placeholder="例如：2019-10-10"></div>
+				</li>
+			</ul>
+			
+			<div class="aWrap">
+				<input id="login" value="搜索" class="btn btn-blue" type="button">
+			</div>
+		</form>
+		<div id="loading" class="loading" style="display: none"><img src="images/wap/loading.gif" width="80"/><br />数据加载中</div>
+
+	</div>
+
+	<script type="text/javascript" src="js/utils.js"></script>
+	<script type="text/javascript" src="js/client.js"></script>
+	<script>
+        $('#startTime').datetimepicker({
+            value:'',
+            format:'Y-m-d',
+            maxDate:""+new Date(),
+            lang:'ch',
+            scrollMonth:false,
+            scrollTime:false,
+            timepicker:false
+        });
+        $('#endTime').datetimepicker({
+            value:'',
+            format:'Y-m-d',
+            maxDate:""+new Date(),
+            lang:'ch',
+            scrollMonth:false,
+            scrollTime:false,
+            timepicker:false
+        });
+
+        $("#login").click(function(){
+          var name=  $("input[name='productName']").val();
+          var startTime=$("input[name='startTime']").val();
+            var endTime=$("input[name='endTime']").val();
+            var str=""
+            if(name!=''&&name!=undefined){
+                str=str+"&name="+name;
+			}
+			if(startTime!=''&&startTime!=undefined)
+			    str=str+"&startTime="+startTime;
+			if(endTime!=''&&endTime!=undefined)
+			    str=str+"&endTime="+endTime;
+			if(str.length>0)
+			    str=str.substring(1,str.length);
+            window.location.href="uc.html?"+str;
+		});
+	</script>
+	
+　　
+</body>
+</html>

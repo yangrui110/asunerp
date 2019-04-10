@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	<soapenv:Body>
+		<addDataSourceResponse xmlns="http://ofbiz.apache.org/service/">
+			<map-Map>
+				<map-Entry>
+					<map-Key>
+						<std-String value="msg"></std-String>
+					</map-Key>
+					<map-Value>
+						<std-String value="恭喜添加数据源成功"></std-String>
+					</map-Value>
+				</map-Entry>
+			</map-Map>
+		</addDataSourceResponse>
+	</soapenv:Body>
+</soapenv:Envelope>

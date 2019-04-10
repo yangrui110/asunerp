@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/dtds/widget-screen.xsd">
+<screen name="ModelExport">
+		<section>
+		    <actions>
+                <script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/ModelExport/ModelExport.groovy"/>
+            </actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+								<platform-specific>
+									<html>
+										<html-template location="component://entityMgr/webapp/entityMgr/ModelExport/ModelExport.ftl" />
+									</html>
+								</platform-specific>
+					
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+</screens>

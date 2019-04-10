@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/dtds/widget-screen.xsd">
+	
+	
+	    <screen name="GlobalActions">
+        <section>
+            <actions>
+				<set field="layoutSettings.javaScripts[]" value="/images/entityMgr/js/jquery-1.9.1.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/images/entityMgr/js/jquery.superfish.js" global="true" />
+             	<set field="layoutSettings.javaScripts[]" value="/images/entityMgr/js/custom.js" global="true" />
+             	<set field="layoutSettings.javaScripts[]" value="/images/entityMgr/js/jquery.treeview.js" global="true" />
+				
+       
+          
+                <set field="layoutSettings.javaScripts[]" value="/images/entityMgr/js/jquery.form.js" global="true" />
+				 <set field="layoutSettings.javaScripts[]" value="/images/entityMgr/js/dialog.js" global="true" />
+           		<set field="layoutSettings.javaScripts[]" value="/images/entityMgr/js/artDialog.min.js" global="true" />
+           		<set field="layoutSettings.javaScripts[]" value="/images/entityMgr/js/artDialog.plugins.min.js" global="true" />
+				
+				<set field="layoutSettings.javaScripts[]" value="/images/entityMgr/js/jquery.datetimepicker.js" global="true" />
+				 <set field="layoutSettings.javaScripts[]" value="/images/entityMgr/js/my.js" global="true" />
+           	    <set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/css/jquery.datetimepicker.css"/>
+           		
+           		<set field="layoutSettings.javaScripts[]" value="/images/entityMgr/laydate/laydate.js" global="true" />
+           		<set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/laydate/skins/default/laydate.css"/>
+       			<set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/laydate/need/laydate.css"/>
+           		
+                <set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/css/normalize.css"/>
+                <set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/css/font-awesome.min.css"/>
+                <set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/css/base.css"/>
+                <set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/css/style.css"/>
+                <set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/css/superfish.css"/>
+                <set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/css/flexslider.css"/>
+                <set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/css/magnific-popup.css"/>
+                  <set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/css/skeleton.css"/>
+                    <set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/css/responsive.css"/>
+             
+                <set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/css/jquery.treeview.css"/>
+                 <set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/divcss/style.css"/>
+                 
+                <set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/css/wee.css"/>
+                <set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/css/weebox.css"/>
+                 <set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/css/style1.css"/>
+                <set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/css/style2.css"/>
+                
+                <set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/css/sideMenu.css"/>
+                
+           	<set field="layoutSettings.styleSheets[+0]" value="/images/entityMgr/css/skins/default.css"/>
+               
+             </actions>
+            <widgets >
+				<container id="mainarea" style="center">
+					<decorator-section-include name="content" />
+				</container>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="Global-decorator">
+		<section>
+			<widgets>
+			 <include-screen name="GlobalActions" />
+				<section>
+					<widgets>
+					<container id="wrapper">
+							<!-- 添加js/css -->
+							<platform-specific>
+								<html>
+									<html-template location="component://entityMgr/webapp/entityMgr/includes/headerHead.ftl" />
+								</html>
+							</platform-specific>
+							<!-- 渲染header -->
+							<container id="div0">
+								<platform-specific>
+									<html>
+										<html-template location="component://entityMgr/webapp/entityMgr/includes/header.ftl" />
+									</html>
+								</platform-specific>
+							</container>
+							<container id="mainarea" style="main-box">
+								<decorator-section-include name="body"/>
+							</container>
+						</container>
+					</widgets>
+				</section>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="main-decorator">
+		<section>
+			<widgets>
+				<decorator-screen name="Global-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<widgets>
+					              <platform-specific>
+										<html>
+											<html-template location="component://entityMgr/webapp/entityMgr/includes/mainheader.ftl" />
+										</html>
+									</platform-specific>
+									<container id="content-wrapper" style="content-wrapper">
+										 <platform-specific>
+											<html>
+												<html-template location="component://entityMgr/webapp/entityMgr/includes/nemuTree.ftl" />
+											</html>
+										</platform-specific>
+										<container  style="container" id="conter_">
+											<decorator-section-include name="body"/>
+										</container>
+									</container>
+									<platform-specific>
+										<html>
+											<html-template location="component://entityMgr/webapp/entityMgr/includes/footer.ftl" />
+										</html>
+									</platform-specific>
+							</widgets>
+				        </section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="general-decorator">
+	<section>
+			<actions>
+				<script location="component://entityMgr/webapp/entityMgr/WEB-INF/actions/query/CreateTableTree.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<container>
+							<container id="cen_tree">
+								<platform-specific>
+									<html>
+										<html-template location="component://entityMgr/webapp/entityMgr/query/tableTree.ftl" />
+									</html>
+								</platform-specific>
+							</container>
+							<container style="cen_right">
+								<container style="right_center">
+									<decorator-section-include name="center" />
+								</container>
+							</container>
+							<container style="clear">
+							</container>
+						</container>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+	</section>
+	</screen>
+	<screen name="test">
+		<section>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+							<platform-specific>
+									<html>
+										<html-template location="component://entityMgr/webapp/entityMgr/includes/main.ftl" />
+									</html>
+								</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="login">
+        <section>
+            <widgets>
+                   <platform-specific>
+                            <html><html-template location="component://entityMgr/webapp/login.ftl"/></html>
+                   </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+</screens>
+	
+	
+

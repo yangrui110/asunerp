@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<!-- head -->
+<head>
+<title>极元理财助手—个人中心</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=640, target-densitydpi=device-dpi, user-scalable=no" />
+<meta name="description" content="" />
+<meta name="keywords" content="">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<!-- Stucture CSS -->
+<link href="css/stucture.css" rel="stylesheet">
+<link href="css/datetimepicker.css" rel="stylesheet">
+<link href="css/wap.css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<!-- /end head -->
+
+<body>
+
+
+	<div class="viewport viewport_b0 bg-fff">
+		<br /><br />
+		<div class="text-center ft30">
+			<i class="icon-all icon-ok"></i>
+			<p class="mt30" id="phone">137****1236</p>
+			<p class="mt15">恭喜您注册成功！</p>
+			<a class="btn btn-small btn-line mt50" href="info.html">完善个人信息</a>
+		</div>
+	</div>
+    
+
+　　
+</body>
+<script type="text/javascript" src="js/utils.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#phone").text(initBase.getQueryString("phone"));
+	});
+</script>
+</html>

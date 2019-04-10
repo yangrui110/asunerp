@@ -1,0 +1,95 @@
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/dtds/entitymodel.xsd">
+	<entity entity-name='Flow' package-name=''>
+		<field name='flowId' type='invalid-int:0:10'>
+			<description>主键ID</description>
+		</field>
+		<field name='flowName' type='long-varchar'>
+			<description>流程名称</description>
+		</field>
+		<field name='formId' type='invalid-int:0:10'>
+			<description>表单ID</description>
+		</field>
+		<field name='flowDoc' type='indicator'>
+			<description>是否允许附件(0-否,1-是)</description>
+		</field>
+		<field name='flowType' type='indicator'>
+			<description>流程类型(1-固定流程,2-自由流程)</description>
+		</field>
+		<field name='flowNo' type='numeric'>
+			<description>流程排序号</description>
+		</field>
+		<field name='flowSort' type='id'>
+			<description>流程分类ID</description>
+		</field>
+		<field name='autoName' type='very-long'>
+			<description>自动文号表达式</description>
+		</field>
+		<field name='autoNum' type='numeric'>
+			<description>自动编号计数器</description>
+		</field>
+		<field name='autoLen' type='numeric'>
+			<description>自动编号显示长度</description>
+		</field>
+		<field name='flowDesc' type='very-long'>
+			<description>流程说明</description>
+		</field>
+		<field name='autoEdit' type='short-varchar'>
+			<description>新建工作时是否允许手工修改文号：(0-不允许手工修改文号,1-允许手工修改文号,2-允许在自动文号前输入前缀,3-允许在自动文号后输入后缀,4-允许在自动文号前后输入前缀和后缀,)</description>
+		</field>
+		<field name='deptId' type='id'>
+			<description>所属部门ID</description>
+		</field>
+		<field name='freePreset' type='indicator'>
+			<description>是否允许预设步骤(0-否,1-是)</description>
+		</field>
+		<field name='freeOther' type='indicator'>
+			<description>委托类型(0-禁止委托,1-仅允许委托当前步骤经办人(本步骤实际的经办人，该步骤可能定义了五个人，但是转交时选择了三个),2-自由委托,3-按步骤设置的经办权限委托(跟1的区别是按照定义的经办人来委托))</description>
+		</field>
+		<field name='forcePreSet' type='indicator'>
+			<description>是否强制修改文号(1-是,其他-否),新建工作时是否允许手工修改文号为(2-允许在自动文号前输入前缀,3-允许在自动文号后输入后缀,4-允许在自动文号前后输入前缀和后缀,时可设置该选项)</description>
+		</field>
+		<field name='modelId' type='very-long'>
+			<description>流程对应模块ID</description>
+		</field>
+		<field name='modelName' type='very-long'>
+			<description>流程对应模块名称</description>
+		</field>
+		<field name='isVersion' type='indicator'>
+			<description>是否启用版本控制(0-否,1-是)</description>
+		</field>
+		<field name='flowAction' type='indicator'>
+			<description>更多选项(1公告通知,2内部邮件,3转存,4归档)</description>
+		</field>
+		<prim-key field="flowId" />
+	</entity>
+
+	<entity entity-name="FlowQueryTemplate" package-name="">
+		<description>表单查询条件模板</description>
+		<field name="flowId" type="id"></field>
+		<field name="entityName" type="name"></field>
+		<field name="conditionTemplate" type="very-long">
+			<description>json形式的查询模板</description>
+		</field>
+		<prim-key field="flowId" />
+		<prim-key field="entityName" />
+		<relation rel-entity-name="Flow" type="one">
+			<key-map field-name="flowId" />
+		</relation>
+	</entity>
+	
+	
+	<entity entity-name="FlowDemo" package-name="">
+		<description>演示流程表单 请假流程表单</description>
+		<field name="runId" type="id"></field>
+		<field name="reason" type="value">
+			<description>请假原因</description>
+		</field>
+		<field name="days" type="numeric">
+			<description>请假时长</description>
+		</field>
+		<prim-key field="runId" />
+		<relation rel-entity-name="FlowRun" type="one">
+			<key-map field-name="runId" />
+		</relation>
+	</entity>
+</entitymodel>

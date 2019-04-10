@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+-->
+
+<fadp-component name="testtools"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://127.0.0.1:8888/dtds/fadp-component.xsd">
+    <!-- define resource loaders; most common is to use the component resource loader -->
+    <resource-loader name="main" type="component"/>
+
+    <!-- place the config directory on the classpath to access configuration files -->
+    <classpath type="dir" location="dtd"/>
+    
+    <!-- load single or multiple external libraries -->
+    <classpath type="jar" location="lib/*"/>
+    <classpath type="jar" location="build/lib/*"/>
+    
+    <!-- service resources: model(s), eca(s) and group definitions -->
+    <service-resource type="model" loader="main" location="servicedef/services.xml"/>
+
+    <container name="testtools-container" loaders="test" class="com.hanlin.fadp.testtools.TestRunContainer"/>
+    <container name="testtools-container" loaders="testlist" class="com.hanlin.fadp.testtools.TestListContainer"/>
+
+</fadp-component>

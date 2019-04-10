@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../dtds/site-conf.xsd">
+
+
+	<handler name="java" type="request" class="com.hanlin.fadp.event.JavaEventHandler"/>
+	<handler name="ftl" type="view" class="com.hanlin.fadp.webapp.ftl.FreeMarkerViewHandler"/>
+	<request-map uri="ajaxCheckLogin">
+		<event type="java" path="com.hanlin.fadp.user.UserLoginUtil" invoke="ajaxCheckLogin"/>
+		<response name="success" type="none" />
+		<response name="error" type="request" value="ajaxCheckLogin"/>
+	</request-map>
+	<request-map uri="logout">
+		<event type="java" path="com.hanlin.fadp.user.UserLoginUtil" invoke="logout"/>
+		<response name="success" type="none" />
+	</request-map>
+    <request-map uri="getUserData">
+        <description>获取用户数据</description>
+        <!--<security auth="true"/>-->
+        <event type="java" path="com.hanlin.fadp.user.UserLoginUtil" invoke="getUserData"/>
+        <response name="success" type="none"/>
+    </request-map>
+    <request-map uri="saveUserData">
+        <description>保存用户数据</description>
+        <!--<security auth="true"/>-->
+		<event type="groovy" path="component://fadp/script/user/saveUserData.groovy"/>
+        <response name="success" type="none"/>
+    </request-map>
+    <request-map uri="www">
+        <description>angular首页面</description>
+        <event type="java" path="com.hanlin.fadp.user.UserLoginUtil" invoke="www"/>
+        <response name="success" type="none"/>
+    </request-map>
+    <request-map uri="ajaxLogin">
+        <description>angular首页面</description>
+        <event type="java" path="com.hanlin.fadp.user.UserLoginUtil" invoke="ajaxLogin"/>
+        <response name="success" type="none"/>
+    </request-map>
+	<request-map uri="changePassword">
+		<description>修改密码</description>
+		<security auth="true"/>
+		<event type="java" path="com.hanlin.fadp.user.UserLoginUtil" invoke="changePassword"/>
+		<response name="success" type="none"/>
+	</request-map>
+
+
+	<request-map uri="genericCURD">
+
+		<security auth="false" />
+		<!-- <event type="java" path="com.hanlin.fadp.common.AjaxCURD" invoke="genericCURD"></event> -->
+		<event type="groovy" path="component://fadp/script/genericCURD.groovy" />
+		<response name="success" type="none"></response>
+		<response name="error" type="none"></response>
+	</request-map>
+	<request-map uri="getFieldInfoList">
+
+		<security auth="true" />
+		<event type="java" path="com.hanlin.fadp.common.AjaxCURD" invoke="getFieldInfoList"></event>
+		<!-- <event type="groovy" path="component://fadp/script/getFieldInfoList.groovy" /> -->
+		<response name="success" type="none"></response>
+		<response name="error" type="none"></response>
+	</request-map>
+	<request-map uri="getPageData">
+
+		<security auth="true" />
+		<event type="java" path="com.hanlin.fadp.common.AjaxCURD" invoke="getPageData"></event>
+		<!-- <event type="groovy" path="component://fadp/script/getPageData.groovy" /> -->
+		<response name="success" type="none"></response>
+		<response name="error" type="none"></response>
+	</request-map>
+	<request-map uri="genericSave">
+
+		<security auth="true" />
+		<event type="java" path="com.hanlin.fadp.common.AjaxCURD" invoke="genericSave"></event>
+		<!-- <event type="groovy" path="component://fadp/script/genericSave.groovy" /> -->
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="genericSaveAll">
+		<security auth="true" />
+		<event type="java" path="com.hanlin.fadp.common.AjaxCURD" invoke="genericSaveAll"></event>
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="genericDelete">
+
+		<security auth="true" />
+		<event type="java" path="com.hanlin.fadp.common.AjaxCURD" invoke="genericDelete"></event>
+		<!-- <event type="groovy" path="component://fadp/script/genericDelete.groovy" /> -->
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="getOne">
+
+		<security auth="true" />
+		<event type="java" path="com.hanlin.fadp.common.AjaxCURD" invoke="getOne"></event>
+		<!-- <event type="groovy" path="component://fadp/script/genericDelete.groovy" /> -->
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="getFirst">
+		<security auth="true" />
+		<event type="java" path="com.hanlin.fadp.common.AjaxCURD" invoke="getFirst"></event>
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="exportCSV">
+
+		<security auth="true" />
+		<event type="java" path="com.hanlin.fadp.common.AjaxCURD" invoke="exportCSV"></event>
+		<!-- <event type="groovy" path="component://fadp/script/exportCSV.groovy" /> -->
+		<response name="success" type="none"></response>
+	</request-map>
+	<request-map uri="proxyLogin">
+		<security auth="false" />
+		<event type="java" path="com.hanlin.fadp.common.HttpReverseProxy" invoke="proxyLogin"></event>
+		<response name="success" type="none"></response>
+	</request-map>
+
+
+	<request-map uri="newFlow">
+		<security auth="true" />
+		<event type="groovy" path="component://fadp/script/newFlow.groovy" />
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="startFlow">
+		<security auth="true" />
+		<event type="groovy" path="component://fadp/script/flow.groovy" invoke="start"/>
+		<response name="success" type="none" />
+		<response name="error" type="view" value="error"></response>
+	</request-map>
+
+	<request-map uri="makeEntityModelXML">
+		<security auth="true" />
+		<event type="groovy" path="component://fadp/script/makeEntityModelXML.groovy"/>
+		<response name="success" type="none" />
+		<response name="error" type="view" value="error"></response>
+	</request-map>
+
+
+	<request-map uri="userLoginList" >
+		<description></description>
+		<security auth="true"/>
+		<response name="success" type="view" value="userLoginList" />
+	</request-map>
+	<request-map uri="resetPassword" >
+		<security auth="true"/>
+		<event type="groovy" path="component://fadp/script/resetPassword.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+
+	<request-map uri="userLoginSecurityGroupList" >
+		<description></description>
+		<security auth="true"/>
+		<response name="success" type="view" value="userLoginSecurityGroupList" />
+	</request-map>
+
+	<request-map uri="visit" >
+		<description>访问日志</description>
+		<security auth="true"/>
+		<response name="success" type="view" value="visit" />
+	</request-map>
+
+	<request-map uri="uploadFile" >
+		<description>上传文件</description>
+		<security auth="false"/>
+		<event type="java" path="com.hanlin.fadp.utils.UtilHttpFile" invoke="uploadFile"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="removeFile" >
+		<description>删除文件</description>
+		<security auth="false"/>
+		<event type="java" path="com.hanlin.fadp.utils.UtilHttpFile" invoke="removeFile"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="download" >
+		<description>下载文件</description>
+		<security auth="false"/>
+		<event type="java" path="com.hanlin.fadp.utils.UtilHttpFile" invoke="downloadFile"/>
+		<response name="success" type="none" />
+	</request-map>
+
+	<request-map uri="getAllEntityInfo" >
+		<description>获取实体信息</description>
+		<security auth="true"/>
+		<event type="groovy" path="component://fadp/script/code-tool/getAllEntityInfo.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="getEntityFieldInfo" >
+		<description>获取字段信息</description>
+		<security auth="true"/>
+		<event type="groovy" path="component://fadp/script/code-tool/getEntityFieldInfo.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="exportCURDCode" >
+		<description>生产CURD代码</description>
+		<security auth="false"/>
+		<event type="groovy" path="component://fadp/script/code-tool/exportCURDCode.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="loadSelectDataList" >
+		<description>获取下拉框数据</description>
+		<security auth="false"/>
+		<event type="groovy" path="component://fadp/script/form/loadSelectDataList.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="getCommonTypeTreeData" >
+		<description>获取下拉框数据</description>
+		<security auth="true"/>
+		<event type="groovy" path="component://fadp/script/tree/getCommonTypeTreeData.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="test" >
+		<description>测试</description>
+		<security auth="false"/>
+		<event type="groovy" path="component://fadp/script/test.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+
+
+
+	<view-map name="userLoginList" type="screen"  page="component://fadp/widget/CommonScreens.xml#userLoginList"></view-map>
+	<view-map name="userLoginSecurityGroupList" type="screen"  page="component://fadp/widget/CommonScreens.xml#userLoginSecurityGroupList"></view-map>
+	<view-map name="visit" type="screen"  page="component://fadp/widget/CommonScreens.xml#visit"></view-map>
+
+</site-conf>

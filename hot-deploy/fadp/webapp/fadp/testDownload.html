@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>测试下载文件</title>
+</head>
+<body>
+输入文件名下载
+<input id="filePath" type="text">
+<button onclick='fun();'>下载</button>
+<script type="text/javascript">
+function fun(){
+	var path=document.getElementById("filePath").value;
+	window.open(window.location.href+"/"+path);
+}
+</script>
+</body>
+</html>

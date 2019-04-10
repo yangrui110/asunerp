@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <title>锐溯</title>
+    <link rel="shortcut icon" href="websdt/favicon.ico" type="image/x-icon"/>
+    <script src="websdt/js/jquery.js"></script>
+    <script src="websdt/js/jquery-ui.js"></script>
+    <script src="websdt/js/jquery.md5.js"></script>
+    <script src="websdt/js/jquery-ui-timepicker-addon.js"></script>
+
+
+    <script src="websdt/js/validator/jquery.form-validator.min.js"></script>
+    <script src="websdt/js/plupload/js/plupload.full.min.js"></script>
+    <!--<script src="websdt/js/jsPlumb-2.1.4.js"></script>-->
+
+    <script src="fadp/js/jquery.fadp.plugin.js"></script>
+
+    <link rel="stylesheet" href="fadp/css/fadp.css">
+
+
+    <link rel="stylesheet" href="websdt/css/jquery.addOn.css">
+    <link type="text/css" rel="stylesheet" href="websdt/css/layout-default-latest.css"/>
+
+
+    <link rel="stylesheet" href="websdt/css/jquery-ui.css">
+
+
+</head>
+
+<body>
+<button id="uploadFile">上传文件</button>
+<script>
+    $(function () {
+        fadp.simpleUpload('control/uploadFile', "uploadFile", function (res, resText) {
+
+            if (res.msg == "ok") {
+                fadp.showInfo("上传成功"+res.filePath);
+            } else {
+                fadp.showError("上传失败");
+            }
+
+
+        });
+    })
+
+</script>
+</body>
+
+</html>
